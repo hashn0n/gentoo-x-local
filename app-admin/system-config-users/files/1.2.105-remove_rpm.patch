@@ -1,0 +1,34 @@
+--- src/mainWindow.py	2010-12-07 15:23:06.821000121 +0200
++++ src/mainWindow.py	2010-12-07 15:25:44.092000121 +0200
+@@ -26,7 +26,6 @@
+ import gtk.glade
+ import string
+ import os
+-import rpm
+ import shutil
+ 
+ import libuser
+@@ -652,9 +651,6 @@
+                     dlg.run ()
+                     dlg.destroy ()
+                     return
+-                ts = rpm.TransactionSet ()
+-                if ts.dbMatch ("basenames", homeDir).count () > 0 or ts.dbMatch ("basenames", os.path.abspath (homeDir)).count () > 0 or ts.dbMatch ("basenames", os.path.realpath (homeDir)).count () > 0:
+-                    errMsgs.append (_("- An installed software package contains this directory."))
+                 if uid < 500 or (user == "nfsnobody" and (long (uid) == 65534L or long (uid) == 4294967294L)):
+                     errMsgs.append (_("- A system user owns this directory and removing it may impair the system's integrity."))
+                 if not os.access(homeDir, os.W_OK):
+@@ -913,12 +909,7 @@
+         self.on_properties_activate()
+ 
+     def isSELinuxInstalled(self):
+-        ts = rpm.TransactionSet()
+-
+-        mi = ts.dbMatch('name', 'policy-sources')
+-        if mi.count() > 0:
+-            return True
+-        return False
++	return os.path.lexists("/usr/sbin/getenforce") and os.access("/usr/sbin/getenforce", os.X_OK)
+ 
+     def isSELinuxEnabled(self):
+         if self.isSELinuxInstalled():

@@ -1,0 +1,132 @@
+# ChangeLog for sys-apps/gnome-disk-utility
+# Copyright 1999-2011 Gentoo Foundation; Distributed under the GPL v2
+# $Header: /var/cvsroot/gentoo-x86/sys-apps/gnome-disk-utility/ChangeLog,v 1.28 2011/01/07 21:04:46 pacho Exp $
+
+  07 Jan 2011; Pacho Ramos <pacho@gentoo.org> gnome-disk-utility-2.32.0.ebuild:
+  gnome-base/nautilus is always required since it's not only used for nautilus
+  extension (bug #350919 by Delan Azabani).
+
+  20 Oct 2010; Gilles Dartiguelongue <eva@gentoo.org>
+  -gnome-disk-utility-2.28.1.ebuild, gnome-disk-utility-2.32.0.ebuild:
+  Pin gtk/glib to slot 2. Split pure runtime dependencies from those that
+  are also needed at build time.
+
+  18 Oct 2010; Raúl Porcel <armin76@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  alpha/ia64/sh/sparc stable
+
+  14 Oct 2010; Markus Meier <maekke@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  arm stable, bug #324077
+
+*gnome-disk-utility-2.32.0 (12 Oct 2010)
+
+  12 Oct 2010; Pacho Ramos <pacho@gentoo.org>
+  +gnome-disk-utility-2.32.0.ebuild:
+  Version bump for Gnome 2.32: bugfixes and translation updates.
+
+  07 Oct 2010; Samuli Suominen <ssuominen@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  ppc64 stable wrt #324077
+
+  11 Sep 2010; Joseph Jezak <josejx@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  Marked ppc for bug #324077.
+
+  07 Sep 2010; Pacho Ramos <pacho@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  Update gnome-keyring dependencies.
+
+  06 Sep 2010; Samuli Suominen <ssuominen@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  USE="gnome-keyring" to reduce dependencies because xfce-base/thunar is
+  using gnome-base/gvfs with gdu support.
+
+  29 Aug 2010; Raúl Porcel <armin76@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild:
+  arm stable
+
+  19 Aug 2010; Gilles Dartiguelongue <eva@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  Add missing intltoolize call and a comment to avahi patch.
+
+  14 Aug 2010; Raúl Porcel <armin76@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild:
+  alpha/ia64/sh/sparc stable
+
+  11 Aug 2010; Joseph Jezak <josejx@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild, gnome-disk-utility-2.30.1.ebuild:
+  Marked ~ppc for bug #323803.
+
+  09 Aug 2010; Samuli Suominen <ssuominen@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  Don't enable USE nautilus by default because it's enabled in gnome's
+  desktop profile.
+
+  01 Aug 2010; Christian Faulhammer <fauli@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  x86 stable, bug 324077
+
+  31 Jul 2010; Pacho Ramos <pacho@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  amd64 stable, bug 324077
+
+  11 Jul 2010; Raúl Porcel <armin76@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  Add ~alpha/~ia64/~sparc wrt #323803
+
+  06 Jul 2010; Samuli Suominen <ssuominen@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild, gnome-disk-utility-2.30.1.ebuild:
+  Keyword ~ppc64 wrt #313563
+
+  16 Jun 2010; Pacho Ramos <pacho@gentoo.org>
+  gnome-disk-utility-2.30.1.ebuild:
+  Reapply potfiles patch since upstream still didn't fix the issue.
+
+  13 Jun 2010; Pacho Ramos <pacho@gentoo.org>
+  +files/gnome-disk-utility-2.30.1-optional-avahi.patch:
+  Committing missing patch, thanks to iamben for noticing.
+
+*gnome-disk-utility-2.30.1 (13 Jun 2010)
+
+  13 Jun 2010; Pacho Ramos <pacho@gentoo.org>
+  +gnome-disk-utility-2.30.1.ebuild, metadata.xml:
+  Add new version for Gnome 2.30. Also fix bug #300620 (thanks to Priit Laes
+  for reporting) adding a 'fat' USE flag like sys-block/gparted.
+
+  04 Jun 2010; Markus Meier <maekke@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild:
+  x86 stable, bug #314899
+
+  22 May 2010; Raúl Porcel <armin76@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild:
+  Add ~arm/~sh
+
+  22 May 2010; Raúl Porcel <armin76@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild:
+  Add ~alpha/~ia64/~sparc wrt #313563
+
+  03 May 2010; Olivier Crête <tester@gentoo.org>
+  gnome-disk-utility-2.28.1.ebuild:
+  amd64 stable, bug #314899
+
+  19 Apr 2010; Pacho Ramos <pacho@gentoo.org>
+  -gnome-disk-utility-2.28.0.ebuild, gnome-disk-utility-2.28.1.ebuild,
+  +files/gnome-disk-utility-2.28.1-fix-potfiles_skip.patch:
+  Drop encoding set from POTFILES.skip since it doesn't need it and causes
+  'intltool-update -m' to fail (see bug #313351 , thanks to Diego for
+  reporting). Removing old testing version.
+
+*gnome-disk-utility-2.28.1 (04 Nov 2009)
+
+  04 Nov 2009; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-disk-utility-2.28.1.ebuild:
+  Version bump. Add missing gnome-doc-utils and libnotify dependency, bug
+  #291880. Fix a crash in nautilus extension. Translation updates.
+
+*gnome-disk-utility-2.28.0 (29 Oct 2009)
+
+  29 Oct 2009; Gilles Dartiguelongue <eva@gentoo.org>
+  +gnome-disk-utility-2.28.0.ebuild, +metadata.xml:
+  Initial ebuild for GNOME 2.28.
+

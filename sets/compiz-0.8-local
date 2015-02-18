@@ -1,0 +1,10 @@
+#x11-libs/compizconfig-backend-gconf:0
+dev-python/compizconfig-python:0
+x11-apps/ccsm:0
+x11-libs/libcompizconfig:0
+x11-plugins/compiz-plugins-main:0
+x11-plugins/compiz-plugins-extra:0
+x11-plugins/compiz-plugins-unsupported:0
+x11-wm/compiz:0
+x11-themes/emerald-themes
+x11-wm/emerald

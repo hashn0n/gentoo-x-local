@@ -1,0 +1,15 @@
+--- ./Xfwm4CompositeEditor/resources/pixmaps/Xfwm4CompositeEditor.desktop.org	2013-08-18 16:03:26.070324739 +0400
++++ ./Xfwm4CompositeEditor/resources/pixmaps/Xfwm4CompositeEditor.desktop	2013-08-18 16:03:40.516893430 +0400
+@@ -1,10 +1,7 @@
+ 
+ [Desktop Entry]
+-Version=1.0
+-Encoding=UTF-8
+-Name=Xfce4-Composite-Editor
+-Comment=Xfce4 Composite Options Editor
++Name=Xfce4 Composite Editor
+ Terminal=false
+ Type=Application
+-Categories=Gnome;GTK;;Settings;DesktopSettings;X-XFCE;X-XFCE-SettingsDialog;
++Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-PersonalSettings;
+ Icon=xfce4-settings

@@ -1,0 +1,12 @@
+diff -ur tigervnc-1.2.0.orig/java/CMakeLists.txt tigervnc-1.2.0/java/CMakeLists.txt
+--- tigervnc-1.2.0.orig/java/CMakeLists.txt	2012-03-09 21:34:29.000000000 +0100
++++ tigervnc-1.2.0/java/CMakeLists.txt	2012-04-11 14:36:57.263839577 +0200
+@@ -5,7 +5,7 @@
+ 
+ find_package(Java)
+ 
+-set(DEFAULT_JAVACFLAGS "-source 1.5 -target 1.5 -Xlint:all,-serial,-cast")
++set(DEFAULT_JAVACFLAGS "-source 1.7 -target 1.7 -Xlint:all,-serial,-cast")
+ set(JAVACFLAGS ${DEFAULT_JAVACFLAGS} CACHE STRING
+   "Java compiler flags (Default: ${DEFAULT_JAVACFLAGS})")
+ message(STATUS "Java compiler flags = ${JAVACFLAGS}")

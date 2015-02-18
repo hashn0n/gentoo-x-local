@@ -1,0 +1,22 @@
+# ChangeLog for app-accessibility/florence
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*florence-0.5.3 (14 Apr 2012)
+
+  14 Apr 2012; Michael Weber <xmw@gentoo.org> -florence-0.5.0.ebuild,
+  +florence-0.5.3.ebuild:
+  Version bump
+
+*florence-0.5.1 (29 Jan 2012)
+
+  29 Jan 2012; Michael Weber <xmw@gentoo.org> +florence-0.5.1.ebuild,
+  metadata.xml:
+  Version bump
+
+*florence-0.5.0 (08 Sep 2011)
+
+  08 Sep 2011; Michael Weber <xmw@gentoo.org> +florence-0.5.0.ebuild,
+  +metadata.xml:
+  Initial import, modiefied from n8x0
+

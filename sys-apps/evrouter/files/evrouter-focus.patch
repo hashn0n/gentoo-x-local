@@ -1,0 +1,62 @@
+Index: src/evrouter.c
+===================================================================
+--- src/evrouter.c	(revision 15)
++++ src/evrouter.c	(working copy)
+@@ -106,16 +106,26 @@
+ static char *
+ get_focus ()
+ {
+-	Window     focus;
++	Window     focus, root, parent;
++	Window *children;
+ 	XClassHint xch = {NULL, NULL};
+ 	int        i;
+ 	char       * wname = NULL;
+ 	static char * oldwname = "(null)";
++	unsigned int	num_children;
+ 
+ 	XGetInputFocus (d, &focus, &i);
+ 	if (focus != None) {
+ 		XGetClassHint (d, focus, &xch);
+ 		XFetchName (d, focus, &wname);
++		XQueryTree(d, focus, &root, &parent, &children, &num_children);
++		if ((!xch.res_class) && (parent) && (focus != root)) {
++			XFree(xch.res_class);
++			XFree(xch.res_name);
++			XFree(wname);
++			XGetClassHint(d, parent, &xch);
++			XFetchName (d, parent, &wname);
++		}	                	                
+ 	}
+ 
+ 	if (train_mode) {
+@@ -238,11 +248,13 @@
+ static void
+ handle_event (evdev_t * dev, int devindex, struct input_event * ev)
+ {
+-	Window          focus;
++	Window          focus, root, parent;
++	Window		*children;
+ 	XClassHint      xch = {NULL, NULL};
+ 	int             i, k;
+ 	char          * wname = NULL;
+ 	unsigned int    mods;
++	unsigned int	num_children;
+ 	XErrorHandler   old_handler;
+ 		
+ 	if ((ev->type != EV_KEY) && 
+@@ -262,6 +274,14 @@
+ 	if (focus != None) {
+ 		XGetClassHint (d, focus, &xch);
+ 		XFetchName (d, focus, &wname);
++		XQueryTree(d, focus, &root, &parent, &children, &num_children);
++		if ((!xch.res_class) && (parent) && (focus != root)) {
++			XFree(xch.res_class);
++			XFree(xch.res_name);
++			XFree(wname);
++			XGetClassHint(d, parent, &xch);
++			XFetchName (d, parent, &wname);
++		}	                	                
+ 	}
+ 	XSetErrorHandler(old_handler);
+ 
