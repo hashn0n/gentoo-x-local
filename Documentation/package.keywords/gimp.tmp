@@ -1,0 +1,2 @@
+# dependency required by "media-gfx/gimp-2.8.14"
+<=sys-devel/gettext-0.20

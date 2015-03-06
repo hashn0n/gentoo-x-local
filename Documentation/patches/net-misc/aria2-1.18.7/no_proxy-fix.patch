@@ -1,0 +1,21 @@
+commit c659fe939df2b0830f83f39429d6e7814ac82157
+Author: Tatsuhiro Tsujikawa <tatsuhiro.t@gmail.com>
+Date:   Tue Jul 22 23:18:52 2014 +0900
+
+    Fix std::length_error when no_proxy is used
+    
+    This is regression introduced in 8cada497.
+
+diff --git a/src/AbstractCommand.cc b/src/AbstractCommand.cc
+index df56c84..f2b8804 100644
+--- a/src/AbstractCommand.cc
++++ b/src/AbstractCommand.cc
+@@ -713,6 +713,8 @@ bool inNoProxy(const std::shared_ptr<Request>& req, const std::string& noProxy)
+                                    std::string(e.first, e.second))) {
+         return true;
+       }
++
++      continue;
+     }
+     // TODO We don't resolve hostname here.  More complete
+     // implementation is that we should first resolve

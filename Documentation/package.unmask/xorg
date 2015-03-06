@@ -1,0 +1,31 @@
+#media-libs/glew
+##
+#<=x11-base/xorg-server-9999
+#<x11-proto/renderproto-9999
+#<x11-proto/fixesproto-9999
+#<=x11-proto/xineramaproto-9999
+#<=x11-libs/pixman-9999
+#<x11-proto/inputproto-9999
+#<=x11-drivers/xf86-input-evdev-9999
+#<=x11-proto/xproto-9999
+#<=x11-libs/libX11-9999
+#<=x11-libs/libxcb-9999
+#<=x11-proto/xcb-proto-9999
+#<=x11-proto/xextproto-9999
+#<=x11-libs/libXext-9999
+##
+## masked all higher then 7.0.5 version as they NOT include:
+##   Xext.h, dpms.h, XShm.h, ect...
+## libXext higher then 1.0.5 is readding some of files, but not all of them:
+##   dpms.h, XShm.h but no XTest.h.
+<=x11-proto/xextproto-7.0.5
+<=x11-libs/libXext-1.0.5
+#<x11-proto/xextproto-9999
+#<x11-libs/libXext-9999
+<x11-proto/xproto-9999
+<x11-proto/xcb-proto-9999
+<x11-libs/libxcb-9999
+<x11-libs/libX11-9999
+<x11-drivers/xf86-input-mouse-9999
+<x11-drivers/xf86-input-joystick-9999
+##

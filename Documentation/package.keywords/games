@@ -1,0 +1,23 @@
+games-simulation/openttd
+games-simulation/opensfx
+games-misc/opensfx
+games-simulation/openmsx
+games-util/nml
+games-misc/openmsx
+games-simulation/opengfx
+games-misc/opengfx
+games-util/catcodec
+games-util/grfcodec
+games-util/nforenum
+games-strategy/warzone2100
+games-util/gtkevemon **
+games-util/pyfa
+games-fps/sauerbraten
+
+## Colobot
+games-strategy/colobot **
+games-strategy/colobot-data **
+
+# VCMI (HMM3:WoG open source)
+games-strategy/vcmi **
+games-strategy/vcmi-data **

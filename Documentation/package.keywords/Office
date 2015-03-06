@@ -1,0 +1,17 @@
+#app-office/openoffice
+#app-office/openoffice-bin
+#app-office/libreoffice
+#app-office/libreoffice-bin
+#app-office/libreoffice-l10n
+#app-text/mythes
+#media-gfx/graphite2
+#sci-mathematics/lpsolve
+#dev-libs/hyphen
+#app-text/hunspell
+#dev-util/mdds
+#app-text/libmspub
+#dev-libs/liborcus
+
+#required by dev-db/unixODBC-2.3.2-r1
+#required by app-office/libreoffice-4.2.8.2
+=dev-libs/libltdl-2.4.4

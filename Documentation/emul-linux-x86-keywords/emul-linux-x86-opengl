@@ -1,0 +1,7 @@
+# app-emulation/emul-linux-x86-opengl-20140508  USE="development" ABI_X86="(-32)"
+=app-emulation/emul-linux-x86-opengl-20140508
+=media-libs/freeglut-2.8.1-r1
+=media-libs/glu-9.0.0-r1
+=media-libs/mesa-10.3.1
+=x11-libs/libdrm-2.4.58
+=media-libs/libtxc_dxtn-1.0.1-r1

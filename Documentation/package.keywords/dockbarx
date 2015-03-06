@@ -1,0 +1,4 @@
+gnome-extra/dockbarx
+dev-libs/keybinder
+x11-libs/libwnck:1
+dev-python/libwnck-python

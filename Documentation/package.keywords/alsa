@@ -1,0 +1,6 @@
+media-libs/alsa-lib
+media-sound/alsa-driver
+media-sound/alsa-utils
+media-sound/alsa-headers
+media-plugins/alsa-plugins
+media-plugins/gst-plugins-alsa

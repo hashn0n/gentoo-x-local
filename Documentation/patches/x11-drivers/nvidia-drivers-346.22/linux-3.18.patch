@@ -1,0 +1,25 @@
+diff --git a/kernel/nv-drm.c b/kernel/nv-drm.c
+index f3b74d5..0fb82f1 100644
+--- a/kernel/nv-drm.c
++++ b/kernel/nv-drm.c
+@@ -22,6 +22,11 @@
+ #include <drm/drm_gem.h>
+ #endif
+ 
++/* 3.18+ */
++#ifndef drm_gem_object
++#include <drm/drm_gem.h>
++#endif
++
+ extern nv_linux_state_t *nv_linux_devices;
+ 
+ struct nv_gem_object {
+@@ -128,6 +133,8 @@ static struct drm_driver nv_drm_driver = {
+     .gem_prime_vmap = nv_gem_prime_vmap,
+     .gem_prime_vunmap = nv_gem_prime_vunmap,
+ 
++    .set_busid = drm_pci_set_busid,
++
+     .name = "nvidia-drm",
+     .desc = "NVIDIA DRM driver",
+     .date = "20130102",

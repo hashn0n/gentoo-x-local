@@ -1,0 +1,20 @@
+# app-emulation/emul-linux-x86-soundlibs-20140508  USE="development -alsa (-pulseaudio)" ABI_X86="(-32)"
+=app-emulation/emul-linux-x86-soundlibs-20140508
+=dev-libs/libical-0.48-r2
+=media-libs/alsa-lib-1.0.28
+=media-libs/audiofile-0.3.6-r1
+=media-libs/flac-1.3.1-r1
+=media-libs/libao-1.2.0
+=media-libs/libmodplug-0.8.8.5
+=media-libs/libogg-1.3.1
+=media-libs/libsamplerate-0.1.8-r1
+=media-libs/libsndfile-1.0.25-r1
+=media-libs/libvorbis-1.3.4
+=media-libs/webrtc-audio-processing-0.1-r1
+=media-plugins/alsa-plugins-1.0.28
+=media-sound/cdparanoia-3.10.2-r6
+=media-sound/gsm-1.0.13-r1
+=media-sound/mpg123-1.21.0
+=media-sound/musepack-tools-465-r1
+=media-sound/pulseaudio-5.0-r4
+=media-sound/wavpack-4.70.0

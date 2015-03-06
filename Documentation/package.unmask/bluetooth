@@ -1,0 +1,7 @@
+net-wireless/bluez
+net-wireless/bluez-hcidump
+gnome-extra/policykit-gnome
+dev-python/pybluez
+net-wireless/blueman
+app-mobilephone/obex-data-server
+#net-wireless/bluez-gnome

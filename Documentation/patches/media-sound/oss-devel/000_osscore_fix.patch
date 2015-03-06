@@ -1,0 +1,13 @@
+diff --git a/setup/Linux/oss/build/osscore.c b/setup/Linux/oss/build/osscore.c
+index 7baa69e..0fab794 100644
+--- a/setup/Linux/oss/build/osscore.c
++++ b/setup/Linux/oss/build/osscore.c
+@@ -841,7 +841,7 @@ oss_contig_malloc (oss_device_t * osdev, int buffsize, oss_uint64_t memlimit,
+     flags |= GFP_DMA32;
+ #endif
+ 
+-  if (memlimit < 0x00000000ffffffffLL)
++  if (memlimit <= 0x00000000ffffffffLL)
+     flags |= GFP_DMA;
+ 
+   start_addr = NULL;

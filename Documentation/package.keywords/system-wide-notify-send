@@ -1,0 +1,4 @@
+x11-misc/sw-notify-send **
+x11-libs/libtinynotify-cli **
+x11-libs/libtinynotify **
+x11-libs/libtinynotify-systemwide **

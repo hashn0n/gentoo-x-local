@@ -1,0 +1,5 @@
+# move net-misc/mirall net-misc/owncloud-client
+<=net-misc/owncloud-client-1.5.1
+# move net-misc/csync net-misc/ocsync
+#net-misc/ocsync
+dev-libs/qtkeychain

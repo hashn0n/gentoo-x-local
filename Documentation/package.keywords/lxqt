@@ -1,0 +1,22 @@
+# required by lxqt-base/lxqt-notificationd (argument)
+<lxqt-base/lxqt-notificationd-0.8.0
+
+# required by lxqt-base/liblxqt-0.7.0
+# required by lxqt-base/lxqt-notificationd-0.7.0
+# required by lxqt-base/lxqt-notificationd (argument)
+<dev-libs/libqtxdg-0.8.0
+
+# required by lxqt-base/lxqt-notificationd-0.7.0
+# required by lxqt-base/lxqt-notificationd (argument)
+<lxqt-base/liblxqt-0.8.0
+
+<lxqt-base/lxqt-common-0.8.0
+<lxqt-base/lxqt-session-0.8.0
+<lxqt-base/lxqt-config-0.8.0
+
+#<lxqt-base/lxqt-notificationd-9999
+#<dev-libs/libqtxdg-9999
+#<lxqt-base/liblxqt-9999
+#<lxqt-base/lxqt-common-9999
+#<lxqt-base/lxqt-session-9999
+#<lxqt-base/lxqt-config-9999

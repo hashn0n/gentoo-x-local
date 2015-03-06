@@ -1,0 +1,7 @@
+## required by net-misc/aria2-1.18.0
+#=net-libs/gnutls-3.3.4
+## required by net-libs/gnutls-3.3.4
+#=dev-libs/nettle-2.7.1-r1
+
+## required by net-wireless/bluez-5.18-r1[readline]
+#=sys-libs/readline-6.3_p6

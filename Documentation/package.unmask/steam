@@ -1,0 +1,6 @@
+#For Steam
+games-util/steam-meta
+games-util/steam-client-meta
+games-util/steam-games-meta
+games-util/steam-base
+#End Steam

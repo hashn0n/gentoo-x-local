@@ -1,0 +1,7 @@
+sys-fs/go-mtpfs **
+dev-libs/go-fuse **
+sys-fs/simple-mtpfs
+media-libs/libmtp
+media-sound/gmtp
+# Realy old one:
+#sys-fs/mtpfs

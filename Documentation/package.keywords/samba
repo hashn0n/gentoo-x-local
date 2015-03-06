@@ -1,0 +1,5 @@
+net-fs/samba
+net-fs/cifs-utils
+sys-libs/tdb
+sys-libs/talloc
+=sys-libs/tevent-0.9.18

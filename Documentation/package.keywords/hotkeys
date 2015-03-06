@@ -1,0 +1,5 @@
+x11-misc/xbindkeys
+#x11-misc/keytouch
+#x11-misc/keytouch-editor
+app-laptop/pbbuttonsd
+x11-misc/sxhkd

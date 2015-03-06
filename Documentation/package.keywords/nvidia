@@ -1,0 +1,11 @@
+x11-drivers/nvidia-drivers **
+media-video/nvidia-settings **
+x11-libs/libvdpau
+x11-misc/vdpauinfo
+app-admin/eselect-opencl
+
+#Optimus:
+x11-drivers/xf86-video-intel
+
+#nouveau
+x11-drivers/xf86-video-nouveau

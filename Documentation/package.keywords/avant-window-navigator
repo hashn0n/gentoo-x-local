@@ -1,0 +1,8 @@
+gnome-extra/avant-window-navigator **
+gnome-extra/avant-window-navigator-extras **
+#<dev-libs/gobject-introspection-1.35.0
+#<dev-libs/gobject-introspection-common-1.35.0
+dev-libs/gobject-introspection
+dev-libs/gobject-introspection-common
+dev-python/pycairo
+x11-libs/libdesktop-agnostic **

@@ -1,0 +1,33 @@
+#<media-video/mpv-0.7
+media-video/mpv
+#media-video/libav **
+
+media-video/vlc
+#<media-video/vlc-2.1.0
+#>media-video/vlc-2.1.0
+sys-libs/zlib
+#required by media-video/vlc-2.1.5[a52]
+=media-libs/a52dec-0.7.4-r7
+# required by media-video/vlc-2.1.0
+#=sys-devel/gettext-0.18.3.1-r1
+# required by media-video/vlc-2.1.0[vdpau]
+# !<media-video/libav-9.11
+#=media-video/libav-9.9999 **
+
+net-misc/livestreamer
+# required by net-misc/livestreamer
+=virtual/python-singledispatch-0
+=virtual/python-futures-0
+# required by virtual/python-futures-0[python_targets_python2_7,-python_targets_pypy]
+=dev-python/futures-2.2.0
+=dev-python/singledispatch-3.4.0.3
+
+#<media-video/gnome-mplayer-1.0.4
+#for gnome-mplayer-1.0.5_beta1
+media-libs/gmtk
+
+media-video/gnome-mplayer
+#www-plugins/gecko-mediaplayer
+media-video/mplayer
+media-libs/libass
+dev-libs/fribidi

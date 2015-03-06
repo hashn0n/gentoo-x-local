@@ -1,0 +1,14 @@
+media-libs/schroedinger
+dev-libs/liboil
+media-plugins/gst-plugins-xvideo
+media-plugins/gst-plugins-vorbis
+media-plugins/gst-plugins-ogg
+media-plugins/gst-plugins-x
+media-plugins/gst-plugins-pango
+media-plugins/gst-plugins-gnomevfs
+media-plugins/gst-plugins-gio
+media-plugins/gst-plugins-libnice
+media-libs/gstreamer
+media-libs/gst-plugins-base
+media-libs/gst-plugins-good
+media-libs/gst-plugins-bad

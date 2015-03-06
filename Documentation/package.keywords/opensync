@@ -1,0 +1,5 @@
+app-pda/libopensync-plugin-syncml
+app-pda/libopensync
+app-pda/libsyncml
+app-pda/msynctool
+dev-libs/openobex

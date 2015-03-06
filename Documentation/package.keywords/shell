@@ -1,0 +1,3 @@
+app-shells/bash
+# required by net-wireless/bluez-5.21-r1
+=sys-libs/readline-6.3_p8-r1

@@ -1,0 +1,21 @@
+--- src/mirall/owncloudwizard.cpp.old	2012-08-14 12:24:01.000000000 +0200
++++ src/mirall/owncloudwizard.cpp	2012-08-25 17:00:11.204392999 +0200
+@@ -463,12 +463,15 @@
+ QString OwncloudWizard::ocUrl() const
+ {
+     QString url = field("OCUrl").toString();
+-
+-    if( field("secureConnect").toBool() ) {
++	
++   //Check if we appended "http://" or "https://"
++   if( ( !url.startsWith( QLatin1String("http://") ) ) && ( !url.startsWith( QLatin1String("https://") ) ) ) {     
++     if( field("secureConnect").toBool() ) {
+         url.prepend(QLatin1String("https://"));
+-    } else {
++     } else {
+         url.prepend(QLatin1String("http://"));
+-    }
++     }
++   }
+     return url;
+ }

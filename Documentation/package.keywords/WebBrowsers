@@ -1,0 +1,21 @@
+#FireFox:
+#<www-client/firefox-25.0
+www-client/firefox
+dev-libs/nspr
+dev-libs/nss
+x11-libs/cairo
+x11-libs/pixman
+
+#Chrom[e|ium]
+www-client/google-chrome
+www-client/chromium
+www-plugins/chrome-binary-plugins
+
+#Midori
+www-client/midori
+
+#uzbl - Web interface tools which adhere to the unix philosophy.
+www-client/uzbl **
+
+#Pale Moon
+www-client/palemoon **

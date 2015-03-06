@@ -1,0 +1,5 @@
+sys-boot/unetbootin **
+sys-boot/syslinux **
+# required by sys-boot/syslinux-6.03
+# required by sys-boot/unetbootin-608
+=sys-boot/gnu-efi-3.0u

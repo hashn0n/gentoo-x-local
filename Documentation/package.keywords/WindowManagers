@@ -1,0 +1,24 @@
+x11-wm/compiz:0
+x11-apps/ccsm:0
+x11-libs/compiz-bcop:0
+x11-libs/compizconfig-backend-gconf:0
+x11-libs/compizconfig-backend-kconfig4:0
+x11-libs/libcompizconfig:0
+x11-plugins/compiz-plugins-main:0
+x11-plugins/compiz-plugins-unsupported:0
+x11-plugins/compiz-plugins-extra:0
+## needed for compiz-plugins-extra-0.8.8
+dev-libs/vala-common
+##
+#<x11-libs/libcompizconfig-9999
+#^^Masked due bug with config reading resulting in no decoration.
+x11-wm/compiz-fusion:0
+dev-python/compizconfig-python:0
+x11-themes/emerald-themes
+x11-wm/emerald
+dev-libs/iniparser
+
+x11-misc/compton **
+x11-misc/compton-conf **
+
+xfce-base/xfwm4 **

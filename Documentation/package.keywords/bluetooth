@@ -1,0 +1,20 @@
+#gnome-extra/gnome-vfs-obexftp
+#net-wireless/bluez-bluefw
+#net-wireless/bluez-firmware
+#net-wireless/bluez-hcidump
+#net-wireless/bluez-hciemu
+#net-wireless/bluez-libs
+#net-wireless/bluez-utils
+#net-wireless/bluez-gnome
+#net-wireless/kdebluetooth
+#net-wireless/gnome-bluetooth
+app-mobilephone/obex-data-server
+gnome-extra/policykit-gnome
+<net-wireless/blueman-9999
+#net-wireless/bluez
+net-wireless/bluez-hcidump
+net-wireless/bluedevil
+net-libs/libbluedevil
+dev-python/pybluez
+# move dev-libs/libusbx dev-libs/libusb
+dev-libs/libusb

@@ -1,0 +1,17 @@
+net-im/pidgin
+x11-plugins/purple-plugin_pack
+x11-plugins/pidgin-privacy-please **
+net-libs/farsight2
+net-libs/libnice
+x11-plugins/pidgin-embeddedvideo
+x11-plugins/pidgin-extprefs
+x11-plugins/pidgin-opensteamworks
+
+net-im/utox **
+net-im/tox-prpl **
+# required by net-im/utox-9999::tox-overlay
+net-libs/tox **
+# required by net-libs/tox-9999::tox-overlay
+=dev-libs/libsodium-1.0.0
+# required by net-im/utox-9999::tox-overlay[filter_audio]
+media-libs/libfilteraudio **

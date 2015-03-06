@@ -1,0 +1,2 @@
+# required by media-libs/mesa-10.3.5-r1
+=x11-proto/glproto-1.4.17-r1
