@@ -1,0 +1,4 @@
+app-portage/layman git
+app-portage/portato sqlite eix
+## For rpm:
+dev-libs/beecrypt threads

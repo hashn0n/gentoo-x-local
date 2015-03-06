@@ -1,0 +1,1 @@
+sys-kernel/compat-drivers -build-all-modules compat_drivers_ethernet_alx

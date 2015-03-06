@@ -1,0 +1,3 @@
+#app-text/stardict gnome
+# move app-dicts/goldendict app-text/goldendict
+app-text/goldendict kde

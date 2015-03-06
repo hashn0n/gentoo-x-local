@@ -1,0 +1,6 @@
+app-misc/strigi qt4
+# move x11-libs/qt-webkit dev-qt/qtwebkit
+dev-qt/qtwebkit:4 kde
+# move x11-libs/qt-qt3support dev-qt/qt3support
+dev-qt/qt3support:4 kde
+app-cdr/k3b:4 -encode -flac -mp3 -musepack -vorbis -ffmpeg -wav -lame -mad

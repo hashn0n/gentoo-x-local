@@ -1,0 +1,2 @@
+net-fs/nfs-utils kerberos nfsv4 -nfsv3 caps
+net-libs/libtirpc kerberos

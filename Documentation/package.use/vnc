@@ -1,0 +1,2 @@
+net-misc/vnc -xorgmodule server opengl
+net-misc/tigervnc -xorgmodule server opengl

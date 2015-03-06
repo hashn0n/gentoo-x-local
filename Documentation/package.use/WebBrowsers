@@ -1,0 +1,13 @@
+#FireFox:
+www-client/firefox -linguas_ru -crashreporter
+
+#Chrom[e|ium]
+# required by www-client/chromium-40.0.2209.0
+dev-libs/libxml2 icu
+# required by dev-libs/libxml2 [icu]
+dev-qt/qtwebkit icu
+
+#uzbl - Web interface tools which adhere to the unix philosophy.
+www-client/uzbl -browser -tabbed
+#sys-auth/polkit introspection
+net-libs/webkit-gtk -geoloc

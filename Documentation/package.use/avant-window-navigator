@@ -1,0 +1,5 @@
+x11-libs/libdesktop-agnostic -xfce -gnome gconf
+gnome-extra/avant-window-navigator gconf
+dev-libs/libgweather python
+gnome-extra/avant-window-navigator-extras -gstreamer -gnome -webkit -xulrunner
+dev-libs/keybinder python

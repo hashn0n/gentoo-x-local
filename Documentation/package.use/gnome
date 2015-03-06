@@ -1,0 +1,14 @@
+## gnome-3 stuff
+gnome-base/gnome-control-center -networkmanager -socialweb -colord -cheese
+## End gnome-3 stuff
+gnome-base/gnome-vfs samba -http
+gnome-base/gvfs gdu gnome-keyring -bluetooth
+## >=net-libs/libproxy-0.4.10 compiled with spidermonkey leads
+## to firefox crashing on crosing with mouse from normal html to flash.
+##requared for >=libproxy-0.4.10
+net-libs/libproxy -spidermonkey -webkit
+## End.
+media-libs/libcanberra gtk3
+gnome-extra/zenity -webkit
+gnome-base/gnome-applets -cpufreq
+media-sound/easytag gtk3

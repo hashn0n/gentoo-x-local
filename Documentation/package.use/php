@@ -1,0 +1,2 @@
+dev-lang/php apache2 berkdb bzip2 cli expat gd memlimit mysql nls pcre session ssl xml xsl zip zlib
+#xmlreader xmlrpc xmlwriter
