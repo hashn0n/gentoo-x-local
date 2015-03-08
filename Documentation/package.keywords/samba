@@ -1,4 +1,4 @@
-net-fs/samba
+<net-fs/samba-4
 net-fs/cifs-utils
 sys-libs/tdb
 sys-libs/talloc
