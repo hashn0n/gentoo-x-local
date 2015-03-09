@@ -16,10 +16,10 @@
 =media-libs/harfbuzz-0.9.28
 =media-libs/harfbuzz-0.9.35
 =media-libs/imlib2-1.4.6-r2
-=x11-libs/cairo-1.12.16-r3
+=x11-libs/cairo-1.14.0-r2
 =x11-libs/gdk-pixbuf-2.30.8
-=x11-libs/gtk+-2.24.25
-=x11-libs/gtk+-3.12.2
+=x11-libs/gtk+-2.24.27
+=x11-libs/gtk+-3.14.9
 =x11-libs/libnotify-0.7.6
 =x11-libs/pango-1.36.8
 =x11-libs/pixman-0.32.6
