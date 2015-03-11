@@ -1,5 +1,7 @@
 # app-emulation/emul-linux-x86-db-20140508-r1  USE="development" ABI_X86="(-32)"
-#virtual/mysql abi_x86_32
+app-emulation/emul-linux-x86-db abi_x86_32
+
+virtual/mysql abi_x86_32
 dev-db/myodbc abi_x86_32
 dev-db/mysql abi_x86_32
 dev-db/mariadb abi_x86_32

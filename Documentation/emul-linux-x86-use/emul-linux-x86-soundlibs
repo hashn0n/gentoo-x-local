@@ -1,4 +1,6 @@
 # app-emulation/emul-linux-x86-soundlibs-20140508  USE="development -alsa (-pulseaudio)" ABI_X86="(-32)"
+app-emulation/emul-linux-x86-soundlibs abi_x86_32
+app-emulation/emul-linux-x86-sdl abi_x86_32
 
 # required by net-im/skype[apulse]
 media-sound/apulse abi_x86_32

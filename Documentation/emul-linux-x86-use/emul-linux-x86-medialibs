@@ -1,4 +1,7 @@
 # app-emulation/emul-linux-x86-medialibs-20140508-r6  USE="development" ABI_X86="(-32)"
+app-emulation/emul-linux-x86-medialibs abi_x86_32
+app-emulation/emul-linux-x86-gstplugins abi_x86_32
+
 app-misc/lirc abi_x86_32
 dev-libs/DirectFB abi_x86_32
 dev-libs/fribidi abi_x86_32
