@@ -28,7 +28,7 @@ dev-libs/libgcrypt:11/11
 =net-libs/gnutls-3.3.10
 =media-libs/jbigkit-2.1
 =sys-apps/texinfo-5.2
-=net-libs/glib-networking-2.40.1-r1
+=net-libs/glib-networking-2.42.1
 =app-admin/gamin-0.1.10-r1
 =app-arch/bzip2-1.0.6-r6
 =app-arch/xz-utils-5.0.7
@@ -67,7 +67,7 @@ dev-libs/libgcrypt:11/11
 =media-libs/libpng-1.6.13
 =net-dns/libidn-1.29
 =net-libs/gnutls-2.12.23-r6
-=net-libs/libsoup-2.46.0-r1
+=net-libs/libsoup-2.48.1
 =net-libs/libsoup-gnome-2.46.0
 =net-libs/neon-0.30.1
 =net-misc/curl-7.37.1
