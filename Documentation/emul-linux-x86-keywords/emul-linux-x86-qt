@@ -2,7 +2,7 @@
 app-emulation/emul-linux-x86-qtlibs
 
 =dev-qt/qtcore-4.8.6-r1
-=dev-qt/qtgui-4.8.6-r1
+=dev-qt/qtgui-4.8.6-r2
 =dev-qt/qtdbus-4.8.6-r1
 =dev-qt/qtwebkit-4.8.6-r1
 =dev-qt/qttranslations-4.8.6-r1
