@@ -1,2 +1,2 @@
-app-emulation/wine -cups -ldap -udisks -gstreamer mp3 mono
+app-emulation/wine -cups -ldap -udisks -gstreamer mp3 mono pipelight
 app-emulation/q4wine kde gnome
