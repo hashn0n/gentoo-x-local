@@ -1,1 +1,3 @@
-media-libs/mesa -vdpau
+#gles2 for freshplayerplugin
+#osmesa for wine with osmesa for offscreenrendering
+media-libs/mesa -vdpau gles2 osmesa

@@ -1,5 +1,5 @@
 app-emulation/wine-doors
-<=app-emulation/wine-1.7.33
+app-emulation/wine
 app-emulation/q4wine **
 media-sound/mpg123
 media-gfx/icoutils
