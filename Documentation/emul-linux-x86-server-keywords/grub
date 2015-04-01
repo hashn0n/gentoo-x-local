@@ -1,0 +1,2 @@
+# required by sys-boot/grub-0.97-r14::gentoo[ncurses,-static]
+sys-libs/ncurses abi_x86_32
