@@ -1,9 +1,27 @@
-app-admin/eselect
-app-admin/eselect-python
-app-admin/eselect-news
-app-admin/eselect-boost
-app-admin/eselect-opengl
-app-admin/eselect-mpg123
-app-admin/eselect-lib-bin-symlink
-app-admin/eselect-notify-send
-app-admin/eselect-wxwidgets
+app-eselect/eselect
+app-eselect/eselect-python
+app-eselect/eselect-mpg123
+app-eselect/eselect-lib-bin-symlink
+app-eselect/eselect-notify-send
+app-eselect/eselect-wxwidgets
+
+# required by net-p2p/syncthing
+# required by net-misc/unison
+app-eselect/eselect-unison
+
+# required by app-shells/bash-completion
+app-eselect/eselect-bashcomp
+
+# required by dev-lang/vala
+app-admin/eselect-vala **
+
+# required by x11-drivers/nvidia-drivers
+app-eselect/eselect-opengl
+app-eselect/eselect-opencl
+
+# required by media-sound/pulseaudio
+app-eselect/eselect-esd
+
+# required by dev-lang/php-5.5.4
+# required by net-analyzer/ocsng-2.1_rc1::jmbsvicetto[admin]
+app-eselect/eselect-php

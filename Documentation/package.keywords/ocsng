@@ -3,14 +3,8 @@
 # required by dev-perl/Apache-Test-1.380.0
 # required by www-apache/mod_perl-2.0.8::jmbsvicetto
 # required by net-analyzer/ocsng-2.1_rc1::jmbsvicetto
-# required by ocsng (argument)
 =www-servers/apache-2.4.6-r2 ~amd64
 # required by www-servers/apache-2.4.6-r2
 # required by dev-lang/php-5.5.4[apache2]
 # required by net-analyzer/ocsng-2.1_rc1::jmbsvicetto[admin]
-# required by ocsng (argument)
 =app-admin/apache-tools-2.4.6 ~amd64
-# required by dev-lang/php-5.5.4
-# required by net-analyzer/ocsng-2.1_rc1::jmbsvicetto[admin]
-# required by ocsng (argument)
-=app-admin/eselect-php-0.7.1 apache2

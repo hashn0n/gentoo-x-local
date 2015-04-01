@@ -1,6 +1,1 @@
 net-analyzer/ocsng admin comm logrotate
-
-# required by dev-lang/php-5.5.4
-# required by net-analyzer/ocsng-2.1_rc1::jmbsvicetto[admin]
-# required by ocsng (argument)
-app-admin/eselect-php apache2
