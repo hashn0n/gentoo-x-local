@@ -6,6 +6,7 @@ net-libs/libnice
 x11-plugins/pidgin-embeddedvideo
 x11-plugins/pidgin-extprefs
 x11-plugins/pidgin-opensteamworks
+net-im/whatsapp-purple **
 
 net-im/utox **
 net-im/tox-prpl **
