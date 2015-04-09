@@ -1,0 +1,4 @@
+# required by dev-lang/lua-5.1.5-r100::gentoo
+# required by virtual/lua-5::mva[-luajit]
+# required by media-libs/quvi-0.9.5::mva
+app-eselect/eselect-lua

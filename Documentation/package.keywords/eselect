@@ -25,3 +25,8 @@ app-eselect/eselect-esd
 # required by dev-lang/php-5.5.4
 # required by net-analyzer/ocsng-2.1_rc1::jmbsvicetto[admin]
 app-eselect/eselect-php
+
+# required by dev-lang/lua-5.1.5-r100::gentoo
+# required by virtual/lua-5::mva[-luajit]
+# required by media-libs/quvi-0.9.5::mva
+app-eselect/eselect-lua
