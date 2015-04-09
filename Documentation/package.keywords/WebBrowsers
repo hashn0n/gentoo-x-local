@@ -11,6 +11,9 @@ www-client/google-chrome
 www-client/chromium
 www-plugins/chrome-binary-plugins
 
+# required by www-client/chromium-43.0.2357.2::gentoo
+=media-libs/libvpx-1.4.0
+
 #Midori
 www-client/midori
 
