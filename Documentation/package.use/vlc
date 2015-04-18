@@ -1,2 +1,2 @@
-media-video/vlc oss libass libv4l libv4l2 kde cdda libproxy gnome matroska qt4 skins stream taglib theora udev wma-fixed nsplugin -xosd -remoteosd -samba -vdpau
+media-video/vlc oss libass libv4l libv4l2 kde cdda libproxy gnome matroska qt4 skins stream taglib theora udev wma-fixed nsplugin ffmpeg -xosd -remoteosd -samba -vdpau
 sys-libs/zlib minizip static-libs
