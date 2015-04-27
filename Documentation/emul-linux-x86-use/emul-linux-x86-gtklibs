@@ -29,3 +29,8 @@ x11-proto/damageproto abi_x86_32
 x11-proto/xextproto abi_x86_32
 x11-proto/xproto abi_x86_32
 media-libs/jasper abi_x86_32
+
+# required by x11-libs/gtk+-2.24.27-r1::gentoo
+gnome-base/librsvg abi_x86_32
+# required by gnome-base/librsvg-2.40.8::gentoo
+dev-libs/libcroco abi_x86_32

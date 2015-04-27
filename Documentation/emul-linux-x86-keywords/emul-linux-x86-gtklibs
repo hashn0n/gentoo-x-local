@@ -23,3 +23,8 @@
 =x11-libs/libnotify-0.7.6
 =x11-libs/pango-1.36.8
 =x11-libs/pixman-0.32.6
+
+# required by x11-libs/gtk+-2.24.27-r1::gentoo
+=gnome-base/librsvg-2.40.8
+# required by gnome-base/librsvg-2.40.8::gentoo
+=dev-libs/libcroco-0.6.8-r1
