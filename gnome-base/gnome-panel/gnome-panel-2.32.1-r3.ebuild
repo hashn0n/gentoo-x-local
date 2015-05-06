@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-panel/gnome-panel-2.32.1-r3.ebuild,v 1.11 2012/05/05 05:38:11 jdhore Exp $
 
-EAPI="3"
+EAPI="5"
+
 GCONF_DEBUG="no"
 GNOME2_LA_PUNT="yes"
 SUPPORT_PYTHON_ABIS="1"

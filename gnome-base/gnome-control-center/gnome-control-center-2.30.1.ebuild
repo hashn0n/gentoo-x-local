@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-control-center/gnome-control-center-2.30.1.ebuild,v 1.8 2010/10/17 15:29:12 armin76 Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit eutils gnome2
 

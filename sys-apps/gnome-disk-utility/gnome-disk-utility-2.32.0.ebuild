@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/sys-apps/gnome-disk-utility/gnome-disk-utility-2.32.0.ebuild,v 1.3 2011/01/07 21:04:46 pacho Exp $
 
-EAPI="3"
+EAPI="5"
+
 GCONF_DEBUG="no"
 
 inherit autotools eutils gnome2
