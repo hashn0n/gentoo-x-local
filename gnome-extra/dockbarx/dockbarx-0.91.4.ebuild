@@ -7,10 +7,10 @@ inherit gnome2-utils distutils eutils python
 
 PYTHON_DEPEND="2:2.7"
 RESTRICT_PYTHON_ABIS="3.*"
+PACKAGEAUTHOR="M7S"
 
 DESCRIPTION="Panel applet (Gnome2, AWN, Mate, XFCE4) and stand alone dock with groupping and group manipulation."
-HOMEPAGE="https://github.com/M7S/dockbarx"
-PACKAGEAUTHOR="M7S"
+HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
 	EGIT_REPO_URI="git://github.com/${PACKAGEAUTHOR}/${PN}.git"

@@ -3,7 +3,7 @@ xfce-base/xfce4-panel
 <dev-util/xfce4-dev-tools-9999
 <xfce-base/exo-9999
 <=xfce-base/garcon-9999
-<xfce-base/libxfce4ui-9999
+<=xfce-base/libxfce4ui-9999
 <xfce-base/libxfce4util-9999
 <xfce-base/libxfcegui4-9999
 <xfce-base/xfce4-session-9999
