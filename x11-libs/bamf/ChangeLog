@@ -1,0 +1,16 @@
+# ChangeLog for x11-libs/bamf
+# Copyright 1999-2014 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+  05 Jan 2014; Haydania-Capri <me@capri.pw> bamf-9999.ebuild:
+  Updated to python-r1
+
+  02 Jan 2014; Haydania-Capri <me@capri.pw> bamf-9999.ebuild:
+  Fixed minorQA issue of trailing white space
+
+*bamf-9999 (21 Dec 2013)
+
+  21 Dec 2013; Haydania-Capri <me@capri.pw> +bamf-9999.ebuild,
+  +files/bamf-9999-no-gtk-doc.patch, +metadata.xml:
+  Added live build.
+
