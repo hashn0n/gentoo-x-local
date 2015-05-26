@@ -7,6 +7,8 @@ x11-libs/gtk+:3
 =app-accessibility/at-spi2-atk-2.14.1
 #required by app-accessibility/at-spi2-atk-2.14.1
 =app-accessibility/at-spi2-core-2.14.1
+# required by x11-libs/gtk+-3.14.13::gentoo
+=dev-util/gtk-update-icon-cache-3.14.13
 ##
 dev-libs/atk
 x11-libs/gdk-pixbuf
