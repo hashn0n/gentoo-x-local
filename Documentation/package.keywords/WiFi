@@ -1,1 +1,6 @@
 net-wireless/wpa_supplicant
+
+net-misc/wicd
+kde-misc/wicd-client-kde
+
+net-wireless/aircrack-ng
