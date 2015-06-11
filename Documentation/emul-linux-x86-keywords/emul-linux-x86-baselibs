@@ -22,6 +22,11 @@ dev-libs/libgcrypt:11/11
 #=dev-lang/lua-5.1.5-r3
 #=dev-lua/luasocket-3.0_rc1-r3
 
+# required by sys-auth/consolekit-0.4.6::gentoo[acl]
+# required by net-misc/networkmanager-1.0.2-r1::gentoo[consolekit]
+# required by gnome-extra/nm-applet-1.0.2::gentoo
+=virtual/udev-217
+
 =sys-devel/libtool-2.4.6
 =dev-libs/libltdl-2.4.6
 =net-libs/gnutls-3.3.11
@@ -87,7 +92,7 @@ dev-libs/openssl:0
 =sys-devel/gettext-0.19.4
 =sys-devel/llvm-3.5.0
 =sys-fs/e2fsprogs-1.42.12
-=sys-fs/udev-216
+=sys-fs/udev-220-r1
 =sys-fs/udev-init-scripts-27
 =sys-libs/cracklib-2.9.1-r1
 =sys-libs/e2fsprogs-libs-1.42.12
