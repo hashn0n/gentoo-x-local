@@ -1,5 +1,5 @@
 x11-libs/gtk+:2
-x11-libs/gtk+:3
+#x11-libs/gtk+:3
 ##For gtk+:3
 #<x11-libs/pango-1.34
 #app-accessibility/at-spi2-atk
