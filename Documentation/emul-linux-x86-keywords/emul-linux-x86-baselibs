@@ -22,11 +22,6 @@ dev-libs/libgcrypt:11/11
 #=dev-lang/lua-5.1.5-r3
 #=dev-lua/luasocket-3.0_rc1-r3
 
-# required by sys-auth/consolekit-0.4.6::gentoo[acl]
-# required by net-misc/networkmanager-1.0.2-r1::gentoo[consolekit]
-# required by gnome-extra/nm-applet-1.0.2::gentoo
-=virtual/udev-217
-
 =sys-devel/libtool-2.4.6
 =dev-libs/libltdl-2.4.6
 =net-libs/gnutls-3.3.11
