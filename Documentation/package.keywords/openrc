@@ -2,6 +2,9 @@ sys-apps/openrc
 net-misc/netifrc
 sys-fs/udev-init-scripts
 
+=sys-fs/udev-220-r1
+=sys-fs/udev-init-scripts-27
+
 # required by sys-auth/consolekit-0.4.6::gentoo[acl]
 # required by net-misc/networkmanager-1.0.2-r1::gentoo[consolekit]
 # required by gnome-extra/nm-applet-1.0.2::gentoo

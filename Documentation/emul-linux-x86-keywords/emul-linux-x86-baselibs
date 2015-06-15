@@ -87,8 +87,6 @@ dev-libs/openssl:0
 =sys-devel/gettext-0.19.4
 =sys-devel/llvm-3.5.0
 =sys-fs/e2fsprogs-1.42.12
-=sys-fs/udev-220-r1
-=sys-fs/udev-init-scripts-27
 =sys-libs/cracklib-2.9.1-r1
 =sys-libs/e2fsprogs-libs-1.42.12
 =sys-libs/gdbm-1.11
