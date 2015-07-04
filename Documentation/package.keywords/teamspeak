@@ -1,3 +1,12 @@
 media-sound/teamspeak-client-bin
 media-sound/teamspeak-server-bin
 media-sound/teamspeak2-client-bin
+
+dev-qt/qtcore:5
+dev-qt/qtnetwork:5
+dev-qt/qtsql:5
+dev-qt/qtgui:5
+dev-qt/qtwidgets:5
+dev-qt/qtdbus:5
+
+dev-libs/quazip
