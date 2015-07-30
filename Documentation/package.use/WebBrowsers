@@ -8,6 +8,7 @@ dev-libs/libxml2 icu
 dev-qt/qtwebkit icu
 
 #uzbl - Web interface tools which adhere to the unix philosophy.
-www-client/uzbl -browser -tabbed
+www-client/uzbl browser tabbed helpers
 #sys-auth/polkit introspection
 net-libs/webkit-gtk -geoloc
+x11-misc/dmenu xft xinerama
