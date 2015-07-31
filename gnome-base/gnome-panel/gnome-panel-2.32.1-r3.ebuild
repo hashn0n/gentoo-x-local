@@ -76,7 +76,7 @@ pkg_setup() {
 src_unpack() {
 	# If gobject-introspection is installed, we don't need the extra .m4
 	if has_version "dev-libs/gobject-introspection"; then
-		unpack ${P}.tar.bz2 ${P}-patches.tar.bz2
+		unpack ${P}.tar.xz ${P}-patches.tar.bz2
 	else
 		unpack ${A}
 	fi
