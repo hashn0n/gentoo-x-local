@@ -80,6 +80,11 @@ RDEPEND="${COMMONDEPEND}
 
 DOCS=( AUTHORS ChangeLog NEWS README TODO )
 
+python_configure_all() {
+	#set prefix
+	mydistutilsargs=( build --prefix=/usr )
+}
+
 src_prepare() {
 	echo gtk/gnome/compiz-wm.desktop.in >> po/POTFILES.skip
 	echo metadata/core.xml.in >> po/POTFILES.skip
