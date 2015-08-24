@@ -2,7 +2,7 @@ sys-apps/openrc
 net-misc/netifrc
 sys-fs/udev-init-scripts
 
-=sys-fs/udev-220-r1
+=sys-fs/udev-220-r3
 =sys-fs/udev-init-scripts-27
 
 # required by sys-auth/consolekit-0.4.6::gentoo[acl]
