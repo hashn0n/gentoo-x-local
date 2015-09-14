@@ -12,3 +12,6 @@ media-libs/libcanberra gtk3
 gnome-extra/zenity -webkit
 gnome-base/gnome-applets -cpufreq
 media-sound/easytag gtk3
+
+# required by gnome-base/gnome-keyring-3.16.0-r1::gentoo
+app-crypt/pinentry gnome-keyring
