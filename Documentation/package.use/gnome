@@ -14,4 +14,6 @@ gnome-base/gnome-applets -cpufreq
 media-sound/easytag gtk3
 
 # required by gnome-base/gnome-keyring-3.16.0-r1::gentoo
-app-crypt/pinentry gnome-keyring
+#app-crypt/pinentry gnome-keyring
+# pinentry is a library to implement crypt-agents, which is used in desktop and servers, so best no to enforce the use of any desktop apps for it.
+gnome-base/gnome-keyring -ssh-agent
