@@ -1,0 +1,2 @@
+# required by gnome-base/gnome-keyring-3.16.0-r1::gentoo
+app-crypt/pinentry gnome-keyring
