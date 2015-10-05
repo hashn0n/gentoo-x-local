@@ -81,6 +81,7 @@ sys-devel/libtool abi_x86_32
 sys-devel/llvm abi_x86_32
 sys-fs/e2fsprogs abi_x86_32
 sys-fs/udev abi_x86_32
+sys-libs/binutils-libs abi_x86_32
 sys-libs/cracklib abi_x86_32
 sys-libs/db abi_x86_32
 sys-libs/e2fsprogs-libs abi_x86_32
