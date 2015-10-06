@@ -1,1 +1,1 @@
-x11-terms/rxvt-unicode iso14755 -perl -vanilla 256-color force-hints xft wcwidth secondary-wheel buffer-on-clear fading-colors
+x11-terms/rxvt-unicode iso14755 -vanilla perl 256-color force-hints xft wcwidth secondary-wheel buffer-on-clear fading-colors
