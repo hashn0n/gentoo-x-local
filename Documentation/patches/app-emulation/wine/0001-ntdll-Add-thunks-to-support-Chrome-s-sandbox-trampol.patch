@@ -1,0 +1,309 @@
+From d6da00a77a35ba774ee07abef4222639c76dc531 Mon Sep 17 00:00:00 2001
+From: "Erich E. Hoover" <erich.e.hoover@wine-staging.com>
+Date: Thu, 8 Oct 2015 20:27:57 -0600
+Subject: ntdll: Add thunks to support Chrome's sandbox trampolines.
+
+Fixes issue with Steam failing to launch sandboxed chrome (Bug #39403).
+
+Signed-off-by: Erich E. Hoover <erich.e.hoover@wine-staging.com>
+---
+ dlls/ntdll/Makefile.in  |  1 +
+ dlls/ntdll/ntdll.spec   | 64 ++++++++++++++++++++++++-------------------------
+ dlls/ntdll/ntdll_misc.h | 26 ++++++++++++++++++++
+ dlls/ntdll/thunks.c     | 39 ++++++++++++++++++++++++++++++
+ 4 files changed, 98 insertions(+), 32 deletions(-)
+ create mode 100644 dlls/ntdll/thunks.c
+
+diff --git a/dlls/ntdll/Makefile.in b/dlls/ntdll/Makefile.in
+index ed4bb94..a749752 100644
+--- a/dlls/ntdll/Makefile.in
++++ b/dlls/ntdll/Makefile.in
+@@ -48,6 +48,7 @@ C_SRCS = \
+ 	thread.c \
+ 	threadpool.c \
+ 	time.c \
++	thunks.c \
+ 	version.c \
+ 	virtual.c \
+ 	wcstring.c
+diff --git a/dlls/ntdll/ntdll.spec b/dlls/ntdll/ntdll.spec
+index ca3561d..a94fef7 100644
+--- a/dlls/ntdll/ntdll.spec
++++ b/dlls/ntdll/ntdll.spec
+@@ -125,11 +125,11 @@
+ @ stdcall NtCreateDirectoryObject(long long long)
+ @ stdcall NtCreateEvent(long long long long long)
+ @ stub NtCreateEventPair
+-@ stdcall NtCreateFile(ptr long ptr ptr long long long ptr long long ptr)
++@ stdcall NtCreateFile(ptr long ptr ptr long long long ptr long long ptr) NTDLL_NtCreateFile
+ @ stdcall NtCreateIoCompletion(ptr long ptr long)
+ @ stdcall NtCreateJobObject(ptr long ptr)
+ # @ stub NtCreateJobSet
+-@ stdcall NtCreateKey(ptr long ptr long ptr long long)
++@ stdcall NtCreateKey(ptr long ptr long ptr long long) NTDLL_NtCreateKey
+ @ stdcall NtCreateKeyedEvent(ptr long ptr long)
+ @ stdcall NtCreateMailslotFile(long long long long long long long long)
+ @ stdcall NtCreateMutant(ptr long ptr long)
+@@ -201,7 +201,7 @@
+ @ stdcall NtMakeTemporaryObject(long)
+ # @ stub NtMapUserPhysicalPages
+ # @ stub NtMapUserPhysicalPagesScatter
+-@ stdcall NtMapViewOfSection(long long ptr long long ptr ptr long long long)
++@ stdcall NtMapViewOfSection(long long ptr long long ptr ptr long long long) NTDLL_NtMapViewOfSection
+ # @ stub NtModifyBootEntry
+ @ stdcall NtNotifyChangeDirectoryFile(long long ptr ptr ptr ptr long long long)
+ @ stdcall NtNotifyChangeKey(long long ptr ptr ptr long long ptr long long)
+@@ -209,22 +209,22 @@
+ @ stdcall NtOpenDirectoryObject(long long long)
+ @ stdcall NtOpenEvent(long long long)
+ @ stub NtOpenEventPair
+-@ stdcall NtOpenFile(ptr long ptr ptr long long)
++@ stdcall NtOpenFile(ptr long ptr ptr long long) NTDLL_NtOpenFile
+ @ stdcall NtOpenIoCompletion(ptr long ptr)
+ @ stdcall NtOpenJobObject(ptr long ptr)
+-@ stdcall NtOpenKey(ptr long ptr)
++@ stdcall NtOpenKey(ptr long ptr) NTDLL_NtOpenKey
+ @ stdcall NtOpenKeyedEvent(ptr long ptr)
+ @ stdcall NtOpenMutant(ptr long ptr)
+ @ stub NtOpenObjectAuditAlarm
+-@ stdcall NtOpenProcess(ptr long ptr ptr)
+-@ stdcall NtOpenProcessToken(long long ptr)
+-@ stdcall NtOpenProcessTokenEx(long long long ptr)
++@ stdcall NtOpenProcess(ptr long ptr ptr) NTDLL_NtOpenProcess
++@ stdcall NtOpenProcessToken(long long ptr) NTDLL_NtOpenProcessToken
++@ stdcall NtOpenProcessTokenEx(long long long ptr) NTDLL_NtOpenProcessTokenEx
+ @ stdcall NtOpenSection(ptr long ptr)
+ @ stdcall NtOpenSemaphore(long long ptr)
+ @ stdcall NtOpenSymbolicLinkObject (ptr long ptr)
+-@ stdcall NtOpenThread(ptr long ptr ptr)
+-@ stdcall NtOpenThreadToken(long long long ptr)
+-@ stdcall NtOpenThreadTokenEx(long long long long ptr)
++@ stdcall NtOpenThread(ptr long ptr ptr) NTDLL_NtOpenThread
++@ stdcall NtOpenThreadToken(long long long ptr) NTDLL_NtOpenThreadToken
++@ stdcall NtOpenThreadTokenEx(long long long long ptr) NTDLL_NtOpenThreadTokenEx
+ @ stdcall NtOpenTimer(ptr long ptr)
+ @ stub NtPlugPlayControl
+ @ stdcall NtPowerInformation(long ptr long ptr long)
+@@ -233,7 +233,7 @@
+ @ stub NtPrivilegedServiceAuditAlarm
+ @ stdcall NtProtectVirtualMemory(long ptr ptr long ptr)
+ @ stdcall NtPulseEvent(long ptr)
+-@ stdcall NtQueryAttributesFile(ptr ptr)
++@ stdcall NtQueryAttributesFile(ptr ptr) NTDLL_NtQueryAttributesFile
+ # @ stub NtQueryBootEntryOrder
+ # @ stub NtQueryBootOptions
+ # @ stub NtQueryDebugFilterState
+@@ -243,7 +243,7 @@
+ @ stdcall NtQueryDirectoryObject(long ptr long long long ptr ptr)
+ @ stdcall NtQueryEaFile(long ptr ptr long long ptr long ptr long)
+ @ stdcall NtQueryEvent(long long ptr long ptr)
+-@ stdcall NtQueryFullAttributesFile(ptr ptr)
++@ stdcall NtQueryFullAttributesFile(ptr ptr) NTDLL_NtQueryFullAttributesFile
+ @ stdcall NtQueryInformationAtom(long long ptr long ptr)
+ @ stdcall NtQueryInformationFile(long ptr ptr long long)
+ @ stdcall NtQueryInformationJobObject(long long ptr long ptr)
+@@ -324,12 +324,12 @@
+ @ stub NtSetHighWaitLowEventPair
+ @ stub NtSetHighWaitLowThread
+ # @ stub NtSetInformationDebugObject
+-@ stdcall NtSetInformationFile(long long long long long)
++@ stdcall NtSetInformationFile(long long long long long) NTDLL_NtSetInformationFile
+ @ stdcall NtSetInformationJobObject(long long ptr long)
+ @ stdcall NtSetInformationKey(long long ptr long)
+ @ stdcall NtSetInformationObject(long long ptr long)
+ @ stdcall NtSetInformationProcess(long long long long)
+-@ stdcall NtSetInformationThread(long long ptr long)
++@ stdcall NtSetInformationThread(long long ptr long) NTDLL_NtSetInformationThread
+ @ stdcall NtSetInformationToken(long long ptr long)
+ @ stdcall NtSetIntervalProfile(long long)
+ @ stdcall NtSetIoCompletion(ptr long ptr long long)
+@@ -368,7 +368,7 @@
+ @ stub NtUnloadKeyEx
+ @ stdcall NtUnlockFile(long ptr ptr ptr ptr)
+ @ stdcall NtUnlockVirtualMemory(long ptr ptr long)
+-@ stdcall NtUnmapViewOfSection(long ptr)
++@ stdcall NtUnmapViewOfSection(long ptr) NTDLL_NtUnmapViewOfSection
+ @ stub NtVdmControl
+ @ stub NtW32Call
+ # @ stub NtWaitForDebugEvent
+@@ -1038,11 +1038,11 @@
+ @ stdcall ZwCreateDirectoryObject(long long long) NtCreateDirectoryObject
+ @ stdcall ZwCreateEvent(long long long long long) NtCreateEvent
+ @ stub ZwCreateEventPair
+-@ stdcall ZwCreateFile(ptr long ptr ptr long long long ptr long long ptr) NtCreateFile
++@ stdcall ZwCreateFile(ptr long ptr ptr long long long ptr long long ptr) NTDLL_NtCreateFile
+ @ stdcall ZwCreateIoCompletion(ptr long ptr long) NtCreateIoCompletion
+ @ stdcall ZwCreateJobObject(ptr long ptr) NtCreateJobObject
+ # @ stub ZwCreateJobSet
+-@ stdcall ZwCreateKey(ptr long ptr long ptr long long) NtCreateKey
++@ stdcall ZwCreateKey(ptr long ptr long ptr long long) NTDLL_NtCreateKey
+ @ stdcall ZwCreateKeyedEvent(ptr long ptr long) NtCreateKeyedEvent
+ @ stdcall ZwCreateMailslotFile(long long long long long long long long) NtCreateMailslotFile
+ @ stdcall ZwCreateMutant(ptr long ptr long) NtCreateMutant
+@@ -1112,7 +1112,7 @@
+ @ stdcall ZwMakeTemporaryObject(long) NtMakeTemporaryObject
+ # @ stub ZwMapUserPhysicalPages
+ # @ stub ZwMapUserPhysicalPagesScatter
+-@ stdcall ZwMapViewOfSection(long long ptr long long ptr ptr long long long) NtMapViewOfSection
++@ stdcall ZwMapViewOfSection(long long ptr long long ptr ptr long long long) NTDLL_NtMapViewOfSection
+ # @ stub ZwModifyBootEntry
+ @ stdcall ZwNotifyChangeDirectoryFile(long long ptr ptr ptr ptr long long long) NtNotifyChangeDirectoryFile
+ @ stdcall ZwNotifyChangeKey(long long ptr ptr ptr long long ptr long long) NtNotifyChangeKey
+@@ -1120,22 +1120,22 @@
+ @ stdcall ZwOpenDirectoryObject(long long long) NtOpenDirectoryObject
+ @ stdcall ZwOpenEvent(long long long) NtOpenEvent
+ @ stub ZwOpenEventPair
+-@ stdcall ZwOpenFile(ptr long ptr ptr long long) NtOpenFile
++@ stdcall ZwOpenFile(ptr long ptr ptr long long) NTDLL_NtOpenFile
+ @ stdcall ZwOpenIoCompletion(ptr long ptr) NtOpenIoCompletion
+ @ stdcall ZwOpenJobObject(ptr long ptr) NtOpenJobObject
+-@ stdcall ZwOpenKey(ptr long ptr) NtOpenKey
++@ stdcall ZwOpenKey(ptr long ptr) NTDLL_NtOpenKey
+ @ stdcall ZwOpenKeyedEvent(ptr long ptr) NtOpenKeyedEvent
+ @ stdcall ZwOpenMutant(ptr long ptr) NtOpenMutant
+ @ stub ZwOpenObjectAuditAlarm
+-@ stdcall ZwOpenProcess(ptr long ptr ptr) NtOpenProcess
+-@ stdcall ZwOpenProcessToken(long long ptr) NtOpenProcessToken
+-@ stdcall ZwOpenProcessTokenEx(long long long ptr) NtOpenProcessTokenEx
++@ stdcall ZwOpenProcess(ptr long ptr ptr) NTDLL_NtOpenProcess
++@ stdcall ZwOpenProcessToken(long long ptr) NTDLL_NtOpenProcessToken
++@ stdcall ZwOpenProcessTokenEx(long long long ptr) NTDLL_NtOpenProcessTokenEx
+ @ stdcall ZwOpenSection(ptr long ptr) NtOpenSection
+ @ stdcall ZwOpenSemaphore(long long ptr) NtOpenSemaphore
+ @ stdcall ZwOpenSymbolicLinkObject (ptr long ptr) NtOpenSymbolicLinkObject
+-@ stdcall ZwOpenThread(ptr long ptr ptr) NtOpenThread
+-@ stdcall ZwOpenThreadToken(long long long ptr) NtOpenThreadToken
+-@ stdcall ZwOpenThreadTokenEx(long long long long ptr) NtOpenThreadTokenEx
++@ stdcall ZwOpenThread(ptr long ptr ptr) NTDLL_NtOpenThread
++@ stdcall ZwOpenThreadToken(long long long ptr) NTDLL_NtOpenThreadToken
++@ stdcall ZwOpenThreadTokenEx(long long long long ptr) NTDLL_NtOpenThreadTokenEx
+ @ stdcall ZwOpenTimer(ptr long ptr) NtOpenTimer
+ @ stub ZwPlugPlayControl
+ @ stdcall ZwPowerInformation(long ptr long ptr long) NtPowerInformation
+@@ -1144,7 +1144,7 @@
+ @ stub ZwPrivilegedServiceAuditAlarm
+ @ stdcall ZwProtectVirtualMemory(long ptr ptr long ptr) NtProtectVirtualMemory
+ @ stdcall ZwPulseEvent(long ptr) NtPulseEvent
+-@ stdcall ZwQueryAttributesFile(ptr ptr) NtQueryAttributesFile
++@ stdcall ZwQueryAttributesFile(ptr ptr) NTDLL_NtQueryAttributesFile
+ # @ stub ZwQueryBootEntryOrder
+ # @ stub ZwQueryBootOptions
+ # @ stub ZwQueryDebugFilterState
+@@ -1154,7 +1154,7 @@
+ @ stdcall ZwQueryDirectoryObject(long ptr long long long ptr ptr) NtQueryDirectoryObject
+ @ stdcall ZwQueryEaFile(long ptr ptr long long ptr long ptr long) NtQueryEaFile
+ @ stdcall ZwQueryEvent(long long ptr long ptr) NtQueryEvent
+-@ stdcall ZwQueryFullAttributesFile(ptr ptr) NtQueryFullAttributesFile
++@ stdcall ZwQueryFullAttributesFile(ptr ptr) NTDLL_NtQueryFullAttributesFile
+ @ stdcall ZwQueryInformationAtom(long long ptr long ptr) NtQueryInformationAtom
+ @ stdcall ZwQueryInformationFile(long ptr ptr long long) NtQueryInformationFile
+ @ stdcall ZwQueryInformationJobObject(long long ptr long ptr) NtQueryInformationJobObject
+@@ -1235,12 +1235,12 @@
+ @ stub ZwSetHighWaitLowEventPair
+ @ stub ZwSetHighWaitLowThread
+ # @ stub ZwSetInformationDebugObject
+-@ stdcall ZwSetInformationFile(long long long long long) NtSetInformationFile
++@ stdcall ZwSetInformationFile(long long long long long) NTDLL_NtSetInformationFile
+ @ stdcall ZwSetInformationJobObject(long long ptr long) NtSetInformationJobObject
+ @ stdcall ZwSetInformationKey(long long ptr long) NtSetInformationKey
+ @ stdcall ZwSetInformationObject(long long ptr long) NtSetInformationObject
+ @ stdcall ZwSetInformationProcess(long long long long) NtSetInformationProcess
+-@ stdcall ZwSetInformationThread(long long ptr long) NtSetInformationThread
++@ stdcall ZwSetInformationThread(long long ptr long) NTDLL_NtSetInformationThread
+ @ stdcall ZwSetInformationToken(long long ptr long) NtSetInformationToken
+ @ stdcall ZwSetIntervalProfile(long long) NtSetIntervalProfile
+ @ stdcall ZwSetIoCompletion(ptr long ptr long long) NtSetIoCompletion
+@@ -1279,7 +1279,7 @@
+ @ stub ZwUnloadKeyEx
+ @ stdcall ZwUnlockFile(long ptr ptr ptr ptr) NtUnlockFile
+ @ stdcall ZwUnlockVirtualMemory(long ptr ptr long) NtUnlockVirtualMemory
+-@ stdcall ZwUnmapViewOfSection(long ptr) NtUnmapViewOfSection
++@ stdcall ZwUnmapViewOfSection(long ptr) NTDLL_NtUnmapViewOfSection
+ @ stub ZwVdmControl
+ @ stub ZwW32Call
+ # @ stub ZwWaitForDebugEvent
+diff --git a/dlls/ntdll/ntdll_misc.h b/dlls/ntdll/ntdll_misc.h
+index cbd19db..d66761a 100644
+--- a/dlls/ntdll/ntdll_misc.h
++++ b/dlls/ntdll/ntdll_misc.h
+@@ -29,6 +29,32 @@
+ #include "winternl.h"
+ #include "wine/server.h"
+ 
++#define THUNK_LIST \
++    THUNK(NtOpenFile) \
++    THUNK(NtCreateFile) \
++    THUNK(NtSetInformationFile) \
++    THUNK(NtSetInformationThread) \
++    THUNK(NtQueryAttributesFile) \
++    THUNK(NtQueryFullAttributesFile) \
++    THUNK(NtOpenProcess) \
++    THUNK(NtOpenProcessToken) \
++    THUNK(NtOpenProcessTokenEx) \
++    THUNK(NtOpenThread) \
++    THUNK(NtOpenThreadToken) \
++    THUNK(NtOpenThreadTokenEx) \
++    THUNK(NtOpenKey) \
++    THUNK(NtCreateKey) \
++    THUNK(NtMapViewOfSection) \
++    THUNK(NtUnmapViewOfSection) \
++/* THUNK_LIST */
++
++#ifndef DEFINE_THUNKS
++#define HIDDEN_SYMBOL(name) extern DECLSPEC_HIDDEN typeof(name) name;
++#define THUNK HIDDEN_SYMBOL
++THUNK_LIST
++#undef THUNK
++#endif
++
+ #define MAX_NT_PATH_LENGTH 277
+ 
+ #define MAX_DOS_DRIVES 26
+diff --git a/dlls/ntdll/thunks.c b/dlls/ntdll/thunks.c
+new file mode 100644
+index 0000000..12c29c7
+--- /dev/null
++++ b/dlls/ntdll/thunks.c
+@@ -0,0 +1,39 @@
++/*
++ * NTDLL thunks
++ *
++ * Copyright 2015 Erich E. Hoover
++ *
++ * This library is free software; you can redistribute it and/or
++ * modify it under the terms of the GNU Lesser General Public
++ * License as published by the Free Software Foundation; either
++ * version 2.1 of the License, or (at your option) any later version.
++ *
++ * This library is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++ * Lesser General Public License for more details.
++ *
++ * You should have received a copy of the GNU Lesser General Public
++ * License along with this library; if not, write to the Free Software
++ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA
++ */
++
++#include "config.h"
++#include "wine/port.h"
++
++#define DEFINE_THUNKS
++#include "ntdll_misc.h"
++
++#define DEFINE_NTDLL_THUNK(name) \
++__ASM_STDCALL_FUNC(NTDLL_##name, 0, \
++    "jmp " __ASM_NAME(#name) "\n\t" \
++    "ret $0\n\t" \
++    "nop\n\t" \
++    "nop\n\t" \
++    "nop\n\t" \
++    "nop" \
++)
++
++#define THUNK DEFINE_NTDLL_THUNK
++THUNK_LIST
++#undef THUNK
+-- 
+1.9.1
+
