@@ -2,6 +2,7 @@
 www-client/firefox -linguas_ru -crashreporter
 
 #Chrom[e|ium]
+www-client/chromium -system-ffmpeg
 # required by www-client/chromium-40.0.2209.0
 dev-libs/libxml2 icu
 # required by dev-libs/libxml2 [icu]

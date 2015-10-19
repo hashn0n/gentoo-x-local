@@ -2,4 +2,5 @@ net-misc/unison
 sys-fs/lessfs
 
 net-p2p/syncthing
-app-misc/godep **
+# move app-misc/godep dev-go/godep
+dev-go/godep **
