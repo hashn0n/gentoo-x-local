@@ -1,0 +1,47 @@
+From dc2d0e06af459af9a7f91b65e0a3119acc4f1baa Mon Sep 17 00:00:00 2001
+From: Hendrik Leppkes <h.leppkes@gmail.com>
+Date: Fri, 26 Sep 2014 13:49:21 +0200
+Subject: [PATCH] mlpdec: support TrueHD streams with an Atmos substream
+
+The fourth substream is being discarded, since its not raw audio data,
+but an encoded Atmos stream which needs a specialized decoder.
+
+Fixes decoding of the true hd stream from Transformers\ -\ Age\ of\ Extinction\ 2014\ 1080P-003.mkv
+
+Signed-off-by: Anton Khirnov <anton@khirnov.net>
+---
+ libavcodec/mlp.h    |    2 +-
+ libavcodec/mlpdec.c |    4 +++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/libavcodec/mlp.h b/libavcodec/mlp.h
+index 5a4ee5f..8a1584e 100644
+--- a/libavcodec/mlp.h
++++ b/libavcodec/mlp.h
+@@ -45,7 +45,7 @@
+ /** Maximum number of substreams that can be decoded.
+  *  MLP's limit is 2. TrueHD supports at least up to 3.
+  */
+-#define MAX_SUBSTREAMS      3
++#define MAX_SUBSTREAMS      4
+ 
+ /** which multiple of 48000 the maximum sample rate is */
+ #define MAX_RATEFACTOR      4
+diff --git a/libavcodec/mlpdec.c b/libavcodec/mlpdec.c
+index 8f1b6f4..a0b0b96 100644
+--- a/libavcodec/mlpdec.c
++++ b/libavcodec/mlpdec.c
+@@ -355,7 +355,9 @@ static int read_major_sync(MLPDecodeContext *m, GetBitContext *gb)
+     m->access_unit_size_pow2 = mh.access_unit_size_pow2;
+ 
+     m->num_substreams        = mh.num_substreams;
+-    m->max_decoded_substream = m->num_substreams - 1;
++
++    /* limit to decoding 3 substreams, as the 4th is used by Dolby Atmos for non-audio data */
++    m->max_decoded_substream = FFMIN(m->num_substreams - 1, 2);
+ 
+     m->avctx->sample_rate    = mh.group1_samplerate;
+     m->avctx->frame_size     = mh.access_unit_size;
+-- 
+1.7.10.4
+
