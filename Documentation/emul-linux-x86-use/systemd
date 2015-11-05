@@ -1,0 +1,7 @@
+# required by virtual/libudev-215-r1::gentoo[systemd]
+# required by sys-apps/util-linux-2.27.1::gentoo[udev]
+# required by sys-fs/lvm2-2.02.116::gentoo
+sys-apps/systemd abi_x86_32
+# required by sys-apps/systemd-218-r5::gentoo[lz4]
+# required by sys-apps/gentoo-systemd-integration-4::gentoo
+app-arch/lz4 abi_x86_32
