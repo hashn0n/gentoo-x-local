@@ -23,5 +23,8 @@ www-client/uzbl **
 #Pale Moon
 www-client/palemoon **
 
+#CyberFox
+www-client/cyberfox **
+
 # required by x11-libs/cairo-1.14.2-r1::gentoo
 =sys-libs/binutils-libs-2.25.1-r1
