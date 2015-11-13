@@ -83,7 +83,7 @@ dev-libs/openssl:0
 =sys-apps/util-linux-2.26.1
 =sys-auth/nss_ldap-265-r5
 =sys-devel/binutils-2.25.1-r1
-=sys-devel/binutils-config-5
+=sys-devel/binutils-config-5-r1
 =sys-devel/gettext-0.19.4
 =sys-devel/llvm-3.5.0
 =sys-fs/e2fsprogs-1.42.12
