@@ -36,11 +36,12 @@ pkg_setup() {
 	if ! use debug ; then
 		G2CONF="${G2CONF} --enable-debug=minimum"
 	fi
-
 	G2CONF="${G2CONF}
 		--disable-static
 		$(use_enable python)
 		$(use_enable introspection)"
+
+	python_pkg_setup
 }
 
 src_prepare() {
