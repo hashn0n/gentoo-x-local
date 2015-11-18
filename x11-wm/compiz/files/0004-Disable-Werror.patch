@@ -1,0 +1,13 @@
+diff --git a/cmake/CompizCommon.cmake b/cmake/CompizCommon.cmake
+index 674d5b3..4982747 100644
+--- a/cmake/CompizCommon.cmake
++++ b/cmake/CompizCommon.cmake
+@@ -72,7 +72,7 @@ if (NOT COMPIZ_SIGN_WARNINGS)
+ endif ()
+ 
+ if (${CMAKE_PROJECT_NAME} STREQUAL "compiz")
+-    set (COMPIZ_WERROR_DEFAULT ON)
++    set (COMPIZ_WERROR_DEFAULT OFF)
+ else ()
+     set (COMPIZ_WERROR_DEFAULT OFF)
+ endif ()
