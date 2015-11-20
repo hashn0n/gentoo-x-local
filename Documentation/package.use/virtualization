@@ -1,4 +1,2 @@
-app-emulation/qemu -gtk
-
 #vmware
 net-misc/curl ares
