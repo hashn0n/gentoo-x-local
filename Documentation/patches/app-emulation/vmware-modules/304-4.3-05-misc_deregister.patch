@@ -1,0 +1,29 @@
+--- vmmon-only/linux/driver.c   2015-11-13 16:56:44.870183155 +0100
++++ vmmon-only/linux/driver.c.new   2015-11-13 17:13:18.924228241 +0100
+@@ -400,9 +400,7 @@
+ #ifdef VMX86_DEVEL
+    unregister_chrdev(linuxState.major, linuxState.deviceName);
+ #else
+-   if (misc_deregister(&linuxState.misc)) {
+-      Warning("Module %s: error unregistering\n", linuxState.deviceName);
+-   }
++   misc_deregister(&linuxState.misc);
+ #endif
+
+    Log("Module %s: unloaded\n", linuxState.deviceName);
+--- vmci-only/linux/driver.c    2015-11-13 17:15:37.522234527 +0100
++++ vmci-only/linux/driver.c.new    2015-11-13 17:19:11.561244234 +0100
+@@ -2480,12 +2480,7 @@
+
+       VMCI_HostCleanup();
+
+-      retval = misc_deregister(&linuxState.misc);
+-      if (retval) {
+-         Warning(LGPFX "Module %s: error unregistering\n", VMCI_MODULE_NAME);
+-      } else {
+-         Log(LGPFX"Module %s: unloaded\n", VMCI_MODULE_NAME);
+-      }
++      misc_deregister(&linuxState.misc);
+
+       hostDeviceInit = FALSE;
+    }
