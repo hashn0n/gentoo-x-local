@@ -5,3 +5,19 @@ sys-firmware/seabios
 
 app-emulation/aqemu
 app-emulation/libvirt
+
+#virtualbox-bin
+app-emulation/virtualbox-bin
+app-emulation/virtualbox-modules
+
+#virtualbox-ose
+app-emulation/virtualbox-ose
+app-emulation/virtualbox-ose-additions
+dev-util/kbuild
+
+#vmware
+dev-cpp/libgnomecanvasmm
+app-emulation/vmware-tools
+app-emulation/vmware-modules
+x11-libs/libview
+app-emulation/vmware-workstation
