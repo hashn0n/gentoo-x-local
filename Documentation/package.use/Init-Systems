@@ -1,0 +1,4 @@
+sys-fs/udev extras
+sys-apps/pciutils -zlib
+
+sys-process/systemd-cron cron-boot etc-crontab-systemd minutely setgid yearly
