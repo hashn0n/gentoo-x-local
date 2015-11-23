@@ -48,7 +48,6 @@ net-libs/libproxy
 ##requared for >=libproxy-0.4.10 +spidemonkey
 #=dev-lang/spidermonkey-1.8.5-r1
 ## End
-<sys-apps/gnome-disk-utility-3.4
 x11-libs/libnotify
 x11-misc/notification-daemon
 dev-libs/libgweather

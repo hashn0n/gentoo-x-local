@@ -1,1 +1,3 @@
 sys-block/partitionmanager
+#sys-apps/gnome-disk-utility
+app-admin/testdisk
