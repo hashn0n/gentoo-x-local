@@ -33,6 +33,7 @@ RDEPEND="
 	|| ( dev-python/pillow dev-python/imaging )
 	dev-python/libwnck-python
 	dev-python/python-xlib
+	dev-python/dbus-python
 	dev-libs/keybinder[python]"
 DEPEND="
 	awn? ( gnome-extra/avant-window-navigator )
