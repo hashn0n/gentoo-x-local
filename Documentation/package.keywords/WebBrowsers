@@ -28,3 +28,5 @@ www-client/cyberfox **
 
 # required by x11-libs/cairo-1.14.2-r1::gentoo
 sys-libs/binutils-libs
+sys-devel/binutils-config
+
