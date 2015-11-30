@@ -9,3 +9,5 @@ dev-lua/luaexpat
 # required by media-libs/quvi-0.9.5::mva
 =virtual/lua-5
 dev-lang/lua:5.1
+
+net-misc/youtube-dl
