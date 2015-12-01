@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/pulseaudio/pulseaudio-0.9.14.ebuild,v 1.5 2009/02/24 11:16:21 flameeyes Exp $
 
-EAPI=2
+EAPI="5"
 
 inherit eutils libtool autotools flag-o-matic
 

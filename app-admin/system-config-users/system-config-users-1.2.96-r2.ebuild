@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $
 
-EAPI="2"
+EAPI="5"
+
 inherit python base
 
 DESCRIPTION="The system-config-users tool lets you manage the users and groups on your computer."

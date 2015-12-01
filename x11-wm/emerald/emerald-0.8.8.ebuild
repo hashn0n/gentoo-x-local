@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-wm/emerald/emerald-0.8.8.ebuild,v 1.5 2013/04/20 10:29:43 pinkbyte Exp $
 
-EAPI="4"
+EAPI="5"
 
 inherit eutils flag-o-matic
 

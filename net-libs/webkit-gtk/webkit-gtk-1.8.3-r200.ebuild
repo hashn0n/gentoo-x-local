@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-libs/webkit-gtk/webkit-gtk-1.8.3-r200.ebuild,v 1.14 2013/10/10 23:43:20 tetromino Exp $
 
-EAPI="4"
+EAPI="5"
 
 PYTHON_COMPAT=( python{2_6,2_7} )
 

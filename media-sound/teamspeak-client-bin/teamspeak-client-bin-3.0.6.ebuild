@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/teamspeak-client-bin/teamspeak-client-bin-3.0.0_rc1.ebuild,v 1.4 2012/04/14 11:14:33 pacho Exp $
 
-EAPI=1
+EAPI="5"
 
 inherit eutils unpacker
 

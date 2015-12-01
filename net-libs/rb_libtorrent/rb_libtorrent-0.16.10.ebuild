@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-libs/rb_libtorrent/rb_libtorrent-0.16.10.ebuild,v 1.8 2014/03/15 16:49:36 hwoarang Exp $
 
-EAPI="4"
+EAPI="5"
+
 PYTHON_DEPEND="python? 2:2.6"
 PYTHON_USE_WITH="threads"
 PYTHON_USE_WITH_OPT="python"

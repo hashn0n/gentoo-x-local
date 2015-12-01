@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-apps/fusion-icon/fusion-icon-0.1-r2.ebuild,v 1.1 2011/11/13 14:26:29 flameeyes Exp $
 
-EAPI="4"
+EAPI="5"
+
 PYTHON_DEPEND="2"
 
 inherit distutils gnome2-utils

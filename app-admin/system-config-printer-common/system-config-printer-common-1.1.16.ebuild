@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-admin/system-config-printer-common/system-config-printer-common-1.1.13.ebuild,v 1.6 2009/12/27 12:45:59 armin76 Exp $
 
-EAPI="2"
+EAPI="5"
+
 inherit python autotools
 
 MY_P="${PN%-common}-${PV}"

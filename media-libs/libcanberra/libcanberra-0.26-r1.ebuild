@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-libs/libcanberra/libcanberra-0.25.ebuild,v 1.1 2010/06/18 10:11:15 pacho Exp $
 
-EAPI="3"
+EAPI="5"
+
 inherit gnome2-utils libtool
 
 DESCRIPTION="Portable Sound Event Library"

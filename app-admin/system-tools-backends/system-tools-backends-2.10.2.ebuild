@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-admin/system-tools-backends/system-tools-backends-2.10.2.ebuild,v 1.10 2014/06/22 18:46:20 maekke Exp $
 
-EAPI="3"
+EAPI="5"
+
 GCONF_DEBUG="no"
 
 inherit eutils gnome2 user

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-im/skype/skype-2.0.0.68.ebuild,v 1.2 2008/07/28 21:28:27 carlo Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit eutils qt4-r2 pax-utils
 

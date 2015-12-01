@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $
 
-EAPI="3"
+EAPI="5"
+
 inherit base eutils
 
 DESCRIPTION="The libuser library implements a standardized interface for manipulating and administering user and group accounts."

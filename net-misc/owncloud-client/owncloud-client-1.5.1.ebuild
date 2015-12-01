@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-misc/owncloud-client/Attic/owncloud-client-1.5.1.ebuild,v 1.3 2014/04/22 12:07:19 voyageur dead $
 
-EAPI=5
+EAPI="5"
 
 inherit cmake-utils
 

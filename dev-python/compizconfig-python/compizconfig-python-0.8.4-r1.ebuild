@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-python/compizconfig-python/compizconfig-python-0.8.4-r1.ebuild,v 1.3 2010/04/03 18:41:56 jmbsvicetto Exp $
 
-EAPI="3"
+EAPI="5"
 
 PYTHON_DEPEND="2"
 SUPPORT_PYTHON_ABIS="1"

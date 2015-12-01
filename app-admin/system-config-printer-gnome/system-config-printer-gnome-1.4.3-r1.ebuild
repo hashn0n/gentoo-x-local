@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/app-admin/system-config-printer-gnome/system-config-printer-gnome-1.4.3-r1.ebuild,v 1.9 2014/08/21 10:38:19 ago Exp $
 
 EAPI="5"
+
 GCONF_DEBUG="no"
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE="xml"

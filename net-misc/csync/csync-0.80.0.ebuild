@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/net-misc/csync/csync-0.70.7.ebuild,v 1.1 2013/04/29 15:53:42 kensington Exp $
 
-EAPI=5
+EAPI="5"
 
 inherit cmake-utils
 

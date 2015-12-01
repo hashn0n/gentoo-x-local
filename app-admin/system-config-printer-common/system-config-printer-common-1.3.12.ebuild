@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/app-admin/system-config-printer-common/system-config-printer-common-1.3.12.ebuild,v 1.12 2013/04/09 16:40:46 ago Exp $
 
-EAPI=4
+EAPI="5"
 
 PYTHON_DEPEND="2:2.6"
 WANT_AUTOMAKE="1.11"

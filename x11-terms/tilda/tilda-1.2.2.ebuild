@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-terms/tilda/tilda-1.1.8.ebuild $
 
-EAPI=4
+EAPI="5"
 
 inherit eutils gnome2 autotools
 PACKAGEAUTHOR="lanoxx"

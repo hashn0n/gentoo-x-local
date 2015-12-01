@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/Attic/gentoo-sources-3.12.6.ebuild,v 1.3 2014/01/10 13:21:32 mpagano dead $
 
 EAPI="5"
+
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras experimental"
 K_GENPATCHES_VER="7"

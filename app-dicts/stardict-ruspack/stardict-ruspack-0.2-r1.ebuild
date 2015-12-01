@@ -2,6 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
+EAPI="5"
+
 DESCRIPTION="Collection of dicts for stardict."
 HOMEPAGE="http://gnome.msiu.ru/stardict.php"
 SRC_URI="ftp://ftp.msiu.ru/education/FSF-Windows/stardict/dicts/stardict-dicts.exe"

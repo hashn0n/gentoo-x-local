@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/sys-kernel/gentoo-sources/gentoo-sources-3.12.12.ebuild,v 1.1 2014/02/21 19:02:44 mpagano Exp $
 
 EAPI="5"
+
 ETYPE="sources"
 K_WANT_GENPATCHES="base extras experimental"
 K_GENPATCHES_VER="13"

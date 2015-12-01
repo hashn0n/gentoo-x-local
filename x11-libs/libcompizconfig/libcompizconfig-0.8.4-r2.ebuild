@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-libs/libcompizconfig/libcompizconfig-0.8.4-r2.ebuild,v 1.2 2011/03/21 19:52:57 nirbheek Exp $
 
-EAPI="2"
+EAPI="5"
 
 DESCRIPTION="Compiz Configuration System"
 HOMEPAGE="http://www.compiz.org/"

@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/www-client/firefox/Attic/firefox-28.0.ebuild,v 1.5 2014/05/01 13:27:03 anarchy dead $
 
 EAPI="5"
+
 VIRTUALX_REQUIRED="pgo"
 WANT_AUTOCONF="2.1"
 MOZ_ESR=""

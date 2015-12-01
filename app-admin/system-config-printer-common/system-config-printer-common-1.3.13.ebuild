@@ -3,6 +3,7 @@
 # $Header: /var/cvsroot/gentoo-x86/app-admin/system-config-printer-common/system-config-printer-common-1.3.13.ebuild,v 1.1 2013/10/30 18:04:34 pacho Exp $
 
 EAPI="5"
+
 PYTHON_COMPAT=( python2_{6,7} )
 PYTHON_REQ_USE="xml"
 

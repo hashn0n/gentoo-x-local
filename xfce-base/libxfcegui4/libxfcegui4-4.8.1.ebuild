@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/xfce-base/libxfcegui4/Attic/libxfcegui4-4.8.1.ebuild,v 1.11 2012/09/09 19:29:38 ssuominen dead $
 
-EAPI=4
+EAPI="5"
+
 inherit xfconf
 
 DESCRIPTION="Xfce's unified widgets library (deprecated: don't use this for future development)"

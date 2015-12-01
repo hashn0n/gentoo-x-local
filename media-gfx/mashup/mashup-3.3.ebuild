@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=2
+EAPI="5"
+
 inherit eutils toolchain-funcs
 
 DESCRIPTION="Program for printing one or more image files with a user-defined page layout"

@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-plugins/purple-plugin_pack/purple-plugin_pack-2.6.3.ebuild,v 1.7 2011/10/27 06:46:56 tetromino Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit eutils python
 

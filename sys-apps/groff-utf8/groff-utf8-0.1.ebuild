@@ -1,6 +1,7 @@
 # Copyright 1999-2008 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
+EAPI="5"
 
 DESCRIPTION="Extension of groff that permits to view UTF-8 encoded man pages"
 HOMEPAGE="http://www.haible.de/bruno/packages-groff-utf8.html"

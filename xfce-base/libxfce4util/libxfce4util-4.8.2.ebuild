@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/xfce-base/libxfce4util/Attic/libxfce4util-4.8.2.ebuild,v 1.10 2012/09/09 19:29:09 ssuominen dead $
 
-EAPI=4
+EAPI="5"
+
 inherit xfconf
 
 DESCRIPTION="Xfce's basic utilities library"

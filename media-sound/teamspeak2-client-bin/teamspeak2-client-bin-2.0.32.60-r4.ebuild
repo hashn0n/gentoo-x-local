@@ -2,7 +2,8 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/media-sound/teamspeak2-client-bin/teamspeak2-client-bin-2.0.32.60-r3.ebuild,v 1.22 2009/08/26 07:58:44 ssuominen Exp $
 
-EAPI="1"
+EAPI="5"
+
 MY_PV=rc2_2032
 inherit eutils
 

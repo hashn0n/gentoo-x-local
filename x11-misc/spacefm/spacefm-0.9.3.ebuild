@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-misc/spacefm/spacefm-0.9.3.ebuild,v 1.3 2014/03/29 06:09:58 ago Exp $
 
-EAPI=5
+EAPI="5"
 
 inherit fdo-mime gnome2-utils linux-info
 

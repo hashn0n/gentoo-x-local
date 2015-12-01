@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-plugins/compiz-plugins-main/compiz-plugins-main-0.8.6-r1.ebuild,v 1.4 2011/03/21 19:50:33 nirbheek Exp $
 
-EAPI="2"
+EAPI="5"
 
 inherit autotools eutils gnome2-utils
 
