@@ -38,7 +38,7 @@ src_install() {
 
 	into /opt
 	dobin "${FILESDIR}"/TeamSpeak
-	dosed "s:%installdir%:/opt/teamspeak2-client:g" /opt/bin/TeamSpeak
+	sed -i -e "s~%installdir%~/opt/teamspeak2-client~g" /opt/bin/TeamSpeak || die "Sed broke!"
 
 	exeinto ${dest}
 	doexe TeamSpeak.bin *.so*
