@@ -1,85 +1,16 @@
 # required by x11-libs/gtk+-3.14.6
 =x11-themes/adwaita-icon-theme-3.14.1
-
+#
 <gnome-base/gnome-keyring-3
 <gnome-base/libgnome-keyring-3
-gnome-base/gnome-vfs
-#gnome-base/gvfs
 app-crypt/p11-kit
-gnome-base/gconf:2
-gnome-base/gnome-desktop:2
+<gnome-base/gnome-desktop-3
 <gnome-base/gnome-menus-3
-<gnome-base/gnome-applets-3
-gnome-base/libgnome
-<gnome-base/gnome-panel-3
 <gnome-base/gnome-common-3
 <gnome-base/gnome-control-center-3
-## gnome-base/gnome-control-center-3 req
-#x11-misc/colord
-#media-gfx/shared-color-profiles
-#net-libs/gnome-online-accounts
-#dev-util/gdbus-codegen
-#sys-apps/accountsservice
-#net-print/cups-pk-helper
-#gnome-base/gnome-session
-#gnome-base/gsettings-desktop-schemas
-#dev-libs/json-c
-#net-libs/rest
-## End gnome-base/gnome-control-center-3 req
 <gnome-base/libgnomekbd-3
 <gnome-base/gnome-settings-daemon-3
-<gnome-extra/sensors-applet-3
-gnome-extra/file-browser-applet
 gnome-extra/gconf-editor
-gnome-extra/eiciel
 gnome-extra/zenity
-=app-text/evince-3.6.1
-x11-terms/gnome-terminal
-#x11-wm/metacity
-#x11-libs/pango
-#x11-libs/vte
-x11-libs/gnome-pty-helper
-x11-libs/libxklavier
-#x11-misc/alacarte
-x11-themes/gnome-icons-crystal-svg
-## >=net-libs/libproxy-0.4.10 compiled with spidermonkey leads
-## to firefox crashing on crosing with mouse from normal html to flash.
-net-libs/libproxy
-##requared for >=libproxy-0.4.10 +spidemonkey
-#=dev-lang/spidermonkey-1.8.5-r1
-## End
-x11-libs/libnotify
-x11-misc/notification-daemon
-dev-libs/libgweather
-dev-libs/eggdbus
-dev-cpp/glibmm:2
 dev-util/gdbus-codegen
 dev-libs/glib:2
-#requared for dev-libs/glib:2 :
-=sys-apps/dbus-1.4.16-r2
-#
-dev-cpp/gtkmm:2.4
-dev-cpp/atkmm
-dev-cpp/pangomm:1.4
-dev-cpp/gconfmm
-dev-python/gnome-keyring-python
-dev-python/gnome-python-desktop
-dev-python/gnome-python-desktop-base
-dev-python/gnome-applets-python
-dev-python/libgnomecanvas-python
-dev-python/gnome-vfs-python
-dev-python/libbonobo-python
-dev-python/libgnome-python
-dev-python/gnome-python-base
-dev-python/gconf-python
-#dev-python/librsvg-python
-dev-python/gtksourceview-python
-dev-python/gnome-media-python
-dev-python/libgnomeprint-python
-dev-python/bug-buddy-python
-dev-python/totem-python
-dev-python/libgtop-python
-dev-python/gnome-desktop-python
-dev-python/evolution-python
-#dev-python/metacity-python
-dev-python/brasero-python
