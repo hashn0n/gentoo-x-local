@@ -5,5 +5,8 @@ media-libs/glew abi_x86_32
 media-libs/glu abi_x86_32
 media-libs/mesa abi_x86_32
 x11-libs/libdrm abi_x86_32
+x11-libs/libva-intel-driver abi_x86_32
+x11-libs/libva-vdpau-driver abi_x86_32
+x11-libs/libva abi_x86_32
 media-libs/libtxc_dxtn abi_x86_32
 media-libs/libepoxy abi_x86_32
