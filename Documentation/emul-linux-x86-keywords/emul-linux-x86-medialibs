@@ -31,3 +31,7 @@
 =media-video/mjpegtools-2.1.0-r1
 
 =media-plugins/gst-plugins-libav-1.4.5-r1
+
+=media-libs/vo-aacenc-0.1.3
+=media-video/libav-11.3
+=media-libs/opus-1.1.1

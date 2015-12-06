@@ -14,8 +14,6 @@ dev-libs/libgamin abi_x86_32
 dev-libs/libverto abi_x86_32
 dev-util/pkgconfig abi_x86_32
 media-libs/openjpeg abi_x86_32
-media-libs/vo-aacenc abi_x86_32
-media-video/libav abi_x86_32
 net-fs/samba abi_x86_32
 net-libs/libasyncns abi_x86_32
 net-libs/libproxy abi_x86_32
