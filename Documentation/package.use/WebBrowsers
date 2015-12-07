@@ -1,5 +1,6 @@
 #FireFox:
 www-client/firefox -linguas_ru -crashreporter
+media-libs/libvpx postproc
 
 #Chrom[e|ium]
 www-client/chromium -system-ffmpeg
