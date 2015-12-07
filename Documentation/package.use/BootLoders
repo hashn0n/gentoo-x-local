@@ -1,0 +1,2 @@
+sys-boot/grub -custom-cflags ncurses static
+sys-libs/ncurses static-libs
