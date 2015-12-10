@@ -1,5 +1,5 @@
 app-admin/eselect
-app-eselect/eselect-python
+#app-eselect/eselect-python
 app-eselect/eselect-mpg123
 app-eselect/eselect-lib-bin-symlink
 app-eselect/eselect-notify-send

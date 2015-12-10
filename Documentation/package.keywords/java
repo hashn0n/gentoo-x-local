@@ -1,5 +1,0 @@
-# move dev-java/icedtea6-bin dev-java/icedtea-bin
-#dev-java/icedtea-bin
-
-# required by dev-java/icedtea-bin-6.1.13.3-r1[nsplugin]
-=dev-java/icedtea-web-1.4.2
