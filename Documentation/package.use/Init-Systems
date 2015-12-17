@@ -1,4 +1,5 @@
 sys-fs/udev extras
 sys-apps/pciutils -zlib
 
+sys-apps/systemd kdbus
 sys-process/systemd-cron cron-boot etc-crontab-systemd minutely setgid yearly -python_single_target_python2_7 python_single_target_python3_4
