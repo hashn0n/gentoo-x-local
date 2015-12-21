@@ -1,1 +1,3 @@
 sys-kernel/linux-firmware **
+sys-firmware/b43-firmware **
+net-wireless/bluez-firmware
