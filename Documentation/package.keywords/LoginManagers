@@ -1,1 +1,8 @@
 x11-misc/slim
+
+x11-misc/sddm
+kde-plasma/sddm-kcm
+
+x11-misc/lightdm **
+x11-misc/lightdm-gtk-greeter
+x11-misc/lightdm-kde
