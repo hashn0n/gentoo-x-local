@@ -1,2 +1,5 @@
+#qemu
+app-emulation/qemu virgl
+
 #vmware
 net-misc/curl ares
