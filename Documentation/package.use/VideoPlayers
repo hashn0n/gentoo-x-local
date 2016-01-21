@@ -5,3 +5,5 @@ media-libs/libass enca
 
 media-video/vlc oss alsa libass libv4l libv4l2 kde cdda libproxy gnome matroska qt4 skins stream taglib theora udev wma-fixed nsplugin -ffmpeg -xosd -remoteosd -samba
 sys-libs/zlib minizip static-libs
+
+media-video/mpv -alsa
