@@ -1,5 +1,6 @@
 x11-wm/compiz:0
-x11-apps/ccsm:0
+# move x11-apps/ccsm x11-misc/ccsm
+x11-misc/ccsm:0
 x11-libs/compiz-bcop:0
 x11-libs/compizconfig-backend-gconf:0
 x11-libs/compizconfig-backend-kconfig4:0
