@@ -4,3 +4,7 @@ sys-fs/lessfs
 net-p2p/syncthing
 # move app-misc/godep dev-go/godep
 dev-go/godep **
+# required by net-p2p/syncthing-0.12.16::mva
+=dev-lang/go-1.5.3
+# required by dev-lang/go-1.5.3::gentoo
+=dev-lang/go-bootstrap-1.4.3
