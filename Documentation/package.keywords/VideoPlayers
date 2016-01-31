@@ -30,3 +30,6 @@ media-video/gnome-mplayer
 #www-plugins/gecko-mediaplayer
 media-video/mplayer
 dev-libs/fribidi
+
+#For Blu-Ray Disks and files to process
+media-video/makemkv
