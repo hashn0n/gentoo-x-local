@@ -1,7 +1,7 @@
 net-misc/unison
 sys-fs/lessfs
 
-net-p2p/syncthing
+net-p2p/syncthing::bliss-overlay
 # move app-misc/godep dev-go/godep
 dev-go/godep **
 # required by net-p2p/syncthing-0.12.16::mva
