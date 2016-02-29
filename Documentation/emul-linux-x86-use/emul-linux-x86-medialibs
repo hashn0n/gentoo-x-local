@@ -10,6 +10,7 @@ dev-libs/liboil abi_x86_32
 media-gfx/sane-backends abi_x86_32
 media-libs/a52dec abi_x86_32
 media-libs/faac abi_x86_32
+media-libs/libaacplus abi_x86_32
 media-libs/faad2 abi_x86_32
 media-libs/gst-plugins-base abi_x86_32
 media-libs/gstreamer abi_x86_32
@@ -50,3 +51,7 @@ media-libs/vo-aacenc abi_x86_32
 media-video/libav abi_x86_32
 
 media-libs/opus abi_x86_32
+
+# required by media-video/ffmpeg[libass,encode,x265]
+media-libs/libass abi_x86_32
+media-libs/x265 abi_x86_32

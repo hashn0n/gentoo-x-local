@@ -4,10 +4,12 @@ media-libs/jbigkit abi_x86_32
 net-libs/glib-networking abi_x86_32
 virtual/krb5 abi_x86_32
 virtual/acl abi_x86_32
-#media-libs/libquvi abi_x86_32
-#media-libs/libquvi-scripts abi_x86_32
-#dev-lang/lua abi_x86_32
-#dev-lua/luasocket abi_x86_32
+media-libs/libquvi abi_x86_32
+media-libs/libquvi-scripts abi_x86_32
+dev-lang/lua abi_x86_32
+dev-lua/luasocket abi_x86_32
+dev-lua/luaexpat abi_x86_32
+dev-lua/LuaBitOp abi_x86_32
 
 app-admin/gamin abi_x86_32
 app-arch/bzip2 abi_x86_32
@@ -96,3 +98,6 @@ sys-libs/readline abi_x86_32
 sys-libs/slang abi_x86_32
 sys-libs/talloc abi_x86_32
 sys-libs/zlib abi_x86_32
+
+# required by media-video/ffmpeg[enca]
+app-i18n/enca abi_x86_32

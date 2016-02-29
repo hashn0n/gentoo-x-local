@@ -1,6 +1,7 @@
 #<media-video/mpv-0.7
 media-video/mpv
 media-video/libav
+media-video/ffmpeg
 
 media-video/vlc
 #<media-video/vlc-2.1.0
