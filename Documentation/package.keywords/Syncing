@@ -5,6 +5,6 @@ net-p2p/syncthing::bliss-overlay
 # move app-misc/godep dev-go/godep
 dev-go/godep **
 # required by net-p2p/syncthing-0.12.16::mva
-=dev-lang/go-1.5.3
+dev-lang/go:0/1.6
 # required by dev-lang/go-1.5.3::gentoo
 =dev-lang/go-bootstrap-1.4.3
