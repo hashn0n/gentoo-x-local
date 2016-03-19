@@ -1,0 +1,12 @@
+app-arch/libarchive
+app-arch/xz-utils
+app-arch/q7z
+app-arch/rar
+app-arch/p7zip
+app-arch/lz4
+app-arch/dtrx
+app-arch/bzip2
+app-arch/xz-utils
+
+#GUI:
+app-arch/engrampa

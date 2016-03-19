@@ -29,8 +29,6 @@ dev-libs/libgcrypt:11/11
 =sys-apps/texinfo-5.2
 =net-libs/glib-networking-2.42.1
 =app-admin/gamin-0.1.10-r1
-=app-arch/bzip2-1.0.6-r6
-=app-arch/xz-utils-5.2.1
 =app-crypt/mit-krb5-1.13-r1
 =app-text/libpaper-1.1.24-r2
 =dev-lang/perl-5.18.2-r2

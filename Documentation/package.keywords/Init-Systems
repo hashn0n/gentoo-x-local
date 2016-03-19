@@ -11,5 +11,4 @@ sys-fs/udev-init-scripts
 =virtual/udev-217
 
 sys-apps/systemd
-app-arch/lz4
 sys-process/systemd-cron

@@ -14,4 +14,3 @@
 net-libs/webkit-gtk:3
 >=gnome-base/gnome-menus-3
 >=app-text/evince-3.8
->=app-arch/file-roller-3.8
