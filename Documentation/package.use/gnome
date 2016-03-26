@@ -1,6 +1,7 @@
 ## gnome-3 stuff
 gnome-base/gnome-control-center -networkmanager -socialweb -colord -cheese
 ## End gnome-3 stuff
+gnome-base/gnome-panel -networkmanager
 gnome-base/gnome-vfs samba -http
 gnome-base/gvfs gdu gnome-keyring -bluetooth
 ## >=net-libs/libproxy-0.4.10 compiled with spidermonkey leads
