@@ -1,2 +1,3 @@
 sys-devel/gcc:4.7
-sys-devel/gcc:4.9
+# slotmove sys-devel/gcc 4.9 4.9.3
+sys-devel/gcc:4.9.3

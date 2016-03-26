@@ -1,0 +1,3 @@
+#sys-apps/util-linux build
+#dev-libs/openssl bindist
+net-misc/openssh -ssl
