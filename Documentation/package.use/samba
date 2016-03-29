@@ -1,3 +1,1 @@
 net-fs/samba acl client server smbclient smbsharemodes winbind
-net-fs/cifs-utils upcall ads
-sys-libs/talloc python
