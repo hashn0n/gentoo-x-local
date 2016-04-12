@@ -83,7 +83,6 @@ dev-libs/openssl:0
 =sys-devel/binutils-2.25.1-r1
 =sys-devel/binutils-config-5-r1
 =sys-devel/gettext-0.19.4
-sys-devel/llvm:0/3.7.1
 =sys-fs/e2fsprogs-1.42.12
 =sys-libs/cracklib-2.9.1-r1
 =sys-libs/e2fsprogs-libs-1.42.12
