@@ -32,3 +32,7 @@ RDEPEND="dev-python/pycrypto[${PYTHON_USEDEP}]
 	>media-video/rtmpdump-2.4"
 DEPEND="${RDEPEND}
 	dev-python/setuptools[${PYTHON_USEDEP}]"
+
+src_prepare() {
+	epatch "${FILESDIR}"/livestreamer_youtube-py.patch
+}

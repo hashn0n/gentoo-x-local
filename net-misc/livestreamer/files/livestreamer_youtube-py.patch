@@ -1,0 +1,13 @@
+diff --git a/src/livestreamer/plugins/youtube.py b/src/livestreamer/plugins/youtube.py
+index 4219799..df4c814 100644
+--- a/src/livestreamer/plugins/youtube.py
++++ b/src/livestreamer/plugins/youtube.py
+@@ -159,7 +159,7 @@ class YouTube(Plugin):
+             "video_id": video_id,
+             "el": "player_embedded"
+         }
+-        res = http.get(API_VIDEO_INFO, params=params)
++        res = http.get(API_VIDEO_INFO, params=params, headers=HLS_HEADERS)
+ 
+         return parse_query(res.text, name="config", schema=_config_schema)
+ 
