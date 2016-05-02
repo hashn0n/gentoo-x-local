@@ -1,5 +1,4 @@
 x11-wm/compiz-fusion unsupported
 x11-wm/compiz gconf gtk -kde
-x11-apps/fusion-icon -qt4
 
 x11-misc/compton xinerama
