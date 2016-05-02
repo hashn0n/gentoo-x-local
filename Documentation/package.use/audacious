@@ -1,1 +1,2 @@
+media-sound/audacious -qt5 -qt4
 media-plugins/audacious-plugins -oss4 aac sdl -qt5 -qt4
