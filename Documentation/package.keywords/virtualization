@@ -22,3 +22,6 @@ app-emulation/vmware-tools
 app-emulation/vmware-modules
 x11-libs/libview
 app-emulation/vmware-workstation
+
+# required by app-emulation/vmware-modules-308.1.0::gentoo
+=dev-util/patchelf-0.9
