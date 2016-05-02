@@ -1,0 +1,2 @@
+# required by net-misc/owncloud-client-2.1.1::gentoo[qt5]
+dev-qt/qtwebkit:5 printsupport
