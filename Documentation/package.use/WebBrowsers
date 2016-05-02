@@ -1,6 +1,6 @@
 #FireFox:
 www-client/firefox -linguas_ru -crashreporter
-media-libs/libvpx postproc
+media-libs/libvpx postproc svc
 
 #PaleMoon
 www-client/palemoon -alsa
