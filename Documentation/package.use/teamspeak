@@ -2,3 +2,6 @@ media-sound/teamspeak-client-bin alsa
 # required by dev-qt/qtcore-5.4.1::gentoo
 # required by media-sound/teamspeak-client-bin-3.0.16::gentoo
 dev-libs/libpcre pcre16
+
+# required by dev-qt/qtwebkit-5.5.1-r1::gentoo
+dev-qt/qtcore:5 icu
