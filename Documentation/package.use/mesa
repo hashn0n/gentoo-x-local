@@ -1,3 +1,2 @@
 #gles2 for freshplayerplugin
-#osmesa for wine with osmesa for offscreenrendering
-media-libs/mesa xa gles2 osmesa d3d9
+media-libs/mesa xa gles2
