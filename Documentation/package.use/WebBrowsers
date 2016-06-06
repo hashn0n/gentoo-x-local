@@ -1,5 +1,5 @@
 #FireFox:
-www-client/firefox -linguas_ru -crashreporter force-gtk2
+www-client/firefox -linguas_ru -crashreporter
 media-libs/libvpx postproc svc
 
 #PaleMoon
