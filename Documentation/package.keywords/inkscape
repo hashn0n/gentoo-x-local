@@ -3,3 +3,10 @@ app-text/libwpg:0.2
 app-text/libwpd:0.9
 media-gfx/uniconvertor
 media-libs/sk1libs
+
+# required by dev-cpp/gtkmm-2.24.4-r3::gentoo
+# required by media-gfx/inkscape-0.91-r3::gentoo
+=dev-cpp/glibmm-2.48.1
+
+# required by dev-cpp/glibmm-2.48.1::gentoo
+=dev-libs/libsigc++-2.8.0

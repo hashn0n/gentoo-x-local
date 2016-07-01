@@ -1,4 +1,3 @@
 app-text/stardict
 app-dicts/stardict-ruspack
-# move app-dicts/goldendict app-text/goldendict
 app-text/goldendict **
