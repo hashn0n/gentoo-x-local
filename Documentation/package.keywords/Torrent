@@ -1,1 +1,4 @@
 net-p2p/deluge
+
+# required by net-p2p/deluge-1.3.12-r4::gentoo
+=net-libs/rb_libtorrent-1.0.9-r1
