@@ -30,3 +30,5 @@ www-client/cyberfox **
 sys-libs/binutils-libs
 sys-devel/binutils-config
 
+#Vivaldi
+www-client/vivaldi
