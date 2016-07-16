@@ -1,2 +1,3 @@
 sys-apps/usb_modeswitch
 net-misc/asterisk-g729
+net-misc/asterisk-chan_dongle **
