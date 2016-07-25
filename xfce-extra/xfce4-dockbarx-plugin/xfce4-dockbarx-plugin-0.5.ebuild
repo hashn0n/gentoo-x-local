@@ -21,7 +21,12 @@ if [[ ${PV} == *9999* ]]; then
 	SRC_URI=""
 else
 	KEYWORDS="~amd64 ~x86"
-	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+#	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	inherit git-2
+	EGIT_REPO_URI="git://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	RESTRICT="mirror"
+	SRC_URI=""
+	EGIT_COMMIT="988c916557374564589b3dac7548eb512cc20759"
 fi
 
 LICENSE="GPL3"
