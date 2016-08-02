@@ -1,1 +1,1 @@
-mail-client/thunderbird -gstreamer
+mail-client/thunderbird -gstreamer -linguas_ru -l10n_ru

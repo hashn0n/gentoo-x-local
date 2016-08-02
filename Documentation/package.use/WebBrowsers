@@ -1,9 +1,9 @@
 #FireFox:
-www-client/firefox -linguas_ru -crashreporter
+www-client/firefox -linguas_ru -l10n_ru -crashreporter
 media-libs/libvpx postproc svc
 
 #PaleMoon
-www-client/palemoon -alsa
+www-client/palemoon -alsa -linguas_ru -l10n_ru
 
 #Chrom[e|ium]
 # required by www-client/chromium-40.0.2209.0
