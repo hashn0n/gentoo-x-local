@@ -45,15 +45,14 @@ src_unpack() {
 }
 
 src_configure() {
-	cd "${S}"
-}
-
-src_compile() {
 	myconf="--enable-libsalsa=NO"
 	epatch "${FILESDIR}"/osscore_2.6.36.patch
 	# Configure has to be run from build dir with full path.
 	cd "${WORKDIR}"/build
 	"${S}"/configure ${myconf} || die "configure failed"
+}
+
+src_compile() {
 	unset LDFLAGS
 #	emake LDFLAGS="$(raw-ldflags)" build || die "emake build failed"
 	emake build || die "emake build failed"

@@ -40,16 +40,15 @@ post_src_unpack() {
 }
 
 src_configure() {
-	cd "${S}"
-}
-
-src_compile() {
 	myconf="--enable-libsalsa=NO"
 	einfo "Running configure..."
 	# Configure has to be run from build dir with full path.
 	cd "${WORKDIR}"/build
 	"${S}"/configure ${myconf} || die "configure failed"
+}
 
+src_compile() {
+	cd "${WORKDIR}"/build
 	einfo "Stripping compiler flags..."
 	sed -i -e 's/-D_KERNEL//' "${WORKDIR}"/build/Makefile
 
