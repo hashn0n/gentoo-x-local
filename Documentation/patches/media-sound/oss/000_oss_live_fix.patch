@@ -1,0 +1,13 @@
+diff --git a/kernel/drv/oss_sblive/oss_sblive.c b/kernel/drv/oss_sblive/oss_sblive.c
+index bfa61df..9b93bd8 100644
+--- a/kernel/drv/oss_sblive/oss_sblive.c
++++ b/kernel/drv/oss_sblive/oss_sblive.c
+@@ -2515,7 +2515,7 @@ init_emu10k1 (sblive_devc * devc)
+ 
+   if (devc->feature_mask & SB_AUDIGY)
+     {
+-      memlimit=MEMLIMIT_32BITS;
++      memlimit=MEMLIMIT_31BITS;
+       sblive_write_reg (devc, 0x5e, 0, 0xf00);	/* ?? */
+       sblive_write_reg (devc, 0x5f, 0, 0x3);	/* ?? */
+     }
