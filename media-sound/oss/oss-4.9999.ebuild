@@ -1,17 +1,20 @@
-# Copyright 1999-2009 Gentoo Foundation
+# Copyright 1999-2010 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI="5"
 
-inherit eutils versionator flag-o-matic
+inherit flag-o-matic git-r3
 
 filter-ldflags "-Wl,-O1"
 
-# For the news, see the commit messages.
+EGIT_REPO_URI="https://github.com/Open-Sound-System/Open-Sound-System.git"
+EGIT_BRANCH="master"
+SRC_URI=""
 
 DESCRIPTION="Open Sound System - portable, mixing-capable, high quality sound system for Unix."
 HOMEPAGE="http://developer.opensound.com/"
+
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
@@ -21,59 +24,49 @@ DEPEND="sys-apps/gawk
 	>=x11-libs/gtk+-2
 	>=sys-kernel/linux-headers-2.6.11
 	!media-sound/oss"
-
 RDEPEND="${DEPEND}"
 
-RESTRICT="mirror"
-
-MY_PV=$(get_version_component_range 1-2)
-MY_BUILD=$(get_version_component_range 3)
-MY_P="oss-v${MY_PV}-build${MY_BUILD}-src-gpl"
-
-SRC_URI="http://www.4front-tech.com/developer/sources/testing/gpl/${MY_P}.tar.bz2"
-
-S="${WORKDIR}/${MY_P}"
+#S="${WORKDIR}/${PN}"
 
 src_unpack() {
-	unpack "${A}"
+	git-r3_src_unpack
 	mkdir "${WORKDIR}/build"
-	cd "${S}"
 
 	einfo "Replacing init script with gentoo friendly one..."
-	cp "${FILESDIR}/oss" "${S}/setup/Linux/oss/etc/S89oss"
+	cp "${FILESDIR}"/oss "${S}"/setup/Linux/oss/etc/S89oss
 
-	cd "${S}"
-	epatch_user
+#	cd "${S}"
+#	epatch_user
 }
 
 src_configure() {
 	myconf="--enable-libsalsa=NO"
-	epatch "${FILESDIR}"/osscore_2.6.36.patch
+	einfo "Running configure..."
 	# Configure has to be run from build dir with full path.
 	cd "${WORKDIR}"/build
 	"${S}"/configure ${myconf} || die "configure failed"
 }
 
 src_compile() {
-	unset LDFLAGS
-#	emake LDFLAGS="$(raw-ldflags)" build || die "emake build failed"
+	cd "${WORKDIR}"/build
+	einfo "Stripping compiler flags..."
+	sed -i -e 's/-D_KERNEL//' "${WORKDIR}"/build/Makefile
+
 	emake build || die "emake build failed"
 }
 
 src_install() {
-	newinitd "${FILESDIR}/oss" oss
-	cd "${WORKDIR}/build"
-	cp -R prototype/* "${D}" 
+	newinitd "${FILESDIR}"/oss oss
+	cd "${WORKDIR}"/build
+	cp -R prototype/* "${D}"
 }
 
 pkg_postinst() {
-	elog "PLEASE NOTE:"
-	elog ""
-	elog "In order to use OSSv4.2 you must run"
+	elog "To use OSSv4 for the first time you must run"
 	elog "# /etc/init.d/oss start "
 	elog ""
-	elog "If you are upgrading from a previous build of OSSv4.2 you must run"
+	elog "If you are upgrading, run"
 	elog "# /etc/init.d/oss restart "
 	elog ""
-	elog "Enjoy OSSv4.2 !"
+	elog "Enjoy OSSv4 !"
 }

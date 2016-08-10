@@ -32,9 +32,7 @@ src_unpack() {
 
 	einfo "Replacing init script with gentoo friendly one..."
 	cp "${FILESDIR}"/oss "${S}"/setup/Linux/oss/etc/S89oss
-}
 
-post_src_unpack() {
 	cd "${S}"
 	epatch_user
 }
