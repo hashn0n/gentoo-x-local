@@ -1,0 +1,4 @@
+# required by media-video/vlc-2.2.4::gentoo[vaapi]
+# required by media-libs/phonon-vlc-0.9.0::gentoo
+# required by media-libs/phonon-4.9.0::gentoo[vlc]
+=x11-libs/libva-1.7.1
