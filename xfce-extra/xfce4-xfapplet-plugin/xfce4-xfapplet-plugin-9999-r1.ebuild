@@ -9,7 +9,8 @@ inherit xfconf
 DESCRIPTION="Panel plugin to support GNOME applets"
 HOMEPAGE="http://goodies.xfce.org/projects/panel-plugins/xfce4-xfapplet-plugin"
 
-EGIT_REPO_URI="git://git.xfce.org/panel-plugins/${MY_PN:-${PN}}"
+EGIT_REPO_URI="git://git.xfce.org/archive/${MY_PN:-${PN}}"
+#EGIT_REPO_URI="git://git.xfce.org/panel-plugins/${MY_PN:-${PN}}"
 
 LICENSE="GPL-2"
 SLOT="0"
