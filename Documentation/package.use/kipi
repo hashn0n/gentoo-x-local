@@ -1,5 +1,0 @@
-media-plugins/kipi-plugins mjpeg -panorama -expoblending
-# required by app-office/akonadi-server-1.13.0[qt4]
-# required by kde-base/kdepimlibs-4.14.3
-# required by kde-base/drkonqi-4.14.3
-dev-qt/qtsql mysql
