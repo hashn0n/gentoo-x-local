@@ -9,11 +9,12 @@ PYTHON_REQ_USE='threads(+)'
 
 inherit waf-utils python-any-r1 vala eutils gnome2-utils
 
+PACKAGEAUTHOR="TiZ-EX1"
+
 DESCRIPTION="Xfce4 integration packadge for DockBarX."
 HOMEPAGE="http://xfce-look.org/content/show.php/xfce4-dockbarx-plugin+%2B+Mouse+DBX+Theme?content=157865
-	https://github.com/TiZ-EX1/xfce4-dockbarx-plugin"
+	https://github.com/${PACKAGEAUTHOR}/xfce4-dockbarx-plugin"
 
-PACKAGEAUTHOR="TiZ-EX1"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
 	EGIT_REPO_URI="git://github.com/${PACKAGEAUTHOR}/${PN}.git"
@@ -27,6 +28,8 @@ else
 	RESTRICT="mirror"
 	SRC_URI=""
 	EGIT_COMMIT="988c916557374564589b3dac7548eb512cc20759"
+## First bad commit
+#	EGIT_COMMIT="9f6abeda7cc673a3a1cfe9c4167023f84fee8a35"
 fi
 
 LICENSE="GPL3"

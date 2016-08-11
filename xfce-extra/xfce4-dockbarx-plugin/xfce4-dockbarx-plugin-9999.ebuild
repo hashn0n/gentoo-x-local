@@ -9,11 +9,12 @@ inherit waf-utils vala eutils gnome2-utils
 PYTHON_DEPEND="2:2.7"
 RESTRICT_PYTHON_ABIS="3.*"
 
+PACKAGEAUTHOR="TiZ-EX1"
+
 DESCRIPTION="Xfce4 integration packadge for DockBarX."
 HOMEPAGE="http://xfce-look.org/content/show.php/xfce4-dockbarx-plugin+%2B+Mouse+DBX+Theme?content=157865
-	https://github.com/TiZ-EX1/xfce4-dockbarx-plugin"
+	https://github.com/${PACKAGEAUTHOR}/xfce4-dockbarx-plugin"
 
-PACKAGEAUTHOR="TiZ-EX1"
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
 	EGIT_REPO_URI="git://github.com/${PACKAGEAUTHOR}/${PN}.git"
