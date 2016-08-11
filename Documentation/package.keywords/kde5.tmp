@@ -1,0 +1,4 @@
+kde-plasma/systemsettings
+
+# required by kde-plasma/systemsettings-5.7.3::gentoo[gtk]
+=kde-plasma/kde-gtk-config-5.7.3
