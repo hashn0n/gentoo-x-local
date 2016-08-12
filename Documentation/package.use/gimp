@@ -1,2 +1,5 @@
 media-gfx/gimp gnome python
 gnome-base/gvfs udev
+
+# required by media-gfx/gimp-2.9.4::gentoo
+media-libs/libmypaint gegl
