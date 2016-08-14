@@ -6,6 +6,9 @@ media-libs/libvpx postproc svc
 www-client/palemoon -alsa -linguas_ru -l10n_ru
 
 #Chrom[e|ium]
+
+www-client/chromium gnome gnome-keyring
+
 # required by www-client/chromium-40.0.2209.0
 dev-libs/libxml2 icu
 # required by dev-libs/libxml2 [icu]
