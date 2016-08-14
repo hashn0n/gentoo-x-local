@@ -4,11 +4,13 @@
 
 EAPI="5"
 
-inherit mercurial flag-o-matic
+inherit flag-o-matic git-r3
 
 filter-ldflags "-Wl,-O1"
 
-EHG_REPO_URI="http://opensound.hg.sourceforge.net:8000/hgroot/opensound/opensound"
+EGIT_REPO_URI="https://github.com/Open-Sound-System/Open-Sound-System.git"
+EGIT_BRANCH="master"
+SRC_URI=""
 
 DESCRIPTION="Open Sound System - portable, mixing-capable, high quality sound system for Unix."
 HOMEPAGE="http://developer.opensound.com/"
@@ -24,17 +26,17 @@ DEPEND="sys-apps/gawk
 	!media-sound/oss"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}"
+#S="${WORKDIR}/${PN}"
 
 src_unpack() {
-	mercurial_src_unpack
+	git-r3_src_unpack
 	mkdir "${WORKDIR}/build"
 
 	einfo "Replacing init script with gentoo friendly one..."
 	cp "${FILESDIR}"/oss "${S}"/setup/Linux/oss/etc/S89oss
 
-	cd "${S}"
-	epatch_user
+#	cd "${S}"
+#	epatch_user
 }
 
 src_configure() {
