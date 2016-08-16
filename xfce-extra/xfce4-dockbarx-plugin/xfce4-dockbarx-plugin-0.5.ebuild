@@ -27,9 +27,7 @@ else
 	EGIT_REPO_URI="git://github.com/${PACKAGEAUTHOR}/${PN}.git"
 	RESTRICT="mirror"
 	SRC_URI=""
-	EGIT_COMMIT="988c916557374564589b3dac7548eb512cc20759"
-## First bad commit
-#	EGIT_COMMIT="9f6abeda7cc673a3a1cfe9c4167023f84fee8a35"
+	EGIT_COMMIT="dc83b65b8beadf4416d93d07cc8e93c671a3a1c8"
 fi
 
 LICENSE="GPL3"
