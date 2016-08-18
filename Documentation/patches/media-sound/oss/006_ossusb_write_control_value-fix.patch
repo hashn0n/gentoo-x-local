@@ -1,0 +1,13 @@
+diff --git a/kernel/drv/oss_usb/ossusb_audio.c b/kernel/drv/oss_usb/ossusb_audio.c
+index c6631c9..bd1fd42 100644
+--- a/kernel/drv/oss_usb/ossusb_audio.c
++++ b/kernel/drv/oss_usb/ossusb_audio.c
+@@ -92,7 +92,7 @@ write_control_value (ossusb_devc * devc, udi_endpoint_handle_t * endpoint,
+       return OSS_EIO;
+     }
+ 
+-  return len;
++  return 1;
+ }
+ 
+ static void
