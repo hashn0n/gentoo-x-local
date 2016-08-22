@@ -1,2 +1,5 @@
 #media-video/mpv
 #media-video/libav
+
+# required by media-video/vlc-2.2.4::gentoo[-libav,swscale]
+=media-video/ffmpeg-3.1.2

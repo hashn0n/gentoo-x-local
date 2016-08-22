@@ -14,6 +14,9 @@ www-plugins/chrome-binary-plugins
 # required by www-client/chromium-53.0.2774.3::gentoo
 =app-arch/gzip-1.8
 
+# required by www-client/chromium-54.0.2832.2::gentoo
+=dev-libs/re2-0.2016.05.01
+
 #Midori
 www-client/midori
 
