@@ -1,7 +1,8 @@
-diff -r 1af7e985cef6 kernel/drv/oss_usb/ossusb_audio.c
---- a/kernel/drv/oss_usb/ossusb_audio.c	Tue Jul 21 19:46:03 2009 +0300
-+++ b/kernel/drv/oss_usb/ossusb_audio.c	Sat Jul 25 13:34:10 2009 +0300
-@@ -86,11 +86,15 @@
+diff --git a/kernel/drv/oss_usb/ossusb_audio.c b/kernel/drv/oss_usb/ossusb_audio.c
+index c6631c9..6372c06 100644
+--- a/kernel/drv/oss_usb/ossusb_audio.c
++++ b/kernel/drv/oss_usb/ossusb_audio.c
+@@ -86,11 +86,15 @@ write_control_value (ossusb_devc * devc, udi_endpoint_handle_t * endpoint,
  				 buf,	// buffer
  				 l,	// buflen
  				 OSS_HZ);
@@ -17,38 +18,38 @@ diff -r 1af7e985cef6 kernel/drv/oss_usb/ossusb_audio.c
  
    return len;
  }
-@@ -858,11 +862,9 @@
+@@ -858,11 +862,9 @@ rec_callback (udi_usb_request_t * request, void *arg)
        return;
      }
  
-+  oss_audio_inputintr (portc->audio_dev, AINTR_NO_POINTER_UPDATES | AINTR_LOCALQUEUE);
-+  start_input (portc->audio_dev, portc->devc, portc);
-   oss_audio_inc_byte_counter (dmap, len);
+-  oss_audio_inc_byte_counter (dmap, len);
 -  oss_audio_inputintr (portc->audio_dev, AINTR_NO_POINTER_UPDATES);
 -#ifdef linux
--  start_input (portc->audio_dev, portc->devc, portc);
++  oss_audio_inputintr (portc->audio_dev, AINTR_NO_POINTER_UPDATES | AINTR_LOCALQUEUE);
+   start_input (portc->audio_dev, portc->devc, portc);
 -#endif
++  oss_audio_inc_byte_counter (dmap, len);
  }
  
  #if 0
-@@ -962,13 +964,9 @@
+@@ -962,14 +964,10 @@ feed_output (int dev, ossusb_devc * devc, ossusb_portc * portc)
    adev_p adev = audio_engines[dev];
    dmap_p dmap = adev->dmap_out;
  
-+  if (portc->stopping)
-+    return 0;
-+
-   MUTEX_ENTER_IRQDISABLE (devc->mutex, flags);
+-  MUTEX_ENTER_IRQDISABLE (devc->mutex, flags);
 -
--  if (portc->stopping)
+   if (portc->stopping)
 -    {
 -      MUTEX_EXIT_IRQRESTORE (devc->mutex, flags);
 -      return 0;
 -    }
--
++    return 0;
+ 
++  MUTEX_ENTER_IRQDISABLE (devc->mutex, flags);
    pn = portc->curr_datapipe;
    portc->curr_datapipe = (portc->curr_datapipe + 1) % NR_DATAPIPES;
-@@ -994,8 +994,7 @@
+ 
+@@ -994,8 +992,7 @@ start_input (int dev, ossusb_devc * devc, ossusb_portc * portc)
  {
    int frag, err;
    oss_native_word flags;
@@ -58,7 +59,7 @@ diff -r 1af7e985cef6 kernel/drv/oss_usb/ossusb_audio.c
  
    if (portc->stopping)
      return;
-@@ -1003,10 +1002,12 @@
+@@ -1003,10 +1000,12 @@ start_input (int dev, ossusb_devc * devc, ossusb_portc * portc)
    MUTEX_ENTER_IRQDISABLE (devc->mutex, flags);
    frag = 0;
  
@@ -73,7 +74,7 @@ diff -r 1af7e985cef6 kernel/drv/oss_usb/ossusb_audio.c
  			       portc->fragment_size)) < 0)
      {
        cmn_err (CE_WARN, "oss usbaudio: Read transfer error %d\n", err);
-@@ -1040,7 +1041,7 @@
+@@ -1040,7 +1039,7 @@ usbaudio_trigger (int dev, int state)
        else if (!(state & PCM_ENABLE_OUTPUT))
  	{
  	  portc->stopping = 1;
@@ -82,7 +83,7 @@ diff -r 1af7e985cef6 kernel/drv/oss_usb/ossusb_audio.c
  	  udi_usb_cancel_request (portc->datapipe[0]);
  	  udi_usb_cancel_request (portc->datapipe[1]);
  #endif
-@@ -1055,15 +1056,16 @@
+@@ -1055,15 +1054,16 @@ usbaudio_trigger (int dev, int state)
  	{
  	  portc->prepared_modes &= ~PCM_ENABLE_INPUT;
  	  portc->stopping = 0;
