@@ -1,8 +1,142 @@
+diff --git a/devlists/Linux b/devlists/Linux
+index ebffe2c..6ec659b 100644
+--- a/devlists/Linux
++++ b/devlists/Linux
+@@ -5,8 +5,8 @@ lynxtwo	pci1621,22	LynxTWO-C Studio Interface
+ lynxtwo	pci1621,23	Lynx-L22 Studio Interface
+ lynxtwo	pci1621,24	Lynx AES16 Studio Interface
+ lynxtwo	pci1621,25	Lynx AES16-SRC Studio Interface
+-lynxtwo	pci1621,28	Lynx AES16e Studio Interface 
+-lynxtwo	pci1621,29	Lynx AES16e-SRC Studio Interface 
++lynxtwo	pci1621,28	Lynx AES16e Studio Interface
++lynxtwo	pci1621,29	Lynx AES16e-SRC Studio Interface
+ oss_ali5455	pci10b9,5455	ALI M5455
+ oss_atiaudio	pci1002,4341	ATI IXP200
+ oss_atiaudio	pci1002,4361	ATI IXP300
+@@ -15,12 +15,12 @@ oss_audigyls	pci1102,7	Sound Blaster Audigy LS / Live7.1
+ oss_audioloop	AUDIOLOOP	OSS loopback audio driver
+ oss_audiopci	pci1274,5000	Creative AudioPCI (ES1370)
+ oss_cmi878x	pci13f6,8788	CMedia CMI8788
+-oss_cmi878x	pci1043,8269    Asus Xonar D2 
+-oss_cmi878x	pci1043,834f	Asus Xonar D1 
+-oss_cmi878x	pci1043,8275    Asus Xonar DX 
+-oss_cmi878x	pci1043,82b7    Asus Xonar D2X 
+-oss_cmi878x	pci1043,838e    Asus Xonar DS 
+-oss_cmi878x	pci1043,835c    Asus Xonar Essence STX 
++oss_cmi878x	pci1043,8269	Asus Xonar D2
++oss_cmi878x	pci1043,834f	Asus Xonar D1
++oss_cmi878x	pci1043,8275	Asus Xonar DX
++oss_cmi878x	pci1043,82b7	Asus Xonar D2X
++oss_cmi878x	pci1043,838e	Asus Xonar DS
++oss_cmi878x	pci1043,835c	Asus Xonar Essence STX
+ oss_cmpci	pci13f6,100	C-Media CM8338A
+ oss_cmpci	pci13f6,100	MIDIMan DiO 2448
+ oss_cmpci	pci13f6,101	CMedia CM8338B
+@@ -28,7 +28,7 @@ oss_cmpci	pci13f6,111	CMedia CM8738/CM8768
+ oss_cmpci	pci14af,20	Guillemot Maxi Sound MUSE
+ oss_cs4281	pci1013,6005	Crystal CS4281
+ oss_cs461x	pci1013,6001	Crystal CS4610
+-oss_cs461x	pci1013,6003	Crystal CS4280 
++oss_cs461x	pci1013,6003	Crystal CS4280
+ oss_cs461x	pci1013,6004	Crystal CS4615
+ oss_cs461x	pcs153b,112e	Terratec DMX Xfire 1024
+ oss_cs461x	pcs1681,50	Hercules Game Theater XP
+@@ -68,8 +68,12 @@ oss_fmedia	pci1319,801	ForteMedia FM 801
+ oss_fmedia	pcs1489,7008	Genius Sound Maker Live
+ oss_geode	pci100b,503	National Semiconductor Geode SC1200
+ oss_geode	pci1078,103	National Semiconductor Geode CS5530
+-oss_geode	pci1022,2093	AMD Geode CS5536 
++oss_geode	pci1022,2093	AMD Geode CS5536
+ oss_hdaudio	pci8086,1c20	Intel High Definition Audio (CPT)
++oss_hdaudio	pci8086,1d20	Intel High Definition Audio (PBG)
++oss_hdaudio	pci8086,1e20	Intel High Definition Audio (PPT)
++oss_hdaudio	pci8086,811b	Intel High Definition Audio (SCH)
++oss_hdaudio	pci8086,8c20	Intel High Definition Audio (PCH_C)
+ oss_hdaudio	pci8086,2668	Intel High Definition Audio (ICH6)
+ oss_hdaudio	pci8086,27d8	Intel High Definition Audio (ICH7)
+ oss_hdaudio	pci8086,269a	Intel High Definition Audio (ESB2)
+@@ -77,8 +81,9 @@ oss_hdaudio	pci8086,284b	Intel High Definition Audio (ICH8)
+ oss_hdaudio	pci8086,293e	Intel High Definition Audio (P35)
+ oss_hdaudio	pci8086,293f	Intel High Definition Audio (ICH9)
+ oss_hdaudio	pci8086,3a3e	Intel High Definition Audio (ICH10)
+-oss_hdaudio	pci8086,3a6e	Intel High Definition Audio (ICH10)
++oss_hdaudio	pci8086,3a6e	Intel High Definition Audio (ICH10_B)
+ oss_hdaudio	pci8086,3b56	Intel High Definition Audio (PCH)
++oss_hdaudio	pci8086,3b57	Intel High Definition Audio (PCH_B)
+ oss_hdaudio	pci10de,26c	Nvidia High Definition Audio (MCP51)
+ oss_hdaudio	pci10de,371	Nvidia High Definition Audio (MCP55)
+ oss_hdaudio	pci10de,3e4	Nvidia High Definition Audio (MCP61)
+@@ -96,8 +101,8 @@ oss_hdaudio	pci10b9,5461	ULI High Definition Audio
+ oss_hdaudio	pci1102,9	Creative Labs SB XFi Xtreme
+ oss_hdsp	pci10ee,3fc5	RME Hammerfall (not supported yet)
+ oss_ich	pci1022,7445	AMD 786
+-oss_ich	pci1022,746d	AMD 8111 
+-oss_ich	pci1039,7012	SiS 7012 
++oss_ich	pci1022,746d	AMD 8111
++oss_ich	pci1039,7012	SiS 7012
+ oss_ich	pci10de,1b1	Nvidia nForce
+ oss_ich	pci10de,3a	Nvidia MCP4
+ oss_ich	pci10de,6a	Nvidia nForce2
+@@ -116,10 +121,10 @@ oss_ich	pci8086,25a6	Intel AC97 (ESB)
+ oss_ich	pci8086,266e	Intel AC97 (ICH6)
+ oss_ich	pci8086,27de	Intel AC97 (ICH7)
+ oss_ich	pci8086,7195	Intel 440MX (440MX)
+-oss_imux	oss_imux	OSS Input Multiplexer 
++oss_imux	oss_imux	OSS Input Multiplexer
+ oss_madi	pci10ee,3fc6	RME MADI (not supported yet)
+ oss_midiloop	oss_midiloop	OSS MIDI Loopback driver
+-oss_sblive	pci1102,2	Creative Sound Blaster Live 
++oss_sblive	pci1102,2	Creative Sound Blaster Live
+ oss_sblive	pcs1102,8040	Creative Sound Blaster Live 1024/Platinum
+ oss_sblive	pcs1102,8061	Creative Sound Blaster Live 5.1/Platinum IR
+ oss_sblive	pci1102,4	Creative Sound Blaster Audigy/Audigy2
+@@ -133,11 +138,11 @@ oss_sbpci	pci1274,8001	Creative Sound Blaster PCI128 (CT5880)
+ oss_sbpci	pci1274,8002	Creative Sound Blaster PCI128 (5880A)
+ oss_sbxfi	pci1102,5	Creative SB X-Fi 20K1 *EARLY BETA*
+ oss_sbxfi	pci1102,b	Creative SB X-Fi 20K2 *EARLY BETA*
+-oss_solo	pci125d,1969	ESS Solo-1 
++oss_solo	pci125d,1969	ESS Solo-1
+ oss_trident	pci1023,2000	Trident 4DWave-DX
+ oss_trident	pci1023,2001	Trident 4DWave-NX
+ oss_trident	pci1023,2002	Trident 4DWave-CX
+-oss_trident	pci1039,7018	SiS 7018 
++oss_trident	pci1039,7018	SiS 7018
+ oss_trident	pci10b9,5451	ALI M5451
+ oss_usb	usbif,class1	Generic USB audio/MIDI device (BETA)
+ oss_usb	usbif41e,3000	Creative Sound Blaster Extigy (BETA)
+@@ -168,13 +173,13 @@ oss_usb	usbifa92,1010	EGO SYStems RoMI/O USB MIDI interface (BETA)
+ oss_usb	usb499,1009	Yamaha UX16 USB MIDI interface (BETA)
+ oss_usb	usb499,101e	Yamaha PSR-1K USB MIDI Keyboard (BETA)
+ oss_userdev	oss_userdev	OSS user space audio driver I/O module
+-oss_via823x	pci1106,3059	VIA VT8233/8235/8237 
+-oss_via823x	pci1106,4551	VIA VT5432B 
+-oss_via823x	pci1106,7059	VIA VT8233A 
++oss_via823x	pci1106,3059	VIA VT8233/8235/8237
++oss_via823x	pci1106,4551	VIA VT5432B
++oss_via823x	pci1106,7059	VIA VT8233A
+ oss_via823x	pcs1462,3800	MSI K7T266
+-oss_via823x	pcs1462,4720	MSI KT3 Ultra 
+-oss_via97	pci1106,3058	VIA VT82C686 
+-oss_ymf7xx	pci1073,10	Yamaha DS-XG YMF744 
++oss_via823x	pcs1462,4720	MSI KT3 Ultra
++oss_via97	pci1106,3058	VIA VT82C686
++oss_ymf7xx	pci1073,10	Yamaha DS-XG YMF744
+ oss_ymf7xx	pci1073,12	Yamaha DS-XG YMF754
+ oss_ymf7xx	pci1073,4	Yamaha DS-XG YMF724
+ oss_ymf7xx	pci1073,5	Yamaha DS-XG YMF734
 diff --git a/setup/Linux/oss/build/osscore.c b/setup/Linux/oss/build/osscore.c
-index 2c93f46..7baa69e 100644
+index 1a029b4..d066f4e 100644
 --- a/setup/Linux/oss/build/osscore.c
 +++ b/setup/Linux/oss/build/osscore.c
-@@ -467,7 +467,9 @@ oss_get_pid (void)
+@@ -31,6 +31,7 @@ typedef int *ioctl_arg;
+ #include <linux/irq.h>
+ #include <linux/sched.h>
+ #include <linux/interrupt.h>
++#include <linux/uidgid.h>
+ #undef strlen
+ #undef strcpy
+ #define strlen oss_strlen
+@@ -436,7 +437,9 @@ oss_get_pid (void)
  int
  oss_get_uid (void)
  {
