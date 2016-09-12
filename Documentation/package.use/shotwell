@@ -1,0 +1,11 @@
+# required by media-libs/libgphoto2-2.5.10::gentoo[exif]
+# required by media-gfx/shotwell-0.23.4::gentoo
+# required by shotwell (argument)
+>=media-libs/libexif-0.6.21-r1 abi_x86_32
+# required by media-gfx/shotwell-0.23.4::gentoo
+# required by shotwell (argument)
+>=virtual/libgudev-230 introspection
+# required by virtual/libgudev-230::gentoo
+# required by media-gfx/shotwell-0.23.4::gentoo
+# required by shotwell (argument)
+>=dev-libs/libgudev-230 introspection
