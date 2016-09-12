@@ -1,0 +1,17 @@
+diff --git a/vmci-only/linux/vmciKernelIf.c b/vmci-only/linux/vmciKernelIf.c
+index 5ef9d7d..ee68275 100644
+--- a/vmci-only/linux/vmciKernelIf.c
++++ b/vmci-only/linux/vmciKernelIf.c
+@@ -1835,7 +1835,11 @@ VMCIReleasePages(struct page **pages,  // IN
+       if (dirty) {
+          set_page_dirty(pages[i]);
+       }
+-      page_cache_release(pages[i]);
++      #if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,1)
++            put_page(pages[i]);
++      #else
++            page_cache_release(pages[i]);
++      #endif
+       pages[i] = NULL;
+    }
+ }

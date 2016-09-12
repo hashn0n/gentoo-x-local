@@ -1,0 +1,18 @@
+diff --git a/vmnet-only/netif.c b/vmnet-only/netif.c
+index cd93edb..f6d766d 100644
+--- a/vmnet-only/netif.c
++++ b/vmnet-only/netif.c
+@@ -465,7 +465,12 @@ VNetNetifStartXmit(struct sk_buff    *skb, // IN:
+    VNetSend(&netIf->port.jack, skb);
+ 
+    netIf->stats.tx_packets++;
+-   dev->trans_start = jiffies;
++
++   #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 6, 0)
++      netif_trans_update(dev);
++   #else
++      dev->trans_start = jiffies;
++   #endif
+ 
+    return 0;
+ }

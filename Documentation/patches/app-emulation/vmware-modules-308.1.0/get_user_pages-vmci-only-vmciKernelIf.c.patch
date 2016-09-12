@@ -1,0 +1,50 @@
+diff --git a/vmci-only/linux/vmciKernelIf.c b/vmci-only/linux/vmciKernelIf.c
+index 8b1788f..828cf85 100644
+--- a/vmci-only/linux/vmciKernelIf.c
++++ b/vmci-only/linux/vmciKernelIf.c
+@@ -2048,13 +2048,21 @@ VMCIHost_GetUserMemory(VA64 produceUVA,       // IN
+    int err = VMCI_SUCCESS;
+ 
+    down_write(&current->mm->mmap_sem);
+-   retval = get_user_pages(current,
++   #if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++      retval = get_user_pages((VA)produceUVA,
++                           produceQ->kernelIf->numPages,
++                           1, 0,
++                           produceQ->kernelIf->u.h.headerPage,
++                           NULL);
++   #else
++      retval = get_user_pages(current,
+                            current->mm,
+                            (VA)produceUVA,
+                            produceQ->kernelIf->numPages,
+                            1, 0,
+                            produceQ->kernelIf->u.h.headerPage,
+                            NULL);
++   #endif
+    if (retval < produceQ->kernelIf->numPages) {
+       Log("get_user_pages(produce) failed (retval=%d)\n", retval);
+       VMCIReleasePages(produceQ->kernelIf->u.h.headerPage, retval, FALSE);
+@@ -2062,13 +2070,21 @@ VMCIHost_GetUserMemory(VA64 produceUVA,       // IN
+       goto out;
+    }
+ 
+-   retval = get_user_pages(current,
++   #if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++      retval = get_user_pages((VA)consumeUVA,
++                           consumeQ->kernelIf->numPages,
++                           1, 0,
++                           consumeQ->kernelIf->u.h.headerPage,
++                           NULL);
++   #else
++      retval = get_user_pages(current,
+                            current->mm,
+                            (VA)consumeUVA,
+                            consumeQ->kernelIf->numPages,
+                            1, 0,
+                            consumeQ->kernelIf->u.h.headerPage,
+                            NULL);
++   #endif
+    if (retval < consumeQ->kernelIf->numPages) {
+       Log("get_user_pages(consume) failed (retval=%d)\n", retval);
+       VMCIReleasePages(consumeQ->kernelIf->u.h.headerPage, retval, FALSE);
