@@ -10,3 +10,4 @@ x11-libs/libva-vdpau-driver abi_x86_32
 x11-libs/libva abi_x86_32
 media-libs/libtxc_dxtn abi_x86_32
 media-libs/libepoxy abi_x86_32
+x11-misc/virtualgl abi_x86_32
