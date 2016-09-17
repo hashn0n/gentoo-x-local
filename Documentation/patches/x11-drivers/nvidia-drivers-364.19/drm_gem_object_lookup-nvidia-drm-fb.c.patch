@@ -1,0 +1,27 @@
+diff --git a/kernel/nvidia-drm/nvidia-drm-fb.c b/kernel/nvidia-drm/nvidia-drm-fb.c
+index 586b337..442b8da 100644
+--- a/kernel/nvidia-drm/nvidia-drm-fb.c
++++ b/kernel/nvidia-drm/nvidia-drm-fb.c
+@@ -29,7 +29,7 @@
+ #include "nvidia-drm-fb.h"
+ #include "nvidia-drm-utils.h"
+ #include "nvidia-drm-gem.h"
+-
++#include <linux/version.h>
+ #include <drm/drm_crtc_helper.h>
+ 
+ static void nvidia_framebuffer_destroy(struct drm_framebuffer *fb)
+@@ -113,9 +113,11 @@ static struct drm_framebuffer *internal_framebuffer_create
+      *
+      * We don't support any planar format, pick up first buffer only.
+      */
+-
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,7,0)
++    gem = drm_gem_object_lookup(file, cmd->handles[0]);
++#else
+     gem = drm_gem_object_lookup(dev, file, cmd->handles[0]);
+-
++#endif
+     if (gem == NULL)
+     {
+         NV_DRM_DEV_LOG_ERR(nv_dev, "Failed to find gem object");
