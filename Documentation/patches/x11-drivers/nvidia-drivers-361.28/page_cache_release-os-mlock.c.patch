@@ -1,0 +1,28 @@
+diff --git a/kernel/nvidia/os-mlock.c b/kernel/nvidia/os-mlock.c
+index 9d8b495..3a48a12 100644
+--- a/kernel/nvidia/os-mlock.c
++++ b/kernel/nvidia/os-mlock.c
+@@ -129,7 +129,11 @@ NV_STATUS NV_API_CALL os_lock_user_pages(
+     else if (pinned < page_count)
+     {
+         for (i = 0; i < pinned; i++)
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++            put_page(user_pages[i]);
++#else
+             page_cache_release(user_pages[i]);
++#endif
+         os_free_mem(user_pages);
+         return NV_ERR_INVALID_ADDRESS;
+     }
+@@ -156,7 +160,11 @@ NV_STATUS NV_API_CALL os_unlock_user_pages(
+     {
+         if (write)
+             set_page_dirty_lock(user_pages[i]);
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++        put_page(user_pages[i]);
++#else
+         page_cache_release(user_pages[i]);
++#endif
+     }
+ 
+     os_free_mem(user_pages);

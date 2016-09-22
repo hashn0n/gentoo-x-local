@@ -1,0 +1,16 @@
+diff --git a/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c b/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c
+index 99f04a3..dbd3c30 100644
+--- a/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c
++++ b/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c
+@@ -2937,7 +2937,11 @@ cleanup_vadesc:
+                     set_page_dirty_lock(tempUserPageArray[i]);
+ 
+             UVM_PANIC_ON(tempUserPageArray[i] == 0);
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++            put_page(tempUserPageArray[i]);
++#else
+             page_cache_release(tempUserPageArray[i]);
++#endif
+             tempUserPageArray[i] = 0;
+         }
+ 

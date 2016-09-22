@@ -1,0 +1,20 @@
+diff --git a/kernel/nvidia-uvm/uvm_full_fault_handler.c b/kernel/nvidia-uvm/uvm_full_fault_handler.c
+index 42920e1..2576e9a 100644
+--- a/kernel/nvidia-uvm/uvm_full_fault_handler.c
++++ b/kernel/nvidia-uvm/uvm_full_fault_handler.c
+@@ -3099,7 +3099,15 @@ retry:
+         pg = pfn_to_page(cpuPfn);
+         UVM_PANIC_ON(!pg);
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++        // We used to return VM_FAULT_MINOR here. However, that was deprecated
++        // in the kernel, and the new guideline is to return 0 in case of a
++        // minor fault. The VM_FAULT_MINOR symbol itself was removed in
++        // March, 2016 with commit 0e8fb9312fbaf1a687dd731b04d8ab3121c4ff5a.
++        ret = 0;
++#else
+         ret = VM_FAULT_MINOR;
++#endif
+     }
+ 
+     // Update the gpu state for the given cpu fault only if we have some GPU

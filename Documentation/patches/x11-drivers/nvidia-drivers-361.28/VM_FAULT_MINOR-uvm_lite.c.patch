@@ -1,0 +1,20 @@
+diff --git a/kernel/nvidia-uvm/uvm_lite.c b/kernel/nvidia-uvm/uvm_lite.c
+index d42951b..6c8f62c 100644
+--- a/kernel/nvidia-uvm/uvm_lite.c
++++ b/kernel/nvidia-uvm/uvm_lite.c
+@@ -1283,7 +1283,15 @@ int _fault_common(struct vm_area_struct *vma, unsigned long vaddr,
+         // If we already have the page, then we must have earlier copied in the
+         // data from the GPU. Therefore, avoid migrating.
+         //
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++        // We used to return VM_FAULT_MINOR here. However, that was deprecated
++        // in the kernel, and the new guideline is to return 0 in case of a
++        // minor fault. The VM_FAULT_MINOR symbol itself was removed in
++        // March, 2016 with commit 0e8fb9312fbaf1a687dd731b04d8ab3121c4ff5a.
++        retValue = 0;
++#else
+         retValue = VM_FAULT_MINOR;
++#endif
+     }
+ 
+     // Increment the page usage count since the kernel automatically

@@ -1,0 +1,18 @@
+diff --git a/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c b/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c
+index 99f04a3..d18d769 100644
+--- a/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c
++++ b/kernel/nvidia-uvm/uvm_full_pagetbl_mgmt.c
+@@ -2907,8 +2907,13 @@ NV_STATUS uvmfull_access_memory(UvmVaspace *vaspace, NvU64 userCopyBuffer, NvU64
+ 
+         // get userPA for this range
+         down_read(&current->mm->mmap_sem);
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++        returnVal = get_user_pages((unsigned long)(UVM_ALIGN_ADDR(userCopyBuffer, PAGE_SIZE_4K)),
++            userPagesReq, 1, 0, tempUserPageArray, NULL);
++#else
+         returnVal = get_user_pages(current, current->mm, (unsigned long)(UVM_ALIGN_ADDR(userCopyBuffer, PAGE_SIZE_4K)),
+             userPagesReq, 1, 0, tempUserPageArray, NULL);
++#endif
+         up_read(&current->mm->mmap_sem);
+ 
+         if (returnVal != userPagesReq)

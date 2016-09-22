@@ -1,0 +1,18 @@
+diff --git a/kernel/nvidia/os-mlock.c b/kernel/nvidia/os-mlock.c
+index 9d8b495..537978c 100644
+--- a/kernel/nvidia/os-mlock.c
++++ b/kernel/nvidia/os-mlock.c
+@@ -116,8 +116,13 @@ NV_STATUS NV_API_CALL os_lock_user_pages(
+     }
+ 
+     down_read(&mm->mmap_sem);
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,6,0)
++    ret = get_user_pages((unsigned long)address,
++            page_count, write, force, user_pages, NULL);
++#else
+     ret = get_user_pages(current, mm, (unsigned long)address,
+             page_count, write, force, user_pages, NULL);
++#endif
+     up_read(&mm->mmap_sem);
+     pinned = ret;
+ 
