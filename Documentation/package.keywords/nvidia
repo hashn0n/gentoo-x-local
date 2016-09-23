@@ -5,6 +5,7 @@ x11-misc/vdpauinfo
 
 #Optimus:
 x11-drivers/xf86-video-intel
+sys-power/acpi_call
 
 #nouveau
 x11-drivers/xf86-video-nouveau
