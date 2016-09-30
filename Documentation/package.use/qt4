@@ -7,3 +7,9 @@ dev-qt/qtgui accessibility dbus
 dev-qt/qt3support:4 accessibility
 # move x11-libs/qt-svg dev-qt/qtsvg
 dev-qt/qtsvg:4 accessibility
+
+# required by app-office/akonadi-server-1.13.1_pre20160203-r1::gentoo
+# required by kde-apps/kdepimlibs-4.14.11_pre20160211::gentoo
+# required by kde-base/plasma-workspace-4.11.22::gentoo[kdepim]
+# required by kde-base/kdebase-startkde-4.11.22-r2::gentoo
+dev-qt/qtsql:4 mysql
