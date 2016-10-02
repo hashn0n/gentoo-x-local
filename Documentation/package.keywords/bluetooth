@@ -10,7 +10,7 @@
 app-mobilephone/obex-data-server
 gnome-extra/policykit-gnome
 <net-wireless/blueman-9999
-#net-wireless/bluez
+net-wireless/bluez
 net-wireless/bluez-hcidump
 net-wireless/bluedevil
 net-libs/libbluedevil
