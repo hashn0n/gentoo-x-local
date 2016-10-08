@@ -1,4 +1,8 @@
 x11-libs/gtk+:2
+
+#required by "x11-libs/gtk+-2.24.31-r1::gentoo"
+x11-themes/gtk-engines-adwaita
+
 #x11-libs/gtk+:3
 ##For gtk+:3
 #<x11-libs/pango-1.34
