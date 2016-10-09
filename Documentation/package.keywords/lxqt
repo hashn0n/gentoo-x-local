@@ -1,6 +1,6 @@
-lxqt-base/lxqt-notificationd
-dev-libs/libqtxdg
-lxqt-base/liblxqt
-lxqt-base/lxqt-common
-lxqt-base/lxqt-session
-lxqt-base/lxqt-config
+<lxqt-base/lxqt-notificationd-0.11
+<dev-libs/libqtxdg-0.11
+<lxqt-base/liblxqt-0.11
+<lxqt-base/lxqt-common-0.11
+<lxqt-base/lxqt-session-0.11
+<lxqt-base/lxqt-config-0.11
