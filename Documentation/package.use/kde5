@@ -1,0 +1,5 @@
+kde-plasma/plasma-desktop gtk2 legacy-systray
+app-text/poppler qt5
+
+media-libs/mesa xa gles2 wayland
+dev-libs/wayland abi_x86_32

@@ -1,7 +1,10 @@
 x11-libs/gtk+:2
 
-#required by "x11-libs/gtk+-2.24.31-r1::gentoo"
+# required by "x11-libs/gtk+-2.24.31-r1::gentoo"
 x11-themes/gtk-engines-adwaita
+
+# required by "x11-themes/gtk-engines-adwaita-3.20.2::gentoo"
+=x11-themes/gnome-themes-standard-3.20.2-r1
 
 #x11-libs/gtk+:3
 ##For gtk+:3
