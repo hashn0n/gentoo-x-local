@@ -13,3 +13,7 @@ media-libs/libcanberra gtk3
 gnome-extra/zenity -webkit
 gnome-base/gnome-applets -cpufreq
 media-sound/easytag gtk3
+
+# required by dev-libs/libappindicator-12.10.0-r301::gentoo
+# required by kde-plasma/plasma-desktop-5.7.5::gentoo[legacy-systray,gtk3]
+dev-libs/libdbusmenu gtk3

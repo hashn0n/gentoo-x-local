@@ -10,3 +10,7 @@ dev-qt/qt3support abi_x86_32
 dev-qt/qtsql abi_x86_32
 dev-qt/qtscript abi_x86_32
 dev-qt/qtxmlpatterns abi_x86_32
+
+# required by kde-plasma/plasma-desktop[qt4]
+# required by net-im/skype
+dev-libs/sni-qt abi_x86_32
