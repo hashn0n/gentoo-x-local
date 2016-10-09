@@ -1,6 +1,7 @@
 net-im/pidgin
 x11-plugins/purple-plugin_pack
 x11-plugins/pidgin-privacy-please **
+x11-plugins/pidgin-indicator
 net-libs/farsight2
 net-libs/libnice
 x11-plugins/pidgin-embeddedvideo
