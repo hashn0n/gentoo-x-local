@@ -14,3 +14,7 @@ dev-qt/qtxmlpatterns abi_x86_32
 # required by kde-plasma/plasma-desktop[qt4]
 # required by net-im/skype
 dev-libs/sni-qt abi_x86_32
+
+# required by dev-libs/sni-qt-0.2.6-r1::gentoo
+# required by kde-plasma/plasma-desktop-5.7.5::gentoo[qt4,legacy-systray]
+dev-libs/libdbusmenu-qt abi_x86_32
