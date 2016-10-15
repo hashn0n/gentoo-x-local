@@ -1,6 +1,12 @@
 kde-plasma/oxygen
 
+# required by kde-plasma/oxygen::gentoo
+kde-plasma/kdecoration
+
 kde-plasma/systemsettings
 
 # required by kde-plasma/systemsettings::gentoo[gtk]
 kde-plasma/kde-gtk-config
+
+# required by kde-plasma/kde-gtk-config::gentoo
+kde-plasma/kde-cli-tools
