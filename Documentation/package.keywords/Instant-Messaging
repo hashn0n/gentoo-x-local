@@ -9,6 +9,12 @@ x11-plugins/pidgin-extprefs
 x11-plugins/pidgin-opensteamworks
 net-im/whatsapp-purple **
 
+x11-plugins/pidgin-skypeweb **
+
+net-im/skypeforlinux
+net-im/skype
+net-im/skype-oss
+
 net-im/utox **
 net-im/tox-prpl **
 # required by net-im/utox-9999::tox-overlay
@@ -17,6 +23,3 @@ net-libs/tox **
 =dev-libs/libsodium-1.0.0
 # required by net-im/utox-9999::tox-overlay[filter_audio]
 media-libs/libfilteraudio **
-
-net-im/skype
-net-im/skype-oss
