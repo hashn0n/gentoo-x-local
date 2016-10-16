@@ -1,2 +1,2 @@
 # slotmove sys-devel/gcc 4.9 4.9.3
->=sys-devel/gcc-4.9::gentoo
+#>=sys-devel/gcc-4.9::gentoo
