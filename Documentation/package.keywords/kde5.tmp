@@ -10,3 +10,5 @@ kde-plasma/kde-gtk-config
 
 # required by kde-plasma/kde-gtk-config::gentoo
 kde-plasma/kde-cli-tools
+
+x11-misc/qt5ct
