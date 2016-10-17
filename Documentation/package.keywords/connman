@@ -1,2 +1,4 @@
-net-misc/connman
-gnome-extra/connman-gnome
+net-misc/connman **
+net-misc/connman-gtk **
+net-misc/connman-ui **
+net-misc/qconnman **
