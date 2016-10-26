@@ -1,3 +1,6 @@
 sys-boot/grub **
 
 sys-boot/refind
+
+# required by sys-boot/refind-0.10.4::gentoo[-gnuefi]
+sys-boot/udk
