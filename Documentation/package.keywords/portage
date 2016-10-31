@@ -1,6 +1,4 @@
 <sys-apps/portage-8888 **
-app-portage/eix
-app-portage/etc-proposals
 app-portage/layman
 # required by app-portage/layman-2.4.0-r1::gentoo
 =dev-python/ssl-fetch-0.4
@@ -8,3 +6,8 @@ app-portage/portato
 dev-python/shm
 app-portage/porthole
 sys-apps/sandbox
+
+app-portage/eix
+
+# required by app-portage/eix-0.32.1::gentoo
+=app-shells/quoter-2.0_p2
