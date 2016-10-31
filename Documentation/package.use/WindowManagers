@@ -2,3 +2,6 @@ x11-wm/compiz-fusion unsupported
 x11-wm/compiz gconf gtk -kde
 
 x11-misc/compton xinerama
+
+# required by x11-wm/lumina-9999::gentoo
+dev-qt/qtmultimedia widgets
