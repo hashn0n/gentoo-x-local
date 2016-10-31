@@ -1,1 +1,1 @@
-net-print/hplip cupsddk snmp ppds qt4 -qt5
+net-print/hplip cupsddk snmp ppds qt5 -qt4
