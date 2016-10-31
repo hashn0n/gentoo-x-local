@@ -1,4 +1,5 @@
 # required by net-misc/owncloud-client-2.1.1::gentoo[qt5]
 dev-qt/qtwebkit:5 printsupport
 
-net-misc/owncloud-client -qt5 qt4
+# required by net-misc/owncloud-client-2.2.4-r1::gentoo
+dev-libs/qtkeychain qt5

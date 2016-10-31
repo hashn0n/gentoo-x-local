@@ -8,3 +8,8 @@ dev-go/godep **
 dev-lang/go:0/1.6
 # required by dev-lang/go-1.5.3::gentoo
 =dev-lang/go-bootstrap-1.4.3
+
+net-misc/owncloud-client
+
+# required by net-misc/owncloud-client-2::gentoo
+dev-libs/qtkeychain
