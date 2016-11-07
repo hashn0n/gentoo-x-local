@@ -12,3 +12,6 @@ sys-fs/udev-init-scripts
 
 sys-apps/systemd
 sys-process/systemd-cron
+
+# required by sys-apps/systemd-232::gentoo[seccomp]
+=sys-libs/libseccomp-2.3.1
