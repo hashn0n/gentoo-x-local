@@ -1,4 +1,4 @@
 sys-boot/grub -custom-cflags static
 sys-libs/ncurses static-libs
 
-sys-boot/refind ntfs
+sys-boot/refind ntfs -custom-cflags
