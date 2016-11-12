@@ -1,2 +1,4 @@
 dev-util/geany -vte
 dev-libs/libxml2 python
+
+app-editors/tea aspell
