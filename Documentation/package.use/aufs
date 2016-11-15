@@ -1,1 +1,1 @@
-sys-fs/aufs3 inotify ramfs
+sys-fs/aufs4 inotify kernel-patch
