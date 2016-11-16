@@ -33,6 +33,7 @@ kde-frameworks/breeze-icons
 # required by kde-plasma/plasma-desktop-5.8.1::gentoo
 =media-fonts/hack-2.020
 
-# required by kde-frameworks/sonnet-5.26.0::gentoo
-# required by kde-plasma/plasma-desktop-5.8.1::gentoo
-=kde-frameworks/extra-cmake-modules-5.27.0
+# required by kde-frameworks/kwidgetsaddons-5.26.0::gentoo
+# required by kde-plasma/plasma-workspace-5.8.3-r2::gentoo
+# required by kde-plasma/plasma-desktop-5.8.3::gentoo
+=kde-frameworks/extra-cmake-modules-5.28.0
