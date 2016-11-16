@@ -1,6 +1,6 @@
 x11-base/xorg-x11
-<x11-base/xorg-server:0/1.19.0
-x11-base/xorg-drivers
+<x11-base/xorg-server-1.19.0
+<x11-base/xorg-drivers-1.19
 x11-apps/luit
 x11-apps/mkfontdir
 x11-apps/sessreg
