@@ -10,7 +10,7 @@ x11-libs/pixman
 www-client/google-chrome
 #www-client/chromium
 <www-client/chromium-54.0.2832.2
-www-plugins/chrome-binary-plugins
+www-plugins/chrome-binary-plugins:beta **
 
 # required by www-client/chromium-53.0.2774.3::gentoo
 =app-arch/gzip-1.8
