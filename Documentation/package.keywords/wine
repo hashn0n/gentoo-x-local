@@ -5,3 +5,7 @@ app-emulation/q4wine **
 media-sound/mpg123
 media-gfx/icoutils
 media-libs/win32codecs
+
+## ?
+media-libs/openal
+## ?

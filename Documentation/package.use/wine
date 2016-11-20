@@ -1,2 +1,6 @@
 app-emulation/wine -cups -ldap -udisks -gstreamer -alsa -custom-cflags mp3 mono pipelight staging s3tc osmesa
 app-emulation/q4wine kde gnome
+
+## ?
+media-libs/openal abi_x86_32
+## ?
