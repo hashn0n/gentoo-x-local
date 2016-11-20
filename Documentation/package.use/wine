@@ -1,4 +1,4 @@
-app-emulation/wine -cups -ldap -udisks -gstreamer -alsa -custom-cflags mp3 mono pipelight staging s3tc osmesa
+app-emulation/wine -cups -ldap -udisks -gstreamer -custom-cflags mp3 mono pipelight staging s3tc osmesa alsa openal
 app-emulation/q4wine kde gnome
 
 ## ?
