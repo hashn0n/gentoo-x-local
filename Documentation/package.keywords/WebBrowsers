@@ -22,7 +22,7 @@ www-plugins/chrome-binary-plugins:beta **
 www-client/midori
 
 #uzbl - Web interface tools which adhere to the unix philosophy.
-www-client/uzbl **
+www-client/uzbl
 
 #Pale Moon
 www-client/palemoon **

@@ -25,7 +25,7 @@ SLOT="0"
 SRC_URI+=" https://patch-diff.githubusercontent.com/raw/uzbl/uzbl/pull/321.patch ->
 				${PN}-0.9.0-desktop_menu_entries.patch"
 
-KEYWORDS="~amd64 ~arm"
+KEYWORDS="-amd64 -arm"
 
 CDEPEND_A=(
 	# gtk+-3.0
