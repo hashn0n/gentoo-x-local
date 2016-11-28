@@ -1,0 +1,12 @@
+diff --git a/src/desktop/CMakeLists.txt b/src/desktop/CMakeLists.txt
+index 9a00dd4..0300894 100644
+--- a/src/desktop/CMakeLists.txt
++++ b/src/desktop/CMakeLists.txt
+@@ -92,6 +92,7 @@ if(PO4A)
+ 		string(REGEX REPLACE ".po$" "" LINGUAS ${LINGUAS_PO})
+ 		foreach(LOCALE ${LINGUAS})
+ 			podman(PODFILE lang/${LOCALE}/colobot.pod LOCALE ${LOCALE})
++			add_dependencies(man${PM_LOCALE} man_po4a)
+ 		endforeach()
+ 	endif()
+ endif()
