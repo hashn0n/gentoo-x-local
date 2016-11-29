@@ -4,14 +4,14 @@
 
 EAPI='5'
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python2_7 python3_4 )
 
 inherit python-single-r1
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
 	EGIT_REPO_URI=${EGIT_REPO_URI:-'git://github.com/uzbl/uzbl.git'}
-	KEYWORDS='-amd64 -x86 -amd64-linux -x86-linux'
+	KEYWORDS=''
 	SRC_URI=''
 	IUSE='experimental'
 else
@@ -68,10 +68,12 @@ RDEPEND="
 PREFIX="${EPREFIX}/usr"
 
 pkg_setup() {
-	if use experimental; then
-		EGIT_BRANCH='next'
-	else
-		EGIT_BRANCH="master"
+	if [[ ${PV} == *9999* ]]; then
+		if use experimental; then
+			EGIT_BRANCH='next'
+		else
+			EGIT_BRANCH="master"
+		fi
 	fi
 
 	python-single-r1_pkg_setup
