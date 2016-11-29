@@ -11,6 +11,6 @@
 >=gnome-extra/evolution-data-server-3
 >=gnome-extra/gnome-utils-3
 >=media-gfx/gnome-font-viewer-3
-net-libs/webkit-gtk:3
+#net-libs/webkit-gtk:3
 >=gnome-base/gnome-menus-3
 >=app-text/evince-3.8

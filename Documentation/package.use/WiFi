@@ -4,11 +4,6 @@ net-wireless/wpa_supplicant -madwifi wimax wps
 net-dns/avahi autoipd
 #net-misc/wicd -gtk
 net-dns/dnsmasq dhcp
-## required by net-misc/modemmanager-1.0.0-r2[policykit]
-## required by net-misc/networkmanager-0.9.8.8[modemmanager]
-## required by gnome-base/gnome-panel-2.32.1-r3::local[networkmanager]
-## required by xfce-extra/xfce4-xfapplet-plugin-9999-r1::local
-#sys-auth/polkit introspection
 
 # required by net-wireless/aircrack-ng-1.2_rc2::gentoo[airdrop-ng]
 net-wireless/lorcon python

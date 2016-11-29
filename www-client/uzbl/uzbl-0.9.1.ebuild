@@ -1,127 +1,138 @@
-# Copyright 2016 Jan Chren (rindeal)
+# Copyright 1999-2014 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
+# $Id$
 
-EAPI=6
-inherit rindeal
+EAPI='5'
 
-# git-hosting.eclass
-GH_URI="github"
-GH_REF="v${PV}"
-# python-*.eclass
-PYTHON_COMPAT=( python2_7 python3_{4,5} pypy )
-# distutils-*.eclass
-# event-manager is required and is written in python
-# DISTUTILS_OPTIONAL=true
+PYTHON_COMPAT=( python2_7 )
 
-inherit git-hosting
-inherit distutils-r1
-inherit xdg
+inherit python-single-r1
 
-DESCRIPTION="A web browser that adheres to the unix philosophy"
-LICENSE="GPL-2"
+if [[ ${PV} == *9999* ]]; then
+	inherit git-2
+	EGIT_REPO_URI=${EGIT_REPO_URI:-'git://github.com/uzbl/uzbl.git'}
+	KEYWORDS='-amd64 -x86 -amd64-linux -x86-linux'
+	SRC_URI=''
+	IUSE='experimental'
+else
+	inherit vcs-snapshot
+	KEYWORDS='~amd64 ~x86 ~amd64-linux ~x86-linux'
+	SRC_URI="https://github.com/uzbl/${PN}/tarball/v${PV} -> ${P}.tar.gz"
+fi
 
-SLOT="0"
+DESCRIPTION='Web interface tools which adhere to the unix philosophy.'
+HOMEPAGE='http://www.uzbl.org'
 
-KEYWORDS="~amd64 ~arm"
+LICENSE='LGPL-2.1 MPL-1.1'
+SLOT='0'
+IUSE+=' +browser helpers +tabbed vim-syntax'
 
-CDEPEND_A=(
-	# NOTE: gtk2 is not supported, because it depends on webkitgtk-1.0 which fails to build.
-	# gtk+-3.0
-	'>=x11-libs/gtk+-2.14:3'
-	# NOTE: webkit2 is supported only in the `next` branch so far.
-	# 'webkitgtk-3.0 >= 1.2.4'
-	# javascriptcoregtk-3.0
-	'net-libs/webkit-gtk:3'
+REQUIRED_USE='tabbed? ( browser )'
 
-	# 'libsoup-2.4 >= 2.33.4'
-	# 'libsoup-2.4 >= 2.41.1'
-	'>=net-libs/libsoup-2.41.1'
+COMMON_DEPEND='
+	dev-libs/glib:2
+	>=dev-libs/icu-4.0.1
+	>=net-libs/libsoup-2.24:2.4
+	net-libs/webkit-gtk:3
+	x11-libs/gtk+:3
+'
 
-	# gthread-2.0 glib-2.0 'gio-2.0 >= 2.44' gio-unix-2.0
-	'dev-libs/glib:2'
+DEPEND="
+	virtual/pkgconfig
+	${COMMON_DEPEND}
+"
 
-	# x11
-	'x11-libs/libX11'
-)
-DEPEND_A=( "${CDEPEND_A[@]}"
-	# icons converter
-	'media-gfx/imagemagick'
-	'virtual/pkgconfig'
-	"dev-python/setuptools[${PYTHON_USEDEP}]"
-)
-RDEPEND_A=( "${CDEPEND_A[@]}"
-	"dev-python/six[${PYTHON_USEDEP}]"
-	# configparser is built-in in python3+
-	"$(python_gen_cond_dep 'dev-python/configparser[${PYTHON_USEDEP}]' 'python2*' pypy)"
-)
+RDEPEND="
+	${COMMON_DEPEND}
+	x11-misc/xdg-utils
+	browser? (
+		x11-misc/xclip
+	)
+	helpers? (
+		dev-python/pygtk
+		dev-python/pygobject:2
+		gnome-extra/zenity
+		net-misc/socat
+		x11-libs/pango
+		x11-misc/dmenu
+		x11-misc/xclip
+		dev-python/configparser
+	)
+	tabbed? (
+		dev-python/pygtk
+	)
+	vim-syntax? ( || ( app-editors/vim app-editors/gvim ) )
+"
+# TODO document what requires the above helpers
 
-## optional deps, specified in `docs/INSTALL.md`
-# net-misc/socat
-# x11-misc/dmenu
-# gnome-extra/zenity
-# dev-lang/python
-# x11-misc/xclip
-# dev-python/pygtk
-# dev-python/pygobject
+PREFIX="${EPREFIX}/usr"
 
-inherit arrays
+pkg_setup() {
+	if use experimental; then
+		EGIT_BRANCH='next'
+	else
+		EGIT_BRANCH="master"
+	fi
+
+	python-single-r1_pkg_setup
+	if ! use helpers; then
+		elog "uzbl's extra scripts use various optional applications:"
+		elog
+		elog '   dev-python/pygtk'
+		elog '   dev-python/pygobject:2'
+		elog '   gnome-extra/zenity'
+		elog '   net-misc/socat'
+		elog '   x11-libs/pango'
+		elog '   x11-misc/dmenu'
+		elog '   x11-misc/xclip'
+		elog
+		elog 'Make sure you emerge the ones you need manually.'
+		elog 'You may also activate the *helpers* USE flag to'
+		elog 'install all of them automatically.'
+	else
+		einfo 'You have enabled the *helpers* USE flag that installs'
+		einfo "various optional applications used by uzbl's extra scripts."
+	fi
+}
 
 src_prepare() {
-	xdg_src_prepare
+	# remove -ggdb
+	sed -i 's/-ggdb //g' Makefile ||
+		die '-ggdb removal sed failed'
 
-	# respect user CFLAGS
-	sed -e '/^CFLAGS/ s| -g[^ \t]*||g' \
-		-i -- Makefile || die
+	# specify python version
+	python_fix_shebang bin/uzbl-tabbed ||
+		die 'Fix shebang failed'
 
-	# supply PVR instead of commit hash
-	sed -e "s|^COMMIT_HASH.*|COMMIT_HASH=${PVR}|" \
-		-i -- Makefile || die
+	# fix sandbox
+	if [ ${PV} == 9999 ] && ! use experimental
+	then
+		sed -i 's/prefix=$(PREFIX)/prefix=$(DESTDIR)\/$(PREFIX)/' Makefile ||
+			die 'Makefile sed for sandbox failed'
+	fi
 
-	# fix examples path
-	# NOTE: this path is hard-coded in startup scripts
-	# sed -e "s|\(cp -rv examples\) \$(SHAREDIR)/uzbl/|\1 \$(SHAREDIR)/${PF}/|" \
-	# 	-i -- Makefile || die
-
-	# we'll run setup.py manually
-	sed -e 's|$(PYTHON)|# disabled # $(PYTHON)|' \
-		-i -- Makefile || die
-
-	# fix default ca-cert path
-	sed -e "s|/etc/ssl/certs/ca-bundle.crt|${EPREFIX}/etc/ssl/certs/ca-certificates.crt|" \
-		-i -- examples/config/config || die
-
-	# NOTE: examples must be installed as they're used in startup scripts
-
-	distutils-r1_src_prepare
-}
-
-src_configure() {
-	local localmk=(
-		"DESTDIR	= ${D}"
-		"PREFIX		= ${EPREFIX}/usr"
-		"DOCDIR		= \$(SHAREDIR)/doc/${PF}"
-		"LIBDIR		= \$(INSTALLDIR)/$(get_libdir)/${PN}"
-
-		"ENABLE_GTK3 = yes"
-	)
-	printf '%s\n' "${localmk[@]}" > local.mk || die
-
-	distutils-r1_src_configure
-}
-
-src_compile() {
-	default
-
-	distutils-r1_src_compile
+	# fix QA of uzbl.desktop
+	if [ ${PV} == 9999 ] && use experimental
+	then
+		sed -i 's/Categories=Application;Network;/Categories=Network;/'	\
+			uzbl.desktop.in || die 'QA compliance of uzbl.desktop.in failed'
+	fi
 }
 
 src_install() {
-	default
+	local targets='install-uzbl-core'
+	use browser && targets="${targets} install-uzbl-browser"
+	use browser && use tabbed && targets="${targets} install-uzbl-tabbed"
 
-	# `--prefix=` can not go into `mydistutilsargs`, because `esetup.py`
-	# places it before `install` subcommand.
-	python_install() {
-		distutils-r1_python_install --prefix="${EPREFIX}/usr"
-	}
-	distutils-r1_src_install
+	# -j1 : upstream bug #351
+	emake -j1 DESTDIR="${D}" PREFIX="${PREFIX}"	\
+		DOCDIR="${ED}/usr/share/doc/${PF}" ${targets}
+
+	if use vim-syntax; then
+		insinto /usr/share/vim/vimfiles/ftdetect
+		doins "${S}"/extras/vim/ftdetect/uzbl.vim
+
+		insinto /usr/share/vim/vimfiles/syntax
+		doins "${S}"/extras/vim/syntax/uzbl.vim
+	fi
 }
