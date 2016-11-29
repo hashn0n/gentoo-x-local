@@ -17,7 +17,8 @@ dev-qt/qtwebkit icu
 #uzbl - Web interface tools which adhere to the unix philosophy.
 www-client/uzbl browser tabbed helpers
 
-net-libs/webkit-gtk -geoloc
+net-libs/webkit-gtk:3 -geolocation
+net-libs/webkit-gtk:2 -geoloc
 x11-misc/dmenu xft xinerama
 
 # required by net-misc/modemmanager-1.4.14::gentoo[policykit]
