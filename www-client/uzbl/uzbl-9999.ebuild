@@ -65,7 +65,7 @@ RDEPEND="
 "
 # TODO document what requires the above helpers
 
-PREFIX="${EPREFIX}/usr"
+export PREFIX="${EPREFIX}/usr"
 
 pkg_setup() {
 	if [[ ${PV} == *9999* ]]; then
