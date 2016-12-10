@@ -13,6 +13,7 @@ dev-libs/libev abi_x86_32
 dev-libs/libgamin abi_x86_32
 dev-libs/libverto abi_x86_32
 dev-util/pkgconfig abi_x86_32
+dev-util/pkgconf abi_x86_32
 media-libs/openjpeg abi_x86_32
 net-fs/samba abi_x86_32
 net-libs/libasyncns abi_x86_32
