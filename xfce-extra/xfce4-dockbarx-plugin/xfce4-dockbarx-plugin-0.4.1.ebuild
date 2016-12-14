@@ -7,7 +7,7 @@ EAPI="5"
 PYTHON_COMPAT=( python2_7 )
 PYTHON_REQ_USE='threads(+)'
 
-inherit waf-utils python-any-r1 vala eutils gnome2-utils
+inherit waf-utils python-r1 vala eutils gnome2-utils
 
 PACKAGEAUTHOR="TiZ-EX1"
 
@@ -17,7 +17,7 @@ HOMEPAGE="http://xfce-look.org/content/show.php/xfce4-dockbarx-plugin+%2B+Mouse+
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
-	EGIT_REPO_URI="git://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
 	RESTRICT="mirror"
 	SRC_URI=""
 else
@@ -41,6 +41,7 @@ export VALAC="$(type -P valac-0.28)"
 export VALAC="$(type -P valac-0.30)"
 
 src_configure() {
+	python_setup
 	waf-utils_src_configure
 }
 
