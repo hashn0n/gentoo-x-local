@@ -24,7 +24,7 @@ else
 	KEYWORDS="~amd64 ~x86"
 #	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	inherit git-2
-	EGIT_REPO_URI="git://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
 	RESTRICT="mirror"
 	SRC_URI=""
 	EGIT_COMMIT="a2dcb6694866b75e70f23544474cec17af42de22"
