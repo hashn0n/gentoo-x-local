@@ -1,4 +1,6 @@
-#!/sbin/runscript
+#!/sbin/openrc-run
+
+description="OSSv4"
 
 depend() {
 	need bootmisc localmount
@@ -17,4 +19,8 @@ stop() {
 	/usr/sbin/savemixer
 	/usr/sbin/soundoff
 	eend $? "Failed to stop OSS"
+}
+
+zap() {
+	rm /usr/lib/oss/starting
 }

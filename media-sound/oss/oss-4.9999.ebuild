@@ -4,11 +4,13 @@
 
 EAPI="5"
 
-inherit mercurial flag-o-matic
+inherit flag-o-matic mercurial
 
 filter-ldflags "-Wl,-O1"
 
-EHG_REPO_URI="http://opensound.hg.sourceforge.net:8000/hgroot/opensound/opensound"
+EHG_REPO_URI="http://hg.code.sf.net/p/opensound/mercurial"
+#EHG_REPO_URI="http://opensound.hg.sourceforge.net:8000/hgroot/opensound/opensound"
+SRC_URI=""
 
 DESCRIPTION="Open Sound System - portable, mixing-capable, high quality sound system for Unix."
 HOMEPAGE="http://developer.opensound.com/"
@@ -38,11 +40,12 @@ src_unpack() {
 	epatch "${FILESDIR}"/${P}-000_osscore_fix.patch
 	epatch "${FILESDIR}"/${P}-000_oss_live_fix.patch
 	epatch "${FILESDIR}"/${P}-000_usb.patch
-	epatch "${FILESDIR}"/${P}-001_oss4_linux_3.8_modules_build_fix.patch
-	epatch "${FILESDIR}"/${P}-002_oss4_linux_3.10_build_fix.patch
-	epatch "${FILESDIR}"/${P}-003_oss4_linux_3.11_build_fix.patch
-	epatch "${FILESDIR}"/${P}-004_oss4_linux_3.14_build_fix.patch
-	epatch "${FILESDIR}"/${P}-005_oss4_linux_4.0_build_fix.patch
+	epatch "${FILESDIR}"/${P}-000_devlists_fix_mercurial.patch
+	epatch "${FILESDIR}"/${P}-001_oss4_linux_3.8_modules_build_fix_mercurial.patch
+	epatch "${FILESDIR}"/${P}-002_oss4_linux_3.10_build_fix_mercurial.patch
+	epatch "${FILESDIR}"/${P}-003_oss4_linux_3.11_build_fix_mercurial.patch
+	epatch "${FILESDIR}"/${P}-004_oss4_linux_3.14_build_fix_mercurial.patch
+	epatch "${FILESDIR}"/${P}-005_oss4_linux_4.0_build_fix_mercurial.patch
 	epatch "${FILESDIR}"/${P}-006_oss4_linux_4.6_fix.patch
 
 	epatch_user

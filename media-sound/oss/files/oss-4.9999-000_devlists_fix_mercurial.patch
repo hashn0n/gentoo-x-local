@@ -124,26 +124,3 @@ index ebffe2c..6ec659b 100644
  oss_ymf7xx	pci1073,12	Yamaha DS-XG YMF754
  oss_ymf7xx	pci1073,4	Yamaha DS-XG YMF724
  oss_ymf7xx	pci1073,5	Yamaha DS-XG YMF734
-diff --git a/setup/Linux/oss/build/osscore.c b/setup/Linux/oss/build/osscore.c
-index 1a029b4..d066f4e 100644
---- a/setup/Linux/oss/build/osscore.c
-+++ b/setup/Linux/oss/build/osscore.c
-@@ -31,6 +31,7 @@ typedef int *ioctl_arg;
- #include <linux/irq.h>
- #include <linux/sched.h>
- #include <linux/interrupt.h>
-+#include <linux/uidgid.h>
- #undef strlen
- #undef strcpy
- #define strlen oss_strlen
-@@ -436,7 +437,9 @@ oss_get_pid (void)
- int
- oss_get_uid (void)
- {
--#if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
-+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,14,0)
-+  return __kuid_val(current->cred->uid);
-+#elif LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,29)
-   return current->cred->uid;
- #else
-   return current->uid;
