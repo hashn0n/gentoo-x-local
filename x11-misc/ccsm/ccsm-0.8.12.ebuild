@@ -12,7 +12,7 @@ inherit distutils
 DESCRIPTION="Compizconfig Settings Manager"
 HOMEPAGE="http://blog.northfield.ws/
 	http://blog.northfield.ws/"
-SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/${PN}.tar.gz -> ${P}.tar.gz"
+SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/${PN}.tar.xz -> ${P}.tar.xz"
 S="${WORKDIR}/${PN}"
 
 LICENSE="GPL-2"

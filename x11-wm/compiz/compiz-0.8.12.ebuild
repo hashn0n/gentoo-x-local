@@ -9,7 +9,7 @@ inherit autotools eutils gnome2-utils
 DESCRIPTION="OpenGL window and compositing manager"
 HOMEPAGE="http://blog.northfield.ws/
 	http://blog.northfield.ws/"
-SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/core.tar.gz -> ${P}.tar.gz"
+SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/core.tar.xz -> ${P}.tar.xz"
 
 LICENSE="GPL-2 LGPL-2.1 MIT"
 SLOT="0"
