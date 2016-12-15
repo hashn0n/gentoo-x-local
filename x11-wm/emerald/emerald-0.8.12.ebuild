@@ -6,7 +6,7 @@ EAPI="5"
 
 inherit autotools eutils flag-o-matic
 
-THEMES_RELEASE=0.8.10
+THEMES_RELEASE=${PV}
 
 DESCRIPTION="Emerald Window Decorator"
 HOMEPAGE="http://blog.northfield.ws/
