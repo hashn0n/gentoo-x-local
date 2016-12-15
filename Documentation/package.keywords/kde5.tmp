@@ -13,8 +13,8 @@ kde-plasma/kde-cli-tools
 
 <x11-misc/qt5ct-9999 **
 
-kde-plasma/plasma-desktop
-kde-plasma/plasma-workspace
+#kde-plasma/plasma-desktop
+#kde-plasma/plasma-workspace
 kde-plasma/kactivitymanagerd
 kde-plasma/plasma-integration
 kde-plasma/kwin
@@ -24,9 +24,9 @@ kde-plasma/ksysguard
 kde-plasma/libksysguard
 kde-plasma/kscreenlocker
 
-kde-plasma/breeze
-kde-plasma/breeze-gtk
-kde-frameworks/breeze-icons
+#kde-plasma/breeze
+#kde-plasma/breeze-gtk
+#kde-frameworks/breeze-icons
 
 # required by kde-plasma/plasma-integration-5.8.1::gentoo
 # required by kde-plasma/plasma-workspace-5.8.1::gentoo
