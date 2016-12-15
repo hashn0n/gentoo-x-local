@@ -6,8 +6,9 @@ x11-libs/compizconfig-backend-gconf:0
 x11-libs/compizconfig-backend-kconfig4:0
 x11-libs/libcompizconfig:0
 x11-plugins/compiz-plugins-main:0
-x11-plugins/compiz-plugins-unsupported:0
 x11-plugins/compiz-plugins-extra:0
+x11-plugins/compiz-plugins-unsupported:0
+x11-plugins/compiz-plugins-experimental:0
 ## needed for compiz-plugins-extra-0.8.8
 dev-libs/vala-common
 ##
