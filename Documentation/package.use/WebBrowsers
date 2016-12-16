@@ -3,7 +3,7 @@ www-client/firefox -linguas_ru -l10n_ru -crashreporter
 media-libs/libvpx postproc svc
 
 #PaleMoon
-www-client/palemoon -alsa -linguas_ru -l10n_ru
+www-client/palemoon alsa gtk3 -gtk2 -pulseaudio -official-branding -linguas_ru -l10n_ru
 
 #Chrom[e|ium]
 
