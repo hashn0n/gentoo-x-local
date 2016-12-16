@@ -1,37 +1,4 @@
-kde-plasma/oxygen
-
-# required by kde-plasma/oxygen::gentoo
-kde-plasma/kdecoration
-
-kde-plasma/systemsettings
-
-# required by kde-plasma/systemsettings::gentoo[gtk]
-kde-plasma/kde-gtk-config
-
-# required by kde-plasma/kde-gtk-config::gentoo
-kde-plasma/kde-cli-tools
-
 <x11-misc/qt5ct-9999 **
-
-#kde-plasma/plasma-desktop
-#kde-plasma/plasma-workspace
-kde-plasma/kactivitymanagerd
-kde-plasma/plasma-integration
-kde-plasma/kwin
-kde-plasma/polkit-kde-agent
-kde-plasma/milou
-kde-plasma/ksysguard
-kde-plasma/libksysguard
-kde-plasma/kscreenlocker
-
-#kde-plasma/breeze
-#kde-plasma/breeze-gtk
-#kde-frameworks/breeze-icons
-
-# required by kde-plasma/plasma-integration-5.8.1::gentoo
-# required by kde-plasma/plasma-workspace-5.8.1::gentoo
-# required by kde-plasma/plasma-desktop-5.8.1::gentoo
-=media-fonts/hack-2.020
 
 # required by kde-frameworks/kwidgetsaddons-5.26.0::gentoo
 # required by kde-plasma/plasma-workspace-5.8.3-r2::gentoo
