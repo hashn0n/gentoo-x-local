@@ -4,9 +4,9 @@
 
 EAPI="5"
 
-inherit autotools eutils gnome2-utils
+inherit autotools eutils
 
-DESCRIPTION="Compiz Fusion Window Decorator Plugins"
+DESCRIPTION="Compiz Main Plugins"
 HOMEPAGE="http://blog.northfield.ws/
 	http://blog.northfield.ws/"
 SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/${PN##compiz-}.tar.xz -> ${P}.tar.xz"
@@ -15,30 +15,27 @@ S="${WORKDIR}/${PN##compiz-}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="gconf"
+IUSE=""
 
 RDEPEND="
 	>=gnome-base/librsvg-2.14.0:2
 	virtual/jpeg:0
 	x11-libs/cairo
 	>=x11-libs/compiz-bcop-${PV}
-	>=x11-wm/compiz-${PV}[gconf?]
+	>=x11-wm/compiz-${PV}
 "
 
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.35
 	>=dev-util/pkgconfig-0.19
 	>=sys-devel/gettext-0.15
-	gconf? ( gnome-base/gconf:2 )
 "
 
 src_prepare() {
-	if ! use gconf; then
-		epatch "${FILESDIR}"/${PN}-no-gconf.patch
+	# Prevent m4_copy error when running aclocal
+	# m4_copy: won't overwrite defined macro: glib_DEFUN
+	rm m4/glib-gettext.m4 || die
 
-		# required to apply the above patch
-		intltoolize --copy --force || die "intltoolize failed"
-	fi
 	eautoreconf || die "eautoreconf failed"
 }
 
@@ -47,18 +44,10 @@ src_configure() {
 		--disable-dependency-tracking \
 		--enable-fast-install \
 		--disable-static \
-		$(use_enable gconf schemas)
+		--with-gnu-ld
 }
 
 src_install() {
 	emake DESTDIR="${D}" install || die "emake install failed"
 	find "${D}" -name '*.la' -delete || die
-}
-
-pkg_preinst() {
-	use gconf && gnome2_gconf_savelist
-}
-
-pkg_postinst() {
-	use gconf && gnome2_gconf_install
 }

@@ -6,7 +6,7 @@ EAPI="5"
 
 inherit autotools eutils
 
-DESCRIPTION="Compiz Fusion Window Decorator Unsupported Plugins"
+DESCRIPTION="Compiz Experimental Plugins"
 HOMEPAGE="http://blog.northfield.ws/
 	http://blog.northfield.ws/"
 SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/${PN##compiz-}.tar.xz -> ${P}.tar.xz"
@@ -20,6 +20,7 @@ IUSE=""
 RDEPEND="
 	>=gnome-base/librsvg-2.14.0:2
 	virtual/jpeg:0
+	!x11-plugins/compiz-plugins-unsupported
 	>=x11-libs/compiz-bcop-${PV}
 	>=x11-plugins/compiz-plugins-main-${PV}
 	>=x11-wm/compiz-${PV}
@@ -35,6 +36,10 @@ DEPEND="${RDEPEND}
 RESTRICT="mirror"
 
 src_prepare() {
+	# Prevent m4_copy error when running aclocal
+	# m4_copy: won't overwrite defined macro: glib_DEFUN
+	rm m4/glib-gettext.m4 || die
+
 	eautoreconf || die "eautoreconf failed"
 }
 

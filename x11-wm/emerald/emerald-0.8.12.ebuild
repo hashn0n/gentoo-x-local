@@ -17,14 +17,20 @@ S="${WORKDIR}/${PN}"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE=""
+IUSE="+gtk2 gtk3"
 
 PDEPEND="~x11-themes/emerald-themes-${THEMES_RELEASE}"
 
 RDEPEND="
-	>=x11-libs/gtk+-2.8.0:2
-	>=x11-libs/libwnck-2.14.2:1
-	>=x11-wm/compiz-${PV}
+	=x11-wm/compiz-${PV}
+	gtk2? (
+		>=x11-libs/gtk+-2.10.0:2
+		>=x11-libs/libwnck-2.18.3:1
+	)
+	gtk3? (
+		x11-libs/gtk+:3
+		x11-libs/libwnck:3
+	)
 "
 
 DEPEND="${RDEPEND}
@@ -33,9 +39,13 @@ DEPEND="${RDEPEND}
 	>=sys-devel/gettext-0.15
 "
 
-DOCS=( AUTHORS ChangeLog INSTALL NEWS README TODO )
+DOCS=( AUTHORS INSTALL NEWS README.md TODO )
 
 src_prepare() {
+	# Prevent m4_copy error when running aclocal
+	# m4_copy: won't overwrite defined macro: glib_DEFUN
+	rm m4/glib-gettext.m4 || die
+
 	# Fix pkg-config file pollution wrt #380197
 	epatch "${FILESDIR}"/${P}-pkgconfig-pollution.patch
 	# fix build with gtk+-2.22 - bug 341143
@@ -50,10 +60,19 @@ src_prepare() {
 }
 
 src_configure() {
+	local myconf
+	if use gtk2 ; then
+		myconf="${myconf} --with-gtk=2.0"
+	elif use gtk3 ; then
+		myconf="${myconf} --with-gtk=3.0"
+	fi
+
 	econf \
 		--disable-static \
 		--enable-fast-install \
-		--disable-mime-update
+		--disable-mime-update \
+		--with-gnu-ld \
+		${myconf}
 }
 
 src_install() {

@@ -6,7 +6,7 @@ EAPI="5"
 
 inherit autotools eutils
 
-DESCRIPTION="Compiz Fusion Window Decorator Unsupported Plugins"
+DESCRIPTION="Compiz Unsupported Plugins"
 HOMEPAGE="http://blog.northfield.ws/
 	http://blog.northfield.ws/"
 SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/${PN##compiz-}.tar.gz -> ${P}.tar.gz"

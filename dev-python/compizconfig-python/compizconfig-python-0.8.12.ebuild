@@ -21,7 +21,9 @@ IUSE=""
 
 RDEPEND="
 	>=dev-libs/glib-2.6
-	>=x11-libs/libcompizconfig-${PV}"
+	>=x11-libs/libcompizconfig-${PV}
+	dev-python/cython
+"
 
 DEPEND="${RDEPEND}
 	dev-python/pyrex

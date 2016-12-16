@@ -4,7 +4,7 @@
 
 EAPI="5"
 
-inherit autotools eutils gnome2-utils
+inherit autotools eutils
 
 DESCRIPTION="OpenGL window and compositing manager"
 HOMEPAGE="http://blog.northfield.ws/
@@ -14,11 +14,11 @@ SRC_URI="http://www.northfield.ws/projects/compiz/releases/${PV}/core.tar.xz -> 
 LICENSE="GPL-2 LGPL-2.1 MIT"
 SLOT="0"
 KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
-IUSE="+cairo dbus fuse gnome gconf gtk kde +svg"
+IUSE="+cairo dbus fuse mate +gtk2 gtk3 +svg"
 S="${WORKDIR}/core"
 
 COMMONDEPEND="
-	>=dev-libs/glib-2
+	>=dev-libs/glib-2.32
 	dev-libs/libxml2
 	dev-libs/libxslt
 	media-libs/libpng:0=
@@ -32,7 +32,7 @@ COMMONDEPEND="
 	x11-libs/libXrandr
 	x11-libs/libICE
 	x11-libs/libSM
-	>=x11-libs/libXrender-0.8.4
+	>=x11-libs/libXrender-0.9.3
 	>=x11-libs/startup-notification-0.7
 	virtual/glu
 	cairo? (
@@ -43,21 +43,17 @@ COMMONDEPEND="
 		dev-libs/dbus-glib
 	)
 	fuse? ( sys-fs/fuse )
-	gnome? (
-		>=gnome-base/gnome-control-center-2.16.1:2
-		gnome-base/gnome-desktop:2
-		gconf? ( gnome-base/gconf:2 )
-	)
-	gtk? (
-		>=x11-libs/gtk+-2.8.0:2
+	gtk2? (
+		>=x11-libs/gtk+-2.10.0:2
 		>=x11-libs/libwnck-2.18.3:1
 		x11-libs/pango
+		mate? ( x11-wm/marco[-gtk3] )
 	)
-	kde? (
-		|| (
-			>=kde-base/kwin-4.2.0
-			kde-base/kwin:live
-		)
+	gtk3? (
+		x11-libs/gtk+:3
+		x11-libs/libwnck:3
+		x11-libs/pango
+		mate? ( x11-wm/marco[gtk3] )
 	)
 	svg? (
 		>=gnome-base/librsvg-2.14.0:2
@@ -78,7 +74,7 @@ RDEPEND="${COMMONDEPEND}
 	x11-apps/xvinfo
 "
 
-DOCS=( AUTHORS ChangeLog NEWS README TODO )
+DOCS=( AUTHORS ChangeLog NEWS README.md TODO )
 
 python_configure_all() {
 	#set prefix
@@ -87,56 +83,39 @@ python_configure_all() {
 
 src_prepare() {
 	echo gtk/gnome/compiz-wm.desktop.in >> po/POTFILES.skip
-	echo metadata/core.xml.in >> po/POTFILES.skip
 
-	# Patch for compatibility with gcc 4.7
-	epatch "${FILESDIR}"/${PN}-gcc-4.7.patch
+	# Prevent m4_copy error when running aclocal
+	# m4_copy: won't overwrite defined macro: glib_DEFUN
+	rm m4/glib-gettext.m4 || die
 
-	if ! use gnome || ! use gconf; then
-		epatch "${FILESDIR}"/${PN}-no-gconf.patch
-	fi
-	if use kde; then
-		# patch for KDE 4.8 compatibility. Picked up from stuff overlay
-		has_version ">=kde-base/kwin-4.8" && epatch "${FILESDIR}"/${PN}-kde-4.8.patch
-		# patch for KDE 4.9 compatibility. Picked up from http://cgit.compiz.org
-		has_version ">=kde-base/kwin-4.9" && epatch "${FILESDIR}"/${PN}-kde-4.9.patch
-		# patch for KDE 4.10 compatibility. Picked up from stuff overlay
-		has_version ">=kde-base/kwin-4.10" && epatch "${FILESDIR}"/${PN}-kde-4.10.patch
-		# patch for KDE 4.10 compatibility.
-		has_version ">=kde-base/libkworkspace-4.10" && {
-			epatch "${FILESDIR}"/${PN}-kworkspace-4.102.patch
-			cp "${FILESDIR}"/src/* "${S}"/kde/window-decorator-kde4/
-		}
-	fi
 	eautoreconf || die "eautoreconf failed"
 }
 
 src_configure() {
 	local myconf
-
-	# We make gconf optional by itself, but only if gnome is also
-	# enabled, otherwise we simply disable it.
-	if use gnome; then
-		myconf="${myconf} $(use_enable gconf)"
+	if use gtk2 ; then
+		myconf="${myconf} --with-gtk=2.0"
+	elif use gtk3 ; then
+		myconf="${myconf} --with-gtk=3.0"
 	else
-		myconf="${myconf} --disable-gconf"
+		myconf="${myconf} --disable-gtk"
 	fi
 
 	econf \
 		--enable-fast-install \
 		--disable-static \
-		--disable-gnome-keybindings \
+		--enable-gsettings \
+		--enable-compizconfig \
+		--enable-menu-entries \
 		--with-default-plugins \
+		--with-gnu-ld \
 		$(use_enable svg librsvg) \
 		$(use_enable cairo annotate) \
 		$(use_enable dbus) \
 		$(use_enable dbus dbus-glib) \
 		$(use_enable fuse) \
-		$(use_enable gnome) \
-		$(use_enable gnome metacity) \
-		$(use_enable gtk) \
-		$(use_enable kde kde4) \
-		--disable-kde \
+		$(use_enable mate) \
+		$(use_enable mate marco) \
 		${myconf}
 }
 
@@ -161,25 +140,14 @@ src_install() {
 	PLUGIN_PATH="/usr/$(get_libdir)/compiz/"
 	LIBGL_NVIDIA="/usr/$(get_libdir)/opengl/xorg-x11/lib/libGL.so.1.2"
 	LIBGL_FGLRX="/usr/$(get_libdir)/opengl/xorg-x11/lib/libGL.so.1.2"
-	KWIN="$(type -p kwin)"
-	METACITY="$(type -p metacity)"
+	MARCO="$(type -p marco)"
 	SKIP_CHECKS="yes"
 	EOF
 
 	domenu "${FILESDIR}"/compiz.desktop
 }
 
-pkg_preinst() {
-	use gnome && use gconf && gnome2_gconf_savelist
-}
-
 pkg_postinst() {
-	use gnome && use gconf && gnome2_gconf_install
-
-	ewarn "If you update to x11-wm/metacity-2.24 after you install ${P},"
+	ewarn "If you update to x11-wm/marco after you install ${P},"
 	ewarn "gtk-window-decorator will crash until you reinstall ${PN} again."
-}
-
-pkg_prerm() {
-	use gnome && gnome2_gconf_uninstall
 }

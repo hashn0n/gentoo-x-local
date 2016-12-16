@@ -20,7 +20,7 @@ IUSE=""
 RDEPEND="
 	dev-libs/libxml2:2
 	dev-libs/protobuf
-	>=x11-wm/compiz-${PV}
+	=x11-wm/compiz-${PV}
 "
 DEPEND="${RDEPEND}
 	>=dev-util/intltool-0.41
@@ -30,6 +30,10 @@ DEPEND="${RDEPEND}
 RESTRICT="test"
 
 src_prepare() {
+	# Prevent m4_copy error when running aclocal
+	# m4_copy: won't overwrite defined macro: glib_DEFUN
+	rm m4/glib-gettext.m4 || die
+
 	eautoreconf || die "eautoreconf failed"
 }
 
@@ -37,6 +41,7 @@ src_configure() {
 	econf \
 		--disable-dependency-tracking \
 		--enable-fast-install \
+		--with-gnu-ld \
 		--disable-static
 }
 
