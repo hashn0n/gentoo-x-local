@@ -1,1 +1,6 @@
 media-video/ffmpeg threads vpx aac faac aacplus v4l libv4l x265 libass openssl
+
+# required by media-video/ffmpeg-3.2.2::gentoo[sdl]
+# required by media-plugins/alsa-plugins-1.1.1::gentoo[-libav,ffmpeg]
+# required by media-plugins/alsa-plugins (argument)
+>=media-libs/libsdl2-2.0.4 abi_x86_32
