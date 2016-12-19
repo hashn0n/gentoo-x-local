@@ -152,6 +152,11 @@ src_configure() {
 		mozconfig_disable webrtc
 	fi
 
+	if use apulse; then
+		# enable pulseaudio
+		mozconfig_enable apulse pulseaudio
+	fi
+
 	if   use alsa; then
 		mozconfig_enable alsa
 	fi
