@@ -5,6 +5,8 @@ media-libs/libvpx postproc svc
 #PaleMoon
 www-client/palemoon alsa gtk3 -gtk2 -pulseaudio -official-branding -linguas_ru -l10n_ru
 
+www-plugins/adobe-flash ppapy nsplugin
+
 #Chrom[e|ium]
 
 www-client/chromium gnome gnome-keyring
