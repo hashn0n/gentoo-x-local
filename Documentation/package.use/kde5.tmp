@@ -13,4 +13,4 @@ sys-auth/polkit-qt qt5
 # required by media-libs/phonon-gstreamer-4.9.0::gentoo
 media-libs/phonon qt5
 
-dev-qt/qtwebkit -gstreamer
+dev-qt/qtwebkit -gstreamer multimedia
