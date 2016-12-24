@@ -1,0 +1,13 @@
+diff --git a/vmmon-only/linux/hostif.c b/vmmon-only/linux/hostif.c
+index d1bc8ba..37a545c 100644
+--- a/vmmon-only/linux/hostif.c
++++ b/vmmon-only/linux/hostif.c
+@@ -1589,7 +1589,7 @@ HostIF_EstimateLockedPageLimit(const VMDriver* vm,                // IN
+                               global_page_state(NR_SLAB_UNRECLAIMABLE) +
+                               global_page_state(NR_UNEVICTABLE) +
+                               hugePages + reservedPages;
+-   unsigned int anonPages = global_page_state(NR_ANON_PAGES); 
++   unsigned int anonPages = global_page_state(NR_ANON_MAPPED); 
+    unsigned int swapPages = BYTES_2_PAGES(linuxState.swapSize);
+ 
+    if (anonPages > swapPages) {

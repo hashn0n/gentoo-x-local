@@ -1,0 +1,19 @@
+diff --git a/vmblock-only/linux/inode.c b/vmblock-only/linux/inode.c
+index 5991f3d..329af30 100644
+--- a/vmblock-only/linux/inode.c
++++ b/vmblock-only/linux/inode.c
+@@ -65,10 +65,10 @@ static struct inode_operations LinkInodeOps = {
+ struct inode_operations LinkInodeOps = {
+ #endif
+    .readlink    = InodeOpReadlink,
+-#if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 4, 99)
+-   .get_link = InodeOpFollowlink,
+-#else
+-   .follow_link = InodeOpFollowlink,
++#if LINUX_VERSION_CODE < KERNEL_VERSION(2, 6, 22)
++   .follow_link = InodeOpFollowlink
++#elif LINUX_VERSION_CODE < KERNEL_VERSION(4, 5, 0)
++   .follow_link = InodeOpFollowlink
+ #endif
+ };
+ 
