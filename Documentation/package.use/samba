@@ -1,1 +1,15 @@
 net-fs/samba acl client server smbclient smbsharemodes winbind
+
+# required by net-fs/samba-4.2.11::gentoo
+# required by kde-apps/kio-extras-16.08.3::gentoo[samba]
+sys-libs/ntdb python
+
+# required by sys-libs/ldb-1.1.26::gentoo
+# required by net-fs/samba-4.2.11::gentoo
+# required by kde-apps/kio-extras-16.08.3::gentoo[samba]
+sys-libs/tevent python
+
+# required by sys-libs/ldb-1.1.26::gentoo
+# required by net-fs/samba-4.2.11::gentoo
+# required by kde-apps/kio-extras-16.08.3::gentoo[samba]
+sys-libs/tdb python
