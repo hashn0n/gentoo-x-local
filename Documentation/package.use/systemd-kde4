@@ -1,1 +1,2 @@
-kde-base/kdelibs -upower udisks udev
+# move kde-base/kdelibs kde-frameworks/kdelibs
+kde-frameworks/kdelibs -upower udisks udev
