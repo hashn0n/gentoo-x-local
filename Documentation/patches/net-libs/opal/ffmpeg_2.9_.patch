@@ -1,0 +1,153 @@
+diff --git a/plugins/video/H.263-1998/h263-1998.cxx b/plugins/video/H.263-1998/h263-1998.cxx
+index b21b776..75d71f5 100644
+--- a/plugins/video/H.263-1998/h263-1998.cxx
++++ b/plugins/video/H.263-1998/h263-1998.cxx
+@@ -236,11 +236,10 @@ bool H263_Base_EncoderContext::Init(AVCodecID codecId)
+ 
+   m_context->opaque = this;
+ 
+-  m_context->flags = CODEC_FLAG_EMU_EDGE   // don't draw edges
+-                   | CODEC_FLAG_TRUNCATED  // Possible missing packets
++  m_context->flags = CODEC_FLAG_TRUNCATED  // Possible missing packets
+                    ;
+ 
+-  m_context->pix_fmt = PIX_FMT_YUV420P;
++  m_context->pix_fmt = AV_PIX_FMT_YUV420P;
+   m_context->gop_size = H263_KEY_FRAME_INTERVAL;
+ 
+   // X-Lite does not like Custom Picture frequency clocks... stick to 29.97Hz
+@@ -452,9 +451,6 @@ bool H263_Base_EncoderContext::OpenCodec()
+   m_inputFrame->data[1] = m_inputFrame->data[0] + planeSize;
+   m_inputFrame->data[2] = m_inputFrame->data[1] + (planeSize / 4);
+ 
+-  if (m_context->width > 352)
+-    m_context->flags &= ~CODEC_FLAG_EMU_EDGE; // Totally bizarre! FFMPEG crashes if on for CIF4
+-
+   // Dump info
+   PTRACE(5, m_prefix, "Size is " << m_context->width << "x" << m_context->height);
+   PTRACE(5, m_prefix, "GOP is " << m_context->gop_size);
+@@ -489,7 +485,7 @@ bool H263_Base_EncoderContext::OpenCodec()
+   CODEC_TRACER_FLAG(tracer, CODEC_FLAG_H263P_AIV);
+ #endif
+ 
+-  return FFMPEGLibraryInstance.AvcodecOpen(m_context, m_codec) == 0;
++  return FFMPEGLibraryInstance.AvcodecOpen(m_context, m_codec, NULL) == 0;
+ }
+ 
+ void H263_Base_EncoderContext::CloseCodec()
+@@ -742,7 +738,7 @@ bool H263_Base_DecoderContext::OpenCodec()
+     return 0;
+   }
+ 
+-  if (FFMPEGLibraryInstance.AvcodecOpen(m_context, m_codec) < 0) {
++  if (FFMPEGLibraryInstance.AvcodecOpen(m_context, m_codec, NULL) < 0) {
+     PTRACE(1, m_prefix, "Failed to open H.263 decoder");
+     return false;
+   }
+diff --git a/plugins/video/H.264/h264-x264.cxx b/plugins/video/H.264/h264-x264.cxx
+index 8399151..3525e85 100644
+--- a/plugins/video/H.264/h264-x264.cxx
++++ b/plugins/video/H.264/h264-x264.cxx
+@@ -1085,7 +1085,6 @@ class MyDecoder : public PluginCodec<MY_CODEC>
+ #endif
+       m_context->idct_algo = FF_IDCT_H264;
+       m_context->error_concealment = FF_EC_GUESS_MVS | FF_EC_DEBLOCK;
+-      m_context->flags = CODEC_FLAG_INPUT_PRESERVED | CODEC_FLAG_EMU_EDGE;
+       m_context->flags2 = CODEC_FLAG2_DROP_FRAME_TIMECODE |
+                           CODEC_FLAG2_SKIP_RD |
+                           CODEC_FLAG2_CHUNKS;
+@@ -1093,7 +1092,7 @@ class MyDecoder : public PluginCodec<MY_CODEC>
+       if ((m_picture = FFMPEGLibraryInstance.AvcodecAllocFrame()) == NULL)
+         return false;
+ 
+-      if (FFMPEGLibraryInstance.AvcodecOpen(m_context, m_codec) < 0)
++      if (FFMPEGLibraryInstance.AvcodecOpen(m_context, m_codec, NULL) < 0)
+         return false;
+ 
+       PTRACE(4, MY_CODEC_LOG, "Opened decoder (SVN $Revision: 28048 $)");
+diff --git a/plugins/video/MPEG4-ffmpeg/mpeg4.cxx b/plugins/video/MPEG4-ffmpeg/mpeg4.cxx
+index 614a296..3ce497e 100644
+--- a/plugins/video/MPEG4-ffmpeg/mpeg4.cxx
++++ b/plugins/video/MPEG4-ffmpeg/mpeg4.cxx
+@@ -544,7 +544,7 @@ void MPEG4EncoderContext::ResetBitCounter(int spread) {
+ //
+ 
+ void MPEG4EncoderContext::SetStaticEncodingParams(){
+-    m_avcontext->pix_fmt = PIX_FMT_YUV420P;
++    m_avcontext->pix_fmt = AV_PIX_FMT_YUV420P;
+     m_avcontext->mb_decision = FF_MB_DECISION_SIMPLE;    // high quality off
+     m_avcontext->rtp_payload_size = 750;                 // ffh263 uses 750
+     m_avcontext->rtp_callback = &MPEG4EncoderContext::RtpCallback;
+@@ -601,7 +601,6 @@ void MPEG4EncoderContext::SetStaticEncodingParams(){
+     m_avcontext->flags|=CODEC_FLAG_AC_PRED;
+     /*c->flags|=CODEC_FLAG_QPEL;*/ /*don't enable this one: this forces profile_level to advanced simple profile */
+     m_avcontext->flags|=CODEC_FLAG_4MV;
+-    m_avcontext->flags|=CODEC_FLAG_GMC;
+     m_avcontext->flags|=CODEC_FLAG_LOOP_FILTER;
+ #endif
+     m_avcontext->opaque = this;              // for use in RTP callback
+@@ -716,13 +715,15 @@ bool MPEG4EncoderContext::OpenCodec()
+   if (PTRACE_CHECK(4)) {
+     m_avcontext->debug |= FF_DEBUG_RC;
+     m_avcontext->debug |= FF_DEBUG_PICT_INFO;
+-    m_avcontext->debug |= FF_DEBUG_MV;
++//    m_avcontext->debug |= FF_DEBUG_MV;
+   }
+ #endif
+   
+   SetStaticEncodingParams();
+   SetDynamicEncodingParams(false);    // don't force a restart, it's not open
+-  if (FFMPEGLibraryInstance.AvcodecOpen(m_avcontext, m_avcodec) < 0)
++  AVDictionary *opts = NULL;
++  av_dict_set_int(&opts, "gmc", 1, 0);
++  if (FFMPEGLibraryInstance.AvcodecOpen(m_avcontext, m_avcodec, &opts) < 0)
+   {
+     PTRACE(1, "MPEG4", "Encoder could not be opened");
+     return false;
+@@ -1417,7 +1418,7 @@ bool MPEG4DecoderContext::OpenCodec()
+ 
+     SetStaticDecodingParams();
+     SetDynamicDecodingParams(false);    // don't force a restart, it's not open
+-    if (FFMPEGLibraryInstance.AvcodecOpen(m_avcontext, m_avcodec) < 0) {
++    if (FFMPEGLibraryInstance.AvcodecOpen(m_avcontext, m_avcodec, NULL) < 0) {
+         PTRACE(1, "MPEG4", "Decoder failed to open");
+         return false;
+     }
+diff --git a/plugins/video/common/dyna.cxx b/plugins/video/common/dyna.cxx
+index 340732b..83a436d 100644
+--- a/plugins/video/common/dyna.cxx
++++ b/plugins/video/common/dyna.cxx
+@@ -375,7 +375,7 @@ AVFrame *FFMPEGLibrary::AvcodecAllocFrame(void)
+   return Favcodec_alloc_frame();
+ }
+ 
+-int FFMPEGLibrary::AvcodecOpen(AVCodecContext *ctx, AVCodec *codec)
++int FFMPEGLibrary::AvcodecOpen(AVCodecContext *ctx, AVCodec *codec, AVDictionary **options)
+ {
+   WaitAndSignal m(processLock);
+ 
+diff --git a/plugins/video/common/dyna.h b/plugins/video/common/dyna.h
+index f079cd8..c713bf6 100644
+--- a/plugins/video/common/dyna.h
++++ b/plugins/video/common/dyna.h
+@@ -97,7 +97,7 @@ class FFMPEGLibrary
+     AVCodec *AvcodecFindDecoder(enum AVCodecID id);
+     AVCodecContext *AvcodecAllocContext(void);
+     AVFrame *AvcodecAllocFrame(void);
+-    int AvcodecOpen(AVCodecContext *ctx, AVCodec *codec);
++    int AvcodecOpen(AVCodecContext *ctx, AVCodec *codec, AVDictionary **options);
+     int AvcodecClose(AVCodecContext *ctx);
+     int AvcodecEncodeVideo(AVCodecContext *ctx, BYTE *buf, int buf_size, const AVFrame *pict);
+     int AvcodecDecodeVideo(AVCodecContext *ctx, AVFrame *pict, int *got_picture_ptr, BYTE *buf, int buf_size);
+diff --git a/plugins/video/common/ffmpeg.h b/plugins/video/common/ffmpeg.h
+index e1e6939..a5bdbc3 100644
+--- a/plugins/video/common/ffmpeg.h
++++ b/plugins/video/common/ffmpeg.h
+@@ -46,6 +46,7 @@
+ #include "platform.h"
+ 
+ #include "libavcodec/avcodec.h"
++#include "libavutil/imgutils.h"
+ // AVPacket was declared in avformat.h before April 2009
+ #if LIBAVCODEC_VERSION_INT <= AV_VERSION_INT(52, 25, 0)
+ #include "libavformat/avformat.h"

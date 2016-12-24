@@ -1,0 +1,14 @@
+diff --git a/Makefile.in b/Makefile.in
+index e127094..d3d6363 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -45,8 +45,7 @@ SUBDIRS += samples/simple \
+            samples/codectest \
+            samples/callgen \
+            samples/opalecho \
+-           samples/faxopal \
+-           samples/c_api
++           samples/faxopal 
+ ifeq ($(OPAL_IVR),yes)
+ SUBDIRS += samples/opalmcu \
+            samples/ivropal \
