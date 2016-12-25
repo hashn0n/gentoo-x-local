@@ -36,7 +36,7 @@ src_unpack() {
 	cp "${FILESDIR}"/oss "${S}"/setup/Linux/oss/etc/S89oss
 
 	cd "${S}"
-	epatch "${FILESDIR}"/${P}-000_gcc-5.patch
+	epatch "${FILESDIR}"/${P}-000_gcc-5_mercurial.patch
 	epatch "${FILESDIR}"/${P}-000_osscore_fix.patch
 	epatch "${FILESDIR}"/${P}-000_oss_live_fix.patch
 	epatch "${FILESDIR}"/${P}-000_usb.patch
@@ -46,7 +46,7 @@ src_unpack() {
 	epatch "${FILESDIR}"/${P}-003_oss4_linux_3.11_build_fix_mercurial.patch
 	epatch "${FILESDIR}"/${P}-004_oss4_linux_3.14_build_fix_mercurial.patch
 	epatch "${FILESDIR}"/${P}-005_oss4_linux_4.0_build_fix_mercurial.patch
-	epatch "${FILESDIR}"/${P}-006_oss4_linux_4.6_fix.patch
+	epatch "${FILESDIR}"/${P}-006_oss4_linux_4.6_fix_mercurial.patch
 
 	epatch_user
 }

@@ -48,13 +48,10 @@ src_unpack() {
 	cp "${FILESDIR}"/oss "${S}"/setup/Linux/oss/etc/S89oss
 
 	cd "${S}"
-	epatch "${FILESDIR}"/${P}-000_gcc-5.patch
 	epatch "${FILESDIR}"/${P}-000_osscore_fix.patch
 	epatch "${FILESDIR}"/${P}-000_oss_live_fix.patch
 	epatch "${FILESDIR}"/${P}-000_usb.patch
 	epatch "${FILESDIR}"/${P}-000_devlists_fix_git.patch
-	epatch "${FILESDIR}"/${P}-005_oss4_linux_4.0_build_fix_git.patch
-	epatch "${FILESDIR}"/${P}-006_oss4_linux_4.6_fix.patch
 
 	epatch_user
 }
