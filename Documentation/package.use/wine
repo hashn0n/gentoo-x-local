@@ -4,3 +4,7 @@ app-emulation/q4wine kde gnome
 ## ?
 media-libs/openal abi_x86_32
 ## ?
+
+## ?
+net-libs/gnutls pkcs11
+## ?
