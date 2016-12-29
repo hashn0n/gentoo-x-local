@@ -1,5 +1,6 @@
 app-emulation/wine-doors
-<app-emulation/wine-9999 **
+#<app-emulation/wine-9999 **
+<app-emulation/wine-2.0_rc3-r1 **
 app-emulation/q4wine **
 media-sound/mpg123
 media-gfx/icoutils
