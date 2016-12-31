@@ -6,4 +6,4 @@ media-libs/libquvi
 media-libs/libquvi-scripts
 dev-lua/luaexpat
 
-net-misc/youtube-dl
+net-misc/youtube-dl **
