@@ -1,7 +1,3 @@
 media-sound/teamspeak-client-bin
 media-sound/teamspeak-server-bin
 media-sound/teamspeak2-client-bin
-
-# required by media-sound/teamspeak-client-bin-3.0.19.1::gentoo
-# required by media-sound/teamspeak-client-bin (argument)
-=dev-libs/quazip-0.7.2

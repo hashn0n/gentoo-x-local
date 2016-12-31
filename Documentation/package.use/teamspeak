@@ -5,3 +5,6 @@ dev-libs/libpcre pcre16
 
 # required by dev-qt/qtwebkit-5.5.1-r1::gentoo
 dev-qt/qtcore:5 icu
+
+# required by media-sound/teamspeak-client-bin (argument)
+dev-libs/quazip -qt4 qt5
