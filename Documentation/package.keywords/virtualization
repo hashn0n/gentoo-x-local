@@ -25,3 +25,6 @@ app-emulation/vmware-workstation
 
 # required by app-emulation/vmware-modules-308.1.0::gentoo
 =dev-util/patchelf-0.9
+
+# required by app-emulation/vmware-workstation-12.1.0.3272444-r2::gentoo[-bundled-libs]
+dev-libs/libgcrypt:11
