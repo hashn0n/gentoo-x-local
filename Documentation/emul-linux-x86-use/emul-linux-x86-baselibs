@@ -11,6 +11,12 @@ dev-lua/luasocket abi_x86_32
 dev-lua/luaexpat abi_x86_32
 dev-lua/LuaBitOp abi_x86_32
 
+# required by x11-drivers/nvidia-drivers-375.26-r1::gentoo[tools]
+# required by x11-base/xorg-drivers-1.18-r1::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.18.4::gentoo[xorg]
+# required by www-client/firefox-50.1.0-r1::gentoo[pgo]
+dev-libs/jansson abi_x86_32
+
 app-admin/gamin abi_x86_32
 app-arch/bzip2 abi_x86_32
 app-arch/xz-utils abi_x86_32
