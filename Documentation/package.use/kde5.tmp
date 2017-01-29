@@ -14,3 +14,14 @@ sys-auth/polkit-qt qt5
 media-libs/phonon qt5
 
 dev-qt/qtwebkit -gstreamer multimedia
+
+# required by kde-frameworks/kwayland-5.29.0::gentoo
+# required by kde-plasma/plasma-workspace-5.8.3-r4::gentoo
+# required by kde-plasma/plasma-desktop-5.8.3::gentoo
+>=dev-qt/qtwayland-5.6.2 egl
+
+# required by dev-qt/qtwayland-5.6.2::gentoo
+# required by kde-frameworks/kwayland-5.29.0::gentoo
+# required by kde-plasma/plasma-workspace-5.8.3-r4::gentoo
+# required by kde-plasma/plasma-desktop-5.8.3::gentoo
+>=dev-qt/qtgui-5.6.2 egl
