@@ -1,0 +1,1 @@
+/var/lib/layman/palemoon/eclass/palemoon-1.eclass
