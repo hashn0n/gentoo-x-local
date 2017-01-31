@@ -1,0 +1,5 @@
+#nVidia
+x11-drivers/nvidia-drivers tools gtk2 uvm
+
+#AMDGPU
+x11-libs/libdrm video_cards_radeon
