@@ -19,6 +19,7 @@ if [[ ${PV} == "9999" ]]; then
 else
 	MAJOR_VERSION=$(get_version_component_range 1-2)
 	FIRST_NUMBER_VERSION=$(get_version_component_range 1-1)
+	SECOND_NUMBER_VERSION=$(get_version_component_range 2-2)
 	if [[ "$(get_version_component_range $(get_version_component_count))" =~ ^rc ]]; then
 		MY_PV=$(replace_version_separator $(get_last_version_component_index) '''-''')
 	else
@@ -29,7 +30,7 @@ else
 		STABLE_PREFIX="wine-stable"
 		SRC_URI="https://github.com/mstefani/wine-stable/archive/${PN}-${MY_PV}.tar.gz -> ${STABLE_PREFIX}-${P}.tar.gz"
 		MY_P="${STABLE_PREFIX}-${PN}-${MY_PV}"
-	elif [[ "${MAJOR_VERSION}" -le "2.0" ]]; then
+	elif [[ "${FIRST_NUMBER_VERSION}${SECOND_NUMBER_VERSION}" -le "20" ]]; then
 		SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_VERSION}/${PN}-${MY_PV}.tar.bz2 -> ${P}.tar.bz2"
 		MY_P="${PN}-${MY_PV}"
 	else
