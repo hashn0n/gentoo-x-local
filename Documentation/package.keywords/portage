@@ -8,9 +8,5 @@ app-portage/porthole
 sys-apps/sandbox
 
 app-portage/eix
-
-# required by app-portage/eix-0.32.4::gentoo
-=app-shells/quoter-3.0_p2
-
-# required by app-portage/eix-0.32.4::gentoo
-=app-shells/push-2.0
+app-shells/quoter
+app-shells/push
