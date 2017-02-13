@@ -21,3 +21,5 @@ games-strategy/colobot-data **
 # VCMI (HMM3:WoG open source)
 games-strategy/vcmi **
 games-strategy/vcmi-data **
+
+games-util/steam-launcher
