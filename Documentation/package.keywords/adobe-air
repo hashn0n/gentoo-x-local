@@ -1,0 +1,4 @@
+dev-util/adobe-air-runtime
+
+# required by dev-util/adobe-air-runtime
+media-libs/hal-flash
