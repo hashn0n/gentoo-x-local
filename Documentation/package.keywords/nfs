@@ -1,2 +1,9 @@
 net-fs/nfs4-acl-tools
 net-fs/nfs-utils
+
+# required by net-fs/nfs-utils-2.1.1::gentoo
+=net-nds/rpcbind-0.2.4
+
+# required by net-nds/rpcbind-0.2.4::gentoo
+# required by net-fs/nfs-utils-2.1.1::gentoo
+=net-libs/libtirpc-1.0.1
