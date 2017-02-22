@@ -13,3 +13,7 @@ net-misc/owncloud-client
 
 # required by net-misc/owncloud-client-2::gentoo
 dev-libs/qtkeychain
+
+net-misc/nextcloud-client
+
+www-apps/nextcloud
