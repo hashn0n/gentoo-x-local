@@ -1,2 +1,6 @@
 net-misc/vnc
 <net-misc/tigervnc-9999
+
+# required by net-misc/tigervnc-1.7.1-r2::gentoo
+# =x11-libs/libXfont2-2.0.1
+x11-libs/libXfont2
