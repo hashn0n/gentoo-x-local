@@ -8,7 +8,4 @@ dev-libs/qtkeychain qt5
 
 net-misc/nextcloud-client
 
-www-apps/nextcloud -sqlite -mysql postgres
-
-# required by www-apps/nextcloud::gentoo (argument)
-dev-lang/php pdo curl xmlwriter postgres xmlreader
+#www-apps/nextcloud -sqlite -mysql postgres
