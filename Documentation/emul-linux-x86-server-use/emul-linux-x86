@@ -1,2 +1,33 @@
-# required by sys-boot/grub-0.97-r14::gentoo[ncurses,-static]
-sys-libs/ncurses abi_x86_32
+#*/* abi_x86_32
+
+## Don't Starve Together Dedicated server
+
+net-libs/gnutls abi_x86_32
+
+dev-util/pkgconfig abi_x86_32
+app-crypt/p11-kit abi_x86_32
+dev-libs/glib abi_x86_32
+virtual/pkgconfig abi_x86_32
+dev-libs/nettle abi_x86_32
+sys-apps/util-linux abi_x86_32
+virtual/libintl abi_x86_32
+dev-libs/libffi abi_x86_32
+sys-apps/attr abi_x86_32
+dev-libs/gmp abi_x86_32
+virtual/libffi abi_x86_32
+virtual/libiconv abi_x86_32
+dev-libs/libpcre abi_x86_32
+dev-libs/libtasn1 abi_x86_32
+sys-libs/zlib abi_x86_32
+
+net-misc/curl abi_x86_32 curl_ssl_gnutls -curl_ssl_openssl
+
+dev-libs/openssl abi_x86_32
+sys-libs/e2fsprogs-libs abi_x86_32
+dev-libs/libverto abi_x86_32
+dev-libs/libev abi_x86_32
+virtual/krb5 abi_x86_32
+sys-apps/keyutils abi_x86_32
+app-crypt/mit-krb5 abi_x86_32
+
+## Don't Starve Together Dedicated server
