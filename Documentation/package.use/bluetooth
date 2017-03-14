@@ -1,1 +1,1 @@
-net-wireless/bluez udev extra-tools
+net-wireless/bluez udev -extra-tools
