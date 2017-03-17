@@ -405,8 +405,6 @@ src_prepare() {
 
 		# Declare Wine-Staging excluded patchsets
 		local -a STAGING_EXCLUDE_PATCHSETS=( "winhlp32-Flex_Workaround" )
-		# https://bugs.winehq.org/show_bug.cgi?id=42512
-		STAGING_EXCLUDE_PATCHSETS+=( "wined3d-buffer_create" )
 		use pipelight || STAGING_EXCLUDE_PATCHSETS+=( "Pipelight" )
 
 		# Process Wine-Staging exluded patchsets
