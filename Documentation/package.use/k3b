@@ -1,3 +1,4 @@
-app-cdr/k3b:4 -encode -flac -mp3 -musepack -vorbis -ffmpeg -wav -lame -mad
+# move app-cdr/k3b kde-apps/k3b
+kde-apps/k3b:4 -encode -flac -mp3 -musepack -vorbis -ffmpeg -wav -lame -mad
 # required by app-cdr/k3b-2.0.3-r4::gentoo
 >=kde-frameworks/kdelibs-4.14.28 webkit

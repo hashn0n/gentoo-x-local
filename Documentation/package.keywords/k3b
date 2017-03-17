@@ -1,2 +1,3 @@
 app-cdr/cdrdao
-app-cdr/k3b
+# move app-cdr/k3b kde-apps/k3b
+kde-apps/k3b
