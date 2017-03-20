@@ -7,7 +7,7 @@ EAPI="5"
 PYTHON_COMPAT=( python2_7 )
 DISTUTILS_SINGLE_IMPL=1
 
-inherit distutils
+inherit distutils-r1
 
 DESCRIPTION="Compizconfig Settings Manager"
 HOMEPAGE="http://blog.northfield.ws/

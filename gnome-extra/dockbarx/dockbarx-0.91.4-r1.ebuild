@@ -3,11 +3,11 @@
 # $Header: $
 
 EAPI="5"
-inherit gnome2-utils distutils eutils python
-
 PYTHON_DEPEND="2:2.7"
 RESTRICT_PYTHON_ABIS="3.*"
 PACKAGEAUTHOR="M7S"
+
+inherit gnome2-utils distutils eutils python
 
 DESCRIPTION="Panel applet (Gnome2, AWN, Mate, XFCE4) and stand alone dock with groupping and group manipulation."
 HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
