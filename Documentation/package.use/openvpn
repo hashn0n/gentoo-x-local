@@ -1,1 +1,2 @@
-net-misc/openvpn passwordsave
+# move net-misc/openvpn net-vpn/openvpn
+net-vpn/openvpn passwordsave
