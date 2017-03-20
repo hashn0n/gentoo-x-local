@@ -31,13 +31,9 @@ DEPEND="${RDEPEND}"
 DOCS="AUTHORS"
 
 src_compile() {
-	distutils_src_compile
+	distutils-r1_src_compile
 }
 
 src_install() {
-	distutils_src_install install --prefix=/usr
-}
-
-pkg_postinst() {
-	python_mod_optimize ccm
+	distutils-r1_src_install install --prefix=/usr
 }
