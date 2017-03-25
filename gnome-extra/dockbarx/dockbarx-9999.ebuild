@@ -3,11 +3,11 @@
 # $Header: $
 
 EAPI="5"
-PYTHON_DEPEND="2:2.7"
-RESTRICT_PYTHON_ABIS="3.*"
+PYTHON_COMPAT=( python2_7 )
 PACKAGEAUTHOR="M7S"
+DISTUTILS_OPTIONAL=1
 
-inherit gnome2-utils distutils eutils python
+inherit gnome2-utils distutils-r1 eutils
 
 DESCRIPTION="Panel applet (Gnome2, AWN, Mate, XFCE4) and stand alone dock with groupping and group manipulation."
 HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
@@ -26,24 +26,30 @@ SLOT="0"
 IUSE="awn xfce dockmanager gnome"
 
 RDEPEND="
-	dev-python/pygobject
-	dev-python/pygtk
-	dev-python/pyxdg
-	dev-python/gconf-python
-	|| ( dev-python/pillow dev-python/imaging )
-	dev-python/libwnck-python
-	dev-python/python-xlib
-	dev-python/dbus-python
-	dev-libs/keybinder[python]"
+	${PYTHON_DEPS}
+	dev-python/pygobject:2[${PYTHON_USEDEP}]
+	dev-python/pygtk:2[${PYTHON_USEDEP}]
+	dev-python/pyxdg[${PYTHON_USEDEP}]
+	dev-python/gconf-python:2[${PYTHON_USEDEP}]
+	|| ( dev-python/pillow[${PYTHON_USEDEP}] dev-python/imaging[${PYTHON_USEDEP}] )
+	dev-python/libwnck-python[${PYTHON_USEDEP}]
+	dev-python/python-xlib[${PYTHON_USEDEP}]
+	dev-python/dbus-python[${PYTHON_USEDEP}]
+	dev-libs/keybinder[python]
+"
+
 DEPEND="
 	awn? ( gnome-extra/avant-window-navigator )
 	xfce? ( >=xfce-extra/xfce4-dockbarx-plugin-0.2 )
 	dockmanager? ( x11-misc/dockmanager )
 	gnome? ( =gnome-base/gnome-menus-2.30.5-r1 =gnome-base/gnome-panel-2.32.1-r3 )"
 
-pkg_setup() {
-	python_set_active_version 2
-	python_pkg_setup
+src_prepare() {
+	distutils-r1_src_prepare
+}
+
+src_install() {
+	distutils-r1_src_install
 }
 
 pkg_preinst() {
@@ -58,13 +64,14 @@ pkg_preinst() {
 		cp ${S}/AWN/DockBarX/DockBarX.py ${D}/usr/share/avant-window-navigator/applets/DockBarX/
 		fperms -x /usr/share/avant-window-navigator/applets/DockBarX.desktop
 	fi
+	gnome2_icon_savelist
 }
 
 pkg_postinst() {
 	sed -i "s:s = im.tostring('raw', 'BGRA'):s = im.tobytes('raw', 'BGRA'):" /usr/lib/python2.7/site-packages/dockbarx/iconfactory.py
-	gtk-update-icon-cache
+	gnome2_icon_cache_update
 }
 
 pkg_postrm() {
-	gtk-update-icon-cache
+	gnome2_icon_cache_update
 }
