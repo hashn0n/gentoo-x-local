@@ -28,6 +28,4 @@ dev-libs/fribidi
 #For Blu-Ray Disks and files to process
 media-video/makemkv
 
-net-misc/livestreamer **
-
 net-misc/streamlink **
