@@ -10,13 +10,6 @@ palemoon-1_pkg_pretend() {
 	# Ensure we have enough disk space to compile:
 	CHECKREQS_DISK_BUILD=${REQUIRED_BUILDSPACE}
 	check-reqs_pkg_setup
-
-	# Ensure we are not on a gcc 5.* profile:
-	einfo "Checking gcc version..."
-	if [[ "5" == "$(gcc -dumpversion | cut -d. -f1)" ]]; then
-		gcc-5_error
-		die
-	fi
 }
 
 palemoon-1_pkg_preinst() {
@@ -44,15 +37,6 @@ official-branding_warning() {
 	elog "to any users on your network or the internet. Doing so puts yourself into"
 	elog "a legal problem with Moonchild Productions"
 	elog "You can disable it by emerging ${PN} _without_ the official-branding USE-flag"
-}
-
-gcc-5_error() {
-	eerror "You are currently on a gcc 5.* compiler profile."
-	eerror "Building Pale Moon with gcc >=5 results in a very unstable build."
-	eerror "You can use gcc-config to change your compiler profile,"
-	eerror "just remember to change it back afterwards."
-	eerror "You need to have the appropriate versions of gcc installed"
-	eerror "for them to be shown in gcc-config."
 }
 
 mozconfig_init() {
