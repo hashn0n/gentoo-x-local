@@ -2,9 +2,12 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/gnome-base/gnome-applets/gnome-applets-2.30.0-r1.ebuild,v 1.8 2010/10/17 15:20:36 armin76 Exp $
 
-EAPI="5"
+EAPI=5
 
-inherit eutils gnome2 python
+PYTHON_COMPAT=( python2_7 )
+DISTUTILS_OPTIONAL=1
+
+inherit gnome2 distutils-r1 eutils
 
 DESCRIPTION="Applets for the GNOME Desktop and Panel"
 HOMEPAGE="http://www.gnome.org/"
@@ -12,13 +15,14 @@ HOMEPAGE="http://www.gnome.org/"
 LICENSE="GPL-2 FDL-1.1 LGPL-2"
 SLOT="2"
 KEYWORDS="alpha amd64 ~arm ia64 ppc ppc64 sparc x86 ~x86-fbsd ~x86-freebsd ~amd64-linux ~x86-linux"
-IUSE="battstat gnome gstreamer hal ipv6 networkmanager policykit"
+IUSE="battstat gnome gstreamer ipv6 networkmanager policykit"
 
 # TODO: configure says python stuff is optional
 # my secret script says cpufrequtils might be needed in RDEPEND
 
-HALDEPEND=" hal? ( >=sys-apps/hal-0.5.3 ) "
-RDEPEND=">=x11-libs/gtk+-2.13
+RDEPEND="
+	${PYTHON_DEPS}
+	>=x11-libs/gtk+-2.13
 	>=dev-libs/glib-2.22.0
 	>=gnome-base/gconf-2.8
 	>=gnome-base/gnome-panel-2.13.4
@@ -31,21 +35,21 @@ RDEPEND=">=x11-libs/gtk+-2.13
 	>=dev-libs/libxml2-2.5.0
 	>=x11-themes/gnome-icon-theme-2.15.91
 	>=dev-libs/libgweather-2.22.1
-	>=virtual/python-2.4
 	x11-libs/libX11
 
-	battstat? ( $HALDEPEND )
+	battstat? ( sys-power/acpid )
 	gnome?	(
 		gnome-base/gnome-settings-daemon
 
 		>=gnome-extra/gucharmap-2.23
 		>=gnome-base/libgtop-2.11.92
 
-		>=dev-python/pygobject-2.6
-		>=dev-python/pygtk-2.6
-		>=dev-python/libgnome-python-2.10
-		>=dev-python/gconf-python-2.10
-		>=dev-python/gnome-applets-python-2.10 )
+		dev-python/pygobject:2[${PYTHON_USEDEP}]
+		dev-python/pygtk:2[${PYTHON_USEDEP}]
+		dev-python/gconf-python:2[${PYTHON_USEDEP}]
+		dev-python/libgnome-python:2[${PYTHON_USEDEP}]
+		>=dev-python/gnome-applets-python-2.10
+		)
 	gstreamer?	(
 		>=media-libs/gstreamer-0.10.2
 		>=media-libs/gst-plugins-base-0.10.14
@@ -53,7 +57,8 @@ RDEPEND=">=x11-libs/gtk+-2.13
 			>=media-plugins/gst-plugins-alsa-0.10.14
 			>=media-plugins/gst-plugins-oss-0.10.14 ) )
 	networkmanager? ( >=net-misc/networkmanager-0.7.0 )
-	policykit? ( >=sys-auth/polkit-0.92 )"
+	policykit? ( >=sys-auth/polkit-0.92 )
+"
 
 DEPEND="${RDEPEND}
 	>=app-text/scrollkeeper-0.1.4
@@ -61,20 +66,44 @@ DEPEND="${RDEPEND}
 	>=dev-util/pkgconfig-0.19
 	>=dev-util/intltool-0.35
 	dev-libs/libxslt
-	~app-text/docbook-xml-dtd-4.3"
+	~app-text/docbook-xml-dtd-4.3
+"
 
 DOCS="AUTHORS ChangeLog NEWS README"
 
 src_unpack() {
 	gnome2_src_unpack
 
-	# disable pyc compiling
-	mv py-compile py-compile.orig
-	ln -s $(type -P true) py-compile
+	rm -rf ${S}/geyes
+
+	sed -e 's|geyes/Makefile ||g' \
+		-e 's|geyes/themes/Makefile ||g' \
+		-e 's|geyes/docs/Makefile ||g' \
+		-i configure \
+		-i configure.in || die "removing geyes in strings in configure{.in} failed"
+
+	sed -e '/geyes/d' \
+		-i configure \
+		-i configure.in || die "removing strings with geyes in configure{.in} failed"
+
+	sed -e '/geyes/d' \
+		-i Makefile.am \
+		Makefile.in || die "removing strings with geyes in Makefile.{am,in} failed"
+
+	sed -e 's;geyes|/;;g' \
+		-i gnome-applets.spec \
+		gnome-applets.spec.in || die "disabling geyes gnome-applets.spec{.in} failed"
+
+	# Fix linking stickynotes
+	epatch "${FILESDIR}/${P}-stickynotes-lX11.patch"
 
 	# Invest applet tests need gconf/proxy/...
 	sed 's/^TESTS.*/TESTS=/g' -i invest-applet/invest/Makefile.am \
 		invest-applet/invest/Makefile.in || die "disabling invest tests failed"
+}
+
+src_prepare() {
+	distutils-r1_src_prepare
 }
 
 pkg_setup() {
@@ -82,16 +111,12 @@ pkg_setup() {
 		--disable-scrollkeeper
 		--disable-schemas-install
 		--enable-mini-commander
+		--without-hal
 		$(use_enable gstreamer mixer-applet)
+		$(use_enable battstat)
 		$(use_enable ipv6)
 		$(use_enable networkmanager)
 		$(use_enable policykit polkit)"
-
-	if use battstat; then
-		G2CONF="${G2CONF} $(use_with hal)"
-	else
-		G2CONF="${G2CONF} --without-hal --disable-battstat"
-	fi
 }
 
 src_test() {
@@ -115,22 +140,17 @@ src_install() {
 			[ -s ${applet}/${d} ] && dodoc ${applet}/${d}
 		done
 	done
+	distutils-r1_src_install
 }
 
 pkg_postinst() {
 	gnome2_pkg_postinst
 
-	if use battstat && ! use hal ; then
-		elog "It is highly recommended that you install acpid if you use the"
-		elog "battstat applet to prevent any issues with other applications"
-		elog "trying to read acpi information."
-	fi
-
 	# check for new python modules on bumps
-	python_mod_optimize $(python_get_sitedir)/invest
+#	python_mod_optimize $(python_get_sitedir)/invest
 }
 
 pkg_postrm() {
 	gnome2_pkg_postrm
-	python_mod_cleanup /usr/$(get_libdir)/python*/site-packages/invest
+#	python_mod_cleanup /usr/$(get_libdir)/python*/site-packages/invest
 }
