@@ -2,13 +2,13 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/dev-libs/libgweather/libgweather-2.30.3.ebuild,v 1.16 2012/12/19 01:53:47 tetromino Exp $
 
-EAPI="5"
+EAPI=5
 
 GCONF_DEBUG="no"
 GNOME_TARBALL_SUFFIX="bz2"
-PYTHON_DEPEND="python? 2"
+PYTHON_COMPAT=( python2_7 )
 
-inherit autotools eutils gnome2 python
+inherit autotools eutils gnome2 python-r1
 
 DESCRIPTION="Library to access weather information from online services"
 HOMEPAGE="https://live.gnome.org/LibGWeather"
@@ -20,28 +20,24 @@ IUSE="python"
 
 # libsoup-gnome is to be used because libsoup[gnome] might not
 # get libsoup-gnome installed by the time ${P} is built
-RDEPEND=">=x11-libs/gtk+-2.11:2
+RDEPEND="
+	${PYTHON_DEPS}
+	>=x11-libs/gtk+-2.11:2
 	>=dev-libs/glib-2.13:2
 	>=gnome-base/gconf-2.8:2
 	>=net-libs/libsoup-gnome-2.25.1:2.4
 	>=dev-libs/libxml2-2.6.0:2
 	>=sys-libs/timezone-data-2010k
 	python? (
-		>=dev-python/pygobject-2:2
-		>=dev-python/pygtk-2 )
+		>=dev-python/pygobject-2:2[${PYTHON_USEDEP}]
+		>=dev-python/pygtk-2:2[${PYTHON_USEDEP}] )
 	!<gnome-base/gnome-applets-2.22.0"
+
 DEPEND="${RDEPEND}
 	sys-devel/gettext
 	>=dev-util/intltool-0.40.3
 	virtual/pkgconfig
 	>=dev-util/gtk-doc-am-1.9"
-
-pkg_setup() {
-	if use python; then
-		python_set_active_version 2
-		python_pkg_setup
-	fi
-}
 
 src_prepare() {
 	DOCS="AUTHORS ChangeLog MAINTAINERS NEWS"
@@ -60,7 +56,6 @@ src_prepare() {
 
 src_install() {
 	gnome2_src_install
-	use python && python_clean_installation_image
 
 	find "${D}" -name '*.la' -exec rm -f {} +
 }
