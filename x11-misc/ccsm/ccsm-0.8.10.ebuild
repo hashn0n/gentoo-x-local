@@ -30,10 +30,6 @@ DEPEND="${RDEPEND}"
 
 DOCS="AUTHORS"
 
-src_compile() {
-	distutils-r1_src_compile
-}
-
 src_install() {
-	distutils-r1_src_install install --prefix=/usr
+	distutils-r1_python_install --prefix=/usr
 }
