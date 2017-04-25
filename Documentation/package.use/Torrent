@@ -1,2 +1,3 @@
 net-p2p/deluge webinterface
-net-libs/rb_libtorrent python
+# move net-libs/rb_libtorrent net-libs/libtorrent-rasterbar
+net-libs/libtorrent-rasterbar python

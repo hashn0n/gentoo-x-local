@@ -1,4 +1,5 @@
 net-p2p/deluge
 
 # required by net-p2p/deluge::gentoo
-net-libs/rb_libtorrent:0/8
+# move net-libs/rb_libtorrent net-libs/libtorrent-rasterbar
+net-libs/libtorrent-rasterbar:0/8

@@ -1,0 +1,5 @@
+www-client/uget aria2
+net-misc/aria2 xmlrpc bittorrent metalink ssh
+media-libs/quvi json
+
+net-misc/youtube-dl offensive
