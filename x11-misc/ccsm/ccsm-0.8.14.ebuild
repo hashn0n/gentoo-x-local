@@ -22,7 +22,7 @@ IUSE=""
 RDEPEND="
 	>=dev-python/compizconfig-python-${PV}
 	>=dev-python/pygtk-2.12:2
-	gnome-base/librsvg
+	gnome-base/librsvg[introspection]
 "
 
 DEPEND="${RDEPEND}"

@@ -1,6 +1,9 @@
 x11-wm/compiz-fusion unsupported
 x11-wm/compiz gconf gtk -kde
 
+# required by x11-misc/ccsm-0.8.14::x-local
+gnome-base/librsvg introspection
+
 x11-misc/compton xinerama
 
 # required by x11-wm/lumina-9999::gentoo
