@@ -19,4 +19,4 @@ media-sound/easytag gtk3
 dev-libs/libdbusmenu gtk3
 
 # required by kde-misc/indicator-kdeconnect-0.8.1::x-local
-dev-libs/libappindicator introspection
+dev-libs/libappindicator:3 introspection
