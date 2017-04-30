@@ -1,35 +1,31 @@
-# Copyright 1999-2016 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
-SCM=""
-if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
-	SCM=git-2
-	EGIT_BRANCH=master
-	EGIT_REPO_URI="https://anongit.freedesktop.org/git/vaapi/intel-driver.git"
-fi
-
 AUTOTOOLS_AUTORECONF="yes"
-inherit autotools-multilib ${SCM}
+inherit autotools-multilib
 
 DESCRIPTION="HW video decode support for Intel integrated graphics"
-HOMEPAGE="https://www.freedesktop.org/wiki/Software/vaapi"
-if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
-	SRC_URI=""
-	S="${WORKDIR}/${PN}"
-else
-	SRC_URI="https://www.freedesktop.org/software/vaapi/releases/libva-intel-driver/${P}.tar.bz2"
-fi
 
 LICENSE="MIT"
-SLOT="0"
-if [ "${PV%9999}" = "${PV}" ] ; then
+
+PACKAGEAUTHOR="01org"
+HOMEPAGE="https://01.org/linuxmedia/vaapi, https://github.com/${PACKAGEAUTHOR}/${PN}"
+if [[ ${PV} == *9999* ]]; then
+	inherit git-2
+	EGIT_BRANCH=master
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	RESTRICT="mirror"
+	SRC_URI=""
 	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 else
 	KEYWORDS=""
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
+
+SLOT="0"
 IUSE="+drm wayland X"
 
 RDEPEND=">=x11-libs/libva-1.7.2[X?,wayland?,drm?,${MULTILIB_USEDEP}]

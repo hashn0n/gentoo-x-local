@@ -1,33 +1,31 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
-SCM=""
-if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
-	SCM=git-2
-	EGIT_BRANCH=master
-	EGIT_REPO_URI="https://anongit.freedesktop.org/git/vaapi/vdpau-driver.git"
-fi
 AUTOTOOLS_AUTORECONF="yes"
-inherit autotools-multilib ${SCM}
+inherit autotools-multilib
 
 DESCRIPTION="VDPAU Backend for Video Acceleration (VA) API"
 HOMEPAGE="https://www.freedesktop.org/wiki/Software/vaapi"
-if [ "${PV%9999}" != "${PV}" ] ; then # Live ebuild
-	SRC_URI=""
-	S="${WORKDIR}/${PN}"
-else
-	SRC_URI="https://www.freedesktop.org/software/vaapi/releases/libva-vdpau-driver/${P}.tar.bz2"
-fi
 
 LICENSE="GPL-2"
 SLOT="0"
-if [ "${PV%9999}" = "${PV}" ] ; then
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-2
+	EGIT_BRANCH=master
+#	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="https://anongit.freedesktop.org/git/vaapi/vdpau-driver.git"
+	RESTRICT="mirror"
+	SRC_URI=""
+	S="${WORKDIR}/${PN}"
 	KEYWORDS="~amd64 ~x86"
 else
 	KEYWORDS=""
+#	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://www.freedesktop.org/software/vaapi/releases/libva-vdpau-driver/${P}.tar.bz2"
 fi
 IUSE="debug opengl"
 
