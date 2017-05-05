@@ -1,0 +1,20 @@
+commit 3c09b7fb3863c3a6809300e52eaf9b39fbbfed72
+Author: hash <hashn0n@users.noreply.github.com>
+Date:   Fri May 5 04:47:02 2017 +0300
+
+    Fix setup/Linux/oss/build/osscore.c compile problem with Linux kernel 4.11, need to include linux/cred.h
+
+diff --git a/setup/Linux/oss/build/osscore.c b/setup/Linux/oss/build/osscore.c
+index fc15a33..74fca52 100644
+--- a/setup/Linux/oss/build/osscore.c
++++ b/setup/Linux/oss/build/osscore.c
+@@ -32,6 +32,9 @@ typedef int *ioctl_arg;
+ #include <linux/sched.h>
+ #include <linux/interrupt.h>
+ #include <linux/uidgid.h>
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,11,0)
++#include <linux/cred.h>
++#endif
+ #undef strlen
+ #undef strcpy
+ #define strlen oss_strlen
