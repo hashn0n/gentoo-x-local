@@ -1,0 +1,1 @@
+/opt/brutester-gentoo-desktop/eclass/vmware-bundle.eclass

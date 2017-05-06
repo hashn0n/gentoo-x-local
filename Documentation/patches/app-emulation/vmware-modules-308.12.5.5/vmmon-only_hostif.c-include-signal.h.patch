@@ -1,0 +1,15 @@
+diff --git a/vmmon-only/linux/hostif.c b/vmmon-only/linux/hostif.c
+index d1bc8ba..4f18378 100644
+--- a/vmmon-only/linux/hostif.c
++++ b/vmmon-only/linux/hostif.c
+@@ -38,6 +38,10 @@
+ #include <linux/vmalloc.h>
+ #include <linux/slab.h>
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,11,0)
++#include <linux/sched/signal.h>
++#endif
++
+ #include <linux/preempt.h>
+ #include <linux/poll.h>
+ #include <linux/mman.h>

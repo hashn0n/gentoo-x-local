@@ -1,0 +1,3 @@
+# required by app-emulation/qemu-2.9.0-r53::gentoo[pin-upstream-blobs,qemu_softmmu_targets_x86_64,-qemu_softmmu_targets_i386]
+# required by app-emulation/aqemu-0.9.2::gentoo
+=sys-firmware/edk2-ovmf-2017_pre20170505
