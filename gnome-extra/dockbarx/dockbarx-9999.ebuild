@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=5
 PYTHON_COMPAT=( python2_7 )
 PACKAGEAUTHOR="M7S"
 DISTUTILS_OPTIONAL=1
@@ -11,9 +11,13 @@ inherit gnome2-utils distutils-r1 eutils
 
 DESCRIPTION="Panel applet (Gnome2, AWN, Mate, XFCE4) and stand alone dock with groupping and group manipulation."
 HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
-	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="
+		git://github.com/${PACKAGEAUTHOR}/${PN}.git
+		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+	"
 	RESTRICT="mirror"
 	SRC_URI=""
 else

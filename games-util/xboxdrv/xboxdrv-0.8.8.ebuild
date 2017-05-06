@@ -5,15 +5,33 @@
 EAPI=5
 inherit linux-info scons-utils toolchain-funcs systemd udev
 
-MY_P=${PN}-linux-${PV}
+PACKAGEAUTHOR="xboxdrv"
 DESCRIPTION="Userspace Xbox 360 Controller driver"
-HOMEPAGE="http://pingus.seul.org/~grumbel/xboxdrv/"
-SRC_URI="http://pingus.seul.org/~grumbel/xboxdrv/${MY_P}.tar.bz2"
+HOMEPAGE="http://pingus.seul.org/~grumbel/xboxdrv/
+	https://github.com/${PACKAGEAUTHOR}/${PN}"
+
+#MY_P=${PN}-linux-${PV}
+#SRC_URI="http://pingus.seul.org/~grumbel/xboxdrv/${MY_P}.tar.bz2"
+#S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-3"
 SLOT="0"
 KEYWORDS="amd64 x86"
 IUSE=""
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-2
+	KEYWORDS="~amd64 ~x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux"
+	EGIT_REPO_URI="
+		git://github.com/${PACKAGEAUTHOR}/${PN}.git
+		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+	"
+	SRC_URI=""
+else
+	KEYWORDS="amd64 x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux"
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+fi
+
 
 RDEPEND="dev-libs/boost
 	dev-libs/dbus-glib:=
@@ -24,8 +42,6 @@ RDEPEND="dev-libs/boost
 	x11-libs/libX11:="
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
-
-S=${WORKDIR}/${MY_P}
 
 CONFIG_CHECK="~INPUT_EVDEV ~INPUT_JOYDEV ~INPUT_UINPUT ~!JOYSTICK_XPAD"
 

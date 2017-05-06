@@ -4,7 +4,8 @@
 
 EAPI=6
 
-REQUIRED_BUILDSPACE='7G'
+REQUIRED_BUILDSPACE="7G"
+PACKAGEAUTHOR="MoonchildProductions"
 
 # For mozlinguas:
 MOZ_LANGS=( cs de es-AR es-ES es-MX fr hu it ja ko pl ru zh-CN )
@@ -22,7 +23,10 @@ LICENSE="MPL-2.0 GPL-2 LGPL-2.1"
 IUSE="+official-branding -system-libs +optimize shared-js jemalloc -valgrind
 	dbus -necko-wifi +gtk2 -gtk3 -webrtc alsa pulseaudio +devtools"
 
-EGIT_REPO_URI="https://github.com/MoonchildProductions/Pale-Moon.git"
+EGIT_REPO_URI="
+	git://github.com/${PACKAGEAUTHOR}/Pale-Moon.git
+	https://github.com/${PACKAGEAUTHOR}/Pale-Moon.git
+"
 GIT_TAG="${PV}_Release"
 
 DEPEND="

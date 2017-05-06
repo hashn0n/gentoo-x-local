@@ -4,7 +4,8 @@
 
 EAPI=6
 
-REQUIRED_BUILDSPACE='7G'
+REQUIRED_BUILDSPACE="7G"
+PACKAGEAUTHOR="MoonchildProductions"
 
 inherit palemoon-0 git-r3 eutils flag-o-matic pax-utils
 
@@ -18,7 +19,10 @@ IUSE="+official-branding -system-libs +optimize shared-js jemalloc -valgrind
 	dbus -necko-wifi +gtk2 -gtk3 +gstreamer -webrtc
 	oss alsa apulse pulseaudio"
 
-EGIT_REPO_URI="git://github.com/MoonchildProductions/Pale-Moon.git"
+EGIT_REPO_URI="
+	git://github.com/${PACKAGEAUTHOR}/Pale-Moon.git
+	https://github.com/${PACKAGEAUTHOR}/Pale-Moon.git
+"
 GIT_TAG="${PV}_Release"
 
 RDEPEND="

@@ -2,10 +2,10 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI="5"
+EAPI=5
 
 PYTHON_COMPAT=( python2_7 )
-PYTHON_REQ_USE='threads(+)'
+PYTHON_REQ_USE="threads(+)"
 
 inherit waf-utils python-r1 vala eutils gnome2-utils
 
@@ -17,7 +17,10 @@ HOMEPAGE="http://xfce-look.org/content/show.php/xfce4-dockbarx-plugin+%2B+Mouse+
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-2
-	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="
+		git://github.com/${PACKAGEAUTHOR}/${PN}.git
+		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+	"
 	RESTRICT="mirror"
 	SRC_URI=""
 else

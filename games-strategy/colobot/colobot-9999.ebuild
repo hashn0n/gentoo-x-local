@@ -5,13 +5,17 @@
 EAPI=5
 inherit eutils git-2
 
+PACKAGEAUTHOR="colobot"
 IUSE="dev"
 
 DESCRIPTION="Colobot (Colonize with Bots) is an educational real-time strategy video game featuring 3D graphics"
 HOMEPAGE="http://colobot.info/"
 SRC_URI=""
 
-EGIT_REPO_URI="https://github.com/colobot/colobot.git"
+EGIT_REPO_URI="
+		git://github.com/${PACKAGEAUTHOR}/${PN}.git
+		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+"
 EGIT_PROJECT="colobot"
 
 LICENSE="GPL-3"
