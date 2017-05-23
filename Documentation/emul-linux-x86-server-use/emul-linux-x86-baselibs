@@ -1,0 +1,7 @@
+## Don't Starve Together Dedicated server
+
+net-libs/gnutls abi_x86_32
+net-dns/libidn2 abi_x86_32
+dev-libs/libunistring abi_x86_32
+
+## Don't Starve Together Dedicated server

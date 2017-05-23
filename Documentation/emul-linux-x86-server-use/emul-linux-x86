@@ -2,8 +2,6 @@
 
 ## Don't Starve Together Dedicated server
 
-net-libs/gnutls abi_x86_32
-
 dev-util/pkgconfig abi_x86_32
 app-crypt/p11-kit abi_x86_32
 dev-libs/glib abi_x86_32
