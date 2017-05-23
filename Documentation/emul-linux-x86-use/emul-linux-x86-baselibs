@@ -64,6 +64,8 @@ media-sound/pulseaudio abi_x86_32
 net-dialup/capi4k-utils abi_x86_32
 net-dns/libidn abi_x86_32
 net-libs/gnutls abi_x86_32
+net-dns/libidn2 abi_x86_32
+dev-libs/libunistring abi_x86_32
 net-libs/libgssglue abi_x86_32
 net-libs/libsoup abi_x86_32
 net-libs/libtirpc abi_x86_32
