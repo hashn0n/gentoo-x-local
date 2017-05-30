@@ -6,6 +6,6 @@ dev-qt/qtwebkit:5 printsupport
 # required by net-misc/owncloud-client-2.2.4-r1::gentoo
 dev-libs/qtkeychain qt5
 
-net-misc/nextcloud-client
+net-misc/nextcloud-client -sftp -samba
 
 www-apps/nextcloud -sqlite vhosts
