@@ -24,6 +24,7 @@ app-arch/libarchive abi_x86_32
 dev-libs/popt abi_x86_32
 dev-python/subunit abi_x86_32
 dev-libs/check abi_x86_32
+dev-libs/libaio abi_x86_32
 
 dev-lang/orc abi_x86_32
 dev-libs/cyrus-sasl abi_x86_32
