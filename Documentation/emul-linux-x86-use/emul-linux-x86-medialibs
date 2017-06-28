@@ -35,6 +35,7 @@ media-libs/libv4l abi_x86_32
 media-libs/libvisual abi_x86_32
 media-libs/libvpx abi_x86_32
 media-libs/speex abi_x86_32
+media-libs/speexdsp abi_x86_32
 media-libs/taglib abi_x86_32
 media-libs/x264 abi_x86_32
 media-libs/xvid abi_x86_32
