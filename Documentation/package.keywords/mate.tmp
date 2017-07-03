@@ -1,0 +1,2 @@
+# required by mate-base/mate-control-center-1.12.1-r1::gentoo
+=x11-libs/libxklavier-5.4
