@@ -8,4 +8,4 @@ dev-libs/qtkeychain qt5
 
 net-misc/nextcloud-client -sftp -samba
 
-www-apps/nextcloud -sqlite vhosts
+www-apps/nextcloud -sqlite
