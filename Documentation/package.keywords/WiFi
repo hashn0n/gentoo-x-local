@@ -1,3 +1,24 @@
+net-misc/networkmanager
+gnome-extra/nm-applet
+# required by gnome-extra/nm-applet-0.9.8.4
+=app-crypt/libsecret-0.15
+
+# required by gnome-extra/nm-applet-0.9.8.4
+# required by gnome-base/gnome-keyring-3.8.2
+# required by app-crypt/libsecret-0.15
+=gnome-base/libgnome-keyring-3.8.0
+
+# required by gnome-base/libgnome-keyring-3.8.0
+# required by gnome-base/gnome-keyring-3.8.2
+=app-crypt/gcr-3.8.2
+
+# required by gnome-base/libgnome-keyring-3.8.0
+=gnome-base/gnome-keyring-3.8.2
+
+# required by net-misc/networkmanager-0.9.10.0-r1
+=net-misc/iputils-20121221-r1
+=net-libs/libndp-1.4
+
 net-wireless/wpa_supplicant
 
 net-misc/wicd

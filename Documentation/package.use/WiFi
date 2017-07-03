@@ -5,5 +5,7 @@ net-dns/avahi autoipd
 #net-misc/wicd -gtk
 net-dns/dnsmasq dhcp
 
+gnome-extra/nm-applet -modemmanager
+
 # required by net-wireless/aircrack-ng-1.2_rc2::gentoo[airdrop-ng]
 net-wireless/lorcon python
