@@ -4,10 +4,11 @@
 
 EAPI="5"
 
-PYTHON_DEPEND="2:2.6"
+PYTHON_COMPAT=( python2_7 )
+PYTHON_REQ_USE="xml"
 WANT_AUTOMAKE="1.11"
 
-inherit autotools eutils python toolchain-funcs udev
+inherit autotools eutils python-single-r1 toolchain-funcs udev
 
 MY_P=${PN%-common}-${PV}
 
@@ -80,12 +81,6 @@ src_install() {
 	use doc && dohtml -r html/
 
 	python_convert_shebangs -q -r $(python_get_version) "${ED}"
-}
 
-pkg_postinst() {
-	python_mod_optimize cupshelpers
-}
-
-pkg_postrm() {
-	python_mod_cleanup cupshelpers /usr/share/system-config-printer
+	python_optimize /usr/share/system-config-printer
 }

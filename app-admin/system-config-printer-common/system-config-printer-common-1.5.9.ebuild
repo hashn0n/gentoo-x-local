@@ -9,11 +9,25 @@ PYTHON_REQ_USE="xml"
 
 inherit autotools eutils python-single-r1 systemd
 
-MY_P=${PN%-common}-${PV}
+PACKAGEAUTHOR="zdohnal"
+MY_P="${PN%-common}"
 
 DESCRIPTION="Common modules of Red Hat's printer administration tool"
 HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
-SRC_URI="http://cyberelk.net/tim/data/${PN/-common}/${PV%.*}/${MY_P}.tar.xz"
+#SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/${PN/-common}/${MY_P}-${PV}.tar.gz/sha512/2167be3fe9e1bee5831c92d4f58aebb464e70c056d15d205a8c0fcfaaec1365c348d4f29f21021894c94d1b29dec1f8623089aaafddba2d4a04cb1c6ed16c4cd/${MY_P}-${PV}.tar.gz"
+
+if [[ ${PV} == *9999* ]]; then
+	inherit git-2
+	EGIT_REPO_URI="
+		git://github.com/${PACKAGEAUTHOR}/${MY_P}.git
+		https://github.com/${PACKAGEAUTHOR}/${MY_P}.git
+	"
+	RESTRICT="mirror"
+	SRC_URI=""
+else
+	KEYWORDS="~amd64 ~x86"
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${MY_P}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+fi
 
 LICENSE="GPL-2"
 KEYWORDS="~alpha amd64 arm ~hppa ~ia64 ppc ppc64 ~sh ~sparc x86"
@@ -59,7 +73,7 @@ pkg_setup() {
 }
 
 src_prepare() {
-	epatch "${FILESDIR}"/${PN}-1.4.1-split.patch
+	epatch "${FILESDIR}"/${P}-split.patch
 	eautoreconf
 }
 

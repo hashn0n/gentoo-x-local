@@ -4,10 +4,11 @@
 
 EAPI="5"
 
-PYTHON_DEPEND="2"
-PYTHON_USE_WITH="xml"
 WANT_AUTOMAKE="1.11"
-inherit eutils python autotools
+PYTHON_COMPAT=( python2_{6,7} )
+PYTHON_REQ_USE="xml"
+
+inherit eutils python-single-r1 autotools
 
 MY_P="${PN%-gnome}-${PV}"
 
@@ -19,11 +20,13 @@ LICENSE="GPL-2"
 KEYWORDS="alpha amd64 arm ia64 ppc ppc64 sh sparc x86"
 SLOT="0"
 IUSE="gnome-keyring"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 
 # Needs cups running, bug 284005
 RESTRICT="test"
 
 RDEPEND="
+	${PYTHON_DEPS}
 	~app-admin/system-config-printer-common-${PV}
 	dev-python/notify-python
 	>=dev-python/pycups-1.9.60
@@ -52,12 +55,13 @@ S="${WORKDIR}/${MY_P}"
 MAKEOPTS+=" -j1"
 
 pkg_setup() {
-	python_set_active_version 2
+	python-single-r1_pkg_setup
 }
 
 src_prepare() {
-	epatch "${FILESDIR}/${PN}-1.3.12-split.patch"
+	epatch "${FILESDIR}"/${PN}-1.3.12-split.patch
 	eautoreconf
+	gnome2_src_prepare
 }
 
 src_configure() {
@@ -70,7 +74,7 @@ src_configure() {
 		myconf="${myconf} --enable-nls"
 	fi
 
-	econf \
+	gnome2_src_configure \
 		--with-desktop-vendor=Gentoo \
 		--without-udev-rules \
 		${myconf}
@@ -79,11 +83,6 @@ src_configure() {
 src_install() {
 	dodoc AUTHORS ChangeLog README || die "dodoc failed"
 
-	emake DESTDIR="${ED}" install || die "emake install failed"
-
-	python_convert_shebangs -q -r $(python_get_version) "${ED}"
-}
-
-pkg_postrm() {
-	python_mod_cleanup /usr/share/system-config-printer
+	gnome2_src_install
+	python_fix_shebang "${ED}"
 }
