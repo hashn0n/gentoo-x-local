@@ -49,6 +49,8 @@ src_prepare() {
 	# https://bugzilla.gnome.org/show_bug.cgi?id=688972
 	epatch "${FILESDIR}/${PN}-3.0.1-applications-merged.patch"
 
+	epatch_user
+
 	python_copy_sources
 }
 

@@ -94,11 +94,11 @@ src_prepare() {
 	# clock applet: Pass the correct month to Evolution command line
 	epatch "${FILESDIR}/${PN}-2.32.1-evo-month.patch"
 
+	epatch_user
+
 	intltoolize --force --copy --automake || die "intltoolize failed"
 	AT_M4DIR=${WORKDIR} eautoreconf
 	gnome2_src_prepare
-
-	epatch_user
 }
 
 pkg_postinst() {
