@@ -5,7 +5,7 @@
 EAPI=5
 
 GCONF_DEBUG="no"
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_4 )
 PYTHON_REQ_USE="xml"
 
 inherit autotools gnome2 eutils python-single-r1 versionator
@@ -72,7 +72,7 @@ for X in ${APP_LINGUAS}; do
 	IUSE="${IUSE} linguas_${X}"
 done
 
-S="${WORKDIR}/${MY_P}"
+S="${WORKDIR}/${MY_P}"-${PV}
 
 # Bug 471472
 MAKEOPTS+=" -j1"

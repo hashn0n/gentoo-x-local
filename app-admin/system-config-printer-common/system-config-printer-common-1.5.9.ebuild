@@ -4,7 +4,7 @@
 
 EAPI=5
 
-PYTHON_COMPAT=( python2_7 )
+PYTHON_COMPAT=( python3_4 )
 PYTHON_REQ_USE="xml"
 
 inherit autotools eutils python-single-r1 systemd
@@ -66,7 +66,7 @@ RDEPEND="${COMMON_DEPEND}
 	policykit? ( >=sys-auth/polkit-0.104-r1 )
 "
 
-S=${WORKDIR}/${MY_P}
+S=${WORKDIR}/${MY_P}-${PV}
 
 pkg_setup() {
 	python-single-r1_pkg_setup
