@@ -12,7 +12,8 @@ gnome-extra/policykit-gnome
 <net-wireless/blueman-9999 **
 net-wireless/bluez
 net-wireless/bluez-hcidump
-net-wireless/bluedevil
+# move net-wireless/bluedevil kde-plasma/bluedevil
+kde-plasma/bluedevil
 net-libs/libbluedevil
 dev-python/pybluez
 # move dev-libs/libusbx dev-libs/libusb
