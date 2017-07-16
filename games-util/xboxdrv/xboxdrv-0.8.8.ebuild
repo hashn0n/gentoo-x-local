@@ -20,11 +20,11 @@ KEYWORDS="amd64 x86"
 IUSE=""
 
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	KEYWORDS="~amd64 ~x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux"
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PN}
+		https://github.com/${PACKAGEAUTHOR}/${PN}
 	"
 	SRC_URI=""
 else

@@ -12,12 +12,12 @@ DESCRIPTION="A drop down terminal, similar to the consoles found in first person
 HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
 
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	KEYWORDS="~amd64 ~ppc ~x86 ~x86-fbsd ~x86-interix ~amd64-linux ~x86-linux"
 	EGIT_BRANCH="vteport2"
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PN}
+		https://github.com/${PACKAGEAUTHOR}/${PN}
 	"
 	SRC_URI=""
 else

@@ -13,10 +13,10 @@ DESCRIPTION="Panel applet (Gnome2, AWN, Mate, XFCE4) and stand alone dock with g
 HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
 
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PN}
+		https://github.com/${PACKAGEAUTHOR}/${PN}
 	"
 	RESTRICT="mirror"
 	SRC_URI=""

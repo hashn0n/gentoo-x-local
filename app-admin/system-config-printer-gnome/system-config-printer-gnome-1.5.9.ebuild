@@ -20,10 +20,10 @@ HOMEPAGE="http://cyberelk.net/tim/software/system-config-printer/"
 #SRC_URI="http://cyberelk.net/tim/data/system-config-printer/${MY_V}/${MY_P}-${PV}.tar.xz"
 
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${MY_P}.git
-		https://github.com/${PACKAGEAUTHOR}/${MY_P}.git
+		git://github.com/${PACKAGEAUTHOR}/${MY_P}
+		https://github.com/${PACKAGEAUTHOR}/${MY_P}
 	"
 	RESTRICT="mirror"
 	SRC_URI=""

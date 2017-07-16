@@ -10,10 +10,10 @@ PACKAGEAUTHOR="uzbl"
 inherit python-single-r1
 
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PN}
+		https://github.com/${PACKAGEAUTHOR}/${PN}
 	"
 	KEYWORDS=""
 	SRC_URI=""

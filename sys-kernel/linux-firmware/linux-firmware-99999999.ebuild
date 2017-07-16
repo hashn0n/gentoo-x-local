@@ -6,7 +6,7 @@ EAPI=5
 inherit savedconfig
 
 if [[ ${PV} == 99999999* ]]; then
-	inherit git-2
+	inherit git-r3
 	SRC_URI=""
 	EGIT_REPO_URI="https://git.kernel.org/pub/scm/linux/kernel/git/firmware/${PN}.git"
 	KEYWORDS=""
@@ -66,7 +66,8 @@ RDEPEND="!savedconfig? (
 
 src_unpack() {
 	if [[ ${PV} == 99999999* ]]; then
-		git-2_src_unpack
+		git-r3_fetch
+		git-r3_checkout
 	else
 		default
 		# rename directory from git snapshot tarball

@@ -3,7 +3,7 @@
 # $Header: $
 
 EAPI=5
-inherit eutils git-2
+inherit eutils git-r3
 
 PACKAGEAUTHOR="colobot"
 IUSE="dev"
@@ -13,8 +13,8 @@ HOMEPAGE="http://colobot.info/"
 SRC_URI=""
 
 EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PN}
+		https://github.com/${PACKAGEAUTHOR}/${PN}
 "
 EGIT_PROJECT="colobot-data"
 
