@@ -12,21 +12,22 @@ DESCRIPTION="HW video decode support for Intel integrated graphics"
 LICENSE="MIT"
 
 PACKAGEAUTHOR="01org"
+PACKAGENAME="intel-vaapi-driver"
 HOMEPAGE="https://01.org/linuxmedia/vaapi
-	https://github.com/${PACKAGEAUTHOR}/${PN}"
+	https://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}"
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	EGIT_BRANCH=master
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}
+		https://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}
 	"
 	RESTRICT="mirror"
 	SRC_URI=""
 	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 else
 	KEYWORDS=""
-	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
 SLOT="0"

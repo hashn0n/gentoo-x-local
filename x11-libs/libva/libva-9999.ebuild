@@ -15,11 +15,11 @@ PACKAGEAUTHOR="01org"
 HOMEPAGE="https://01.org/linuxmedia/vaapi
 	https://github.com/${PACKAGEAUTHOR}/${PN}"
 if [[ ${PV} == *9999* ]]; then
-	inherit git-2
+	inherit git-r3
 	EGIT_BRANCH=master
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PN}
+		https://github.com/${PACKAGEAUTHOR}/${PN}
 	"
 	RESTRICT="mirror"
 	SRC_URI=""
@@ -30,9 +30,9 @@ else
 fi
 
 SLOT="0"
-IUSE="+drm egl opengl vdpau wayland X"
+IUSE="+drm egl opengl vdpau wayland X utils"
 
-VIDEO_CARDS="dummy nvidia intel fglrx nouveau"
+VIDEO_CARDS="dummy nvidia intel i965 fglrx nouveau"
 for x in ${VIDEO_CARDS}; do
 	IUSE+=" video_cards_${x}"
 done
@@ -57,6 +57,8 @@ PDEPEND="video_cards_nvidia? ( >=x11-libs/libva-vdpau-driver-0.7.4-r1[${MULTILIB
 			>=x11-libs/xvba-video-0.8.0-r1[${MULTILIB_USEDEP}] )
 		)
 	video_cards_intel? ( >=x11-libs/libva-intel-driver-1.2.2-r1[${MULTILIB_USEDEP}] )
+	video_cards_i965? ( >=x11-libs/libva-intel-driver-1.2.2-r1[${MULTILIB_USEDEP}] )
+	utils? ( media-video/libva-utils )
 	"
 
 REQUIRED_USE="|| ( drm wayland X )
