@@ -1,10 +1,11 @@
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
-# $Id$
 
 EAPI=6
 
-inherit eutils rpm
+MULTILIB_COMPAT=( abi_x86_64 )
+
+inherit eutils pax-utils rpm multilib-build
 
 DESCRIPTION="P2P Internet Telephony (VoiceIP) client"
 HOMEPAGE="https://www.skype.com/"
@@ -19,36 +20,36 @@ S="${WORKDIR}"
 QA_PREBUILT=opt/skypeforlinux/skypeforlinux
 RESTRICT="mirror bindist strip" #299368
 
-RDEPEND="dev-libs/atk
-	dev-libs/expat
-	dev-libs/glib:2
-	dev-libs/nspr
-	dev-libs/nss
-	gnome-base/gconf:2
-	gnome-base/libgnome-keyring
-	media-libs/alsa-lib
-	media-libs/fontconfig:1.0
-	media-libs/freetype:2
-	net-print/cups
-	sys-apps/dbus
+RDEPEND="dev-libs/atk[${MULTILIB_USEDEP}]
+	dev-libs/expat[${MULTILIB_USEDEP}]
+	dev-libs/glib:2[${MULTILIB_USEDEP}]
+	dev-libs/nspr[${MULTILIB_USEDEP}]
+	dev-libs/nss[${MULTILIB_USEDEP}]
+	gnome-base/gconf:2[${MULTILIB_USEDEP}]
+	gnome-base/libgnome-keyring[${MULTILIB_USEDEP}]
+	media-libs/alsa-lib[${MULTILIB_USEDEP}]
+	media-libs/fontconfig:1.0[${MULTILIB_USEDEP}]
+	media-libs/freetype:2[${MULTILIB_USEDEP}]
+	net-print/cups[${MULTILIB_USEDEP}]
+	sys-apps/dbus[${MULTILIB_USEDEP}]
 	sys-devel/gcc[cxx]
 	sys-libs/glibc
 	virtual/ttf-fonts
-	x11-libs/cairo
-	x11-libs/gdk-pixbuf:2
-	x11-libs/gtk+:2
-	x11-libs/libX11
-	x11-libs/libXScrnSaver
-	x11-libs/libXcomposite
-	x11-libs/libXcursor
-	x11-libs/libXdamage
-	x11-libs/libXext
-	x11-libs/libXfixes
-	x11-libs/libXi
-	x11-libs/libXrandr
-	x11-libs/libXrender
-	x11-libs/libXtst
-	x11-libs/pango"
+	x11-libs/cairo[${MULTILIB_USEDEP}]
+	x11-libs/gdk-pixbuf:2[${MULTILIB_USEDEP}]
+	x11-libs/gtk+:2[${MULTILIB_USEDEP}]
+	x11-libs/libX11[${MULTILIB_USEDEP}]
+	x11-libs/libXScrnSaver[${MULTILIB_USEDEP}]
+	x11-libs/libXcomposite[${MULTILIB_USEDEP}]
+	x11-libs/libXcursor[${MULTILIB_USEDEP}]
+	x11-libs/libXdamage[${MULTILIB_USEDEP}]
+	x11-libs/libXext[${MULTILIB_USEDEP}]
+	x11-libs/libXfixes[${MULTILIB_USEDEP}]
+	x11-libs/libXi[${MULTILIB_USEDEP}]
+	x11-libs/libXrandr[${MULTILIB_USEDEP}]
+	x11-libs/libXrender[${MULTILIB_USEDEP}]
+	x11-libs/libXtst[${MULTILIB_USEDEP}]
+	x11-libs/pango[${MULTILIB_USEDEP}]"
 
 src_unpack() {
 	rpm_src_unpack ${A}
@@ -97,16 +98,11 @@ src_install() {
 	domenu usr/share/applications/skypeforlinux.desktop
 
 	if use pax_kernel; then
-		paxctl -Cm "${ED%/}"/opt/skypeforlinux/skypeforlinux || die
+		pax-mark -Cm "${ED%/}"/opt/skypeforlinux/skypeforlinux
 		eqawarn "You have set USE=pax_kernel meaning that you intend to run"
 		eqawarn "${PN} under a PaX enabled kernel. To do so, we must modify"
 		eqawarn "the ${PN} binary itself and this *may* lead to breakage! If"
 		eqawarn "you suspect that ${PN} is being broken by this modification,"
 		eqawarn "please open a bug."
 	fi
-}
-
-pkg_postinst() {
-	einfo "See https://support.skype.com/en/faq/FA34656"
-	einfo "for more information about Skype for Linux Alpha."
 }
