@@ -36,7 +36,7 @@ S=${WORKDIR}/${MY_P}
 
 src_prepare() {
 	# Use lib present on the system
-	epatch "${FILESDIR}"/${PN}-2.52.2-system-lib.patch
+	epatch "${FILESDIR}"/${P}-system-lib.patch
 	eautoreconf
 	gnome2_src_prepare
 }
