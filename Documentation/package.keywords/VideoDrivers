@@ -9,6 +9,3 @@ sys-power/acpi_call
 
 #nouveau
 x11-drivers/xf86-video-nouveau
-
-#AMD-GPU
-sys-devel/llvm

@@ -1,4 +1,0 @@
-# required by sys-devel/llvm-4.0.0::gentoo
-# required by media-libs/mesa-17.0.1::gentoo[video_cards_radeonsi,vulkan,llvm,-opencl]
-# move app-vim/llvm-vim sys-devel/llvm-common
-=sys-devel/llvm-common-4.0.0

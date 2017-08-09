@@ -6,6 +6,7 @@ dev-libs/nss
 x11-libs/cairo
 x11-libs/pixman
 dev-util/cargo
+virtual/rust
 dev-lang/rust
 
 #Chrom[e|ium]

@@ -1,3 +1,10 @@
+virtual/ffmpeg
+media-video/ffmpeg
 media-libs/vo-aacenc
 media-libs/libvpx
 media-libs/x264
+dev-libs/fribidi
+
+# required by media-libs/x264-0.0.20170701::gentoo[abi_x86_32]
+# required by media-video/ffmpeg-3.2.4::gentoo[x264,encode]
+dev-lang/nasm

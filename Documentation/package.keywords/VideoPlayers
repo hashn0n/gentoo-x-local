@@ -1,31 +1,13 @@
-#<media-video/mpv-0.7
 media-video/mpv
-media-video/libav
-=media-video/ffmpeg-3.2.2
-=media-video/ffmpegthumbnailer-2.2.0
+media-libs/libdvdcss
 
 media-video/vlc
-#<media-video/vlc-2.1.0
-#>media-video/vlc-2.1.0
 sys-libs/zlib
-#required by media-video/vlc-2.1.5[a52]
-=media-libs/a52dec-0.7.4-r7
-# required by media-video/vlc-2.1.0
-#=sys-devel/gettext-0.18.3.1-r1
-# required by media-video/vlc-2.1.0[vdpau]
-# !<media-video/libav-9.11
-#=media-video/libav-9.9999 **
-
-#<media-video/gnome-mplayer-1.0.4
-#for gnome-mplayer-1.0.5_beta1
-media-libs/gmtk
-
-media-video/gnome-mplayer
-#www-plugins/gecko-mediaplayer
-media-video/mplayer
-dev-libs/fribidi
+media-libs/a52dec
 
 #For Blu-Ray Disks and files to process
 media-video/makemkv
 
 net-misc/streamlink **
+dev-python/pycryptodome
+dev-python/backports-shutil_which
