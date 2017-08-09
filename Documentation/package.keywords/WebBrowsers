@@ -31,7 +31,7 @@ www-client/uzbl
 www-client/palemoon **
 
 # required by www-client/palemoon-27.2.1-r1::x-local[system-libs]
-=app-text/hunspell-1.6.0
+app-text/hunspell
 
 #CyberFox
 www-client/cyberfox **

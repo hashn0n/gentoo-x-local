@@ -8,3 +8,6 @@ dev-qt/qtcore:5 icu
 
 # required by media-sound/teamspeak-client-bin (argument)
 dev-libs/quazip -qt4 qt5
+
+# required by media-sound/teamspeak-client-bin-3.1.5
+dev-qt/qtwebengine:5 widgets
