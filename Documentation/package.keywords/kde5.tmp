@@ -2,3 +2,5 @@
 # required by kde-plasma/plasma-workspace-5.8.3-r2::gentoo
 # required by kde-plasma/plasma-desktop-5.8.3::gentoo
 =kde-frameworks/extra-cmake-modules-5.28.0
+
+=x11-misc/qt5ct-0.33
