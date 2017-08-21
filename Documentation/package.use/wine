@@ -1,4 +1,7 @@
-app-emulation/wine -cups -ldap -udisks -gstreamer mp3 mono pipelight staging s3tc osmesa alsa openal
+virtual/wine staging
+app-emulation/wine -cups -udisks -gstreamer -pulseaudio -vaapi pipelight staging s3tc ldap mp3 mono osmesa alsa openal
+app-emulation/wine-any -cups -udisks -gstreamer -pulseaudio -vaapi -pipelight -staging -s3tc ldap mp3 mono osmesa alsa openal
+app-emulation/wine-staging -cups -udisks -gstreamer -pulseaudio -vaapi pipelight staging s3tc ldap mp3 mono osmesa alsa openal
 app-emulation/q4wine kde gnome
 
 ## ?
