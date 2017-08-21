@@ -47,6 +47,8 @@ sys-libs/libieee1284 abi_x86_32
 media-libs/vo-aacenc abi_x86_32
 media-video/libav abi_x86_32
 
+media-plugins/gst-plugins-pulse abi_x86_32
+
 media-libs/opus abi_x86_32
 
 # required by media-video/ffmpeg[libass,encode,x265]
