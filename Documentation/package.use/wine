@@ -10,4 +10,5 @@ media-libs/openal abi_x86_32
 
 ## ?
 net-libs/gnutls pkcs11
+net-libs/gnutls sslv2 sslv3 openpgp
 ## ?
