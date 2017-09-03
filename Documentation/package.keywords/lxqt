@@ -1,10 +1,19 @@
-<lxqt-base/lxqt-notificationd-0.11
-<dev-libs/libqtxdg-0.11
-<lxqt-base/liblxqt-0.11
-<lxqt-base/lxqt-common-0.11
-<lxqt-base/lxqt-session-0.11
-<lxqt-base/lxqt-config-0.11
-
-# required by lxqt-base/liblxqt-0.10.0::gentoo
-# required by lxqt-base/lxqt-config-0.10.0::gentoo
 dev-libs/libqtxdg
+lxqt-base/liblxqt
+lxqt-base/libsysstat
+lxqt-base/lxqt-about
+lxqt-base/lxqt-admin
+lxqt-base/lxqt-common
+lxqt-base/lxqt-config
+lxqt-base/lxqt-globalkeys
+lxqt-base/lxqt-l10n
+lxqt-base/lxqt-meta
+lxqt-base/lxqt-notificationd
+lxqt-base/lxqt-openssh-askpass
+lxqt-base/lxqt-panel
+lxqt-base/lxqt-policykit
+lxqt-base/lxqt-powermanagement
+lxqt-base/lxqt-qtplugin
+lxqt-base/lxqt-runner
+lxqt-base/lxqt-session
+lxqt-base/lxqt-sudo
