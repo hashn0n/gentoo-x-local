@@ -23,3 +23,6 @@ games-strategy/vcmi **
 games-strategy/vcmi-data **
 
 games-util/steam-launcher
+
+#mcrcon - Console based rcon client for minecraft servers.
+games-util/mcrcon
