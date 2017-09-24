@@ -9,8 +9,7 @@ inherit flag-o-matic
 if [[ ${PV} == 4.9999* ]]; then
 	inherit git-r3
 	SRC_URI=""
-#	EGIT_REPO_URI="https://github.com/Open-Sound-System/Open-Sound-System.git"
-	EGIT_REPO_URI="http://git.code.sf.net/p/opensound/git"
+	EGIT_REPO_URI="https://git.code.sf.net/p/opensound/git"
 	EGIT_BRANCH="master"
 	KEYWORDS="~amd64 ~x86"
 #	S="${WORKDIR}/${PN}"
@@ -28,7 +27,7 @@ fi
 filter-ldflags "-Wl,-O1"
 
 DESCRIPTION="Open Sound System - portable, mixing-capable, high quality sound system for Unix."
-HOMEPAGE="http://developer.opensound.com/"
+HOMEPAGE="http://developer.opensound.com/ https://sourceforge.net/projects/opensound/"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -53,6 +52,7 @@ src_unpack() {
 	epatch "${FILESDIR}"/${P}-000_usb.patch
 	epatch "${FILESDIR}"/${P}-000_devlists_fix_git.patch
 	epatch "${FILESDIR}"/${P}-001_oss4_linux_4.11_osscore_fix_git.patch
+	epatch "${FILESDIR}"/${P}-002_oss4_sys-libs_glibc-2.23_ossdetect_fix_git.patch
 
 	epatch_user
 }
