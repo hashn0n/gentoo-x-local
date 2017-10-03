@@ -24,9 +24,9 @@ if [[ ${PV} == *9999* ]]; then
 	"
 	RESTRICT="mirror"
 	SRC_URI=""
-	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
+	KEYWORDS="-amd64 -x86 -amd64-linux -x86-linux"
 else
-	KEYWORDS=""
+	KEYWORDS="~amd64 ~x86 ~amd64-linux ~x86-linux"
 	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}/archive/${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
