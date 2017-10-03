@@ -9,11 +9,11 @@ inherit eutils pax-utils rpm multilib-build
 
 DESCRIPTION="P2P Internet Telephony (VoiceIP) client"
 HOMEPAGE="https://www.skype.com/"
-SRC_URI="https://repo.skype.com/rpm/stable/${PN}_${PV}-1.x86_64.rpm"
+SRC_URI="https://repo.skype.com/rpm/unstable/${PN}_${PV}-1.x86_64.rpm"
 
 LICENSE="Skype-TOS no-source-code"
 SLOT="0"
-KEYWORDS="~amd64"
+KEYWORDS="-amd64"
 IUSE="pax_kernel"
 
 S="${WORKDIR}"
@@ -35,6 +35,8 @@ RDEPEND="dev-libs/atk[${MULTILIB_USEDEP}]
 	sys-devel/gcc[cxx]
 	sys-libs/glibc
 	virtual/ttf-fonts
+	media-libs/libv4l[${MULTILIB_USEDEP}]
+	media-video/ffmpeg[${MULTILIB_USEDEP},chromium]
 	x11-libs/cairo[${MULTILIB_USEDEP}]
 	x11-libs/gdk-pixbuf:2[${MULTILIB_USEDEP}]
 	x11-libs/gtk+:2[${MULTILIB_USEDEP}]

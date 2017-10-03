@@ -1,6 +1,22 @@
-media-video/ffmpeg threads vpx aac faac aacplus v4l libv4l x265 libass openssl
+media-video/ffmpeg threads vpx aac faac aacplus v4l libv4l x265 libass openssl amr amrenc bluray chromium frei0r gnutls librtmp nvenc pulseaudio schroedinger sdl theora webp
 
 # required by media-video/ffmpeg-3.2.2::gentoo[sdl]
-# required by media-plugins/alsa-plugins-1.1.1::gentoo[-libav,ffmpeg]
-# required by media-plugins/alsa-plugins (argument)
->=media-libs/libsdl2-2.0.4 abi_x86_32
+media-libs/libsdl2 abi_x86_32
+
+# required by media-video/ffmpeg-3.3.4::gentoo[bluray]
+media-libs/libbluray abi_x86_32
+
+# required by media-video/ffmpeg-3.3.4::gentoo[librtmp]
+media-video/rtmpdump abi_x86_32
+
+# required by media-video/ffmpeg-3.3.4::gentoo[encode,webp]
+media-libs/libwebp abi_x86_32
+
+# required by media-video/ffmpeg-3.3.4::gentoo[amr]
+media-libs/opencore-amr abi_x86_32
+
+# required by media-video/ffmpeg-3.3.4::gentoo[encode,amrenc]
+media-libs/vo-amrwbenc abi_x86_32
+
+# required by media-video/ffmpeg-3.3.4::gentoo[schroedinger]
+media-libs/schroedinger abi_x86_32
