@@ -1,6 +1,6 @@
 #FireFox:
-#<www-client/firefox-25.0
-www-client/firefox
+<www-client/firefox-57
+#www-client/firefox
 dev-libs/nspr
 dev-libs/nss
 x11-libs/cairo
