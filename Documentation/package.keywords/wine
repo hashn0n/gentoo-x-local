@@ -29,3 +29,6 @@ app-emulation/playonlinux
 <app-emulation/wine-gecko-9999::x-local **
 <app-emulation/wine-desktop-common-9999::x-local **
 <app-eselect/eselect-wine-9999::x-local **
+
+# required by app-emulation/wine-staging-2.17-r1::gentoo
+=dev-util/patchbin-20160208
