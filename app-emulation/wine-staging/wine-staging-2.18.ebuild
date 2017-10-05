@@ -6,13 +6,13 @@ EAPI=6
 PLOCALES="ar bg ca cs da de el en en_US eo es fa fi fr he hi hr hu it ja ko lt ml nb_NO nl or pa pl pt_BR pt_PT rm ro ru sk sl sr_RS@cyrillic sr_RS@latin sv te th tr uk wa zh_CN zh_TW"
 PLOCALE_BACKUP="en"
 
-inherit autotools eutils fdo-mime flag-o-matic gnome2-utils l10n multilib multilib-minimal pax-utils toolchain-funcs virtualx versionator
+inherit autotools eutils flag-o-matic gnome2-utils l10n multilib multilib-minimal pax-utils toolchain-funcs virtualx versionator xdg-utils
 
 MY_PN="${PN%%-*}"
 MY_P="${MY_PN}-${PV}"
 
 if [[ ${PV} == "9999" ]] ; then
-	EGIT_REPO_URI="git://source.winehq.org/git/wine.git http://source.winehq.org/git/wine.git"
+	EGIT_REPO_URI="https://source.winehq.org/git/wine.git"
 	EGIT_BRANCH="master"
 	inherit git-r3
 	SRC_URI=""
@@ -26,29 +26,25 @@ S="${WORKDIR}/${MY_P}"
 
 STAGING_P="wine-staging-${PV}"
 STAGING_DIR="${WORKDIR}/${STAGING_P}"
-D3D9_P="wine-d3d9-${PV}"
-D3D9_DIR="${WORKDIR}/wine-d3d9-patches-${D3D9_P}"
-WDC_V="20150204"
-WINE_DESKTOP_COMMON_P="wine-desktop-common-${WDC_V}"
+GWP_V="20170830"
+PATCHDIR="${WORKDIR}/gentoo-wine-patches"
 
-DESCRIPTION="Free implementation of Windows(tm) on Unix, with optional external patchsets"
+DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
 HOMEPAGE="https://www.winehq.org/"
 SRC_URI="${SRC_URI}
-	https://github.com/NP-Hardass/wine-desktop-common/archive/${WDC_V}.tar.gz -> ${WINE_DESKTOP_COMMON_P}.tar.gz
+	https://dev.gentoo.org/~np-hardass/distfiles/wine/gentoo-wine-patches-${GWP_V}.tar.xz
 "
 
 if [[ ${PV} == "9999" ]] ; then
 	STAGING_EGIT_REPO_URI="https://github.com/wine-compholio/wine-staging.git"
-	D3D9_EGIT_REPO_URI="https://github.com/sarnex/wine-d3d9-patches.git"
 else
 	SRC_URI="${SRC_URI}
-	staging? ( https://github.com/wine-compholio/wine-staging/archive/v${PV}.tar.gz -> ${STAGING_P}.tar.gz )
-	d3d9? ( https://github.com/sarnex/wine-d3d9-patches/archive/${D3D9_P}.tar.gz )"
+	staging? ( https://github.com/wine-compholio/wine-staging/archive/v${PV}.tar.gz -> ${STAGING_P}.tar.gz )"
 fi
 
 LICENSE="LGPL-2.1"
 SLOT="${PV}"
-IUSE="+abi_x86_32 +abi_x86_64 +alsa capi cups custom-cflags d3d9 dos elibc_glibc +fontconfig +gecko gphoto2 gsm gstreamer +jpeg kernel_FreeBSD +lcms ldap +mono mp3 ncurses netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pipelight +png prelink pulseaudio +realtime +run-exes s3tc samba scanner selinux +ssl staging test themes +threads +truetype udev +udisks v4l vaapi +X +xcomposite xinerama +xml"
+IUSE="+abi_x86_32 +abi_x86_64 +alsa capi cups custom-cflags dos elibc_glibc +fontconfig +gecko gphoto2 gsm gstreamer +jpeg kernel_FreeBSD +lcms ldap +mono mp3 ncurses netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pipelight +png prelink pulseaudio +realtime +run-exes s3tc samba scanner selinux +ssl staging test themes +threads +truetype udev +udisks v4l vaapi +X +xcomposite xinerama +xml"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )
 	X? ( truetype )
 	elibc_glibc? ( threads )
@@ -67,7 +63,6 @@ COMMON_DEPEND="
 	X? (
 		x11-libs/libXcursor[${MULTILIB_USEDEP}]
 		x11-libs/libXext[${MULTILIB_USEDEP}]
-		x11-libs/libXfixes[${MULTILIB_USEDEP}]
 		x11-libs/libXrandr[${MULTILIB_USEDEP}]
 		x11-libs/libXi[${MULTILIB_USEDEP}]
 		x11-libs/libXxf86vm[${MULTILIB_USEDEP}]
@@ -75,12 +70,6 @@ COMMON_DEPEND="
 	alsa? ( media-libs/alsa-lib[${MULTILIB_USEDEP}] )
 	capi? ( net-libs/libcapi[${MULTILIB_USEDEP}] )
 	cups? ( net-print/cups:=[${MULTILIB_USEDEP}] )
-	d3d9? (
-		media-libs/mesa[d3d9,egl,${MULTILIB_USEDEP}]
-		x11-libs/libX11[${MULTILIB_USEDEP}]
-		x11-libs/libXext[${MULTILIB_USEDEP}]
-		x11-libs/libxcb[${MULTILIB_USEDEP}]
-	)
 	fontconfig? ( media-libs/fontconfig:=[${MULTILIB_USEDEP}] )
 	gphoto2? ( media-libs/libgphoto2:=[${MULTILIB_USEDEP}] )
 	gsm? ( media-sound/gsm:=[${MULTILIB_USEDEP}] )
@@ -148,7 +137,7 @@ RDEPEND="${COMMON_DEPEND}
 	!app-emulation/wine:0
 	dos? ( >=games-emulation/dosbox-0.74_p20160629 )
 	gecko? ( app-emulation/wine-gecko:2.47[abi_x86_32?,abi_x86_64?] )
-	mono? ( app-emulation/wine-mono:4.7.0 )
+	mono? ( app-emulation/wine-mono:4.7.1 )
 	perl? (
 		dev-lang/perl
 		dev-perl/XML-Simple
@@ -163,6 +152,7 @@ RDEPEND="${COMMON_DEPEND}
 
 # tools/make_requests requires perl
 DEPEND="${COMMON_DEPEND}
+	dev-util/patchbin
 	sys-devel/flex
 	>=sys-kernel/linux-headers-2.6
 	virtual/pkgconfig
@@ -194,7 +184,7 @@ wine_compiler_check() {
 		# bug #549768
 		if use abi_x86_64 && [[ $(gcc-major-version) = 5 && $(gcc-minor-version) -le 2 ]]; then
 			ebegin "Checking for gcc-5 ms_abi compiler bug"
-			$(tc-getCC) -O2 "${FILESDIR}"/pr66838.c -o "${T}"/pr66838 || die
+			$(tc-getCC) -O2 "${PATCHDIR}/files/pr66838.c" -o "${T}"/pr66838 || die
 			# Run in subshell to prevent "Aborted" message
 			( "${T}"/pr66838 || false ) >/dev/null 2>&1
 			if ! eend $?; then
@@ -210,7 +200,7 @@ wine_compiler_check() {
 		if use abi_x86_64 && [[ $(gcc-major-version) = 5 && $(gcc-minor-version) = 3 ]]; then
 			ebegin "Checking for gcc-5-3 stack realignment compiler bug"
 			# Compile in subshell to prevent "Aborted" message
-			( $(tc-getCC) -O2 -mincoming-stack-boundary=3 "${FILESDIR}"/pr69140.c -o "${T}"/pr69140 ) >/dev/null 2>&1
+			( $(tc-getCC) -O2 -mincoming-stack-boundary=3 "${PATCHDIR}/files/pr69140.c" -o "${T}"/pr69140 ) >/dev/null 2>&1
 			if ! eend $?; then
 				eerror "Wine cannot be built with this version of gcc-5.3"
 				eerror "due to compiler bugs; please re-emerge the latest gcc-5.3.x ebuild,"
@@ -226,7 +216,7 @@ wine_compiler_check() {
 	if use abi_x86_64; then
 		ebegin "Checking for 64-bit compiler with builtin_ms_va_list support"
 		# Compile in subshell to prevent "Aborted" message
-		( $(tc-getCC) -O2 "${FILESDIR}"/builtin_ms_va_list.c -o "${T}"/builtin_ms_va_list >/dev/null 2>&1)
+		( $(tc-getCC) -O2 "${PATCHDIR}/files/builtin_ms_va_list.c" -o "${T}"/builtin_ms_va_list >/dev/null 2>&1)
 		if ! eend $?; then
 			eerror "This version of $(tc-getCC) does not support builtin_ms_va_list, can't enable 64-bit wine"
 			eerror
@@ -276,10 +266,10 @@ wine_env_vcs_vars() {
 	local pn_live_val="${pn_live_var}"
 	eval pn_live_val='$'${pn_live_val}
 	if [[ ! -z ${pn_live_val} ]]; then
-		if use staging || use d3d9; then
+		if use staging; then
 			eerror "Because of the multi-repo nature of ${MY_PN}, ${pn_live_var}"
 			eerror "cannot be used to set the commit. Instead, you may use the"
-			eerror "environmental variables WINE_COMMIT, STAGING_COMMIT, and D3D9_COMMIT."
+			eerror "environmental variables WINE_COMMIT, and STAGING_COMMIT."
 			eerror
 			return 1
 		fi
@@ -340,10 +330,6 @@ src_unpack() {
 				einfo "Example: WINE_COMMIT=${COMPAT_WINE_COMMIT} emerge -1 wine"
 			fi
 		fi
-		if use d3d9; then
-			git-r3_fetch "${D3D9_EGIT_REPO_URI}" "${D3D9_COMMIT}"
-			git-r3_checkout "${D3D9_EGIT_REPO_URI}" "${D3D9_DIR}"
-		fi
 	fi
 
 	default
@@ -352,12 +338,20 @@ src_unpack() {
 }
 
 src_prepare() {
+
+	eapply_bin(){
+		local patch
+		for patch in ${PATCHES_BIN[@]}; do
+			patchbin --nogit < "${patch}" || die
+		done
+	}
+
 	local md5="$(md5sum server/protocol.def)"
 	local PATCHES=(
-		"${FILESDIR}"/${MY_PN}-1.5.26-winegcc.patch #260726
-		"${FILESDIR}"/${MY_PN}-1.9.5-multilib-portage.patch #395615
-		"${FILESDIR}"/${MY_PN}-1.6-memset-O3.patch #480508
-		"${FILESDIR}"/${MY_PN}-2.0-multislot-apploader.patch
+		"${PATCHDIR}/patches/${MY_PN}-1.5.26-winegcc.patch" #260726
+		"${PATCHDIR}/patches/${MY_PN}-1.9.5-multilib-portage.patch" #395615
+		"${PATCHDIR}/patches/${MY_PN}-1.6-memset-O3.patch" #480508
+		"${PATCHDIR}/patches/${MY_PN}-2.0-multislot-apploader.patch"
 	)
 	if use staging; then
 		ewarn "Applying the Wine-Staging patchset. Any bug reports to the"
@@ -376,16 +370,9 @@ src_prepare() {
 		)
 		eend $? || die "Failed to apply Wine-Staging patches"
 	fi
-	if use d3d9; then
-		if use staging; then
-			PATCHES+=( "${D3D9_DIR}/staging-helper.patch" )
-		else
-			PATCHES+=( "${D3D9_DIR}/d3d9-helper.patch" )
-		fi
-		PATCHES+=( "${D3D9_DIR}/wine-d3d9.patch" )
-	fi
 
 	default
+	eapply_bin
 	eautoreconf
 
 	# Modification of the server protocol requires regenerating the server requests
@@ -402,7 +389,7 @@ src_prepare() {
 	sed -e "/^Exec=/s/wine /wine-${WINE_VARIANT} /" -i loader/wine.desktop || die
 
 	# hi-res default icon, #472990, https://bugs.winehq.org/show_bug.cgi?id=24652
-	cp "${WORKDIR}/${WINE_DESKTOP_COMMON_P}/icons/oic_winlogo.ico" dlls/user32/resources/ || die
+	cp "${PATCHDIR}/files/oic_winlogo.ico" dlls/user32/resources/ || die
 
 	l10n_get_locales > po/LINGUAS || die # otherwise wine doesn't respect LINGUAS
 }
@@ -462,7 +449,6 @@ multilib_src_configure() {
 		$(use_with udev)
 		$(use_with v4l)
 		$(use_with X x)
-		$(use_with X xfixes)
 		$(use_with xcomposite)
 		$(use_with xinerama)
 		$(use_with xml)
@@ -474,7 +460,6 @@ multilib_src_configure() {
 		$(use_with themes gtk3)
 		$(use_with vaapi va)
 	)
-	use d3d9 && myconf+=( $(use_with d3d9 d3d9-nine) )
 
 	local PKG_CONFIG AR RANLIB
 	# Avoid crossdev's i686-pc-linux-gnu-pkg-config if building wine32 on amd64; #472038
@@ -541,8 +526,8 @@ multilib_src_install_all() {
 	use abi_x86_64 && pax-mark psmr "${D%/}${MY_PREFIX}"/bin/wine64{,-preloader}
 
 	if use abi_x86_64 && ! use abi_x86_32; then
-		dosym "${MY_PREFIX}"/bin/wine{64,} # 404331
-		dosym "${MY_PREFIX}"/bin/wine{64,}-preloader
+		dosym wine64 "${MY_PREFIX}"/bin/wine # 404331
+		dosym wine64-preloader "${MY_PREFIX}"/bin/wine-preloader
 	fi
 
 	# Failglob for bin and man loops
@@ -573,14 +558,11 @@ pkg_postinst() {
 		if use staging; then
 			eselect wine register --staging ${P} || die
 		fi
-		if use d3d9; then
-			eselect wine register --d3d9 ${P} || die
-		fi
 	fi
 
 	eselect wine update --all --if-unset || die
 
-	fdo-mime_desktop_database_update
+	xdg_desktop_database_update
 
 	if ! use gecko; then
 		ewarn "Without Wine Gecko, wine prefixes will not have a default"
@@ -604,14 +586,11 @@ pkg_prerm() {
 		if use staging; then
 			eselect wine deregister --staging ${P} || die
 		fi
-		if use d3d9; then
-			eselect wine deregister --d3d9 ${P} || die
-		fi
 	fi
 
 	eselect wine update --all --if-unset || die
 }
 
 pkg_postrm() {
-	fdo-mime_desktop_database_update
+	xdg_desktop_database_update
 }
