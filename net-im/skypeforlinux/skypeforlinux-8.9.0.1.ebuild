@@ -9,18 +9,19 @@ inherit eutils pax-utils rpm multilib-build
 
 DESCRIPTION="P2P Internet Telephony (VoiceIP) client"
 HOMEPAGE="https://www.skype.com/"
-SRC_URI="https://repo.skype.com/rpm/unstable/${PN}_${PV}-1.x86_64.rpm"
+SRC_URI="https://repo.skype.com/rpm/stable/${PN}_${PV}-1.x86_64.rpm"
 
 LICENSE="Skype-TOS no-source-code"
 SLOT="0"
-KEYWORDS="-amd64"
+KEYWORDS="~amd64"
 IUSE="pax_kernel"
 
 S="${WORKDIR}"
 QA_PREBUILT=opt/skypeforlinux/skypeforlinux
 RESTRICT="mirror bindist strip" #299368
 
-RDEPEND="dev-libs/atk[${MULTILIB_USEDEP}]
+RDEPEND="
+	dev-libs/atk[${MULTILIB_USEDEP}]
 	dev-libs/expat[${MULTILIB_USEDEP}]
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
 	dev-libs/nspr[${MULTILIB_USEDEP}]
@@ -51,7 +52,9 @@ RDEPEND="dev-libs/atk[${MULTILIB_USEDEP}]
 	x11-libs/libXrandr[${MULTILIB_USEDEP}]
 	x11-libs/libXrender[${MULTILIB_USEDEP}]
 	x11-libs/libXtst[${MULTILIB_USEDEP}]
-	x11-libs/pango[${MULTILIB_USEDEP}]"
+	x11-libs/pango[${MULTILIB_USEDEP}]
+	app-crypt/libsecret[${MULTILIB_USEDEP}]
+"
 
 src_unpack() {
 	rpm_src_unpack ${A}
@@ -70,8 +73,24 @@ src_install() {
 	insinto /opt/skypeforlinux/locales
 	doins usr/share/skypeforlinux/locales/*.pak
 
+	insinto /opt/skypeforlinux/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release
+	doins usr/share/skypeforlinux/resources/app.asar.unpacked/node_modules/keyboard-layout/build/Release/keyboard-layout-manager.node
+
 	insinto /opt/skypeforlinux/resources/app.asar.unpacked/node_modules/keytar/build/Release
 	doins usr/share/skypeforlinux/resources/app.asar.unpacked/node_modules/keytar/build/Release/keytar.node
+
+	insinto /opt/skypeforlinux/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release
+	doins usr/share/skypeforlinux/resources/app.asar.unpacked/node_modules/@paulcbetts/cld/build/Release/cld.node
+
+	insinto /opt/skypeforlinux/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release
+	doins usr/share/skypeforlinux/resources/app.asar.unpacked/node_modules/@paulcbetts/spellchecker/build/Release/spellchecker.node
+
+	insinto /opt/skypeforlinux/resources/app.asar.unpacked/node_modules/slimcore/bin
+	doins usr/share/skypeforlinux/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
+	doins usr/share/skypeforlinux/resources/app.asar.unpacked/node_modules/slimcore/bin/sharing-indicator.node
+
+	insinto /opt/skypeforlinux/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding
+	doins usr/share/skypeforlinux/resources/app.asar.unpacked/node_modules/sqlite3/lib/binding/node_sqlite3.node
 
 	insinto /opt/skypeforlinux/resources
 	doins usr/share/skypeforlinux/resources/*.asar
