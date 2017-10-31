@@ -1,10 +1,2 @@
-media-libs/gstreamer
-media-libs/gst-plugins-base
-media-libs/gst-plugins-good
-media-libs/gst-plugins-bad
-media-libs/gst-plugins-ugly
-
 media-libs/schroedinger
 dev-libs/liboil
-
-media-plugins/gst-plugins-*:1.0

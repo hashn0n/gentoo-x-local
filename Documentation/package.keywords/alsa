@@ -4,4 +4,3 @@ media-sound/alsa-utils
 media-sound/alsa-headers
 media-sound/bluez-alsa
 media-plugins/alsa-plugins
-media-plugins/gst-plugins-alsa
