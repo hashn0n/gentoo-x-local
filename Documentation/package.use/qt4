@@ -1,4 +1,5 @@
 #dev-python/PyQt4 sql declarative
+dev-python/PyQt4 -webkit
 # move x11-libs/qt-declarative dev-qt/qtdeclarative
 dev-qt/qtdeclarative:4 accessibility
 # move x11-libs/qt-gui dev-qt/qtgui
