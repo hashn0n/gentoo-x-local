@@ -1,1 +1,1 @@
-net-misc/asterisk alsa oss curl dahdi gtalk http ilbc postgres span speex srtp vorbis xmpp syslog
+net-misc/asterisk alsa oss curl gtalk http ilbc postgres span speex srtp vorbis xmpp syslog -dahdi
