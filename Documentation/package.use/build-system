@@ -1,2 +1,3 @@
 sys-libs/glibc userlocales
 dev-util/pkgconf pkg-config
+dev-libs/glib utils

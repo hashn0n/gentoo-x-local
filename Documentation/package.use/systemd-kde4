@@ -1,2 +1,5 @@
 # move kde-base/kdelibs kde-frameworks/kdelibs
 kde-frameworks/kdelibs -upower udisks udev
+
+# kde-frameworks/kdelibs need plasma if opengl enabled
+kde-frameworks/kdelibs plasma
