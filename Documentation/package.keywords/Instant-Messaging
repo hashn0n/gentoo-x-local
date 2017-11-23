@@ -23,3 +23,5 @@ net-libs/tox **
 =dev-libs/libsodium-1.0.0
 # required by net-im/utox-9999::tox-overlay[filter_audio]
 media-libs/libfilteraudio **
+
+net-im/telegram-desktop-bin
