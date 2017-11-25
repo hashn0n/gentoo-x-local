@@ -4,3 +4,6 @@ app-office/libreoffice -gnome kde
 app-office/libreoffice-bin -gnome kde
 # required by "app-office/libreoffice-4.1.2.3"
 media-libs/harfbuzz icu
+
+# required by app-office/libreoffice-5.4.2.2::gentoo
+>=dev-libs/xmlsec-1.2.24-r1 nss
