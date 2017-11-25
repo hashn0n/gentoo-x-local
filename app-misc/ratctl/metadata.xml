@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer>
+		<email>hash.duorden@gmail.com</email>
+		<name>Control utility for some features of Saitek Cyborg R.A.T mice!</name>
+	</maintainer>
+</pkgmetadata>
