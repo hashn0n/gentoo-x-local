@@ -1,2 +1,3 @@
 # move net-misc/tor net-vpn/tor
 net-vpn/tor
+net-vpn/wireguard
