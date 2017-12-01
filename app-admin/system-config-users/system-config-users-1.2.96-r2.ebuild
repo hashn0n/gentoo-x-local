@@ -2,11 +2,11 @@
 # Distributed under the terms of the GNU General Public License v2
 # $
 
-EAPI=5
+EAPI=6
 
 PYTHON_COMPAT=( python2_7 )
 
-inherit python-r1 base
+inherit python-single-r1
 
 DESCRIPTION="The system-config-users tool lets you manage the users and groups on your computer."
 HOMEPAGE="http://fedoraproject.org/wiki/SystemConfig/users"
