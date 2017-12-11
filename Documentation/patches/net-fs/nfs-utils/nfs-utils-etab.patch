@@ -1,0 +1,40 @@
+Fix issue caused by commit a15bd948606bf4816bf819c0b0c75761f3eb6359
+2017-02-15	Scott Mayhew	mountd/exportfs: implement the -s/--state-directory...
+It removes errors in complation, not tested in runtime.
+
+--- a/support/include/nfslib.h
++++ b/support/include/nfslib.h
+@@ -53,6 +53,9 @@
+ 	char *lockfn;
+ };
+ 
++struct state_paths etab;
++struct state_paths rmtab;
++
+ /* Maximum number of security flavors on an export: */
+ #define SECFLAVOR_COUNT 8
+ 
+--- a/utils/exportfs/exportfs.c
++++ b/utils/exportfs/exportfs.c
+@@ -51,7 +51,7 @@
+ static const char *lockfile = EXP_LOCKFILE;
+ static int _lockfd = -1;
+ 
+-struct state_paths etab;
++extern struct state_paths etab;
+ 
+ /*
+  * If we aren't careful, changes made by exportfs can be lost
+--- a/utils/mountd/mountd.c
++++ b/utils/mountd/mountd.c
+@@ -41,8 +41,8 @@
+ int manage_gids;
+ int use_ipaddr = -1;
+ 
+-struct state_paths etab;
+-struct state_paths rmtab;
++extern struct state_paths etab;
++extern struct state_paths rmtab;
+ 
+ /* PRC: a high-availability callout program can be specified with -H
+  * When this is done, the program will receive callouts whenever clients
