@@ -1,5 +1,4 @@
 net-misc/unison
-sys-fs/lessfs
 
 net-p2p/syncthing::gentoo
 # move app-misc/godep dev-go/godep
