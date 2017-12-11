@@ -1,4 +1,1 @@
-sys-devel/gcc:5.4.0
-# slotmove sys-devel/gcc 4.8 4.8.5
-sys-devel/gcc:4.8.5
-sys-libs/glibc
+../../../../../etc/portage/make.conf.d/keywords/build-system
