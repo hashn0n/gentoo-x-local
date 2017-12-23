@@ -15,3 +15,6 @@
 #required by dev-db/unixODBC-2.3.2-r1
 #required by app-office/libreoffice-4.2.8.2
 =dev-libs/libltdl-2.4.4
+
+#PDF
+app-text/master-pdf-editor
