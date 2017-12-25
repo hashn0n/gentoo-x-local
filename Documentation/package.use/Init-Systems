@@ -1,3 +1,4 @@
 sys-apps/pciutils -zlib
 
 sys-process/systemd-cron cron-boot etc-crontab-systemd minutely setgid yearly
+sys-apps/systemd -sysv-utils
