@@ -12,8 +12,6 @@ sys-fs/genext2fs
 
 sys-fs/avfs
 
-sys-fs/cryptsetup
-
 #e2fsprogs
 sys-fs/e2fsprogs
 sys-libs/e2fsprogs-libs
