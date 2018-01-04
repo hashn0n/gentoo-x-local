@@ -25,6 +25,7 @@ IUSE=""
 
 DEPEND="
 	dev-python/setuptools[${PYTHON_USEDEP}]
+	dev-python/PyQt5[${PYTHON_USEDEP}]
 "
 RDEPEND="
 	dev-python/python-libusb1
