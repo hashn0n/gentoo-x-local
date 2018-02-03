@@ -1,7 +1,5 @@
-app-office/openoffice -gnome kde
-app-office/openoffice-bin -gnome kde
-app-office/libreoffice -gnome kde
-app-office/libreoffice-bin -gnome kde
+app-office/libreoffice -gnome -kde
+app-office/libreoffice-bin -gnome -kde
 # required by "app-office/libreoffice-4.1.2.3"
 media-libs/harfbuzz icu
 
