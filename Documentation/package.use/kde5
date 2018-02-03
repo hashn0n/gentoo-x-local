@@ -6,3 +6,8 @@ media-libs/mesa xa gles2 wayland
 dev-libs/wayland abi_x86_32
 
 kde-plasma/systemsettings classic
+
+# required by kde-plasma/plasma-workspace-5.11.5::gentoo[systemd]
+# required by kde-plasma/plasma-desktop-5.11.5::gentoo
+>=sys-apps/dbus-1.10.18 user-session
+net-wireless/bluez user-session
