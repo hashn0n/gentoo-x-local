@@ -1,6 +1,8 @@
-kde-plasma/plasma-desktop legacy-systray gtk2 gtk3 qt4
+kde-plasma/plasma-desktop legacy-systray gtk2 gtk3 -qt4 qt5
 app-text/poppler qt5
 app-crypt/qca qt5
 
 media-libs/mesa xa gles2 wayland
 dev-libs/wayland abi_x86_32
+
+kde-plasma/systemsettings classic
