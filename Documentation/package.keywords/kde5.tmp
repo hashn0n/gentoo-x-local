@@ -4,3 +4,6 @@
 =kde-frameworks/extra-cmake-modules-5.28.0
 
 =x11-misc/qt5ct-0.33
+
+# required by mate-base/mate-control-center-1.12.1-r1::gentoo
+=sys-apps/dbus-1.12.2
