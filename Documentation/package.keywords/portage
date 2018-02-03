@@ -10,3 +10,8 @@ sys-apps/sandbox
 app-portage/eix
 app-shells/quoter
 app-shells/push
+
+# required by sys-apps/portage-2.3.24::gentoo[rsync-verify]
+=app-crypt/gnupg-2.2.4-r1
+app-portage/gemato
+dev-python/bz2file
