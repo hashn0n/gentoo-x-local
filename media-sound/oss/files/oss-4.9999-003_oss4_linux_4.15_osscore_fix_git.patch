@@ -1,0 +1,55 @@
+commit 0235b5eb879e32c5011f88925daa6ddf4313e330
+Author: hash <hashn0n@users.noreply.github.com>
+Date:   Mon Feb 5 23:12:49 2018 +0300
+
+    Fix runtime compile problem of osscore.c against kernel version 4.15, posted on "http://ossnext.trueinstruments.com/forum/viewtopic.php?f=3&t=5862", "Kernel 4.15 osscore.c compile fix" by seawright
+
+diff --git a/setup/Linux/oss/build/osscore.c b/setup/Linux/oss/build/osscore.c
+index 8f4675a..7ac2539 100644
+--- a/setup/Linux/oss/build/osscore.c
++++ b/setup/Linux/oss/build/osscore.c
+@@ -494,6 +494,9 @@ typedef struct tmout_desc
+   int timestamp;
+   void (*func) (void *);
+   void *arg;
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
++  int data;
++#endif
+ 
+   struct timer_list timer;
+ } tmout_desc_t;
+@@ -506,8 +509,16 @@ tmout_desc_t tmouts[MAX_TMOUTS] = { {0} };
+ int timeout_random = 0x12123400;
+ 
+ void
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
++oss_timer_callback (struct timer_list *t)
++#else
+ oss_timer_callback (unsigned long id)
++#endif
+ {
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
++  tmout_desc_t *priv = container_of(t, typeof(*priv), timer);
++  int id = priv->data;
++#endif
+   tmout_desc_t *tmout;
+   int ix;
+   void *arg;
+@@ -566,10 +577,17 @@ oss_timeout (void (*func) (void *), void *arg, unsigned long long ticks)
+   tmout->arg = arg;
+   tmout->timestamp = id | (timeout_random & ~0xff);
+ 
++#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,15,0)
++  tmout->data = id | (timeout_random & ~0xff);
++  timer_setup (&tmout->timer, oss_timer_callback, 0);
++#else
+   init_timer (&tmout->timer);
++#endif
+   tmout->timer.expires = jiffies + ticks;
++#if LINUX_VERSION_CODE < KERNEL_VERSION(4,15,0)
+   tmout->timer.data = id | (timeout_random & ~0xff);
+   tmout->timer.function = oss_timer_callback;
++#endif
+   add_timer (&tmout->timer);
+ 
+   return id | (timeout_random & ~0xff);

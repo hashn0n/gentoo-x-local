@@ -1,0 +1,22 @@
+commit 30fd7503a08ef3c41f3074580f3624d62fe2a17a
+Author: hash <hashn0n@users.noreply.github.com>
+Date:   Mon Feb 5 23:22:41 2018 +0300
+
+    Add condition to ignore alsa drivers for soundon scripts. (/etc/oss/alsa.ignore)
+
+diff --git a/setup/Linux/oss/scripts/remove_drv.sh b/setup/Linux/oss/scripts/remove_drv.sh
+index 55cc1b4..3608d66 100644
+--- a/setup/Linux/oss/scripts/remove_drv.sh
++++ b/setup/Linux/oss/scripts/remove_drv.sh
+@@ -6,6 +6,11 @@ else
+   OSSLIBDIR=/usr/lib/oss
+ fi
+ 
++if test -f /etc/oss/alsa.ignore
++then
++  exit 0
++fi
++
+ # This script wipes out the previously installed sound drivers
+ # from the system.
+ 
