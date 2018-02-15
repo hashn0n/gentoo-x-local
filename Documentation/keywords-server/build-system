@@ -1,5 +1,2 @@
-sys-devel/gcc:5.4.0
-# slotmove sys-devel/gcc 4.8 4.8.5
-sys-devel/gcc:4.8.5
-=sys-libs/glibc-2.26-r3
+=sys-libs/glibc-2.26-r5
 =net-libs/libnsl-1.1.0-r3
