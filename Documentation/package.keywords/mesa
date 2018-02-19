@@ -9,3 +9,5 @@ sys-devel/llvm-common
 
 # required by media-libs/mesa-17.2.0_rc3::gentoo[wayland]
 dev-libs/wayland-protocols
+
+media-libs/glew
