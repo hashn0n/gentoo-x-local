@@ -1,6 +1,7 @@
 virtual/wine staging
-app-emulation/wine-any -cups -udisks -gstreamer -pulseaudio -vaapi -pipelight -staging -s3tc ldap mp3 mono osmesa alsa openal
-app-emulation/wine-staging -cups -udisks -gstreamer -pulseaudio -vaapi pipelight staging s3tc ldap mp3 mono osmesa alsa openal
+app-emulation/wine-any -cups -udisks -gstreamer pulseaudio -vaapi -pipelight -staging -s3tc ldap mp3 mono osmesa alsa openal
+app-emulation/wine-staging ldap -cups -vaapi pipelight staging s3tc mp3 mono osmesa alsa openal
+app-emulation/wine-vanilla ldap
 app-emulation/q4wine kde gnome
 
 ## ?
@@ -8,6 +9,5 @@ media-libs/openal abi_x86_32
 ## ?
 
 ## ?
-net-libs/gnutls pkcs11
-net-libs/gnutls sslv2 sslv3 openpgp
+net-libs/gnutls pkcs11 sslv2 sslv3 openpgp
 ## ?
