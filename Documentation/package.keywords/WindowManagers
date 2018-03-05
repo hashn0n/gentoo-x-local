@@ -26,3 +26,5 @@ x11-misc/compton-conf **
 <xfce-base/xfwm4-4.13 **
 
 x11-wm/lumina **
+
+x11-misc/xscreensaver
