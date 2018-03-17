@@ -9,5 +9,5 @@
 sys-apps/systemd
 sys-process/systemd-cron
 
-# required by sys-apps/systemd-232::gentoo[seccomp]
-=sys-libs/libseccomp-2.3.1
+# required by sys-apps/systemd-238-r1::gentoo[seccomp]
+=sys-libs/libseccomp-2.3.3
