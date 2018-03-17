@@ -1,2 +1,5 @@
 net-fs/nfs-utils kerberos nfsv4 -nfsv3 caps
 net-libs/libtirpc kerberos
+
+#required by "net-fs/nfs-utils-2.3.1-r3::gentoo"
+net-nds/rpcbind warmstarts
