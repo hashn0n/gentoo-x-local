@@ -5,3 +5,8 @@ net-dns/libidn2 abi_x86_32
 dev-libs/libunistring abi_x86_32
 
 ## Don't Starve Together Dedicated server
+
+# required by app-crypt/mit-krb5-1.16-r2::gentoo[nls]
+# required by dev-libs/openssl-1.0.2o::gentoo[kerberos]
+# required by net-analyzer/nmap-7.70::gentoo[-libressl,ssl]
+sys-devel/gettext abi_x86_32
