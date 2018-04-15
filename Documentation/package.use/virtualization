@@ -1,5 +1,5 @@
 #qemu
-app-emulation/qemu virgl
+app-emulation/qemu virgl qemu_user_targets_aarch64 qemu_user_targets_arm qemu_softmmu_targets_aarch64 qemu_softmmu_targets_arm
 
 #vmware
 net-misc/curl ares
