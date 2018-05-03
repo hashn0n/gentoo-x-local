@@ -25,6 +25,9 @@ dev-python/subunit abi_x86_32
 dev-libs/check abi_x86_32
 dev-libs/libaio abi_x86_32
 
+# required by net-fs/samba-4.5.16::gentoo
+net-libs/libnsl abi_x86_32
+
 dev-lang/orc abi_x86_32
 dev-libs/cyrus-sasl abi_x86_32
 dev-libs/iniparser abi_x86_32
@@ -54,11 +57,12 @@ virtual/pam abi_x86_32
 virtual/pkgconfig abi_x86_32
 x11-libs/libxshmfence abi_x86_32
 x11-libs/libxshmfence abi_x86_32
+# move x11-proto/xcb-proto x11-base/xcb-proto
+x11-base/xcb-proto abi_x86_32
 x11-proto/dri2proto abi_x86_32
 x11-proto/dri3proto abi_x86_32
 x11-proto/glproto abi_x86_32
 x11-proto/presentproto abi_x86_32
 x11-proto/printproto abi_x86_32
-x11-proto/xcb-proto abi_x86_32
 x11-proto/xf86driproto abi_x86_32
 x11-proto/xineramaproto abi_x86_32

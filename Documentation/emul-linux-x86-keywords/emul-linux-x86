@@ -26,13 +26,14 @@
 =virtual/opengl-7.0-r1
 =virtual/pam-0-r1
 =virtual/pkgconfig-0-r1
+# move x11-proto/xcb-proto x11-base/xcb-proto
+=x11-base/xcb-proto-1.13
 =x11-libs/libxshmfence-1.1
 =x11-proto/dri2proto-2.8-r1
 =x11-proto/dri3proto-1.0
 =x11-proto/glproto-1.4.17
 =x11-proto/presentproto-1.0
 =x11-proto/printproto-1.0.5-r1
-=x11-proto/xcb-proto-1.13
 =x11-proto/xf86driproto-2.1.1-r1
 =x11-proto/xineramaproto-1.2.1-r1
 
