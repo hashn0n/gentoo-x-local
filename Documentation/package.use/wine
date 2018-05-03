@@ -4,6 +4,8 @@ app-emulation/wine-staging ldap -cups -vaapi pipelight staging s3tc mp3 mono osm
 app-emulation/wine-vanilla ldap
 app-emulation/q4wine kde gnome
 
+media-libs/vulkan-loader abi_x86_32
+
 ## ?
 media-libs/openal abi_x86_32
 ## ?
