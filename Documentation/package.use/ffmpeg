@@ -1,4 +1,4 @@
-media-video/ffmpeg threads vpx aac faac aacplus v4l libv4l x265 libass openssl amr amrenc bluray chromium frei0r gnutls librtmp nvenc pulseaudio schroedinger sdl theora webp
+media-video/ffmpeg threads vpx aac faac aacplus v4l libv4l x265 libass openssl amr amrenc bluray chromium frei0r gnutls librtmp pulseaudio schroedinger sdl theora webp
 
 # required by media-video/ffmpeg-3.2.2::gentoo[sdl]
 media-libs/libsdl2 abi_x86_32
