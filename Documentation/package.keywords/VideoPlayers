@@ -5,6 +5,9 @@ media-video/vlc
 sys-libs/zlib
 media-libs/a52dec
 
+# required by media-video/vlc-3.0.2::gentoo[srt]
+net-libs/srt
+
 #For Blu-Ray Disks and files to process
 media-video/makemkv
 
