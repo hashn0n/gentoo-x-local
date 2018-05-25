@@ -1,4 +1,4 @@
-# Copyright 1999-2017 Gentoo Foundation
+# Copyright 1999-2018 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -9,17 +9,18 @@ inherit eutils gnome2-utils pax-utils rpm multilib-build xdg-utils
 
 DESCRIPTION="Instant messaging client, with support for audio and video"
 HOMEPAGE="https://www.skype.com/"
-SRC_URI="https://repo.skype.com/rpm/stable/${PN}_${PV}-1.x86_64.rpm"
+SRC_URI="https://repo.skype.com/rpm/unstable/${PN}_${PV}-1.x86_64.rpm"
 
 LICENSE="Skype-TOS MIT MIT-with-advertising BSD-1 BSD-2 BSD Apache-2.0 Boost-1.0 ISC CC-BY-SA-3.0 CC0-1.0 openssl ZLIB APSL-2 icu Artistic-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 -*"
+KEYWORDS="-amd64 -*"
 IUSE="pax_kernel"
 
 S="${WORKDIR}"
 QA_PREBUILT="*"
 RESTRICT="mirror bindist strip" #299368
 
+# See bug 642054 about app-crypt/libsecret and MULTILIB_USEDEP.
 RDEPEND="
 	app-crypt/libsecret[${MULTILIB_USEDEP}]
 	dev-libs/atk[${MULTILIB_USEDEP}]
@@ -95,11 +96,11 @@ src_install() {
 	if use pax_kernel; then
 		pax-mark -m "${ED%/}"/opt/skypeforlinux/skypeforlinux
 		pax-mark -m "${ED%/}"/opt/skypeforlinux/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
-		eqawarn "You have set USE=pax_kernel meaning that you intend to run"
-		eqawarn "${PN} under a PaX enabled kernel. To do so, we must modify"
-		eqawarn "the ${PN} binary itself and this *may* lead to breakage! If"
-		eqawarn "you suspect that ${PN} is being broken by this modification,"
-		eqawarn "please open a bug."
+		ewarn "You have set USE=pax_kernel meaning that you intend to run"
+		ewarn "${PN} under a PaX enabled kernel. To do so, we must modify"
+		ewarn "the ${PN} binary itself and this *may* lead to breakage! If"
+		ewarn "you suspect that ${PN} is being broken by this modification,"
+		ewarn "please open a bug."
 	fi
 }
 
