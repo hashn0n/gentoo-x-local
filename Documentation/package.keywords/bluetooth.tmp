@@ -1,0 +1,2 @@
+# required by net-wireless/bluez-5.50::gentoo[mesh,btpclient]
+=dev-libs/ell-0.5
