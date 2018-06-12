@@ -47,11 +47,7 @@ RDEPEND="x11-libs/libXft
 	x11-libs/libXxf86misc
 	x11-libs/libXcursor"
 DEPEND="${RDEPEND}
-	x11-proto/scrnsaverproto
-	x11-proto/xextproto
-	x11-proto/xproto
-	x11-proto/xf86miscproto
-	x11-proto/kbproto
+	x11-base/xorg-proto
 
 	sys-devel/gettext
 	>=dev-util/intltool-0.40
