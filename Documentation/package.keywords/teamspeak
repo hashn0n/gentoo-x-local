@@ -1,3 +1,4 @@
-media-sound/teamspeak-client-bin
+# move media-sound/teamspeak-client-bin media-sound/teamspeak-client
+media-sound/teamspeak-client
 media-sound/teamspeak-server-bin
 media-sound/teamspeak2-client-bin

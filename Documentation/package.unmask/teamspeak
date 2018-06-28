@@ -1,3 +1,4 @@
-<media-sound/teamspeak-client-bin-9999
+# move media-sound/teamspeak-client-bin media-sound/teamspeak-client
+<media-sound/teamspeak-client-9999
 <media-sound/teamspeak-server-bin-9999
 <media-sound/teamspeak2-client-bin-9999

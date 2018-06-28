@@ -1,4 +1,5 @@
-media-sound/teamspeak-client-bin alsa
+# move media-sound/teamspeak-client-bin media-sound/teamspeak-client
+media-sound/teamspeak-client alsa
 # required by dev-qt/qtcore-5.4.1::gentoo
 # required by media-sound/teamspeak-client-bin-3.0.16::gentoo
 dev-libs/libpcre pcre16
