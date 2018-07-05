@@ -1,4 +1,4 @@
-net-misc/networkmanager bluetooth connection-sharing resolvconf avahi -modemmanager
+net-misc/networkmanager bluetooth connection-sharing avahi -modemmanager
 net-dialup/ppp dhcp ipv6
 net-wireless/wpa_supplicant -madwifi wimax wps
 net-dns/avahi autoipd
