@@ -5,6 +5,7 @@ media-gfx/icoutils
 media-libs/win32codecs
 
 media-libs/vulkan-loader
+dev-util/vulkan-headers
 app-emulation/vkd3d
 dev-util/spirv-headers
 
