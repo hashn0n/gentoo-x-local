@@ -26,3 +26,6 @@ games-util/steam-launcher
 
 #mcrcon - Console based rcon client for minecraft servers.
 games-util/mcrcon
+
+games-util/lutris
+dev-python/python-evdev
