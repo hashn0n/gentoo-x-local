@@ -25,3 +25,6 @@ dev-qt/qtwebkit -gstreamer multimedia
 # required by kde-plasma/plasma-workspace-5.8.3-r4::gentoo
 # required by kde-plasma/plasma-desktop-5.8.3::gentoo
 >=dev-qt/qtgui-5.6.2 egl
+
+#Conflicts with =media-sound/pulseaudio-12.0::gentoo[-gnome], starting with =media-sound/pulseaudio-12.0::gentoo have no gmone USE flag.
+kde-plasma/plasma-desktop -pulseaudio
