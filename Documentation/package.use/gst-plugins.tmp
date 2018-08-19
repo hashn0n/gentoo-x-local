@@ -1,0 +1,2 @@
+# required by media-libs/gst-plugins-base-1.14.2-r1::gentoo[-gles2,opengl]
+media-libs/graphene abi_x86_32
