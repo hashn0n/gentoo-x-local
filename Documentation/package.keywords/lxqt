@@ -1,4 +1,5 @@
 dev-libs/libqtxdg
+dev-util/lxqt-build-tools
 lxqt-base/liblxqt
 lxqt-base/libsysstat
 lxqt-base/lxqt-about
