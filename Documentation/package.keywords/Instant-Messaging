@@ -8,6 +8,7 @@ x11-plugins/pidgin-embeddedvideo
 x11-plugins/pidgin-extprefs
 x11-plugins/pidgin-opensteamworks
 net-im/whatsapp-purple **
+x11-plugins/pidgin-telegram
 
 x11-plugins/pidgin-skypeweb **
 
