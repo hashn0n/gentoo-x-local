@@ -4,8 +4,11 @@ app-emulation/wine-staging ldap -cups -vaapi pipelight staging vkd3d mp3 mono os
 app-emulation/wine-vanilla ldap
 app-emulation/q4wine kde gnome
 
-media-libs/vulkan-loader abi_x86_32
 app-emulation/vkd3d abi_x86_32
+media-libs/vulkan-loader abi_x86_32 layers
+media-libs/vulkan-layers abi_x86_32
+dev-util/spirv-tools abi_x86_32
+dev-util/glslang abi_x86_32
 
 # required by app-emulation/vkd3d-1.0::gentoo
 # required by app-emulation/wine-staging-3.13::x-local[vkd3d]
