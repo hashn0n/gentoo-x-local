@@ -1,5 +1,8 @@
 dev-lang/php fpm apache2 bzip2 cli expat gd memlimit nls pcre session ssl xml xsl zip zlib intl imap ftp exif gmp pcntl pdo curl xmlreader xmlwriter
 
+# required by www-apps/nextcloud-14.0.1::gentoo
+dev-lang/php:7.2 truetype
+
 # required by dev-lang/php-7.0.27::gentoo[fpm]
 app-eselect/eselect-php fpm
 
