@@ -16,6 +16,9 @@ dev-libs/libxml2 icu
 # required by dev-libs/libxml2 [icu]
 dev-qt/qtwebkit icu
 
+# required by www-client/chromium-70.0.3538.67::gentoo
+net-libs/nodejs inspector
+
 #uzbl - Web interface tools which adhere to the unix philosophy.
 www-client/uzbl browser tabbed helpers
 
