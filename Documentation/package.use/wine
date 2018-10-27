@@ -19,10 +19,10 @@ x11-libs/xcb-util-cursor abi_x86_32
 x11-libs/xcb-util-keysyms abi_x86_32
 x11-libs/xcb-util-renderutil abi_x86_32
 
-## ?
 media-libs/openal abi_x86_32
-## ?
 
-## ?
+# required by sys-libs/ldb-1.3.6::gentoo
+# required by net-fs/samba-4.8.6::gentoo
+# required by app-emulation/wine-staging-3.18::x-local[samba]
+dev-util/cmocka abi_x86_32
 net-libs/gnutls pkcs11 sslv2 sslv3 openpgp
-## ?
