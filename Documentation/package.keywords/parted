@@ -1,2 +1,5 @@
 sys-block/parted
 sys-block/gparted
+
+# required by sys-block/gparted-0.29.0::gentoo
+=dev-cpp/glibmm-2.56.0
