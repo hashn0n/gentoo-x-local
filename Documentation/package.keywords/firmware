@@ -1,3 +1,4 @@
 sys-kernel/linux-firmware **
 sys-firmware/b43-firmware **
-net-wireless/bluez-firmware
+# move net-wireless/bluez-firmware sys-firmware/bluez-firmware
+sys-firmware/bluez-firmware
