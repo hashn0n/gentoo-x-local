@@ -8,3 +8,7 @@ dev-libs/fribidi
 # required by media-libs/x264-0.0.20170701::gentoo[abi_x86_32]
 # required by media-video/ffmpeg-3.2.4::gentoo[x264,encode]
 dev-lang/nasm
+
+# required by media-video/ffmpeg-4.1::gentoo[video_cards_nvidia]
+# required by media-libs/gegl-0.3.34::gentoo[ffmpeg]
+=media-libs/nv-codec-headers-8.1.24.2

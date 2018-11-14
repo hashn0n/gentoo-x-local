@@ -20,3 +20,6 @@ media-libs/vo-amrwbenc abi_x86_32
 
 # required by media-video/ffmpeg-3.3.4::gentoo[schroedinger]
 media-libs/schroedinger abi_x86_32
+
+# required by media-video/ffmpeg-4.1::gentoo[video_cards_nvidia]
+media-libs/nv-codec-headers abi_x86_32
