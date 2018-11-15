@@ -3,8 +3,7 @@
 
 EAPI=6
 
-inherit rpm
-#unpacker  gnome2-utils xdg
+inherit rpm gnome2-utils xdg
 
 MY_PN="${PN/-bin/}"
 
@@ -67,4 +66,21 @@ src_prepare() {
 src_install() {
 	doins -r *
 	fperms a+x /opt/zoom/{zopen,zoom,ZoomLauncher,qtdiag,QtWebEngineProcess,zoomlinux,zoom.sh,config-dump.sh,getmem.sh}
+}
+
+pkg_preinst() {
+	xdg_pkg_preinst
+	gnome2_icon_savelist
+}
+
+pkg_postinst() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+	gnome2_icon_cache_update
+}
+
+pkg_postrm() {
+	xdg_desktop_database_update
+	xdg_mimeinfo_database_update
+	gnome2_icon_cache_update
 }
