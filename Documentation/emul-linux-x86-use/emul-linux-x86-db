@@ -6,4 +6,5 @@ virtual/libmysqlclient abi_x86_32
 dev-db/myodbc abi_x86_32
 dev-db/mysql abi_x86_32
 dev-db/mariadb abi_x86_32
+dev-db/mysql-connector-c abi_x86_32
 dev-db/unixODBC abi_x86_32
