@@ -23,3 +23,6 @@ media-libs/schroedinger abi_x86_32
 
 # required by media-video/ffmpeg-4.1::gentoo[video_cards_nvidia]
 media-libs/nv-codec-headers abi_x86_32
+
+# required by media-video/ffmpeg-4.1::gentoo[srt]
+net-libs/srt abi_x86_32
