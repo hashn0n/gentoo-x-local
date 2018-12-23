@@ -26,3 +26,7 @@ media-libs/nv-codec-headers abi_x86_32
 
 # required by media-video/ffmpeg-4.1::gentoo[srt]
 net-libs/srt abi_x86_32
+
+# =media-libs/opencv-2.4.13-r3 do not compile with ffmpeg USE flag
+# https://bugs.gentoo.org/672840
+media-libs/opencv -ffmpeg
