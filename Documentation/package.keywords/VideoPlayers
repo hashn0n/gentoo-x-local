@@ -1,6 +1,10 @@
 media-video/mpv
 media-libs/libdvdcss
 
+# required by media-video/mpv-0.29.1::gentoo[vulkan]
+# required by app-shells/mpv-bash-completion-3.3.17::gentoo
+media-libs/shaderc
+
 media-video/vlc
 sys-libs/zlib
 media-libs/a52dec
