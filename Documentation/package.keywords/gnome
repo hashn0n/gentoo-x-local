@@ -12,5 +12,4 @@ app-crypt/p11-kit
 <gnome-base/gnome-settings-daemon-3
 gnome-extra/gconf-editor
 gnome-extra/zenity
-dev-util/gdbus-codegen
 #dev-libs/glib:2
