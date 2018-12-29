@@ -1,5 +1,9 @@
 media-video/ffmpeg threads vpx aac faac aacplus v4l libv4l x265 libass openssl amr amrenc bluray chromium frei0r librtmp schroedinger sdl theora webp -gnutls
 
+# =media-libs/opencv-2.4.13-r3 do not compile with ffmpeg USE flag
+# https://bugs.gentoo.org/672840
+media-libs/opencv -ffmpeg
+
 # required by media-video/ffmpeg-3.2.2::gentoo[sdl]
 media-libs/libsdl2 abi_x86_32
 
@@ -27,6 +31,39 @@ media-libs/nv-codec-headers abi_x86_32
 # required by media-video/ffmpeg-4.1::gentoo[srt]
 net-libs/srt abi_x86_32
 
-# =media-libs/opencv-2.4.13-r3 do not compile with ffmpeg USE flag
-# https://bugs.gentoo.org/672840
-media-libs/opencv -ffmpeg
+# required by dev-libs/libxml2-2.9.8::gentoo[icu]
+# required by media-libs/libbluray-1.0.2::gentoo[xml]
+# required by media-video/ffmpeg-4.1::gentoo[bluray]
+dev-libs/icu abi_x86_32
+
+# required by media-libs/fontconfig-2.13.0-r4::gentoo
+# required by media-libs/libbluray-1.0.2::gentoo[fontconfig]
+# required by media-video/ffmpeg-4.1::gentoo[bluray]
+dev-libs/expat abi_x86_32
+
+# required by media-libs/freetype-2.9.1-r3::gentoo[bzip2]
+# required by media-libs/fontconfig-2.13.0-r4::gentoo
+# required by media-libs/libbluray-1.0.2::gentoo[fontconfig]
+# required by media-video/ffmpeg-4.1::gentoo[bluray]
+app-arch/bzip2 abi_x86_32
+
+# required by dev-libs/libxml2-2.9.8::gentoo[lzma]
+# required by media-libs/libbluray-1.0.2::gentoo[xml]
+# required by media-video/ffmpeg-4.1::gentoo[bluray]
+app-arch/xz-utils abi_x86_32
+
+# required by media-libs/libsdl2-2.0.8-r2::gentoo[dbus]
+# required by media-video/ffmpeg-4.1::gentoo[sdl]
+sys-apps/dbus abi_x86_32
+
+# required by media-libs/libbluray-1.0.2::gentoo[fontconfig]
+# required by media-video/ffmpeg-4.1::gentoo[bluray]
+media-libs/fontconfig abi_x86_32
+
+# required by media-libs/libbluray-1.0.2::gentoo[truetype]
+# required by media-video/ffmpeg-4.1::gentoo[bluray]
+media-libs/freetype abi_x86_32
+
+# required by media-libs/libbluray-1.0.2::gentoo[xml]
+# required by media-video/ffmpeg-4.1::gentoo[bluray]
+dev-libs/libxml2 abi_x86_32
