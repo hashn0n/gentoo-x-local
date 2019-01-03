@@ -1,0 +1,7 @@
+# required by dev-libs/ocl-icd-2.2.12::gentoo
+# required by media-libs/mesa-18.3.1::gentoo[opencl,gallium]
+# required by x11-base/xorg-server-1.20.3::gentoo[-minimal]
+=virtual/rubygems-15
+
+# required by openCL to work with AMD cards
+dev-util/amdapp
