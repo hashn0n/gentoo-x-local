@@ -1,5 +1,3 @@
-app-emulation/wine-doors
-app-emulation/q4wine
 media-sound/mpg123
 media-gfx/icoutils
 media-libs/win32codecs
@@ -17,22 +15,16 @@ dev-util/vulkan-tools
 media-libs/openal
 ## ?
 
-app-emulation/playonlinux
-
 # New way of wine versioned
 <virtual/wine-9999::gentoo **
-<app-emulation/wine-any-9999::gentoo **
 <app-emulation/wine-staging-9999::gentoo **
-<app-emulation/wine-vanilla-9999::gentoo **
 <app-emulation/wine-mono-9999::gentoo **
 <app-emulation/wine-gecko-9999::gentoo **
 <app-emulation/wine-desktop-common-9999::gentoo **
 <app-eselect/eselect-wine-9999::gentoo **
 
 <virtual/wine-9999::x-local **
-<app-emulation/wine-any-9999::x-local **
 <app-emulation/wine-staging-9999::x-local **
-<app-emulation/wine-vanilla-9999::x-local **
 <app-emulation/wine-mono-9999::x-local **
 <app-emulation/wine-gecko-9999::x-local **
 <app-emulation/wine-desktop-common-9999::x-local **

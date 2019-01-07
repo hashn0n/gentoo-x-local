@@ -37,6 +37,7 @@ x11-libs/libdrm
 x11-libs/libFS
 x11-libs/libSM
 x11-libs/libpciaccess
+x11-libs/cairo
 x11-libs/pixman
 x11-libs/xtrans
 x11-misc/util-macros

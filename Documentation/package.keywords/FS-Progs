@@ -16,9 +16,6 @@ sys-fs/avfs
 sys-fs/e2fsprogs
 sys-libs/e2fsprogs-libs
 
-#aufs
-sys-fs/aufs4
-
 sys-fs/aufs-util
 sys-fs/aufs-headers
 sys-kernel/aufs-sources
