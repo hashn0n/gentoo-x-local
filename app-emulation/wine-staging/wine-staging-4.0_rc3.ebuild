@@ -6,17 +6,13 @@ EAPI=6
 PLOCALES="ar bg ca cs da de el en en_US eo es fa fi fr he hi hr hu it ja ko lt ml nb_NO nl or pa pl pt_BR pt_PT rm ro ru sk sl sr_RS@cyrillic sr_RS@latin sv te th tr uk wa zh_CN zh_TW"
 PLOCALE_BACKUP="en"
 
-inherit autotools estack eutils flag-o-matic gnome2-utils l10n multilib multilib-minimal pax-utils toolchain-funcs virtualx versionator xdg-utils
+inherit autotools eapi7-ver estack eutils flag-o-matic gnome2-utils l10n multilib multilib-minimal pax-utils toolchain-funcs virtualx xdg-utils
 
+MAJOR_V=$(ver_cut 1)
+MINOR_V=$(ver_cut 2)
 MY_PN="${PN%%-*}"
-MY_PV="$(get_version_component_range 1).$(get_version_component_range 2)"
-MY_P="${MY_PN}-$(get_version_component_range 1).$(get_version_component_range 2)"
-MAJOR_V=$(get_version_component_range 1)
-MINOR_V=$(get_version_component_range 2)
-RC_V="${PV##*_}"
-
-KEYWORDS="-* ~amd64 ~x86 ~x86-fbsd"
-STAGING_="${PV}"
+MY_PV="${PV/_/-}"
+MY_P="${MY_PN}-${MY_PV}"
 
 if [[ ${PV} == "9999" ]] ; then
 	EGIT_REPO_URI="https://source.winehq.org/git/wine.git"
@@ -24,22 +20,15 @@ if [[ ${PV} == "9999" ]] ; then
 	inherit git-r3
 	SRC_URI=""
 	KEYWORDS=""
-elif [[ ${RC_V} != ".*" ]] ; then
-	if [[ ${MINOR_V} == "0" ]] ; then
-		SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.0/${MY_P}-${RC_V}.tar.xz"
-	else
-		SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.x/${MY_P}-${RC_V}.tar.xz"
-	fi
-	STAGING_V="${PV%%_*}-${RC_V}"
 elif [[ ${MINOR_V} == "0" ]] ; then
-	SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.0/${MY_P}.tar.xz"
+	SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.0/${MY_PN}-${MY_PV}.tar.xz"
 else
-	SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.x/${MY_P}.tar.xz"
+	SRC_URI="https://dl.winehq.org/wine/source/${MAJOR_V}.x/${MY_PN}-${MY_PV}.tar.xz"
+	KEYWORDS="-* ~amd64 ~x86 ~x86-fbsd"
 fi
+S="${WORKDIR}/${MY_P}"
 
-S="${WORKDIR}/${MY_P}-${RC_V}"
-
-STAGING_P="wine-staging-${STAGING_V}"
+STAGING_P="wine-staging-${MY_PV}"
 STAGING_DIR="${WORKDIR}/${STAGING_P}"
 GWP_V="20180120"
 PATCHDIR="${WORKDIR}/gentoo-wine-patches"
@@ -52,16 +41,13 @@ SRC_URI="${SRC_URI}
 
 if [[ ${PV} == "9999" ]] ; then
 	STAGING_EGIT_REPO_URI="https://github.com/wine-staging/wine-staging.git"
-elif [[ ${RC_V} != ".*" ]] ; then
+else
 	SRC_URI="${SRC_URI}
-	staging? ( https://github.com/wine-staging/wine-staging/archive/v${STAGING_V}.tar.gz -> ${STAGING_P}.tar.gz )"
-elif [[ ${MINOR_V} == "0" ]] ; then
-	SRC_URI="${SRC_URI}
-	staging? ( https://github.com/wine-staging/wine-staging/archive/v${PV}.tar.gz -> ${STAGING_P}.tar.gz )"
+	staging? ( https://github.com/wine-staging/wine-staging/archive/v${MY_PV}.tar.gz -> ${STAGING_P}.tar.gz )"
 fi
 
 LICENSE="LGPL-2.1"
-SLOT="${PV}"
+SLOT="${MY_PV}"
 IUSE="+abi_x86_32 +abi_x86_64 +alsa capi cups custom-cflags dos elibc_glibc ffmpeg +fontconfig +gecko gphoto2 gsm gssapi gstreamer +jpeg kerberos kernel_FreeBSD +lcms ldap +mono mp3 ncurses netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pipelight +png prelink pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl staging test themes +threads +truetype udev +udisks v4l vaapi vkd3d vulkan +X +xcomposite xinerama +xml"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )
 	X? ( truetype )
@@ -286,14 +272,17 @@ wine_env_vcs_vars() {
 		if use staging; then
 			eerror "Because of the multi-repo nature of ${MY_PN}, ${pn_live_var}"
 			eerror "cannot be used to set the commit. Instead, you may use the"
-			eerror "environmental variables WINE_COMMIT, and STAGING_COMMIT."
+			eerror "environment variables:"
+			eerror "  EGIT_OVERRIDE_COMMIT_WINE"
+			eerror "  EGIT_OVERRIDE_COMMIT_WINE_STAGING_WINE_STAGING"
 			eerror
 			return 1
 		fi
 	fi
 	if [[ ! -z ${EGIT_COMMIT} ]]; then
-		eerror "Commits must now be specified using the environmental variables"
-		eerror "WINE_COMMIT, STAGING_COMMIT, and D3D9_COMMIT"
+		eerror "Commits must now be specified using the environment variables:"
+		eerror "  EGIT_OVERRIDE_COMMIT_WINE"
+		eerror "  EGIT_OVERRIDE_COMMIT_WINE_STAGING_WINE_STAGING"
 		eerror
 		return 1
 	fi
@@ -317,7 +306,7 @@ pkg_setup() {
 	wine_build_environment_check || die
 	wine_env_vcs_vars || die
 
-	WINE_VARIANT="${PN#wine}-${PV}"
+	WINE_VARIANT="${PN#wine}-${MY_PV}"
 	WINE_VARIANT="${WINE_VARIANT#-}"
 
 	MY_PREFIX="${EPREFIX}/usr/lib/wine-${WINE_VARIANT}"
@@ -332,19 +321,18 @@ pkg_setup() {
 
 src_unpack() {
 	if [[ ${PV} == "9999" ]] ; then
-		EGIT_CHECKOUT_DIR="${S}" EGIT_COMMIT="${WINE_COMMIT}" git-r3_src_unpack
+		EGIT_CHECKOUT_DIR="${S}" git-r3_src_unpack
 		if use staging; then
 			local CURRENT_WINE_COMMIT=${EGIT_VERSION}
 
-			git-r3_fetch "${STAGING_EGIT_REPO_URI}" "${STAGING_COMMIT}"
-			git-r3_checkout "${STAGING_EGIT_REPO_URI}" "${STAGING_DIR}"
+			EGIT_CHECKOUT_DIR="${STAGING_DIR}" EGIT_REPO_URI="${STAGING_EGIT_REPO_URI}" git-r3_src_unpack
 
 			local COMPAT_WINE_COMMIT=$("${STAGING_DIR}/patches/patchinstall.sh" --upstream-commit) || die
 
 			if [[ "${CURRENT_WINE_COMMIT}" != "${COMPAT_WINE_COMMIT}" ]]; then
 				einfo "The current Staging patchset is not guaranteed to apply on this WINE commit."
 				einfo "If src_prepare fails, try emerging with the env var WINE_COMMIT."
-				einfo "Example: WINE_COMMIT=${COMPAT_WINE_COMMIT} emerge -1 wine"
+				einfo "Example: EGIT_OVERRIDE_COMMIT_WINE=${COMPAT_WINE_COMMIT} emerge -1 wine"
 			fi
 		fi
 	fi
@@ -585,12 +573,12 @@ multilib_src_install_all() {
 }
 
 pkg_postinst() {
-	eselect wine register ${MY_P}-${RC_V}
+	eselect wine register ${PN}-${MY_PV}
 	if [[ ${PN} == "wine-vanilla" ]]; then
-		eselect wine register --vanilla ${MY_P}-${RC_V} || die
+		eselect wine register --vanilla ${PN}-${MY_PV} || die
 	else
 		if use staging; then
-			eselect wine register --staging ${MY_P}-${RC_V} || die
+			eselect wine register --staging ${PN}-${MY_PV} || die
 		fi
 	fi
 
@@ -613,12 +601,12 @@ pkg_postinst() {
 }
 
 pkg_prerm() {
-	eselect wine deregister ${MY_P}-${RC_V}
+	eselect wine deregister ${MY_P}
 	if [[ ${PN} == "wine-vanilla" ]]; then
-		eselect wine deregister --vanilla ${MY_P}-${RC_V} || die
+		eselect wine deregister --vanilla ${PN}-${MY_PV} || die
 	else
 		if use staging; then
-			eselect wine deregister --staging ${MY_P}-${RC_V} || die
+			eselect wine deregister --staging ${PN}-${MY_PV} || die
 		fi
 	fi
 
