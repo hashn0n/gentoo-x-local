@@ -18,3 +18,4 @@ media-video/makemkv
 net-misc/streamlink **
 dev-python/pycryptodome
 dev-python/backports-shutil_which
+<dev-python/requests-3
