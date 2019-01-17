@@ -1,4 +1,4 @@
-media-video/ffmpeg threads vpx aac faac aacplus v4l libv4l x265 libass openssl amr amrenc bluray chromium frei0r librtmp schroedinger sdl theora webp -gnutls
+media-video/ffmpeg threads libaom vpx aac faac aacplus v4l libv4l x265 libass openssl amr amrenc bluray chromium frei0r librtmp schroedinger sdl theora webp -gnutls
 
 # =media-libs/opencv-2.4.13-r3 do not compile with ffmpeg USE flag
 # https://bugs.gentoo.org/672840
@@ -67,3 +67,6 @@ media-libs/freetype abi_x86_32
 # required by media-libs/libbluray-1.0.2::gentoo[xml]
 # required by media-video/ffmpeg-4.1::gentoo[bluray]
 dev-libs/libxml2 abi_x86_32
+
+# required by media-video/ffmpeg-4.1::gentoo[libaom]
+media-libs/libaom abi_x86_32
