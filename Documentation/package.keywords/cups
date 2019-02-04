@@ -2,3 +2,7 @@ net-print/cups
 net-print/cups-filters
 #required by net-print/cups-2.0.1-r1[ssl]
 =net-libs/gnutls-3.3.11
+
+# required by net-print/cups-filters-1.22.0::gentoo
+# required by net-print/cups-2.2.10::gentoo
+=app-text/qpdf-8.3.0
