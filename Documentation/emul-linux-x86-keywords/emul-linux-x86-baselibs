@@ -79,7 +79,6 @@
 =sys-libs/gpm-1.20.7-r2
 =sys-libs/ncurses-5.9-r3
 =sys-libs/pam-1.1.8-r2
-=sys-libs/readline-6.3_p8-r1
 =sys-libs/slang-2.2.4-r1
 =sys-libs/talloc-2.1.2
 =sys-libs/zlib-1.2.8-r1
