@@ -1,0 +1,5 @@
+#Windows Image, *.wmi, *.esd
+app-arch/wimlib
+
+#Regedit
+app-misc/hivex
