@@ -1,7 +1,6 @@
 virtual/ffmpeg
 media-video/ffmpeg
 media-libs/vo-aacenc
-media-libs/libvpx
 media-libs/x264
 dev-libs/fribidi
 
