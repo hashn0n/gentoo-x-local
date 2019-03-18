@@ -1,4 +1,4 @@
-net-misc/networkmanager bluetooth connection-sharing avahi -modemmanager
+net-misc/networkmanager connection-sharing avahi -modemmanager -bluetooth
 net-dialup/ppp dhcp ipv6
 net-wireless/wpa_supplicant -madwifi wimax wps
 net-dns/avahi autoipd
