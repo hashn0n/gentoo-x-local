@@ -1,0 +1,14 @@
+# required by net-misc/nextcloud-client-2.5.1-r1::gentoo
+# required by www-client/chromium-73.0.3683.75::gentoo
+dev-libs/openssl:0/1.1
+
+# required by dev-libs/glib-2.58.3::gentoo
+# required by www-client/vivaldi-2.3.1440.61_p1::gentoo
+=dev-util/glib-utils-2.58.3
+
+# required by sys-process/latencytop-0.5::gentoo
+=dev-libs/glib-2.58.3
+
+# required by mate-base/caja-1.18.5::gentoo
+# required by mate-base/mate-control-center-1.18.2::gentoo
+=dev-util/gdbus-codegen-2.58.3
