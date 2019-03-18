@@ -11,6 +11,6 @@ dev-lang/go:0/1.6
 # required by net-misc/owncloud-client-2::gentoo
 dev-libs/qtkeychain
 
-<net-misc/nextcloud-client-2.5
+net-misc/nextcloud-client
 
 www-apps/nextcloud
