@@ -2,6 +2,13 @@
 # required by www-client/chromium-73.0.3683.75::gentoo
 dev-libs/openssl:0/1.1
 
+# first to compile against dev-libs/openssl:0/1.1
+=dev-python/m2crypto-0.27.0
+=net-wireless/crda-3.18-r3
+=dev-libs/cyrus-sasl-2.1.26-r12
+=net-libs/serf-1.3.9
+=app-crypt/qca-2.2.0_pre20180606
+
 # required by dev-libs/glib-2.58.3::gentoo
 # required by www-client/vivaldi-2.3.1440.61_p1::gentoo
 =dev-util/glib-utils-2.58.3
