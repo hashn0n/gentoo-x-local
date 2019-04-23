@@ -2,21 +2,20 @@ app-emulation/qemu
 sys-apps/dtc
 sys-firmware/ipxe
 sys-firmware/seabios
-# required by app-emulation/qemu-2.5.0-r1::gentoo[-qemu_softmmu_targets_lm32,-qemu_softmmu_targets_mips,-qemu_softmmu_targets_alpha,-qemu_softmmu_targets_mips64,-qemu_softmmu_targets_sparc,-qemu_softmmu_targets_xtensaeb,-qemu_softmmu_targets_mipsel,-qemu_softmmu_targets_cris,-qemu_softmmu_targets_moxie,-qemu_softmmu_targets_m68k,-qemu_softmmu_targets_i386,-qemu_softmmu_targets_or32,-qemu_softmmu_targets_ppcemb,-qemu_softmmu_targets_microblaze,-qemu_softmmu_targets_xtensa,-qemu_softmmu_targets_arm,-qemu_softmmu_targets_sh4eb,-qemu_softmmu_targets_unicore32,-qemu_softmmu_targets_s390x,-qemu_softmmu_targets_mips64el,-qemu_softmmu_targets_ppc64,-qemu_softmmu_targets_tricore,-qemu_softmmu_targets_ppc,qemu_softmmu_targets_x86_64,-qemu_softmmu_targets_microblazeel,virgl,-qemu_softmmu_targets_sparc64,-qemu_softmmu_targets_aarch64,-static-softmmu,-qemu_softmmu_targets_sh4]
+
+# required by app-emulation/qemu::gentoo[qemu_softmmu_targets_aarch64,qemu_softmmu_targets_arm,qemu_softmmu_targets_x86_64,virgl]
 media-libs/virglrenderer
-app-emulation/aqemu
+
+#virt-manager
+app-emulation/virt-manager
+
 app-emulation/libvirt
 
-#virtualbox-bin
-app-emulation/virtualbox-bin
+#VirtualBox
+app-emulation/virtualbox
 app-emulation/virtualbox-modules
 
-#virtualbox-ose
-app-emulation/virtualbox-ose
-app-emulation/virtualbox-ose-additions
-dev-util/kbuild
-
-#vmware
+#VMWare
 dev-cpp/libgnomecanvasmm
 app-emulation/vmware-tools
 app-emulation/vmware-modules
@@ -28,3 +27,15 @@ app-emulation/vmware-workstation
 
 # required by app-emulation/vmware-workstation-12.1.0.3272444-r2::gentoo[-bundled-libs]
 dev-libs/libgcrypt:11
+
+#Vagrant
+app-emulation/vagrant
+dev-ruby/vagrant_cloud
+
+dev-ruby/i18n
+dev-ruby/hashicorp-checkpoint
+dev-ruby/ed25519
+
+# required by dev-ruby/net-scp-1.2.1-r1::gentoo[ruby_targets_ruby24]
+# required by app-emulation/vagrant-2.2.4::gentoo[ruby_targets_ruby24]
+dev-ruby/net-ssh

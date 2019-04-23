@@ -1,5 +1,19 @@
+#virt-manager
+app-emulation/libvirt-glib introspection
+sys-libs/libosinfo introspection
+net-libs/gtk-vnc introspection
+net-misc/spice-gtk introspection gtk3 usbredir
+x11-libs/vte introspection
+sys-auth/polkit introspection
+
 #qemu
 app-emulation/qemu virgl qemu_user_targets_aarch64 qemu_user_targets_arm qemu_softmmu_targets_aarch64 qemu_softmmu_targets_arm
 
 #vmware
 net-misc/curl ares
+
+#libVirt
+app-emulation/libvirt virt-network
+# required by app-emulation/libvirt-5.1.0::gentoo[virt-network]
+net-dns/dnsmasq script
+net-firewall/iptables ipv6
