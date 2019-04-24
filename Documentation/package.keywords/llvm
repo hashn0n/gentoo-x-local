@@ -3,10 +3,13 @@ sys-devel/llvm:7
 sys-devel/clang:7
 sys-devel/clang-runtime:7.0.1
 =sys-devel/clang-common-7.0*
-
-# required by sys-devel/clang-runtime-7.0.1::gentoo[compiler-rt,sanitize]
-# required by sys-devel/clang-7.0.1::gentoo
-# required by sys-libs/compiler-rt-7.0.1::gentoo[clang]
 =sys-libs/compiler-rt-sanitizers-7.0*
 =sys-libs/libomp-7.0*
 =sys-libs/compiler-rt-7.0*
+
+=sys-devel/llvm-common-7.1*
+sys-devel/clang-runtime:7.1.0
+=sys-devel/clang-common-7.1*
+=sys-libs/compiler-rt-sanitizers-7.1*
+=sys-libs/libomp-8.0*
+=sys-libs/compiler-rt-7.1*
