@@ -1,1 +1,1 @@
-dev-lang/php apache2 bzip2 cli expat gd memlimit nls pcre session ssl xml xsl zip zlib intl imap ftp exif gmp pcntl pdo curl xmlreader xmlwriter
+dev-lang/php bzip2 cli expat gd memlimit nls pcre session ssl xml xsl zip zlib intl imap ftp exif gmp pcntl pdo curl xmlreader xmlwriter
