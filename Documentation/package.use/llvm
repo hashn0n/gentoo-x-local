@@ -4,9 +4,9 @@ sys-devel/clang abi_x86_32
 sys-devel/clang-runtime abi_x86_32
 sys-devel/clang-common abi_x86_32
 
-# required by sys-devel/clang-runtime-7.0.1::gentoo[compiler-rt,sanitize]
-# required by sys-devel/clang-7.0.1::gentoo
-# required by sys-libs/compiler-rt-7.0.1::gentoo[clang]
+# required by sys-devel/clang-runtime::gentoo[compiler-rt,sanitize]
+# required by sys-devel/clang::gentoo
+# required by sys-libs/compiler-rt::gentoo[clang]
 sys-libs/compiler-rt-sanitizers abi_x86_32
 sys-libs/libomp abi_x86_32
 sys-libs/compiler abi_x86_32
