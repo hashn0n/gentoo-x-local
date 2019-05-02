@@ -4,7 +4,6 @@
 <=xfce-base/garcon-9999
 <=xfce-base/libxfce4ui-9999
 <xfce-base/libxfce4util-9999
-<xfce-base/libxfcegui4-9999
 <xfce-base/xfce4-session-9999
 <xfce-base/xfce4-settings-4.13
 <xfce-base/xfconf-4.13
@@ -14,4 +13,5 @@
 <xfce-extra/xfce4-taskmanager-9999
 <xfce-extra/xfce4-places-plugin-9999
 <xfce-extra/xfce4-whiskermenu-plugin-9999
+#<xfce-base/libxfcegui4-9999
 #<xfce-extra/xfce4-verve-plugin-9999
