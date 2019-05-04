@@ -1,11 +1,11 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 MULTILIB_COMPAT=( abi_x86_64 )
 
-inherit eutils gnome2-utils pax-utils rpm multilib-build xdg-utils
+inherit desktop gnome2-utils pax-utils rpm multilib-build xdg-utils
 
 DESCRIPTION="Instant messaging client, with support for audio and video"
 HOMEPAGE="https://www.skype.com/"
@@ -13,22 +13,24 @@ SRC_URI="https://repo.skype.com/rpm/stable/${PN}_${PV}-1.x86_64.rpm"
 
 LICENSE="Skype-TOS MIT MIT-with-advertising BSD-1 BSD-2 BSD Apache-2.0 Boost-1.0 ISC CC-BY-SA-3.0 CC0-1.0 openssl ZLIB APSL-2 icu Artistic-2 LGPL-2.1"
 SLOT="0"
-KEYWORDS="~amd64 -*"
+KEYWORDS="-* ~amd64"
 IUSE="pax_kernel"
 
 S="${WORKDIR}"
 QA_PREBUILT="*"
 RESTRICT="mirror bindist strip" #299368
 
-# See bug 642054 about app-crypt/libsecret and MULTILIB_USEDEP.
 RDEPEND="
-	app-crypt/libsecret[${MULTILIB_USEDEP}]
+	|| (
+		sys-auth/elogind
+		sys-apps/systemd
+	)
 	dev-libs/atk[${MULTILIB_USEDEP}]
 	dev-libs/expat[${MULTILIB_USEDEP}]
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
 	dev-libs/nspr[${MULTILIB_USEDEP}]
 	dev-libs/nss[${MULTILIB_USEDEP}]
-	gnome-base/gconf:2[${MULTILIB_USEDEP}]
+	gnome-base/gconf:2[policykit,${MULTILIB_USEDEP}]
 	media-libs/alsa-lib[${MULTILIB_USEDEP}]
 	media-libs/fontconfig:1.0[${MULTILIB_USEDEP}]
 	media-libs/freetype:2[${MULTILIB_USEDEP}]
@@ -39,7 +41,7 @@ RDEPEND="
 	virtual/ttf-fonts
 	x11-libs/cairo[${MULTILIB_USEDEP}]
 	x11-libs/gdk-pixbuf:2[${MULTILIB_USEDEP}]
-	x11-libs/gtk+:2[${MULTILIB_USEDEP}]
+	x11-libs/gtk+:3[${MULTILIB_USEDEP}]
 	x11-libs/libX11[${MULTILIB_USEDEP}]
 	x11-libs/libXScrnSaver[${MULTILIB_USEDEP}]
 	x11-libs/libXcomposite[${MULTILIB_USEDEP}]
