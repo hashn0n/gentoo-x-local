@@ -11,13 +11,6 @@ dev-lang/lua abi_x86_32
 dev-lua/luasocket abi_x86_32
 dev-lua/luaexpat abi_x86_32
 dev-lua/LuaBitOp abi_x86_32
-
-# required by x11-drivers/nvidia-drivers-375.26-r1::gentoo[tools]
-# required by x11-base/xorg-drivers-1.18-r1::gentoo[video_cards_nvidia]
-# required by x11-base/xorg-server-1.18.4::gentoo[xorg]
-# required by www-client/firefox-50.1.0-r1::gentoo[pgo]
-dev-libs/jansson abi_x86_32
-
 app-admin/gamin abi_x86_32
 app-arch/bzip2 abi_x86_32
 app-arch/xz-utils abi_x86_32
@@ -63,7 +56,6 @@ net-libs/gnutls abi_x86_32
 net-dns/libidn2 abi_x86_32
 dev-libs/libunistring abi_x86_32
 net-libs/libgssglue abi_x86_32
-net-libs/libsoup abi_x86_32
 net-libs/libtirpc abi_x86_32
 net-libs/neon abi_x86_32
 net-misc/curl abi_x86_32
@@ -103,5 +95,12 @@ sys-libs/slang abi_x86_32
 sys-libs/talloc abi_x86_32
 sys-libs/zlib abi_x86_32
 
-# required by media-video/ffmpeg[enca]
-app-i18n/enca abi_x86_32
+net-libs/libsoup abi_x86_32
+# required by net-libs/libsoup-2.64.2::gentoo
+net-libs/libpsl abi_x86_32
+
+# required by x11-drivers/nvidia-drivers-375.26-r1::gentoo[tools]
+# required by x11-base/xorg-drivers-1.18-r1::gentoo[video_cards_nvidia]
+# required by x11-base/xorg-server-1.18.4::gentoo[xorg]
+# required by www-client/firefox-50.1.0-r1::gentoo[pgo]
+dev-libs/jansson abi_x86_32
