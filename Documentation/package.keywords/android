@@ -1,4 +1,4 @@
 dev-util/android-sdk-update-manager
 app-mobilephone/qtadb
-app-mobilephone/scrcpy::x-local
+app-mobilephone/scrcpy::x-local **
 
