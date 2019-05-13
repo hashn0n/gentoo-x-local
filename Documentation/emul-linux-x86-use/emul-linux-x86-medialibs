@@ -1,12 +1,5 @@
 # app-emulation/emul-linux-x86-medialibs-20140508-r6  USE="development" ABI_X86="(-32)"
 
-media-libs/gstreamer abi_x86_32
-media-libs/gst-plugins-* abi_x86_32
-media-plugins/gst-plugins-* abi_x86_32
-
-# required by media-plugins/gst-plugins-libnice-0.1.13-r100::gentoo
-net-libs/libnice abi_x86_32
-
 app-misc/lirc abi_x86_32
 dev-libs/DirectFB abi_x86_32
 dev-libs/fribidi abi_x86_32
@@ -45,7 +38,6 @@ media-libs/taglib abi_x86_32
 media-libs/x264 abi_x86_32
 media-libs/xvid abi_x86_32
 media-sound/lame abi_x86_32
-media-video/ffmpeg abi_x86_32
 media-video/mjpegtools abi_x86_32
 sys-libs/libieee1284 abi_x86_32
 
@@ -54,6 +46,21 @@ media-video/libav abi_x86_32
 
 media-libs/opus abi_x86_32
 
+media-video/ffmpeg abi_x86_32
+
 # required by media-video/ffmpeg[libass,encode,x265]
 media-libs/libass abi_x86_32
 media-libs/x265 abi_x86_32
+
+# required by media-video/ffmpeg[enca]
+app-i18n/enca abi_x86_32
+
+media-libs/gstreamer abi_x86_32
+media-libs/gst-plugins-* abi_x86_32
+media-plugins/gst-plugins-* abi_x86_32
+
+# required by media-plugins/gst-plugins-libnice-0.1.13-r100::gentoo
+net-libs/libnice abi_x86_32
+
+# required by media-plugins/gst-plugins-srtp-1.14.3::gentoo
+net-libs/libsrtp abi_x86_32
