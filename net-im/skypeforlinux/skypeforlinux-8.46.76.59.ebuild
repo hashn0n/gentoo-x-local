@@ -1,11 +1,11 @@
 # Copyright 1999-2019 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=6
+EAPI=7
 
 MULTILIB_COMPAT=( abi_x86_64 )
 
-inherit desktop gnome2-utils pax-utils rpm multilib-build xdg-utils
+inherit desktop gnome2-utils pax-utils rpm multilib-build xdg
 
 DESCRIPTION="Instant messaging client, with support for audio and video"
 HOMEPAGE="https://www.skype.com/"
@@ -25,12 +25,12 @@ RDEPEND="
 		sys-auth/elogind
 		sys-apps/systemd
 	)
+	app-crypt/libsecret[${MULTILIB_USEDEP}]
 	dev-libs/atk[${MULTILIB_USEDEP}]
 	dev-libs/expat[${MULTILIB_USEDEP}]
 	dev-libs/glib:2[${MULTILIB_USEDEP}]
 	dev-libs/nspr[${MULTILIB_USEDEP}]
 	dev-libs/nss[${MULTILIB_USEDEP}]
-	gnome-base/gconf:2[policykit,${MULTILIB_USEDEP}]
 	media-libs/alsa-lib[${MULTILIB_USEDEP}]
 	media-libs/fontconfig:1.0[${MULTILIB_USEDEP}]
 	media-libs/freetype:2[${MULTILIB_USEDEP}]
@@ -65,8 +65,7 @@ src_prepare() {
 	default
 	sed -e "s!^SKYPE_PATH=.*!SKYPE_PATH=${EPREFIX}/opt/skypeforlinux/skypeforlinux!" \
 		-i usr/bin/skypeforlinux || die
-	sed -e "s!^Exec=/usr/!Exec=${EPREFIX}/opt/!" \
-		-e "s!^Categories=.*!Categories=Network;InstantMessaging;Telephony;!" \
+	sed -e "s!^Categories=.*!Categories=Network;InstantMessaging;Telephony;!" \
 		-e "/^OnlyShowIn=/d" \
 		-i usr/share/applications/skypeforlinux.desktop || die
 }
@@ -75,18 +74,14 @@ src_install() {
 	dodir /opt
 	cp -a usr/share/skypeforlinux "${D}"/opt || die
 
-	into /opt
 	dobin usr/bin/skypeforlinux
 
 	dodoc usr/share/skypeforlinux/*.html
 	dodoc -r usr/share/doc/skypeforlinux/.
 	# symlink required for the "Help->3rd Party Notes" menu entry  (otherwise frozen skype -> xdg-open)
-	dosym ${P} usr/share/doc/skypeforlinux
+	dosym ${PF} usr/share/doc/skypeforlinux
 
 	doicon usr/share/pixmaps/skypeforlinux.png
-
-	# compat symlink for the autostart desktop file
-	dosym ../../opt/bin/skypeforlinux usr/bin/skypeforlinux
 
 	local res
 	for res in 16 32 256 512; do
