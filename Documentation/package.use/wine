@@ -23,3 +23,5 @@ media-libs/openal abi_x86_32
 # required by app-emulation/wine-staging-3.18::x-local[samba]
 dev-util/cmocka abi_x86_32
 net-libs/gnutls pkcs11 sslv2 sslv3 openpgp
+
+net-fs/samba -systemd
