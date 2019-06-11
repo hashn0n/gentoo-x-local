@@ -21,7 +21,7 @@ fi
 MY_SERVER_PN="${GITREPNAME}-server"
 MY_SERVER_P="${MY_SERVER_PN}-v${MY_SERVER_PV}.jar"
 
-SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/releases/download/${MY_SERVER_PV}/${MY_SERVER_P}"
+SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/releases/download/v${MY_SERVER_PV}/${MY_SERVER_P}"
 
 DESCRIPTION="Display and control your Android device"
 HOMEPAGE="https://blog.rom1v.com/2018/03/introducing-${GITREPNAME}/
