@@ -26,7 +26,7 @@ S="${WORKDIR}/${MY_P}"
 
 STAGING_P="wine-staging-${PV}"
 STAGING_DIR="${WORKDIR}/${STAGING_P}"
-GWP_V="20190430"
+GWP_V="20190511"
 PATCHDIR="${WORKDIR}/gentoo-wine-patches"
 
 DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
@@ -130,7 +130,7 @@ RDEPEND="${COMMON_DEPEND}
 	!app-emulation/wine:0
 	dos? ( >=games-emulation/dosbox-0.74_p20160629 )
 	gecko? ( app-emulation/wine-gecko:2.47[abi_x86_32?,abi_x86_64?] )
-	mono? ( app-emulation/wine-mono:4.8.3 )
+	mono? ( app-emulation/wine-mono:4.9.0 )
 	perl? (
 		dev-lang/perl
 		dev-perl/XML-Simple
@@ -164,7 +164,7 @@ usr/share/applications/wine-uninstaller.desktop
 usr/share/applications/wine-winecfg.desktop"
 
 PATCHES=(
-	"${PATCHDIR}/patches/${MY_PN}-4.4-winegcc.patch" #260726
+	"${PATCHDIR}/patches/${MY_PN}-4.8-winegcc.patch" #260726
 	"${PATCHDIR}/patches/${MY_PN}-4.7-multilib-portage.patch" #395615
 	"${PATCHDIR}/patches/${MY_PN}-4.7-memset-O3.patch" #480508
 	"${PATCHDIR}/patches/${MY_PN}-2.0-multislot-apploader.patch" #310611
@@ -456,6 +456,7 @@ multilib_src_configure() {
 		$(use_with jpeg)
 		$(use_with kerberos krb5)
 		$(use_with ldap)
+		--without-mingw # linux LDFLAGS leak in mingw32: bug #685172
 		$(use_enable mono mscoree)
 		$(use_with mp3 mpg123)
 		$(use_with netapi)
@@ -474,7 +475,7 @@ multilib_src_configure() {
 		$(use_enable test tests)
 		$(use_with truetype freetype)
 		$(use_with udev)
-		$(use_with v4l)
+		$(use_with v4l v4l2)
 		$(use_with vkd3d)
 		$(use_with vulkan)
 		$(use_with X x)
