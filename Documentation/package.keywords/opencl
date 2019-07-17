@@ -3,5 +3,15 @@
 # required by x11-base/xorg-server-1.20.3::gentoo[-minimal]
 =virtual/rubygems-15
 
+# required by dev-lang/ruby-2.5.5::gentoo
+# required by virtual/rubygems-15::gentoo[ruby_targets_ruby25]
+# required by dev-qt/qtwebkit-5.212.0_pre20180120::gentoo
+# required by net-misc/teamviewer-14.2.8352::gentoo
+=app-eselect/eselect-ruby-20190121
+
+# required by virtual/rubygems-15::gentoo[ruby_targets_ruby25]
+=dev-lang/ruby-2.5.5
+=dev-ruby/rubygems-3.0.4-r1
+
 # required by openCL to work with AMD cards
 dev-util/amdapp
