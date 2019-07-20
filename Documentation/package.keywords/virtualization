@@ -14,6 +14,10 @@ app-emulation/libvirt
 #VirtualBox
 app-emulation/virtualbox
 app-emulation/virtualbox-modules
+app-emulation/virtualbox-additions
+app-emulation/virtualbox-extpack-oracle
+net-misc/bridge-utils
+sys-apps/usermode-utilities
 
 #VMWare
 dev-cpp/libgnomecanvasmm
