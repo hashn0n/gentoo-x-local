@@ -1,6 +1,6 @@
 =sys-devel/llvm-8.0.0
 =sys-devel/llvm-common-8.0.0
-=ys-devel/clang-8.0.0
+=sys-devel/clang-8.0.0
 =sys-devel/clang-runtime-8.0.0
 =sys-devel/clang-common-8.0.0
 =sys-libs/libomp-8.0.0
