@@ -43,3 +43,9 @@ dev-ruby/ed25519
 # required by dev-ruby/net-scp-1.2.1-r1::gentoo[ruby_targets_ruby24]
 # required by app-emulation/vagrant-2.2.4::gentoo[ruby_targets_ruby24]
 dev-ruby/net-ssh
+
+#GenyMotion
+app-emulation/genymotion-bin
+# required by app-emulation/genymotion-bin
+dev-util/patchelf
+dev-libs/hiredis
