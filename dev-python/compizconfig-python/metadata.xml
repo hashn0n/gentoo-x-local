@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>desktop-effects</herd>
-<longdescription lang="en">Python bindings for libcompizconfig.</longdescription>
+	<maintainer type="person">
+		<email>elliot@futuramerlin.com</email>
+		<name>Elliot Chandler</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">compiz/compizconfig-python</remote-id>
+		<bugs-to>https://gitlab.com/compiz/compizconfig-python/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">Python bindings for libraries/plugins for compizconfig-settings.</longdescription>
 </pkgmetadata>
-
