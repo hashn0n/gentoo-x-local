@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>desktop-effects</herd>
-<longdescription lang="en">
-Package with the base compiz-fusion plugins:
-animation, colourfilter, expo, ezoom, jpeg, neg, opacify, put, resizeinfo, ring,
-scaleaddon, shift, snap, text, thumbnail, vpswitch,, wall, winrules, workarounds.
-</longdescription>
-  <use>
-    <flag name="gconf">
-      Install GConf schemas for the plugins, needed when using the GConf-based
-      configuration backend in <pkg>x11-wm/compiz</pkg>.
-    </flag>
-  </use>
+	<maintainer type="person">
+		<email>elliot@futuramerlin.com</email>
+		<name>Elliot Chandler</name>
+	</maintainer>
+	<maintainer type="project">
+		<email>proxy-maint@gentoo.org</email>
+		<name>Proxy Maintainers</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="gitlab">compiz/compiz-plugins-main</remote-id>
+		<bugs-to>https://gitlab.com/compiz/compiz-plugins-main/issues</bugs-to>
+	</upstream>
+	<longdescription lang="en">Base set of plugins for the Compiz compositing window manager.</longdescription>
+	<use>
+		<flag name="gconf">
+		Install GConf schemas for the plugins, needed when using the GConf-based
+		configuration backend in <pkg>x11-wm/compiz</pkg>.
+		</flag>
+	</use>
 </pkgmetadata>
