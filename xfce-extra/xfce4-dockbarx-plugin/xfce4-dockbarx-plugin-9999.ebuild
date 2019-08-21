@@ -18,8 +18,8 @@ HOMEPAGE="http://xfce-look.org/content/show.php/xfce4-dockbarx-plugin+%2B+Mouse+
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}
 		https://github.com/${PACKAGEAUTHOR}/${PN}
+		git://github.com/${PACKAGEAUTHOR}/${PN}
 	"
 	RESTRICT="mirror"
 	SRC_URI=""

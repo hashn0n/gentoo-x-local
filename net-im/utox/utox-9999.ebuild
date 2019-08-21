@@ -10,8 +10,8 @@ DESCRIPTION="Lightweight Tox client"
 HOMEPAGE="http://utox.org
 	https://github.com/${PACKAGEAUTHOR}/${PN}"
 EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
 		https://github.com/${PACKAGEAUTHOR}/${PN}.git
+		git://github.com/${PACKAGEAUTHOR}/${PN}.git
 "
 
 LICENSE="GPL-3"

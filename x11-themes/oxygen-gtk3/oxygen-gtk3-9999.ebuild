@@ -8,7 +8,10 @@ inherit cmake-utils git-r3
 
 DESCRIPTION="Official GTK+ 3 port of KDE's Oxygen widget style"
 HOMEPAGE="https://projects.kde.org/projects/playground/artwork/oxygen-gtk"
-EGIT_REPO_URI=( "git://anongit.kde.org/oxygen-gtk" )
+EGIT_REPO_URI="
+		https://anongit.kde.org/oxygen-gtk
+		git://anongit.kde.org/oxygen-gtk
+"
 EGIT_BRANCH="gtk3"
 
 LICENSE="LGPL-2.1"

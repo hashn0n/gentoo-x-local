@@ -14,8 +14,8 @@ DESCRIPTION="Control utility for some features of Saitek Cyborg R.A.T mice!"
 HOMEPAGE="http://utox.org
 	https://github.com/${PACKAGEAUTHOR}/${GITREPNAME}"
 EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${GITREPNAME}.git
 		https://github.com/${PACKAGEAUTHOR}/${GITREPNAME}.git
+		git://github.com/${PACKAGEAUTHOR}/${GITREPNAME}.git
 "
 
 LICENSE="GPL-3"
