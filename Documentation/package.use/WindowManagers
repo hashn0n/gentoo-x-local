@@ -1,5 +1,7 @@
 x11-wm/compiz-fusion unsupported
-x11-wm/compiz gconf gtk -kde
+x11-wm/compiz gtk3
+x11-misc/ccsm gtk3
+x11-wm/emerald gtk3
 
 # required by x11-misc/ccsm-0.8.14::x-local
 gnome-base/librsvg introspection
