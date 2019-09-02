@@ -1,2 +1,6 @@
 media-sound/audacity
 media-libs/soxr
+
+# required by media-sound/audacity-2.3.2::gentoo[lv2]
+=media-libs/suil-0.10.0
+=media-libs/portaudio-19.06.00-r2
