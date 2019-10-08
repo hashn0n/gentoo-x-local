@@ -6,16 +6,8 @@ dev-libs/nss
 x11-libs/cairo
 
 #Chrom[e|ium]
-www-client/google-chrome
 #www-client/chromium
-<www-client/chromium-54.0.2832.2
 www-plugins/chrome-binary-plugins:beta **
-
-# required by www-client/chromium-53.0.2774.3::gentoo
-=app-arch/gzip-1.8
-
-# required by www-client/chromium-54.0.2832.2::gentoo
-=dev-libs/re2-0.2016.05.01
 
 #Midori
 www-client/midori
