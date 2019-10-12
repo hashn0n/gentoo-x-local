@@ -1,4 +1,4 @@
-sys-devel/llvm abi_x86_32
+sys-devel/llvm abi_x86_32 gold
 sys-devel/llvm-common abi_x86_32
 sys-devel/clang abi_x86_32
 sys-devel/clang-runtime abi_x86_32
