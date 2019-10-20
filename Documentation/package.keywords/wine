@@ -30,5 +30,5 @@ media-libs/openal
 <app-emulation/wine-desktop-common-9999::x-local **
 <app-eselect/eselect-wine-9999::x-local **
 
-# required by app-emulation/wine-staging-4.4-r1::gentoo[faudio]
-=app-emulation/faudio-19.03
+# required by app-emulation/wine-staging::gentoo[faudio]
+<app-emulation/faudio-20
