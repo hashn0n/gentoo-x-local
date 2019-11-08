@@ -1,3 +1,5 @@
 # required by media-libs/mesa-18.1.1-r1::gentoo[wayland]
 =dev-libs/wayland-1.15.0
 
+# required by media-libs/mesa-19.3.0_rc2::gentoo[video_cards_intel,video_cards_i915,video_cards_i965]
+=x11-libs/libdrm-2.4.100
