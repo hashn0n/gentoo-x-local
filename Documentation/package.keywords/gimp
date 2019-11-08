@@ -1,1 +1,4 @@
 media-gfx/gimp
+
+# required by media-gfx/gimp
+media-libs/gegl
