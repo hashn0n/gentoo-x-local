@@ -5,6 +5,9 @@ media-libs/libdvdcss
 # required by app-shells/mpv-bash-completion-3.3.17::gentoo
 media-libs/shaderc
 
+# required by media-video/mpv-0.30.0::gentoo[vulkan]
+=media-libs/libplacebo-1.21.0
+
 media-video/vlc
 sys-libs/zlib
 media-libs/a52dec
