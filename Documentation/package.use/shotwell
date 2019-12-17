@@ -15,3 +15,10 @@ net-libs/webkit-gtk introspection
 # required by net-libs/webkit-gtk-2.4.11-r200::gentoo
 # required by media-gfx/shotwell-0.24.0::gentoo
 net-libs/libsoup introspection
+
+# required by media-libs/libgphoto2-2.5.22::gentoo[cameras_ax203,cameras_st2205]
+# required by media-gfx/shotwell-0.30.7::gentoo
+media-libs/gd abi_x86_32
+
+media-libs/gexiv2 vala introspection
+app-crypt/gcr vala introspection
