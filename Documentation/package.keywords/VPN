@@ -1,3 +1,7 @@
 # move net-misc/tor net-vpn/tor
 net-vpn/tor
+
+virtual/wireguard **
 net-vpn/wireguard **
+net-vpn/wireguard-tools **
+net-vpn/wireguard-modules **
