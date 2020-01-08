@@ -28,7 +28,7 @@ else
 	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 fi
 
-LICENSE="GPL3"
+LICENSE="MIT"
 SLOT="0"
 
 RDEPEND="dev-libs/glib:2

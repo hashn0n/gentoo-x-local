@@ -1,5 +1,3 @@
-xfce-extra/xfce4-dockbarx-plugin
-
 #xfce-base/xfce4-appfinder
 #xfce-base/libxfce4util
 #xfce-base/libxfce4ui
@@ -23,7 +21,7 @@ xfce-extra/xfce4-dockbarx-plugin
 #xfce-extra/xfce4-mailwatch-plugin
 #xfce-extra/xfce4-genmon-plugin
 #xfce-extra/xfce4-places-plugin
-xfce-extra/xfce4-xfapplet-plugin
+#xfce-extra/xfce4-xfapplet-plugin
 #xfce-extra/xfce4-vala
 #dev-util/xfce4-dev-tools
 #x11-terms/terminal

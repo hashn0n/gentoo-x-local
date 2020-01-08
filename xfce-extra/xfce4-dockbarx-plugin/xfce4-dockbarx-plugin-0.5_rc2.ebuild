@@ -19,12 +19,11 @@ if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_REPO_URI="
 		https://github.com/${PACKAGEAUTHOR}/${PN}
-		git://github.com/${PACKAGEAUTHOR}/${PN}
 	"
 	RESTRICT="mirror"
 	SRC_URI=""
 else
-	KEYWORDS="~amd64 ~x86"
+	KEYWORDS="amd64 x86"
 #	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
 	inherit git-r3
 	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}"
@@ -33,10 +32,11 @@ else
 	EGIT_COMMIT="a2dcb6694866b75e70f23544474cec17af42de22"
 fi
 
-LICENSE="GPL3"
+LICENSE="MIT"
 SLOT="0"
 
-RDEPEND="dev-libs/glib:2
+RDEPEND="
+	dev-libs/glib:2
 	x11-libs/gtk+:2
 	>=xfce-base/xfce4-panel-4.8
 	>=xfce-extra/xfce4-vala-4.8
