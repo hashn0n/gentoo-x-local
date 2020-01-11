@@ -19,9 +19,9 @@ else
 fi
 
 MY_SERVER_PN="${GITREPNAME}-server"
-MY_SERVER_P="${MY_SERVER_PN}-v${MY_SERVER_PV}.jar"
+MY_SERVER_P="${MY_SERVER_PN}-v${MY_SERVER_PV}"
 
-SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/releases/download/v${MY_SERVER_PV}/${MY_SERVER_P}"
+SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/releases/download/v${MY_SERVER_PV}/${MY_SERVER_P} -> ${MY_SERVER_PN}-v${MY_SERVER_PV}.jar"
 
 DESCRIPTION="Display and control your Android device"
 HOMEPAGE="https://blog.rom1v.com/2018/03/introducing-${GITREPNAME}/
@@ -42,7 +42,7 @@ PDEPEND=""
 src_configure() {
 	local emesonargs=(
 		-Db_lto=true
-		-Dprebuilt_server="${DISTDIR}/${MY_SERVER_P}"
+		-Dprebuilt_server="${DISTDIR}/${MY_SERVER_P}.jar"
 	)
 	meson_src_configure
 }
