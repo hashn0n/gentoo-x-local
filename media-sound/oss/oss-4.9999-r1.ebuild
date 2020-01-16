@@ -33,10 +33,13 @@ LICENSE="GPL-2"
 SLOT="0"
 IUSE="ogg"
 
-DEPEND="sys-apps/gawk
+DEPEND="
+	sys-apps/gawk
 	>=x11-libs/gtk+-2
 	>=sys-kernel/linux-headers-2.6.11
-	!media-sound/oss-devel"
+	!media-sound/oss-devel
+"
+
 RDEPEND="${DEPEND}"
 
 src_unpack() {
@@ -52,9 +55,7 @@ src_unpack() {
 	epatch "${FILESDIR}"/${P}-000_usb.patch
 	epatch "${FILESDIR}"/${P}-000_devlists_fix_git.patch
 	epatch "${FILESDIR}"/${P}-000_scripts_remove_drv.sh.patch
-	epatch "${FILESDIR}"/${P}-001_oss4_linux_4.11_osscore_fix_git.patch
-	epatch "${FILESDIR}"/${P}-002_oss4_sys-libs_glibc-2.23_ossdetect_fix_git.patch
-	epatch "${FILESDIR}"/${P}-003_oss4_linux_4.15_osscore_fix_git.patch
+#	epatch "${FILESDIR}"/${P}-001_oss4_linux_4.11_osscore_fix_git.patch
 
 	epatch_user
 }
