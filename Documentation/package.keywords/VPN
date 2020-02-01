@@ -2,6 +2,5 @@
 net-vpn/tor
 
 virtual/wireguard **
-net-vpn/wireguard **
 net-vpn/wireguard-tools **
 net-vpn/wireguard-modules **
