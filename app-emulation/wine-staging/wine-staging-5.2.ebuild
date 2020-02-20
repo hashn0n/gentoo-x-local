@@ -1,4 +1,4 @@
-# Copyright 1999-2019 Gentoo Authors
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -26,7 +26,7 @@ S="${WORKDIR}/${MY_P}"
 
 STAGING_P="wine-staging-${PV}"
 STAGING_DIR="${WORKDIR}/${STAGING_P}"
-GWP_V="20190511"
+GWP_V="20191222"
 PATCHDIR="${WORKDIR}/gentoo-wine-patches"
 
 DESCRIPTION="Free implementation of Windows(tm) on Unix, with Wine-Staging patchset"
@@ -44,11 +44,10 @@ fi
 
 LICENSE="LGPL-2.1"
 SLOT="${PV}"
-IUSE="+abi_x86_32 +abi_x86_64 +alsa capi cups custom-cflags dos elibc_glibc +faudio ffmpeg +fontconfig +gecko gphoto2 gsm gssapi gstreamer +jpeg kerberos kernel_FreeBSD +lcms ldap +mono mp3 ncurses netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pipelight +png prelink pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl staging test themes +threads +truetype udev +udisks v4l vaapi vkd3d vulkan +X +xcomposite xinerama +xml"
+IUSE="+abi_x86_32 +abi_x86_64 +alsa capi cups custom-cflags dos elibc_glibc +faudio +fontconfig +gecko gphoto2 gsm gssapi gstreamer +jpeg kerberos kernel_FreeBSD +lcms ldap +mono mp3 ncurses netapi nls odbc openal opencl +opengl osmesa oss +perl pcap pipelight +png prelink pulseaudio +realtime +run-exes samba scanner sdl selinux +ssl staging test themes +threads +truetype udev +udisks v4l vaapi vkd3d vulkan +X +xcomposite xinerama +xml"
 REQUIRED_USE="|| ( abi_x86_32 abi_x86_64 )
 	X? ( truetype )
 	elibc_glibc? ( threads )
-	ffmpeg? ( staging )
 	osmesa? ( opengl )
 	pipelight? ( staging )
 	test? ( abi_x86_32 )
@@ -73,7 +72,6 @@ COMMON_DEPEND="
 	capi? ( net-libs/libcapi[${MULTILIB_USEDEP}] )
 	cups? ( net-print/cups:=[${MULTILIB_USEDEP}] )
 	faudio? ( app-emulation/faudio:=[${MULTILIB_USEDEP}] )
-	ffmpeg? ( >=media-video/ffmpeg-4:=[${MULTILIB_USEDEP}] )
 	fontconfig? ( media-libs/fontconfig:=[${MULTILIB_USEDEP}] )
 	gphoto2? ( media-libs/libgphoto2:=[${MULTILIB_USEDEP}] )
 	gsm? ( media-sound/gsm:=[${MULTILIB_USEDEP}] )
@@ -129,8 +127,8 @@ RDEPEND="${COMMON_DEPEND}
 	>app-eselect/eselect-wine-0.3
 	!app-emulation/wine:0
 	dos? ( >=games-emulation/dosbox-0.74_p20160629 )
-	gecko? ( app-emulation/wine-gecko:2.47[abi_x86_32?,abi_x86_64?] )
-	mono? ( app-emulation/wine-mono:4.9.3 )
+	gecko? ( app-emulation/wine-gecko:2.47.1[abi_x86_32?,abi_x86_64?] )
+	mono? ( app-emulation/wine-mono:4.9.4 )
 	perl? (
 		dev-lang/perl
 		dev-perl/XML-Simple
@@ -164,9 +162,9 @@ usr/share/applications/wine-uninstaller.desktop
 usr/share/applications/wine-winecfg.desktop"
 
 PATCHES=(
-	"${PATCHDIR}/patches/${MY_PN}-4.8-winegcc.patch" #260726
+	"${PATCHDIR}/patches/${MY_PN}-5.0-winegcc.patch" #260726
 	"${PATCHDIR}/patches/${MY_PN}-4.7-multilib-portage.patch" #395615
-	"${PATCHDIR}/patches/${MY_PN}-4.7-memset-O3.patch" #480508
+	"${PATCHDIR}/patches/${MY_PN}-5.0-memset-O3.patch" #480508
 	"${PATCHDIR}/patches/${MY_PN}-2.0-multislot-apploader.patch" #310611
 )
 PATCHES_BIN=()
@@ -443,7 +441,6 @@ multilib_src_configure() {
 		$(use_with ncurses curses)
 		$(use_with udisks dbus)
 		$(use_with faudio)
-		$(use_with ffmpeg)
 		$(use_with fontconfig)
 		$(use_with ssl gnutls)
 		$(use_enable gecko mshtml)
