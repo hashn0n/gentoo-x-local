@@ -84,3 +84,5 @@
 =sys-libs/zlib-1.2.8-r1
 
 =dev-libs/ell-0.23
+
+=dev-lang/ocaml-4.05.0-r1
