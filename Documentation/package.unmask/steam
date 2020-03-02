@@ -2,5 +2,5 @@
 games-util/steam-meta
 games-util/steam-client-meta
 games-util/steam-games-meta
-games-util/steam-base
+games-util/steam-launcher
 #End Steam
