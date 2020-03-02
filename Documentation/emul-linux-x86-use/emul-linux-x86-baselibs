@@ -104,3 +104,13 @@ net-libs/libpsl abi_x86_32
 # required by x11-base/xorg-server-1.18.4::gentoo[xorg]
 # required by www-client/firefox-50.1.0-r1::gentoo[pgo]
 dev-libs/jansson abi_x86_32
+
+# required by media-libs/mesa-20.0.0::gentoo[zstd]
+app-arch/zstd abi_x86_32
+
+# required by sys-libs/ldb-2.0.8::gentoo[lmdb]
+# required by net-fs/samba-4.11.6-r2::gentoo
+# required by www-client/chromium-80.0.3987.122::gentoo[system-ffmpeg]
+dev-db/lmdb abi_x86_32
+
+virtual/libcrypt abi_x86_32
