@@ -3,7 +3,7 @@
 
 EAPI=6
 
-inherit cmake-utils vala gnome2
+inherit vala gnome2 meson ninja-utils git-r3
 PACKAGEAUTHOR="Bajoja"
 
 DESCRIPTION="Adds systray and AppIndicator indicator for KDE-Connect"
@@ -31,31 +31,25 @@ RDEPEND="$(vala_depend)
 	dev-libs/libappindicator:3[introspection]
 	dev-python/requests-oauthlib
 	kde-misc/kdeconnect:5
-	x11-libs/gtk+:3"
+	x11-libs/gtk+:3
+	dev-libs/libgee:0.8
+"
 
 DEPEND="${RDEPEND}
 	virtual/pkgconfig"
 
 src_prepare() {
 	vala_src_prepare
-	sed -i -e '28,35d' "${S}/data/CMakeLists.txt"
+#	sed -i -e '28,35d' "${S}/data/CMakeLists.txt"
 	eapply_user
 }
 
 src_configure() {
-	local mycmakeargs=(
+	local emesonargs=(
 		-DVALA_EXECUTABLE="${VALAC}"
 		-DGSETTINGS_COMPILE=NO
 	)
-	cmake-utils_src_configure
-}
-
-src_compile() {
-	cmake-utils_src_compile
-}
-
-src_install() {
-	cmake-utils_src_install
+	meson_src_configure
 }
 
 pkg_preinst() {
