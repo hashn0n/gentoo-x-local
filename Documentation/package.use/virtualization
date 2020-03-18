@@ -6,6 +6,10 @@ net-misc/spice-gtk introspection gtk3 usbredir
 x11-libs/vte introspection
 sys-auth/polkit introspection
 
+# required by net-misc/spice-gtk-0.37-r2::gentoo
+# required by app-emulation/virt-manager-2.2.1-r2::gentoo[gtk]
+media-libs/gstreamer:1.0 introspection
+
 #qemu
 app-emulation/qemu virgl qemu_user_targets_aarch64 qemu_user_targets_arm qemu_softmmu_targets_aarch64 qemu_softmmu_targets_arm
 
