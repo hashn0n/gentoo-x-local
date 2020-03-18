@@ -1,3 +1,7 @@
+# required by media-libs/libglvnd-1.3.1::gentoo
+# required by media-libs/mesa-20.0.1-r1::gentoo[libglvnd]
+=dev-libs/ell-0.28
+
 # required by media-libs/mesa-18.1.1-r1::gentoo[wayland]
 =dev-libs/wayland-1.15.0
 
