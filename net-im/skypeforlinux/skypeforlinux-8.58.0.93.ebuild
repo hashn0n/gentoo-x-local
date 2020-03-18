@@ -14,7 +14,6 @@ SRC_URI="https://repo.skype.com/rpm/stable/${PN}_${PV}-1.x86_64.rpm"
 LICENSE="Skype-TOS MIT MIT-with-advertising BSD-1 BSD-2 BSD Apache-2.0 Boost-1.0 ISC CC-BY-SA-3.0 CC0-1.0 openssl ZLIB APSL-2 icu Artistic-2 LGPL-2.1"
 SLOT="0"
 KEYWORDS="-* ~amd64"
-IUSE="pax_kernel"
 
 S="${WORKDIR}"
 QA_PREBUILT="*"
@@ -90,13 +89,6 @@ src_install() {
 
 	domenu usr/share/applications/skypeforlinux.desktop
 
-	if use pax_kernel; then
-		pax-mark -m "${ED}"/opt/skypeforlinux/skypeforlinux
-		pax-mark -m "${ED}"/opt/skypeforlinux/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
-		ewarn "You have set USE=pax_kernel meaning that you intend to run"
-		ewarn "${PN} under a PaX enabled kernel. To do so, we must modify"
-		ewarn "the ${PN} binary itself and this *may* lead to breakage! If"
-		ewarn "you suspect that ${PN} is being broken by this modification,"
-		ewarn "please open a bug."
-	fi
+	pax-mark -m "${ED}"/opt/skypeforlinux/skypeforlinux
+	pax-mark -m "${ED}"/opt/skypeforlinux/resources/app.asar.unpacked/node_modules/slimcore/bin/slimcore.node
 }
