@@ -25,3 +25,6 @@ net-misc/wicd
 kde-misc/wicd-client-kde
 
 net-wireless/aircrack-ng
+
+# required by net-wireless/aircrack-ng-1.6-r1::gentoo[airdrop-ng]
+=net-wireless/lorcon-0.0_p20200214
