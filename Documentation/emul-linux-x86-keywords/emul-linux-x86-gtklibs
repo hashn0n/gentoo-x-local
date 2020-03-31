@@ -4,9 +4,6 @@
 =x11-proto/inputproto-2.3.1
 =x11-proto/xextproto-7.3.0
 =media-libs/jasper-1.900.1-r7
-=app-accessibility/at-spi2-atk-2.12.1-r1
-=app-accessibility/at-spi2-core-2.12.0-r1
-=dev-libs/atk-2.12.0-r1
 =dev-libs/libIDL-0.8.14
 =gnome-base/gconf-3.2.6-r3
 =gnome-base/gnome-vfs-2.24.4-r2
