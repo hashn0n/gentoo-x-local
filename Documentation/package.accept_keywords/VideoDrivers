@@ -1,5 +1,10 @@
+media-libs/libglvnd
+
+#nvidia-drivers
 x11-drivers/nvidia-drivers **
 media-video/nvidia-settings **
+
+#vdpau
 x11-libs/libvdpau
 x11-misc/vdpauinfo
 
