@@ -4,3 +4,7 @@ net-vpn/tor
 virtual/wireguard **
 net-vpn/wireguard-tools **
 net-vpn/wireguard-modules **
+
+#Hamachi
+net-vpn/logmein-hamachi
+net-vpn/haguichi
