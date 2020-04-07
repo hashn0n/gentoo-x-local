@@ -32,3 +32,5 @@ media-libs/openal
 
 # required by app-emulation/wine-staging::gentoo[faudio]
 <app-emulation/faudio-20
+
+media-libs/libglvnd
