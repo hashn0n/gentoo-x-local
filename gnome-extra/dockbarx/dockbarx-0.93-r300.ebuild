@@ -29,7 +29,6 @@ SLOT="3"
 IUSE="xfce dockmanager mate"
 
 RDEPEND="
-	${PYTHON_DEPS}
 	dev-python/pyxdg[${PYTHON_USEDEP}]
 	dev-python/polib[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
@@ -40,18 +39,25 @@ RDEPEND="
 	x11-libs/libwnck:3[introspection]
 	dev-python/python-xlib[${PYTHON_USEDEP}]
 	dev-python/dbus-python[${PYTHON_USEDEP}]
+	${PYTHON_DEPS}
 "
 
 DEPEND="
+	${RDEPEND}
 	xfce? ( >=xfce-extra/xfce4-dockbarx-plugin-0.2 )
 	dockmanager? ( x11-misc/dockmanager )
 	mate? ( mate-base/mate-panel )
 "
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 S="$S-gtk3"
 
 src_prepare() {
 	eapply_user
 	distutils-r1_src_prepare
+}
+
+src_compile() {
+	distutils-r1_src_compile
 }
 
 src_install() {
