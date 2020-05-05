@@ -1,13 +1,15 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 GNOME2_LA_PUNT="yes"
+GNOME2_EAUTORECONF="yes"
 
-inherit autotools eutils flag-o-matic gnome2 multilib multilib-minimal readme.gentoo-r1 virtualx
+inherit eutils flag-o-matic gnome2 multilib multilib-minimal readme.gentoo-r1 virtualx
 
 DESCRIPTION="Gimp ToolKit +"
 HOMEPAGE="https://www.gtk.org/"
+SRC_URI+=" https://dev.gentoo.org/~leio/distfiles/${P}-patchset-r1.tar.xz"
 
 LICENSE="LGPL-2+"
 SLOT="2"
@@ -16,7 +18,7 @@ REQUIRED_USE="
 	xinerama? ( !aqua )
 "
 
-KEYWORDS="alpha amd64 arm ~arm64 hppa ia64 ~mips ppc ppc64 ~s390 ~sh sparc x86 ~amd64-fbsd ~x86-fbsd ~amd64-linux ~arm-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
+KEYWORDS="~alpha amd64 arm arm64 ~hppa ~ia64 ~mips ppc ppc64 s390 sparc x86 ~amd64-linux ~x86-linux ~ppc-macos ~x64-macos ~x86-macos ~sparc-solaris ~sparc64-solaris ~x64-solaris ~x86-solaris"
 
 # Upstream wants us to do their job:
 # https://bugzilla.gnome.org/show_bug.cgi?id=768663#c1
@@ -47,7 +49,7 @@ COMMON_DEPEND="
 		xinerama? ( >=x11-libs/libXinerama-1.1.3[${MULTILIB_USEDEP}] )
 	)
 "
-# docbook-4.1.2 and xsl required for man pages
+# docbook-4.1.2 and xsl required for man pages
 # docbook-4.3 required for gtk-doc
 DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xsl-stylesheets
@@ -55,6 +57,7 @@ DEPEND="${COMMON_DEPEND}
 	app-text/docbook-xml-dtd:4.3
 	dev-libs/libxslt
 	dev-libs/gobject-introspection-common
+	dev-util/glib-utils
 	>=dev-util/gtk-doc-am-1.20
 	>=sys-devel/gettext-0.18.3[${MULTILIB_USEDEP}]
 	>=virtual/pkgconfig-0-r1[${MULTILIB_USEDEP}]
@@ -93,6 +96,15 @@ MULTILIB_CHOST_TOOLS=(
 	/usr/bin/gtk-query-immodules-2.0$(get_exeext)
 )
 
+PATCHES=(
+	# Fix tests running when building out of sources, bug #510596, upstream bug #730319
+	"${FILESDIR}"/${PN}-2.24.24-out-of-source.patch
+	# Rely on split gtk-update-icon-cache package, bug #528810
+	"${FILESDIR}"/${PN}-2.24.31-update-icon-cache.patch # requires eautoreconf
+	# Upstream gtk-2-24 branch up to 2018-09-08 state, bug #650536 safety
+	"${WORKDIR}"/patches/ # requires eautoreconf
+)
+
 strip_builddir() {
 	local rule=$1
 	shift
@@ -108,9 +120,9 @@ set_gtk2_confdir() {
 }
 
 src_prepare() {
-	# marshalers code was pre-generated with glib-2.31, upstream bug #662109
-	rm -v gdk/gdkmarshalers.c gtk/gtkmarshal.c gtk/gtkmarshalers.c \
-		perf/marshalers.c || die
+	# Various glib marshaller churn could break build against a different glib version, force regeneration
+	rm -v gdk/gdkmarshalers.{c,h} gtk/gtkmarshal.{c,h} gtk/gtkmarshalers.{c,h} \
+		perf/marshalers.{c,h} gtk/gtkaliasdef.c gtk/gtkalias.h || die
 
 	# Stop trying to build unmaintained docs, bug #349754, upstream bug #623150
 	strip_builddir SUBDIRS tutorial docs/Makefile.{am,in}
@@ -158,18 +170,6 @@ src_prepare() {
 		strip_builddir SRC_SUBDIRS demos Makefile.{am,in}
 	fi
 
-	# Fix tests running when building out of sources, bug #510596, upstream bug #730319
-	eapply "${FILESDIR}"/${PN}-2.24.24-out-of-source.patch
-
-	# Rely on split gtk-update-icon-cache package, bug #528810
-	eapply "${FILESDIR}"/${PN}-2.24.31-update-icon-cache.patch
-
-	# Fix beep when overwriting at the end of a gtkentry, from gtk-2-24 branch
-	eapply "${FILESDIR}"/${PN}-2.24.31-fix-gtkentry-beep.patch
-
-	epatch_user
-
-	eautoreconf
 	gnome2_src_prepare
 }
 
