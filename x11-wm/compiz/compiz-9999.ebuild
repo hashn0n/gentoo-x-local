@@ -1,20 +1,32 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit autotools git-r3 gnome2-utils
+inherit autotools gnome2-utils
+
+PACKAGEAUTHOR="compiz-reloaded"
 
 DESCRIPTION="OpenGL window and compositing manager"
-HOMEPAGE="https://gitlab.com/compiz"
-EGIT_REPO_URI="https://github.com/compiz-reloaded/compiz.git"
+HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+
+if [[ ${PV} = 9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-2+ LGPL-2.1 MIT"
 SLOT="0"
-KEYWORDS=""
+
 IUSE="+cairo dbus fuse gsettings +gtk gtk3 inotify marco mate +svg"
-REQUIRED_USE="marco? ( gsettings )
-	gsettings? ( gtk )"
+REQUIRED_USE="
+	marco? ( gsettings )
+	gsettings? ( gtk )
+"
 
 COMMONDEPEND="
 	>=dev-libs/glib-2
@@ -59,9 +71,10 @@ COMMONDEPEND="
 	)
 "
 
-DEPEND="${COMMONDEPEND}
+DEPEND="
 	virtual/pkgconfig
 	x11-base/xorg-proto
+	${COMMONDEPEND}
 "
 
 RDEPEND="${COMMONDEPEND}"

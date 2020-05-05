@@ -1,32 +1,45 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
-inherit autotools eutils git-r3 gnome2-utils
+inherit autotools eutils gnome2-utils
+
+PACKAGEAUTHOR="compiz-reloaded"
 
 DESCRIPTION="Compiz Window Manager: Extra Plugins"
-HOMEPAGE="https://gitlab.com/compiz"
-EGIT_REPO_URI="https://github.com/compiz-reloaded/compiz-plugins-extra.git"
+HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+
+if [[ ${PV} = 9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS=""
 IUSE="libnotify"
 
 RDEPEND="
 	>=x11-libs/compiz-bcop-${PV}
+	<x11-libs/compiz-bcop-0.9
 	>=x11-plugins/compiz-plugins-main-${PV}
+	<x11-plugins/compiz-plugins-main-0.9
 	>=x11-wm/compiz-${PV}
+	<x11-wm/compiz-0.9
 	virtual/jpeg:0
 	libnotify? ( x11-libs/libnotify )
 	x11-libs/cairo[X]
 "
 
-DEPEND="${RDEPEND}
+DEPEND="
 	>=dev-util/intltool-0.35
 	>=sys-devel/gettext-0.15
 	virtual/pkgconfig
+	${RDEPEND}
 "
 
 src_prepare() {

@@ -1,26 +1,33 @@
-# Copyright 1999-2018 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
 
 PYTHON_COMPAT=( python2_7  python3_{4,5,6} )
 DISTUTILS_IN_SOURCE_BUILD=1
-DISTUTILS_SINGLE_IMPL=1
-inherit distutils-r1 git-r3 gnome2-utils
+inherit distutils-r1 gnome2-utils python-r1
 
 DESCRIPTION="A graphical manager for CompizConfig Plugin (libcompizconfig)"
-HOMEPAGE="https://gitlab.com/compiz"
-EGIT_REPO_URI="https://github.com/compiz-reloaded/ccsm.git"
+HOMEPAGE="https://github.com/compiz-reloaded/${PN}"
+
+if [[ ${PV} = 9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/compiz-reloaded/${PN}.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/compiz-reloaded/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
 
 LICENSE="GPL-2+"
 SLOT="0"
-KEYWORDS=""
 IUSE="gtk3"
 
 RDEPEND="
 	dev-python/pycairo[${PYTHON_USEDEP}]
-	>=dev-python/compizconfig-python-${PV}[${PYTHON_USEDEP}]
 	dev-python/pygobject:3[${PYTHON_USEDEP}]
+	<dev-python/compizconfig-python-0.9
+	>=dev-python/compizconfig-python-${PV}[${PYTHON_USEDEP}]
 	gnome-base/librsvg[introspection]
 "
 
