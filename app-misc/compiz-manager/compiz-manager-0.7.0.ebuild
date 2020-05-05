@@ -2,21 +2,30 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: /var/cvsroot/gentoo-x86/x11-wm/compiz/compiz-0.8.8-r3.ebuild,v 1.1 2013/04/09 07:26:11 pinkbyte Exp $
 
-EAPI="5"
+EAPI=6
 
 inherit autotools eutils
 
+PACKAGEAUTHOR="compiz-reloaded"
+
 DESCRIPTION="A wrapper script to start Compiz 0.8.x with proper options."
-HOMEPAGE="https://github.com/compiz-reloaded/${PN%%-reloaded}"
-SRC_URI="https://github.com/compiz-reloaded/${PN%%-reloaded}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+
+if [[ ${PV} = 9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
+fi
 
 LICENSE="GPL-2 LGPL-2.1 MIT"
 SLOT="0"
-KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 IUSE=""
 
 DEPEND="
-	x11-wm/compiz-reloaded
+	<x11-wm/compiz-0.9
 "
 
 DOCS=( README.md )
