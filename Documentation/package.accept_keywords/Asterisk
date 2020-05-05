@@ -1,6 +1,6 @@
 sys-apps/usb_modeswitch
 net-misc/asterisk-g729
-net-misc/asterisk-chan_dongle **
+net-misc/asterisk-chan-dongle **
 # Needed for OpenSource g729/g723.1: Intel Integrated Performance Primitive library for multimedia and data processing
 sci-libs/ipp
 dev-libs/intel-common
