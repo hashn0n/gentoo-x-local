@@ -2,25 +2,29 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
-EAPI=5
-inherit eutils git-r3
+EAPI=7
+
+inherit eutils
 
 PACKAGEAUTHOR="colobot"
 IUSE="dev"
 
 DESCRIPTION="Colobot (Colonize with Bots) is an educational real-time strategy video game featuring 3D graphics"
-HOMEPAGE="http://colobot.info/"
-SRC_URI=""
+HOMEPAGE="http://colobot.info/
+	https://github.com/${PACKAGEAUTHOR}/${PN}"
 
-EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PN}
-		https://github.com/${PACKAGEAUTHOR}/${PN}
-"
-EGIT_PROJECT="colobot"
+if [[ ${PV} = 9999* ]]; then
+	inherit git-r3
+	EGIT_PROJECT="${PN}"
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	KEYWORDS="~amd64"
+else
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="amd64"
+fi
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="amd64"
 
 DEPEND="
 	media-libs/sdl-image
@@ -28,9 +32,10 @@ DEPEND="
 	dev-libs/boost
 	dev-util/cmake
 "
+
 RDEPEND="
-	${DEPEND}
 	games-strategy/colobot-data
+	${DEPEND}
 "
 
 S="${WORKDIR}/${PN}"

@@ -1,18 +1,26 @@
-# Copyright 1999-2015 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
-EAPI=5
+EAPI=7
+
+inherit eutils fdo-mime gnome2-utils toolchain-funcs cmake-utils
+
 PACKAGEAUTHOR="utox"
-inherit eutils fdo-mime git-r3 gnome2-utils toolchain-funcs cmake-utils
 
 DESCRIPTION="Lightweight Tox client"
 HOMEPAGE="http://utox.org
 	https://github.com/${PACKAGEAUTHOR}/${PN}"
-EGIT_REPO_URI="
-		https://github.com/${PACKAGEAUTHOR}/${PN}.git
-		git://github.com/${PACKAGEAUTHOR}/${PN}.git
-"
+
+if [[ ${PV} = 9999* ]]; then
+	inherit git-r3
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	KEYWORDS=""
+else
+	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	KEYWORDS="~amd64 ~x86"
+fi
+
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -27,8 +35,11 @@ RDEPEND="net-libs/tox[av]
 	x11-libs/libX11
 	x11-libs/libXext
 	dbus? ( sys-apps/dbus )"
-DEPEND="${RDEPEND}
-	virtual/pkgconfig"
+
+DEPEND="
+	virtual/pkgconfig
+	${RDEPEND}
+"
 
 src_prepare() {
 	epatch_user

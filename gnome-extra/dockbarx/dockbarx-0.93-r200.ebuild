@@ -1,22 +1,22 @@
-# Copyright 1999-2014 Gentoo Foundation
+# Copyright 1999-2020 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 
 EAPI=7
+
 PYTHON_COMPAT=( python2_7 )
+
 PACKAGEAUTHOR="M7S"
-DISTUTILS_OPTIONAL=1
 
 inherit xdg-utils gnome2-utils distutils-r1 eutils
+DISTUTILS_OPTIONAL=1
 
 DESCRIPTION="Panel applet (GTK+2, Mate, XFCE4) and stand alone dock with groupping and group manipulation."
 HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
 
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="
-		https://github.com/${PACKAGEAUTHOR}/${PN}
-	"
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}"
 	RESTRICT="mirror"
 	SRC_URI=""
 else
@@ -44,10 +44,10 @@ RDEPEND="
 "
 
 DEPEND="
-	${RDEPEND}
 	xfce? ( >=xfce-extra/xfce4-dockbarx-plugin-0.2 )
 	dockmanager? ( x11-misc/dockmanager )
 	mate? ( mate-base/mate-panel )
+	${RDEPEND}
 "
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
 

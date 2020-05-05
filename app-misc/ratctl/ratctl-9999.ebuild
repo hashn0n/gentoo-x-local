@@ -11,12 +11,8 @@ PACKAGEAUTHOR="MayeulC"
 GITREPNAME="Saitek"
 
 DESCRIPTION="Control utility for some features of Saitek Cyborg R.A.T mice!"
-HOMEPAGE="http://utox.org
-	https://github.com/${PACKAGEAUTHOR}/${GITREPNAME}"
-EGIT_REPO_URI="
-		https://github.com/${PACKAGEAUTHOR}/${GITREPNAME}.git
-		git://github.com/${PACKAGEAUTHOR}/${GITREPNAME}.git
-"
+HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${GITREPNAME}"
+EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${GITREPNAME}.git"
 
 LICENSE="GPL-3"
 SLOT="0"

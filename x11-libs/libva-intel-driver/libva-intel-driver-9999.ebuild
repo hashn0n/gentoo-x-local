@@ -18,10 +18,7 @@ HOMEPAGE="https://01.org/linuxmedia/vaapi
 if [[ ${PV} == *9999* ]]; then
 	inherit git-r3
 	EGIT_BRANCH=master
-	EGIT_REPO_URI="
-		git://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}
-		https://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}
-	"
+	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PACKAGENAME}"
 	RESTRICT="mirror"
 	SRC_URI=""
 	KEYWORDS="-amd64 -x86 -amd64-linux -x86-linux"
