@@ -7,17 +7,17 @@ PYTHON_COMPAT=( python2_7 python3_{6,7} )
 
 inherit autotools python-r1
 
-PACKAGEAUTHOR="compiz-reloaded"
+PACKAGEAUTHOR="compiz"
 
 DESCRIPTION="Python bindings for libraries/plugins for compizconfig-settings"
-HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+HOMEPAGE="https://gitlab.com/${PACKAGEAUTHOR}/${PN}"
 
 if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -38,6 +38,8 @@ DEPEND="
 "
 
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 src_prepare() {
 	default

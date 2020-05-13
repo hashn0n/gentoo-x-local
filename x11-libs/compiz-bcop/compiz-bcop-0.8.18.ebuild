@@ -5,17 +5,17 @@ EAPI=6
 
 inherit autotools
 
-PACKAGEAUTHOR="compiz-reloaded"
+PACKAGEAUTHOR="compiz"
 
 DESCRIPTION="Compiz Option code Generator"
-HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+HOMEPAGE="https://gitlab.com/${PACKAGEAUTHOR}/${PN}"
 
 if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -28,6 +28,8 @@ DEPEND="
 	virtual/pkgconfig
 	${RDEPEND}
 "
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 src_prepare() {
 	default

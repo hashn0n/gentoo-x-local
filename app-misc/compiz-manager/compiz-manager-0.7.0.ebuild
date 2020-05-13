@@ -6,17 +6,17 @@ EAPI=6
 
 inherit autotools eutils
 
-PACKAGEAUTHOR="compiz-reloaded"
+PACKAGEAUTHOR="compiz"
 
 DESCRIPTION="A wrapper script to start Compiz 0.8.x with proper options."
-HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+HOMEPAGE="https://gitlab.com/${PACKAGEAUTHOR}/${PN}"
 
 if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 	KEYWORDS="~amd64 ~ppc ~ppc64 ~x86"
 fi
 
@@ -29,6 +29,8 @@ DEPEND="
 "
 
 DOCS=( README.md )
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 src_install() {
 	# Install compiz-manager

@@ -5,17 +5,18 @@ EAPI=6
 
 inherit autotools gnome2-utils
 
-PACKAGEAUTHOR="compiz-reloaded"
+PACKAGEAUTHOR="compiz"
+GITLABPROJECTNAME="compiz-core"
 
 DESCRIPTION="OpenGL window and compositing manager"
-HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${PN}"
+HOMEPAGE="https://gitlab.com/${PACKAGEAUTHOR}/${GITLABPROJECTNAME}"
 
 if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/${PACKAGEAUTHOR}/${GITLABPROJECTNAME}.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/${PACKAGEAUTHOR}/${GITLABPROJECTNAME}/-/archive/v${PV}/${GITLABPROJECTNAME}-v${PV}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -78,6 +79,8 @@ DEPEND="
 "
 
 RDEPEND="${COMMONDEPEND}"
+
+S="${WORKDIR}/${GITLABPROJECTNAME}-v${PV}"
 
 src_prepare() {
 	default

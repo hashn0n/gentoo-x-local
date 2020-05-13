@@ -7,15 +7,17 @@ PYTHON_COMPAT=( python2_7  python3_{6,7} )
 DISTUTILS_IN_SOURCE_BUILD=1
 inherit distutils-r1 gnome2-utils python-r1
 
+PACKAGEAUTHOR="compiz"
+
 DESCRIPTION="A graphical manager for CompizConfig Plugin (libcompizconfig)"
-HOMEPAGE="https://github.com/compiz-reloaded/${PN}"
+HOMEPAGE="https://gitlab.com/${PACKAGEAUTHOR}/${PN}"
 
 if [[ ${PV} = 9999* ]]; then
 	inherit git-r3
-	EGIT_REPO_URI="https://github.com/compiz-reloaded/${PN}.git"
+	EGIT_REPO_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}.git"
 	KEYWORDS=""
 else
-	SRC_URI="https://github.com/compiz-reloaded/${PN}/archive/v${PV}.tar.gz -> ${P}.tar.gz"
+	SRC_URI="https://gitlab.com/${PACKAGEAUTHOR}/${PN}/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
 	KEYWORDS="~amd64 ~x86"
 fi
 
@@ -30,6 +32,8 @@ RDEPEND="
 	>=dev-python/compizconfig-python-${PV}[${PYTHON_USEDEP}]
 	gnome-base/librsvg[introspection]
 "
+
+S="${WORKDIR}/${PN}-v${PV}"
 
 python_prepare_all() {
 	# correct gettext behavior
