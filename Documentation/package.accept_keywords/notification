@@ -1,3 +1,5 @@
-x11-themes/notify-osd-icons
+#OSD
 x11-misc/notify-osd
-x11-misc/growl-for-linux
+x11-themes/notify-osd-icons
+
+xfce-extra/xfce4-notifyd
