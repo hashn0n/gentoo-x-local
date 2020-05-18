@@ -10,6 +10,7 @@ x11-plugins/compiz-plugins-extra:0
 x11-plugins/compiz-plugins-unsupported:0
 x11-plugins/compiz-plugins-experimental:0
 x11-plugins/compiz-plugins-community:0
+app-misc/compiz-manager
 ## needed for compiz-plugins-extra-0.8.8
 dev-libs/vala-common
 ##

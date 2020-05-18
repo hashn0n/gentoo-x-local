@@ -34,7 +34,7 @@ S="${WORKDIR}/${PN}-v${PV}"
 
 src_install() {
 	# Install compiz-manager
-	dobin "${FILESDIR}"/compiz-manager
+	dobin "${S}"/compiz-manager
 
 	# Add the full-path to lspci
 	sed -i "s#lspci#/usr/sbin/lspci#" "${D}/usr/bin/compiz-manager" || die
