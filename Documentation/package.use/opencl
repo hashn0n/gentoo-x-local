@@ -1,5 +1,5 @@
 # required by media-libs/x264-0.0.20170701::gentoo[opencl]
-# required by media-video/vlc-3.0.4::x-local[x264]
+# required by media-video/vlc-3.0.4::gentoo-x-local[x264]
 # required by media-libs/phonon-vlc-0.10.1::gentoo
 # required by media-libs/phonon-4.10.1::gentoo[vlc]
 # required by kde-frameworks/khtml-5.52.0::gentoo
@@ -7,6 +7,6 @@
 virtual/opencl abi_x86_32
 
 # required by media-libs/mesa-18.3.1::gentoo[opencl,gallium]
-# required by app-emulation/wine-staging-4.0_rc3::x-local[osmesa]
+# required by app-emulation/wine-staging-4.0_rc3::gentoo-x-local[osmesa]
 # required by virtual/wine-0-r6::gentoo[staging]
 dev-libs/ocl-icd abi_x86_32

@@ -3,7 +3,7 @@ x11-wm/compiz gtk3 marco gsettings gtk
 x11-misc/ccsm gtk3
 x11-wm/emerald gtk3
 
-# required by x11-misc/ccsm-0.8.14::x-local
+# required by x11-misc/ccsm-0.8.14::gentoo-x-local
 gnome-base/librsvg introspection
 
 x11-misc/compton xinerama

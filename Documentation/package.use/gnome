@@ -18,5 +18,5 @@ media-sound/easytag gtk3
 # required by kde-plasma/plasma-desktop-5.7.5::gentoo[legacy-systray,gtk3]
 dev-libs/libdbusmenu gtk3
 
-# required by kde-misc/indicator-kdeconnect-0.8.1::x-local
+# required by kde-misc/indicator-kdeconnect-0.8.1::gentoo-x-local
 dev-libs/libappindicator:3 introspection

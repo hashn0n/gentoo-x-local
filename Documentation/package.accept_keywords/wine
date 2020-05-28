@@ -23,12 +23,12 @@ media-libs/openal
 <app-emulation/wine-desktop-common-9999::gentoo **
 <app-eselect/eselect-wine-9999::gentoo **
 
-<virtual/wine-9999::x-local **
-<app-emulation/wine-staging-9999::x-local **
-<app-emulation/wine-mono-9999::x-local **
-<app-emulation/wine-gecko-9999::x-local **
-<app-emulation/wine-desktop-common-9999::x-local **
-<app-eselect/eselect-wine-9999::x-local **
+<virtual/wine-9999::gentoo-x-local **
+<app-emulation/wine-staging-9999::gentoo-x-local **
+<app-emulation/wine-mono-9999::gentoo-x-local **
+<app-emulation/wine-gecko-9999::gentoo-x-local **
+<app-emulation/wine-desktop-common-9999::gentoo-x-local **
+<app-eselect/eselect-wine-9999::gentoo-x-local **
 
 # required by app-emulation/wine-staging::gentoo[faudio]
 <app-emulation/faudio-20
