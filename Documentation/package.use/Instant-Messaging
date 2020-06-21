@@ -2,3 +2,7 @@ net-libs/tox av daemon
 
 # required by net-im/skype-4.3.0.37-r6::gentoo
 dev-qt/qtwebkit:4 -exceptions
+
+#net-im/pidgin
+net-im/pidgin -ncurses
+x11-plugins/purple-plugin_pack -ncurses
