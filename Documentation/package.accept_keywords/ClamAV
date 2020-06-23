@@ -1,1 +1,4 @@
 app-antivirus/clamav
+
+# required by app-antivirus/clamav-0.102.3-r1::gentoo
+=dev-libs/tomsfastmath-0.13.1
