@@ -13,3 +13,6 @@ dev-lang/nasm
 
 # required by media-video/ffmpeg-4.1::gentoo[libaom]
 media-libs/libaom:0/0
+
+# required by media-video/ffmpeg-4.3::gentoo[video_cards_nvidia]
+=media-libs/nv-codec-headers-9.1.23.1
