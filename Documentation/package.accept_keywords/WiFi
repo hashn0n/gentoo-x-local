@@ -28,3 +28,6 @@ net-wireless/aircrack-ng
 
 # required by net-wireless/aircrack-ng-1.6-r1::gentoo[airdrop-ng]
 =net-wireless/lorcon-0.0_p20200214
+
+# required by gnome-extra/nm-applet-1.16.0::gentoo
+=net-libs/libnma-1.8.28
