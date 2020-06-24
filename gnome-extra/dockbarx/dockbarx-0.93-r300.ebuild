@@ -20,7 +20,7 @@ if [[ ${PV} == *9999* ]]; then
 	RESTRICT="mirror"
 	SRC_URI=""
 else
-	KEYWORDS="~amd64 ~x86"
+#	KEYWORDS="~amd64 ~x86"
 	SRC_URI="https://github.com/${PACKAGEAUTHOR}/${PN}/archive/${PV}-gtk3.tar.gz -> ${P}-gtk3.tar.gz"
 fi
 
