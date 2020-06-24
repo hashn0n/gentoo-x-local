@@ -1,5 +1,1 @@
 #gnome-extra/dockbarx
-#xfce-extra/xfce4-dockbarx-plugin
-dev-libs/keybinder
-x11-libs/libwnck:1
-dev-python/libwnck-python

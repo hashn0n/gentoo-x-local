@@ -1,4 +1,0 @@
-x11-themes/oxygen-gtk **
-x11-themes/oxygen-gtk3 **
-##For =x11-themes/oxygen-gtk3-9999
-=dev-vcs/git-1.8.2.1
