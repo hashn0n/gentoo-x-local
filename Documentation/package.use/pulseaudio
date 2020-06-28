@@ -1,1 +1,1 @@
-media-sound/pulseaudio gnome sox equalizer native-headset ofono-headset
+media-sound/pulseaudio gnome sox equalizer native-headset -libsamplerate
