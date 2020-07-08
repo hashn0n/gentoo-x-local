@@ -24,7 +24,7 @@ else
 fi
 S="${WORKDIR}/${MY_P}"
 
-STAGING_P="wine-staging-${PV}"
+STAGING_P="wine-staging-${PV}.1"
 STAGING_DIR="${WORKDIR}/${STAGING_P}"
 GWP_V="20200523"
 PATCHDIR="${WORKDIR}/gentoo-wine-patches"
@@ -168,6 +168,7 @@ PATCHES=(
 	"${PATCHDIR}/patches/${MY_PN}-4.7-multilib-portage.patch" #395615
 	"${PATCHDIR}/patches/${MY_PN}-2.0-multislot-apploader.patch" #310611
 	"${PATCHDIR}/patches/${MY_PN}-5.9-Revert-makedep-Install-also-generated-typelib-for-in.patch"
+	"${FILESDIR}/revers_645eb62f709275ac46c2a7ea59bf8bcba34c7edd_5.8.patch"
 )
 PATCHES_BIN=()
 
@@ -492,9 +493,10 @@ multilib_src_configure() {
 		$(use_with vaapi va)
 	)
 
-	local PKG_CONFIG
+	local PKG_CONFIG AR RANLIB
 	# Avoid crossdev's i686-pc-linux-gnu-pkg-config if building wine32 on amd64; #472038
-	tc-export PKG_CONFIG
+	# set AR and RANLIB to make QA scripts happy; #483342
+	tc-export PKG_CONFIG AR RANLIB
 
 	if use amd64; then
 		if [[ ${ABI} == amd64 ]]; then
