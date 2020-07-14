@@ -1,0 +1,21 @@
+diff -aur vkd3d-1.1/libs/vkd3d/vkd3d_private.h vkd3d-1.1-new/libs/vkd3d/vkd3d_private.h
+--- vkd3d-1.1/libs/vkd3d/vkd3d_private.h        2018-10-02 03:41:12.000000000 +1300
++++ vkd3d-1.1-new/libs/vkd3d/vkd3d_private.h    2020-06-12 19:23:56.411879548 +1200
+@@ -49,6 +49,8 @@
+ 
+ #define VKD3D_MAX_SHADER_STAGES     5u
+ 
++#define VKD3D_PIPELINE_BIND_POINT_COUNT 2u
++
+ struct d3d12_command_list;
+ struct d3d12_device;
+ 
+@@ -677,7 +679,7 @@
+     VkFramebuffer current_framebuffer;
+     VkPipeline current_pipeline;
+     VkRenderPass current_render_pass;
+-    struct vkd3d_pipeline_bindings pipeline_bindings[VK_PIPELINE_BIND_POINT_RANGE_SIZE];
++    struct vkd3d_pipeline_bindings pipeline_bindings[VKD3D_PIPELINE_BIND_POINT_COUNT];
+ 
+     struct d3d12_pipeline_state *state;
+
