@@ -7,6 +7,9 @@
 # required by www-client/firefox-74.0-r1::gentoo[system-webp]
 =media-libs/libwebp-1.1.0
 
+# required by www-client/firefox-79.0-r1::gentoo[system-harfbuzz]
+=media-libs/harfbuzz-2.7.0
+
 # required by net-misc/nextcloud-client-2.5.1-r1::gentoo
 # required by www-client/chromium-73.0.3683.75::gentoo
 dev-libs/openssl:0/1.1
