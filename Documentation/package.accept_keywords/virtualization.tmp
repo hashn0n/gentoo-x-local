@@ -1,0 +1,2 @@
+# required by app-emulation/qemu-5.0.0-r2::gentoo[slirp,-static]
+=net-libs/libslirp-4.3.1
