@@ -11,7 +11,7 @@ GITREPNAME="scrcpy"
 EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${GITREPNAME}.git"
 
 if [[ ${PV} = 9999* ]]; then
-	MY_SERVER_PV="1.14"
+	MY_SERVER_PV="1.16"
 else
 	EGIT_COMMIT="v${PV}"
 	MY_SERVER_PV="${PV}"
