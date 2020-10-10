@@ -114,3 +114,6 @@ app-arch/zstd abi_x86_32
 dev-db/lmdb abi_x86_32
 
 virtual/libcrypt abi_x86_32
+
+# required by net-misc/curl-7.72.0::gentoo[http2]
+net-libs/nghttp2 abi_x86_32
