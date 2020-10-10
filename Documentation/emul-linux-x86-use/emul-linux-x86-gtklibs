@@ -35,3 +35,9 @@ gnome-base/librsvg abi_x86_32
 # required by gnome-base/librsvg-2.40.8::gentoo
 dev-libs/libcroco abi_x86_32
 app-crypt/p11-kit abi_x86_32
+
+# required by gnome-base/librsvg-2.48.8::gentoo
+virtual/rust abi_x86_32
+
+# required by virtual/rust-1.45.2::gentoo
+dev-lang/rust abi_x86_32
