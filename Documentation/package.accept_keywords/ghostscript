@@ -2,3 +2,6 @@ app-text/ghostscript-gpl
 media-libs/libpng
 media-fonts/urw-fonts
 media-libs/lcms:2
+
+# required by app-text/ghostscript-gpl-9.53.3::gentoo
+=media-libs/jbig2dec-0.19
