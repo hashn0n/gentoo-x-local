@@ -1,0 +1,2 @@
+# required by app-portage/layman-2.4.3::gentoo[subversion]
+sys-libs/libseccomp abi_x86_32
