@@ -1,1 +1,3 @@
-dev-libs/keybinder introspection
+x11-libs/libwnck:3 introspection
+dev-libs/keybinder:3 introspection
+
