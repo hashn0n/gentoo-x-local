@@ -2,6 +2,6 @@
 ## If gtk+:3 is compiled without introspection, then there is no "Gtk-3.0.gir" and some programs fails to compile.
 x11-libs/gtk+:3 introspection
 x11-libs/gtksourceview introspection
-#x11-libs/gdk-pixbuf:2 introspection
-#x11-libs/pango introspection
+x11-libs/gdk-pixbuf introspection
+x11-libs/pango introspection
 dev-libs/atk introspection
