@@ -1,5 +1,5 @@
 virtual/wine staging
-app-emulation/wine-staging ldap -cups -vaapi pipelight staging vkd3d mp3 mono osmesa alsa openal sdl v4l vaapi xinerama
+app-emulation/wine-staging ldap -cups -vaapi pipelight staging vkd3d vulkan mp3 mono osmesa alsa openal sdl v4l vaapi xinerama
 
 app-emulation/vkd3d abi_x86_32 spirv-tools
 media-libs/vulkan-loader abi_x86_32 layers
