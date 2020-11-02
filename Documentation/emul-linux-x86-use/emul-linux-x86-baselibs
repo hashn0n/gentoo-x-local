@@ -117,3 +117,7 @@ virtual/libcrypt abi_x86_32
 
 # required by net-misc/curl-7.72.0::gentoo[http2]
 net-libs/nghttp2 abi_x86_32
+
+# required by net-fs/samba-4.12.9::gentoo
+# required by www-client/chromium-86.0.4240.111-r1::gentoo[system-ffmpeg]
+sys-libs/liburing abi_x86_32
