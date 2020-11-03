@@ -2,6 +2,9 @@ www-client/uget aria2
 net-misc/aria2 xmlrpc bittorrent metalink ssh
 media-libs/quvi json
 
-net-misc/youtube-dl offensive
-
 net-misc/curl curl_ssl_gnutls -curl_ssl_openssl
+
+net-misc/curl abi_x86_32
+
+# required by net-misc/curl-7.72.0::gentoo[http2]
+net-libs/nghttp2 abi_x86_32

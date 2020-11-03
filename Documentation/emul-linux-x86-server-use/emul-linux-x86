@@ -17,9 +17,6 @@ virtual/libiconv abi_x86_32
 dev-libs/libpcre abi_x86_32
 dev-libs/libtasn1 abi_x86_32
 sys-libs/zlib abi_x86_32
-
-net-misc/curl abi_x86_32
-
 dev-libs/openssl abi_x86_32
 sys-libs/e2fsprogs-libs abi_x86_32
 dev-libs/libverto abi_x86_32
