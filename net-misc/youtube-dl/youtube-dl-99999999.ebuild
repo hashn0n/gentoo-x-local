@@ -5,12 +5,12 @@ EAPI=7
 PYTHON_COMPAT=(python3_{6,7,8})
 inherit bash-completion-r1 distutils-r1 git-r3 readme.gentoo-r1
 
-PACKAGEAUTHOR="dstftw"
+PACKAGEAUTHOR="ytdl-org"
 GITLABPROJECTNAME="youtube-dl"
 
 DESCRIPTION="Download videos from YouTube.com (and more sites...)"
-HOMEPAGE="https://gitlab.com/${PACKAGEAUTHOR}/${GITLABPROJECTNAME}"
-EGIT_REPO_URI="https://gitlab.com/${PACKAGEAUTHOR}/${GITLABPROJECTNAME}"
+HOMEPAGE="https://github.com/${PACKAGEAUTHOR}/${GITLABPROJECTNAME}"
+EGIT_REPO_URI="https://github.com/${PACKAGEAUTHOR}/${GITLABPROJECTNAME}"
 LICENSE="public-domain"
 
 KEYWORDS=""
