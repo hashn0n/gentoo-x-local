@@ -10,3 +10,9 @@ dev-libs/libunistring abi_x86_32
 # required by dev-libs/openssl-1.0.2o::gentoo[kerberos]
 # required by net-analyzer/nmap-7.70::gentoo[-libressl,ssl]
 sys-devel/gettext abi_x86_32
+
+# required by media-libs/freetype-2.10.4::gentoo[png]
+# required by dev-lang/php-7.2.34-r1::gentoo[truetype]
+# required by dev-php/pecl-imagick-3.4.4::gentoo[php_targets_php7-2]
+# required by www-apps/nextcloud-20.0.4::gentoo[imagemagick]
+>=media-libs/libpng-1.6.37-r2 abi_x86_32
