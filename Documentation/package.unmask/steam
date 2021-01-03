@@ -4,7 +4,7 @@ games-util/steam-client-meta
 games-util/steam-games-meta
 games-util/steam-launcher
 
-# required by games-util/steam-launcher-1.0.0.66-r1::steam-overlay[udev,joystick]
-=games-util/game-device-udev-rules-20201025
+# required by games-util/steam-launcher::steam-overlay[udev,joystick]
+games-util/game-device-udev-rules
 
 #End Steam
